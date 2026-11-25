@@ -1,0 +1,217 @@
+{
+  "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025 — Tablo 23 (s. 44) ve Tablo 24 (s. 45)",
+  "_cekim": "2026-11-23",
+  "nbs_kotasi_seyri": {
+    "2017": {
+      "pancar_bin_ton": 2523,
+      "nbs_bin_ton": 267,
+      "toplam_bin_ton": 2790,
+      "nbs_pay_yuzde": 9.57
+    },
+    "2018": {
+      "pancar_bin_ton": 2565,
+      "nbs_bin_ton": 135.0,
+      "toplam_bin_ton": 2700,
+      "nbs_pay_yuzde": 5.0
+    },
+    "2019": {
+      "pancar_bin_ton": 2633,
+      "nbs_bin_ton": 67.5,
+      "toplam_bin_ton": 2700,
+      "nbs_pay_yuzde": 2.5
+    },
+    "2020": {
+      "pancar_bin_ton": 2633,
+      "nbs_bin_ton": 67.5,
+      "toplam_bin_ton": 2700,
+      "nbs_pay_yuzde": 2.5
+    },
+    "2021": {
+      "pancar_bin_ton": 2633,
+      "nbs_bin_ton": 67.5,
+      "toplam_bin_ton": 2700,
+      "nbs_pay_yuzde": 2.5
+    },
+    "2022": {
+      "pancar_bin_ton": 2681,
+      "nbs_bin_ton": 68.75,
+      "toplam_bin_ton": 2750,
+      "nbs_pay_yuzde": 2.5
+    },
+    "2023": {
+      "pancar_bin_ton": 2837,
+      "nbs_bin_ton": 72.75,
+      "toplam_bin_ton": 2910,
+      "nbs_pay_yuzde": 2.5
+    },
+    "2024": {
+      "pancar_bin_ton": 2837,
+      "nbs_bin_ton": 72.75,
+      "toplam_bin_ton": 2910,
+      "nbs_pay_yuzde": 2.5
+    },
+    "2025": {
+      "pancar_bin_ton": 2837,
+      "nbs_bin_ton": 72.75,
+      "toplam_bin_ton": 2910,
+      "nbs_pay_yuzde": 2.5
+    }
+  },
+  "pancar_sekeri_2025_26": {
+    "sirketler": [
+      {
+        "ad": "KAMU TÜRKŞEKER (14 Fabrika)",
+        "a_kotasi_ton": 1023820,
+        "pancar_sekerinde_pay_yuzde": 36.08,
+        "b_kotasi_ton": 51191
+      },
+      {
+        "ad": "Kayseri Şeker Fabrikası A.Ş. (Kayseri, Boğazlıyan, Turhal)",
+        "a_kotasi_ton": 473240,
+        "pancar_sekerinde_pay_yuzde": 16.68,
+        "b_kotasi_ton": 23662
+      },
+      {
+        "ad": "Konya Şeker San. Ve Tic. A.Ş. (Konya, Çumra)",
+        "a_kotasi_ton": 457280,
+        "pancar_sekerinde_pay_yuzde": 16.12,
+        "b_kotasi_ton": 22864
+      },
+      {
+        "ad": "Amasya Şeker Fabrikası A.Ş",
+        "a_kotasi_ton": 74490,
+        "pancar_sekerinde_pay_yuzde": 2.63,
+        "b_kotasi_ton": 3725
+      },
+      {
+        "ad": "KOOPERATİF FAB. TOPLAMI",
+        "a_kotasi_ton": 1005010,
+        "pancar_sekerinde_pay_yuzde": 35.42,
+        "b_kotasi_ton": 50251
+      },
+      {
+        "ad": "Doğuş Yiyecek Ve İçecek Üretim San. Tic. A.Ş.(Afyon)",
+        "a_kotasi_ton": 131810,
+        "pancar_sekerinde_pay_yuzde": 4.65,
+        "b_kotasi_ton": 6591
+      },
+      {
+        "ad": "Keskinkılıç Gıda San. Tic. A.Ş",
+        "a_kotasi_ton": 112360,
+        "pancar_sekerinde_pay_yuzde": 3.96,
+        "b_kotasi_ton": 5618
+      },
+      {
+        "ad": "Çorum Şeker Fabrikası A.Ş",
+        "a_kotasi_ton": 105670,
+        "pancar_sekerinde_pay_yuzde": 3.72,
+        "b_kotasi_ton": 5284
+      },
+      {
+        "ad": "Sukkar Şeker Üretim A.Ş. (Erzurum-Erzincan)",
+        "a_kotasi_ton": 75610,
+        "pancar_sekerinde_pay_yuzde": 2.66,
+        "b_kotasi_ton": 3781
+      },
+      {
+        "ad": "Tutgu Gıda A.Ş.(Kırşehir)",
+        "a_kotasi_ton": 75600,
+        "pancar_sekerinde_pay_yuzde": 2.66,
+        "b_kotasi_ton": 3780
+      },
+      {
+        "ad": "Bor Şeker A.Ş",
+        "a_kotasi_ton": 71290,
+        "pancar_sekerinde_pay_yuzde": 2.51,
+        "b_kotasi_ton": 3564
+      },
+      {
+        "ad": "Adapazarı Şeker Fabrikası A.Ş",
+        "a_kotasi_ton": 69840,
+        "pancar_sekerinde_pay_yuzde": 2.46,
+        "b_kotasi_ton": 3492
+      },
+      {
+        "ad": "Mutlucan Şeker Üretim Gıda San. Ve Tic. A.Ş.(Elbistan)",
+        "a_kotasi_ton": 50380,
+        "pancar_sekerinde_pay_yuzde": 1.78,
+        "b_kotasi_ton": 2519
+      },
+      {
+        "ad": "Kütahya Şeker Fabrikası A.Ş",
+        "a_kotasi_ton": 47670,
+        "pancar_sekerinde_pay_yuzde": 1.68,
+        "b_kotasi_ton": 2383
+      },
+      {
+        "ad": "Muş Şeker Üretim A.Ş",
+        "a_kotasi_ton": 41510,
+        "pancar_sekerinde_pay_yuzde": 1.46,
+        "b_kotasi_ton": 2075
+      },
+      {
+        "ad": "Binbirgıda Tarım Ürünleri Sanayi Ve Ticaret A.Ş. (Alpullu)",
+        "a_kotasi_ton": 26680,
+        "pancar_sekerinde_pay_yuzde": 0.94,
+        "b_kotasi_ton": 1334
+      },
+      {
+        "ad": "ÖZEL ŞEKER ŞİRKETLERİ TOPLAMI",
+        "a_kotasi_ton": 808420,
+        "pancar_sekerinde_pay_yuzde": 28.49,
+        "b_kotasi_ton": 40421
+      },
+      {
+        "ad": "PANCAR ŞEKERİ TOPLAMI",
+        "a_kotasi_ton": 2837250,
+        "pancar_sekerinde_pay_yuzde": 100,
+        "b_kotasi_ton": 141863
+      }
+    ]
+  },
+  "nbs_2025_26": {
+    "sirketler": [
+      {
+        "ad": "Cargill Tarım ve Gıda San. ve Tic. A.Ş.",
+        "a_kotasi_ton": 31892,
+        "nbs_icinde_pay_yuzde": 43.84
+      },
+      {
+        "ad": "ADM Besin ve Tarım A.Ş.",
+        "a_kotasi_ton": 22632,
+        "nbs_icinde_pay_yuzde": 31.11
+      },
+      {
+        "ad": "PNS Pendik Nişasta Tic. A.Ş.",
+        "a_kotasi_ton": 10331,
+        "nbs_icinde_pay_yuzde": 14.2
+      },
+      {
+        "ad": "Sunar Mısır Entegre Tesisleri",
+        "a_kotasi_ton": 3211,
+        "nbs_icinde_pay_yuzde": 4.41
+      },
+      {
+        "ad": "Tat Nişasta San. ve Tic. A.Ş.",
+        "a_kotasi_ton": 4684,
+        "nbs_icinde_pay_yuzde": 6.44
+      }
+    ]
+  },
+  "uc_kesim_yuzde": {
+    "kamu": 36.08,
+    "kooperatif": 35.42,
+    "ozel": 28.49
+  },
+  "alpullu": {
+    "ad": "Binbirgıda Tarım Ürünleri Sanayi Ve Ticaret A.Ş. (Alpullu)",
+    "a_kotasi_ton": 26680,
+    "pancar_sekerinde_pay_yuzde": 0.94,
+    "b_kotasi_ton": 1334
+  },
+  "nbs_dusus": {
+    "_2017_18_bin_ton": 267,
+    "_2019_20_bin_ton": 67.5,
+    "degisim_yuzde": -74.7
+  }
+}

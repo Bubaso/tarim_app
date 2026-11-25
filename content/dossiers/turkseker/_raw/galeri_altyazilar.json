@@ -1,0 +1,702 @@
+{
+  "_dosya": "Türkşeker — yüzüncü yıl galerisi altyazıları",
+  "_kural": "Altyazı KÜNYEDİR: konu + yer + tarih. Fotoğrafın NE OLDUĞU yazılır, karede ne görüldüğü tahlil edilmez. Kullanıcı bu düzeltmeyi iki kez verdi (8 ve 12 Kasım 2026).",
+  "_kurum_kareleri": "Kurumun kendi fabrika sayfası kareleri yalnız fabrikanın ADINI veriyor; tarih ve çekim yeri yok. Altyazı da yalnız adı söylüyor. 'Kaynak tarihi kaydetmiyor' cümlesi buraya KONMADI: bir künye neyin bilinmediğini saymak zorunda değil, on dokuz karede on dokuz kez tekrarlanırsa hiç okunmaz. Atıf satırı zaten kurumu gösteriyor.",
+  "_tarih_tuzagi": "İki karede kaynağın tarih alanı ÇEKİM değil TARAMA tarihi. 'Eskişehir-Şeker-Fabrikası' eski bir kartpostal ama alanında 2025-09-28 yazıyor; o tarih altyazıya alınmadı. 'Eskisehir…90inci' karesinin açıklaması '1934' diyor, alanı 2024; açıklamadaki yıl doğru olan.",
+  "galeri_fab_ankara": {
+    "tr": "Ankara Şeker Fabrikası.",
+    "en": "The Ankara sugar factory.",
+    "_dayanak": "turkseker.gov.tr fabrika detay sayfasındaki başlık: 'Ankara Şeker Fabrikası'"
+  },
+  "galeri_fab_agri": {
+    "tr": "Ağrı Şeker Fabrikası.",
+    "en": "The Ağrı sugar factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_fab_burdur": {
+    "tr": "Burdur Şeker Fabrikası.",
+    "en": "The Burdur sugar factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_fab_elazig": {
+    "tr": "Elazığ Şeker Fabrikası.",
+    "en": "The Elazığ sugar factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_fab_ercis": {
+    "tr": "Erciş Şeker Fabrikası.",
+    "en": "The Erciş sugar factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_fab_eregli": {
+    "tr": "Ereğli Şeker Fabrikası.",
+    "en": "The Ereğli sugar factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_fab_eskisehir": {
+    "tr": "Eskişehir Şeker Fabrikası.",
+    "en": "The Eskişehir sugar factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_fab_ilgin": {
+    "tr": "Ilgın Şeker Fabrikası.",
+    "en": "The Ilgın sugar factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_fab_kars": {
+    "tr": "Kars Şeker Fabrikası.",
+    "en": "The Kars sugar factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_fab_kastamonu": {
+    "tr": "Kastamonu Şeker Fabrikası.",
+    "en": "The Kastamonu sugar factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_fab_malatya": {
+    "tr": "Malatya Şeker Fabrikası.",
+    "en": "The Malatya sugar factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_fab_susurluk": {
+    "tr": "Susurluk Şeker Fabrikası.",
+    "en": "The Susurluk sugar factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_fab_usak": {
+    "tr": "Uşak Şeker Fabrikası.",
+    "en": "The Uşak sugar factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_fab_yozgat": {
+    "tr": "Yozgat Şeker Fabrikası.",
+    "en": "The Yozgat sugar factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_mak_ankara": {
+    "tr": "Ankara Makine Fabrikası.",
+    "en": "The Ankara machine factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_mak_eskisehir": {
+    "tr": "Eskişehir Makine Fabrikası.",
+    "en": "The Eskişehir machine factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_mak_turhal": {
+    "tr": "Turhal Makine Fabrikası.",
+    "en": "The Turhal machine factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_mak_elektromekanik": {
+    "tr": "Elektromekanik Aygıtlar Fabrikası.",
+    "en": "The Electromechanical Devices factory.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_enstitu": {
+    "tr": "Şeker Enstitüsü.",
+    "en": "The Sugar Institute.",
+    "_dayanak": "kurum sayfası başlığı"
+  },
+  "galeri_alpullu_kopru_21": {
+    "tr": "Alpullu Köprüsü, Babaeski yakını, 1970'ler. Machiel Kiel fotoğrafı.",
+    "en": "The Alpullu bridge near Babaeski, 1970s. Photograph by Machiel Kiel.",
+    "_dayanak": "nesne_adi 'Alpullu (near Babaeski), Sokollu era bridge over Ergene (L48a-21, 1970s)' + açıklama: 'Alpullu Köprüsü'nün bu fotoğrafı Machiel Kiel tarafından serbest kullanımına izin verilerek NIT (Hollanda Araştırma Enstitüsü) web sitesinde erişime sunulmuştur.' Künyedeki 2012 tarihi YÜKLEME tarihi; çekim 1970'ler."
+  },
+  "galeri_alpullu_gar": {
+    "tr": "Alpullu istasyon binası, 2016.",
+    "en": "The Alpullu station building, 2016.",
+    "_dayanak": "nesne_adi 'Alpullu gari' + açıklama 'Alpullu station house.' + tarih 2016"
+  },
+  "galeri_alpullu_istasyon_2026": {
+    "tr": "Alpullu Tren İstasyonu, 29 Ağustos 2026.",
+    "en": "Alpullu railway station, 29 August 2026.",
+    "_dayanak": "nesne_adi 'Alpullu Tren İstasyonu 2026-08-29 …' + tarih 2026-08-29"
+  },
+  "galeri_alpullu_peron": {
+    "tr": "Alpullu tren istasyonu, Babaeski, Kırklareli, 4 Ağustos 2018.",
+    "en": "Alpullu railway station, Babaeski, Kırklareli, 4 August 2018.",
+    "_dayanak": "açıklama 'Alpullu train station in Babaeski, Kırklareli Province, Turkey.' + tarih 2018-08-04"
+  },
+  "galeri_turhal_istasyon_1930": {
+    "tr": "Mustafa Kemal Turhal istasyonunda, 22 Kasım 1930.",
+    "en": "Mustafa Kemal at Turhal station, 22 November 1930.",
+    "_dayanak": "açıklama 'Mustafa Kemal at Turhal station, 1930' + tarih 1930-11-22"
+  },
+  "galeri_turhal_ziyaret_1930": {
+    "tr": "Mustafa Kemal'in Turhal ziyareti, 22 Kasım 1930.",
+    "en": "Mustafa Kemal's visit to Turhal, 22 November 1930.",
+    "_dayanak": "açıklama 'Mustafa Kemal's Turhal visit, 1930' + tarih 1930-11-22"
+  },
+  "galeri_eskisehir_1934": {
+    "tr": "Eskişehir Şeker Fabrikası, 1934.",
+    "en": "The Eskişehir sugar factory, 1934.",
+    "_dayanak": "Commons açıklama alanı birebir: '1934'. Künyedeki 2024-08-25 YÜKLEME tarihi."
+  },
+  "galeri_eskisehir_kart": {
+    "tr": "Eskişehir Şeker Fabrikası. Kaynak karenin tarihini kaydetmiyor.",
+    "en": "The Eskişehir sugar factory. The source does not record when it was made.",
+    "_dayanak": "nesne_adi ve açıklama 'Eskişehir Şeker Fabrikası'. Künyedeki 2025-09-28 tarihi TARAMA/yükleme tarihi; kare eski bir basılı görüntü ve çekim tarihi kaynakta YOK."
+  },
+  "galeri_adapazari": {
+    "tr": "Adapazarı Şeker Fabrikası'nın giriş kapısı, 20 Mayıs 2016.",
+    "en": "The entrance gate of the Adapazarı sugar factory, 20 May 2016.",
+    "_dayanak": "açıklama 'Adapazarı Şeker Farikası giriş kapısı.' + tarih 'according to Exif data' 20 May 2016"
+  },
+  "galeri_seker_sokak_1": {
+    "tr": "Eskişehir'de Şeker Sokak çevresi, 18 Aralık 2007.",
+    "en": "The Şeker Sokak area in Eskişehir, 18 December 2007.",
+    "_dayanak": "nesne_adi 'Eskişehir Şeker Sokak area Old situation in 2007 1780' + tarih 2007-12-18"
+  },
+  "galeri_seker_sokak_2": {
+    "tr": "Eskişehir'de Şeker Sokak çevresi, 18 Aralık 2007.",
+    "en": "The Şeker Sokak area in Eskişehir, 18 December 2007.",
+    "_dayanak": "nesne_adi '… 1782' + tarih 2007-12-18"
+  },
+  "galeri_etimesgut_lojman": {
+    "tr": "Ankara Şeker Fabrikası yerleşkesinde yıkım sürecine giren B tipi lojman. Etimesgut, Ankara, 16 Şubat 2026.",
+    "en": "A type-B staff house on the Ankara sugar factory estate, under demolition. Etimesgut, Ankara, 16 February 2026.",
+    "_dayanak": "açıklama: 'Etimesgut Havalimanı genişletme çalışmaları kapsamında yıkım sürecine girmiş olan, Ankara Şeker Fabrikası yerleşkesindeki tarihi B tipi lojman binası' + tarih 2026-02-16"
+  },
+  "galeri_etimesgut_cay": {
+    "tr": "Ankara Şeker Fabrikası yerleşkesinin yıkıma uğrayan çay bahçesi. Etimesgut, Ankara, 6 Kasım 2025.",
+    "en": "The demolished tea garden of the Ankara sugar factory estate. Etimesgut, Ankara, 6 November 2025.",
+    "_dayanak": "açıklama: 'Etimesgut Havalimanı genişletme çalışmaları kapsamında, Ankara Şeker Fabrikası yerleşkesinde yıkıma uğrayan tarihi çay bahçesi ve çevreleyen ağaçlık alan' + tarih 06.11.2025"
+  },
+  "galeri_etimesgut_lojmanlar": {
+    "tr": "Ankara Şeker Fabrikası lojmanlarının yıkıldığı alan. Etimesgut, Ankara, 4 Ocak 2026.",
+    "en": "The site where the Ankara sugar factory staff houses stood. Etimesgut, Ankara, 4 January 2026.",
+    "_dayanak": "açıklama: 'Ankara'nın Etimesgut ilçesinde, Etimesgut Havalimanı pist uzatma ve altyapı çalışmaları nedeniyle yıkılan Ankara Şeker Fabrikası lojmanları…' + tarih 04.01.2026"
+  },
+  "_ikinci_tur_notu": "34 kare eklendi (tarla · işçi · hasat · yükleme · ürün). İki kare kaynağın 'probably' dediği yeri/kullanımı SÖYLEMİYOR; bir kare kamış şekeri olduğunu açıkça söylüyor.",
+  "galeri_salt_hasat": {
+    "tr": "Şeker pancarı tarlasında hasat yapılırken. Fotokartın ön yüzünde “Fabrika için pancar toplanırken” yazıyor.",
+    "en": "Harvesting in a sugar beet field. The front of the photocard reads “gathering beet for the factory”.",
+    "_dayanak": "SALT Araştırma kaydı AFDIVH215 (https://archives.saltresearch.org/handle/123456789/196846). Kaydın başlığı."
+  },
+  "galeri_salt_hasat_mektup": {
+    "tr": "Aynı fotokartın arka yüzü: Azize'nin ablası Betül'e mektubu.",
+    "en": "The reverse of the same photocard: a letter from Azize to her sister Betül.",
+    "_dayanak": "SALT Araştırma kaydı AFDIVH215 (https://archives.saltresearch.org/handle/123456789/196846). Kaydın başlığı."
+  },
+  "galeri_salt_vagon": {
+    "tr": "Uşak Şeker Fabrikası'na gelen şeker pancarları vagonlardan aktarılırken.",
+    "en": "Sugar beet arriving at the Uşak Sugar Factory being transferred from railway wagons.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA006 (https://archives.saltresearch.org/handle/123456789/196977). Kaydın başlığı."
+  },
+  "galeri_salt_silo": {
+    "tr": "Alpullu Şeker Fabrikası.",
+    "en": "The Alpullu Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHKIR008 (https://archives.saltresearch.org/handle/123456789/208326). Kaydın başlığı."
+  },
+  "galeri_salt_silo_arka": {
+    "tr": "Aynı fotoğrafın arka yüzü: “Pancar silolarının su tazyiki ile tahliyesi, Alpullu”.",
+    "en": "The reverse of the same photograph: “emptying the beet silos by water pressure, Alpullu”.",
+    "_dayanak": "SALT Araştırma kaydı AHKIR008 (https://archives.saltresearch.org/handle/123456789/208326). Kaydın başlığı."
+  },
+  "galeri_salt_usak_pancar": {
+    "tr": "Uşak Şeker Fabrikası.",
+    "en": "The Uşak Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA003 (https://archives.saltresearch.org/handle/123456789/103306). Kaydın başlığı."
+  },
+  "galeri_salt_alb_kapak": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Albüm kapağı. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Cover of album. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_istasyon": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Kırklareli Alpullu Şeker Fabrikası. Kırklareli Alpullu Tren İstasyonu. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Kırklareli Alpullu Sugar Factory. Kırklareli Alpullu Train Station. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_kusat": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: \"Alpullu İspirto Fabrikası Resmi Küşadi, 28 Kanunievvel 1928\". 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: “Opening ceremony of the Alpullu Spirit Factory, 28 December 1928”. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_acilis": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Alpullu İspirto Fabrikası'nın açılış töreni, 28 Aralık 1928. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Opening ceremony of the Alpullu Spirit Factory, 28 December 1928. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_genel": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Alpullu Şeker Fabrikası'nın genel görünümü. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: General view of the Alpullu Sugar Factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_ispirto": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Alpullu İspirto Fabrikası. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: The Alpullu Spirit Factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_pancar": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Alpullu Şeker Fabrikası ve şeker pancarları. Fabrikanın iç mekânı. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: The Alpullu Sugar Factory and sugar beets. Interior of the factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_personel": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın personeli ve yöneticiler. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Staff and administrators of the factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_laboratuvar": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın laboratuvarı ve personeli. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Laboratory and staff of the factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_ic1": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın iç mekânı ve personeli. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Interior of the factory and staff. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_ic2": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın iç mekânı ve personeli. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Interior of the factory and staff. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_ic3": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın iç mekânı. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Interior of the factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_personel2": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrika personeli. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Sections of the factory and staff. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_usak_genel": {
+    "tr": "Uşak Şeker Fabrikası.",
+    "en": "The Uşak Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA004 (https://archives.saltresearch.org/handle/123456789/97324). Kaydın başlığı."
+  },
+  "galeri_salt_usak_avlu": {
+    "tr": "Uşak Şeker Fabrikası.",
+    "en": "The Uşak Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA004 (https://archives.saltresearch.org/handle/123456789/97324). Kaydın başlığı."
+  },
+  "galeri_salt_usak_salon1": {
+    "tr": "Uşak Şeker Fabrikası.",
+    "en": "The Uşak Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA004 (https://archives.saltresearch.org/handle/123456789/97324). Kaydın başlığı."
+  },
+  "galeri_salt_usak_salon2": {
+    "tr": "Uşak Şeker Fabrikası.",
+    "en": "The Uşak Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA004 (https://archives.saltresearch.org/handle/123456789/97324). Kaydın başlığı."
+  },
+  "galeri_salt_usak_salon3": {
+    "tr": "Uşak Şeker Fabrikası.",
+    "en": "The Uşak Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA004 (https://archives.saltresearch.org/handle/123456789/97324). Kaydın başlığı."
+  },
+  "galeri_salt_usak_makine": {
+    "tr": "Uşak Şeker Fabrikası'nın makine dairesi.",
+    "en": "The engine room of the Uşak Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA008 (https://archives.saltresearch.org/handle/123456789/196979). Kaydın başlığı."
+  },
+  "galeri_salt_usak_makine_isci": {
+    "tr": "Uşak Şeker Fabrikası'nın makine dairesi ve çalışanları.",
+    "en": "The engine room of the Uşak Sugar Factory and its workers.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA007 (https://archives.saltresearch.org/handle/123456789/196978). Kaydın başlığı."
+  },
+  "galeri_salt_usak_kart": {
+    "tr": "Uşak Şeker Fabrikası.",
+    "en": "The Uşak Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA001 (https://archives.saltresearch.org/handle/123456789/116005). Kaydın başlığı."
+  },
+  "galeri_salt_usak_havuz": {
+    "tr": "Uşak Şeker Fabrikası Sosyal Tesisleri.",
+    "en": "The social facilities of the Uşak Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA002 (https://archives.saltresearch.org/handle/123456789/117021). Kaydın başlığı."
+  },
+  "galeri_salt_etim_fabrika": {
+    "tr": "Etimesgut Şeker Fabrikası. Etimesgut, Ankara.",
+    "en": "The Etimesgut Sugar Factory, Ankara.",
+    "_dayanak": "SALT Araştırma kaydı AHANKA191 (https://archives.saltresearch.org/handle/123456789/196860). Kaydın başlığı."
+  },
+  "galeri_salt_etim_2": {
+    "tr": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar Ali Mukbil Gökdoğan fotoğrafı. Etimesgut, Ankara.",
+    "en": "Photographs of the Etimesgut Complex of Türkiye Şeker Fabrikası. Photograph by Ali Mukbil Gökdoğan. Etimesgut, Ankara.",
+    "_dayanak": "SALT Araştırma kaydı TMGH007 (https://archives.saltresearch.org/handle/123456789/215423). Kaydın başlığı."
+  },
+  "galeri_salt_etim_3": {
+    "tr": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar Ali Mukbil Gökdoğan fotoğrafı. Etimesgut, Ankara.",
+    "en": "Photographs of the Etimesgut Complex of Türkiye Şeker Fabrikası. Photograph by Ali Mukbil Gökdoğan. Etimesgut, Ankara.",
+    "_dayanak": "SALT Araştırma kaydı TMGH007 (https://archives.saltresearch.org/handle/123456789/215423). Kaydın başlığı."
+  },
+  "galeri_salt_etim_4": {
+    "tr": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar Ali Mukbil Gökdoğan fotoğrafı. Etimesgut, Ankara.",
+    "en": "Photographs of the Etimesgut Complex of Türkiye Şeker Fabrikası. Photograph by Ali Mukbil Gökdoğan. Etimesgut, Ankara.",
+    "_dayanak": "SALT Araştırma kaydı TMGH007 (https://archives.saltresearch.org/handle/123456789/215423). Kaydın başlığı."
+  },
+  "galeri_salt_etim_5": {
+    "tr": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar Ali Mukbil Gökdoğan fotoğrafı. Etimesgut, Ankara.",
+    "en": "Photographs of the Etimesgut Complex of Türkiye Şeker Fabrikası. Photograph by Ali Mukbil Gökdoğan. Etimesgut, Ankara.",
+    "_dayanak": "SALT Araştırma kaydı TMGH007 (https://archives.saltresearch.org/handle/123456789/215423). Kaydın başlığı."
+  },
+  "galeri_salt_etim_6": {
+    "tr": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar Ali Mukbil Gökdoğan fotoğrafı. Etimesgut, Ankara.",
+    "en": "Photographs of the Etimesgut Complex of Türkiye Şeker Fabrikası. Photograph by Ali Mukbil Gökdoğan. Etimesgut, Ankara.",
+    "_dayanak": "SALT Araştırma kaydı TMGH007 (https://archives.saltresearch.org/handle/123456789/215423). Kaydın başlığı."
+  },
+  "galeri_salt_etim_7": {
+    "tr": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar Ali Mukbil Gökdoğan fotoğrafı. Etimesgut, Ankara.",
+    "en": "Photographs of the Etimesgut Complex of Türkiye Şeker Fabrikası. Photograph by Ali Mukbil Gökdoğan. Etimesgut, Ankara.",
+    "_dayanak": "SALT Araştırma kaydı TMGH007 (https://archives.saltresearch.org/handle/123456789/215423). Kaydın başlığı."
+  },
+  "galeri_salt_turhal": {
+    "tr": "Turhal Şeker Fabrikası. Turhal, Tokat.",
+    "en": "The Turhal Sugar Factory, Turhal, Tokat.",
+    "_dayanak": "SALT Araştırma kaydı AHTOK001 (https://archives.saltresearch.org/handle/123456789/105027). Kaydın başlığı."
+  },
+  "galeri_salt_eskisehir": {
+    "tr": "Eskişehir Şeker Fabrikası çizimi.",
+    "en": "A drawing of the Eskişehir Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHESK033 (https://archives.saltresearch.org/handle/123456789/236467). Kaydın başlığı."
+  },
+  "galeri_turkseker_s06_makine": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın iç mekânı ve personeli. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Interior of the factory and staff. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles). §6 bölüm görseliyken kullanıcı kararıyla galeriye taşındı."
+  },
+  "galeri_turkseker_s11_tohum": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın bölümleri ve personeli. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Sections of the factory and staff. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles). §11 bölüm görseliyken kullanıcı kararıyla galeriye taşındı."
+  },
+  "galeri_turkseker_s14_uydu": {
+    "tr": "Uşak Şeker Fabrikası.",
+    "en": "The Uşak Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA004 (https://archives.saltresearch.org/handle/123456789/97324). Kaydın başlığı. §14 bölüm görseliyken kullanıcı kararıyla galeriye taşındı."
+  },
+  "galeri_turkseker_s18_yatirim": {
+    "tr": "Uşak Şeker Fabrikası.",
+    "en": "The Uşak Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA004 (https://archives.saltresearch.org/handle/123456789/97324). Kaydın başlığı. §18 bölüm görseliyken kullanıcı kararıyla galeriye taşındı."
+  },
+  "galeri_turkseker_s20_enerji": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın iç mekânı. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Interior of the factory and staff. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles). §20 bölüm görseliyken kullanıcı kararıyla galeriye taşındı."
+  },
+  "galeri_turkseker_s21_deprem": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın iç mekânı. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Interior of the factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles). §21 bölüm görseliyken kullanıcı kararıyla galeriye taşındı."
+  },
+  "galeri_turkseker_s25_rolyef": {
+    "tr": "Turhal Şeker Fabrikası kartpostalının arka yüzü. Turhal, Tokat.",
+    "en": "The reverse of a postcard of the Turhal Sugar Factory. Turhal, Tokat.",
+    "_dayanak": "SALT Araştırma kaydı AHTOK001 (https://archives.saltresearch.org/handle/123456789/105027). Kaydın başlığı; dosya kaydın ikinci belgesi (arka yüz). §25 bölüm görseliyken kullanıcı kararıyla galeriye taşındı."
+  },
+  "galeri_salt_alb_003": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Bir yönetici. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: An administrator. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_010": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Alpullu Şeker Fabrikası'nın genel görünümü. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: General view of the Alpullu Sugar Factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_012": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın iç mekânı. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Interior of the factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_013": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Alpullu İspirto Fabrikası. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: The Alpullu Spirit Factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_015": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın personeli ve yöneticiler. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Staff and administrators of the factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_017": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın personeli ve yöneticiler. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Staff and administrators of the factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_018": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın personeli ve yöneticiler. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Staff and administrators of the factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_019": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın personeli ve yöneticiler. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Staff and administrators of the factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_alb_045": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrika personeli. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Staff of the factory. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "galeri_salt_etim_k004": {
+    "tr": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar Ali Mukbil Gökdoğan fotoğrafı. Etimesgut, Ankara.",
+    "en": "Photographs of the Etimesgut Complex of Türkiye Şeker Fabrikası. Photograph by Ali Mukbil Gökdoğan. Etimesgut, Ankara.",
+    "_dayanak": "SALT Araştırma kaydı TMGH007 (https://archives.saltresearch.org/handle/123456789/215423). Kaydın başlığı ve üreteni."
+  },
+  "galeri_salt_etim_k006": {
+    "tr": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar Ali Mukbil Gökdoğan fotoğrafı. Etimesgut, Ankara.",
+    "en": "Photographs of the Etimesgut Complex of Türkiye Şeker Fabrikası. Photograph by Ali Mukbil Gökdoğan. Etimesgut, Ankara.",
+    "_dayanak": "SALT Araştırma kaydı TMGH007 (https://archives.saltresearch.org/handle/123456789/215423). Kaydın başlığı ve üreteni."
+  },
+  "galeri_salt_etim_k007": {
+    "tr": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar Ali Mukbil Gökdoğan fotoğrafı. Etimesgut, Ankara.",
+    "en": "Photographs of the Etimesgut Complex of Türkiye Şeker Fabrikası. Photograph by Ali Mukbil Gökdoğan. Etimesgut, Ankara.",
+    "_dayanak": "SALT Araştırma kaydı TMGH007 (https://archives.saltresearch.org/handle/123456789/215423). Kaydın başlığı ve üreteni."
+  },
+  "galeri_salt_etim_k008": {
+    "tr": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar Ali Mukbil Gökdoğan fotoğrafı. Etimesgut, Ankara.",
+    "en": "Photographs of the Etimesgut Complex of Türkiye Şeker Fabrikası. Photograph by Ali Mukbil Gökdoğan. Etimesgut, Ankara.",
+    "_dayanak": "SALT Araştırma kaydı TMGH007 (https://archives.saltresearch.org/handle/123456789/215423). Kaydın başlığı ve üreteni."
+  },
+  "galeri_salt_etim_k011": {
+    "tr": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar Ali Mukbil Gökdoğan fotoğrafı. Etimesgut, Ankara.",
+    "en": "Photographs of the Etimesgut Complex of Türkiye Şeker Fabrikası. Photograph by Ali Mukbil Gökdoğan. Etimesgut, Ankara.",
+    "_dayanak": "SALT Araştırma kaydı TMGH007 (https://archives.saltresearch.org/handle/123456789/215423). Kaydın başlığı ve üreteni."
+  },
+  "galeri_salt_usak_pancar_arka": {
+    "tr": "Uşak Şeker Fabrikası fotokartının arka yüzü: İstanbul'a, Göztepe'ye gönderilmiş bir mektup.",
+    "en": "The reverse of a photocard of the Uşak Sugar Factory: a letter sent to Göztepe, İstanbul.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA003 (https://archives.saltresearch.org/handle/123456789/103306). Kaydın başlığı; dosya kaydın ikinci belgesi."
+  },
+  "galeri_salt_usak_makine_arka": {
+    "tr": "Uşak Şeker Fabrikası'nın makine dairesini gösteren fotokartın arka yüzü: Trabzon'a gönderilmiş bir mektup.",
+    "en": "The reverse of the photocard showing the engine room of the Uşak Sugar Factory: a letter sent to Trabzon.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA008 (https://archives.saltresearch.org/handle/123456789/196979). Kaydın başlığı; dosya kaydın ikinci belgesi."
+  },
+  "galeri_salt_usak_makine_isci_arka": {
+    "tr": "Uşak Şeker Fabrikası'nın makine dairesini ve çalışanlarını gösteren fotokartın arka yüzü: Trabzon'a gönderilmiş bir mektup.",
+    "en": "The reverse of the photocard showing the engine room of the Uşak Sugar Factory and its workers: a letter sent to Trabzon.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA007 (https://archives.saltresearch.org/handle/123456789/196978). Kaydın başlığı; dosya kaydın ikinci belgesi."
+  },
+  "galeri_salt_usak_havuz_arka": {
+    "tr": "Uşak Şeker Fabrikası Sosyal Tesisleri fotokartının arka yüzü: Betül'e yazılmış bir mektup.",
+    "en": "The reverse of a photocard of the social facilities of the Uşak Sugar Factory: a letter written to Betül.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA002 (https://archives.saltresearch.org/handle/123456789/117021). Kaydın başlığı; dosya kaydın ikinci belgesi."
+  },
+  "galeri_salt_usak_havuz_2": {
+    "tr": "Uşak Şeker Fabrikası Sosyal Tesisleri.",
+    "en": "The social facilities of the Uşak Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA002 (https://archives.saltresearch.org/handle/123456789/117021). Kaydın başlığı; dosya kaydın ikinci belgesi."
+  },
+  "galeri_salt_usak_havuz_2_arka": {
+    "tr": "Aynı fotokartın arka yüzü: ablasına yazılmış bir mektup.",
+    "en": "The reverse of the same photocard: a letter written to an elder sister.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA002 (https://archives.saltresearch.org/handle/123456789/117021). Kaydın başlığı; dosya kaydın ikinci belgesi."
+  },
+  "galeri_alpullu_peron_4": {
+    "tr": "Alpullu tren istasyonu, Babaeski, Kırklareli, 4 Ağustos 2018.",
+    "en": "Alpullu railway station, Babaeski, Kırklareli, 4 August 2018.",
+    "_dayanak": "Commons künyesi: nesne_adi 'AlpulluTrainStation (4)' + açıklama 'Alpullu train station in Babaeski, Kırklareli Province, Turkey.' + tarih 2018-08-04 12:31:52."
+  },
+  "galeri_alpullu_peron_6": {
+    "tr": "Alpullu tren istasyonu, Babaeski, Kırklareli, 4 Ağustos 2018.",
+    "en": "Alpullu railway station, Babaeski, Kırklareli, 4 August 2018.",
+    "_dayanak": "Commons künyesi: nesne_adi 'AlpulluTrainStation (6)' + açıklama 'Alpullu train station in Babaeski, Kırklareli Province, Turkey.' + tarih 2018-08-04 16:19:01."
+  },
+  "galeri_adapazari_sehir": {
+    "tr": "Serdivan'dan Adapazarı Şeker Fabrikası, Sakarya, 24 Aralık 2014. Fabrika şehrin büyümesiyle şehir içinde kalmış.",
+    "en": "The Adapazarı Sugar Factory seen from Serdivan, Sakarya, 24 December 2014. The city grew around the factory.",
+    "_dayanak": "Commons künyesi: nesne_adi 'Serdivan, Sakarya' + açıklama 'Serdivan AVM çevresi. Arkada şehrin büyümesiyle şehir içinde kalmış Ad' + tarih 2014-12-24 13:34:32."
+  },
+  "galeri_pancar_yazisi": {
+    "tr": "Bir ambalajın üzerindeki “pancar şekerinden üretilmiştir” ibaresi, 23 Eylül 2021.",
+    "en": "The phrase “made from beet sugar” on a package, 23 September 2021.",
+    "_dayanak": "Commons künyesi: nesne_adi 'Pancar şekerinden üretilmiştir yazısı' + açıklama 'pancar şekerinden üretilmiştir yazısı. Türkiye'de özellikle 2010'ların' + tarih 2021-09-23."
+  },
+  "galeri_kurum_tohum_avuc": {
+    "tr": "İlk yerli şeker pancarı tohumlarının hasadı, 6 Ağustos 2024.",
+    "en": "The harvest of the first domestically bred sugar beet seed, 6 August 2024.",
+    "_dayanak": "turkseker.gov.tr haberi 1077 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=1077); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_tohum_bitki": {
+    "tr": "İlk yerli şeker pancarı tohumlarının hasadı, 6 Ağustos 2024.",
+    "en": "The harvest of the first domestically bred sugar beet seed, 6 August 2024.",
+    "_dayanak": "turkseker.gov.tr haberi 1077 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=1077); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_tohum_ciftci": {
+    "tr": "Sezonun ilk pancar tohumunun ekimi, 18 Şubat 2022.",
+    "en": "The sowing of the season's first beet seed, 18 February 2022.",
+    "_dayanak": "turkseker.gov.tr haberi 71 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=71); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_haymana_2": {
+    "tr": "TÜRKŞEKER'in Haymana'da çiftçilerle buluşması, 5 Ağustos 2026.",
+    "en": "TÜRKŞEKER meeting farmers at Haymana, 5 August 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5132 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5132); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_rolyef_2": {
+    "tr": "1934'te Turhal Şeker Fabrikası'nın açılışı için yapılan ahşap rölyefin kuruma teslimi, 31 Mart 2026.",
+    "en": "The wooden relief made for the 1934 opening of the Turhal Sugar Factory being handed back to the company, 31 March 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5127 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5127); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_malatya_bosaltma": {
+    "tr": "Malatya Şeker Fabrikası'nda 71. kampanya döneminin açılışı, 4 Eylül 2026.",
+    "en": "The opening of the 71st campaign at the Malatya Sugar Factory, 4 September 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5133 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5133); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_ilgin_hava": {
+    "tr": "Ilgın Şeker Fabrikası, 18 Eylül 2026.",
+    "en": "The Ilgın Sugar Factory, 18 September 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5137 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5137); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_kantar_1": {
+    "tr": "Ereğli Şeker Fabrikası'nın kantarı, 18 Eylül 2026.",
+    "en": "The weighbridge of the Ereğli Sugar Factory, 18 September 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5137 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5137); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_laboratuvar_2": {
+    "tr": "Kâzım Taşkent Eskişehir Şeker Fabrikası'nın laboratuvarı, 21 Eylül 2026.",
+    "en": "The laboratory of the Kâzım Taşkent Eskişehir Sugar Factory, 21 September 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5138 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5138); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_pancar_bandi": {
+    "tr": "Kâzım Taşkent Eskişehir Şeker Fabrikası'nda pancar numune hattı, 21 Eylül 2026.",
+    "en": "The beet sampling line at the Kâzım Taşkent Eskişehir Sugar Factory, 21 September 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5138 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5138); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_numune_1": {
+    "tr": "Ankara Şeker Fabrikası'nda pancar numune hattı, 21 Eylül 2026.",
+    "en": "The beet sampling line at the Ankara Sugar Factory, 21 September 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5139 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5139); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_numune_2": {
+    "tr": "Uşak, Elazığ ve Ağrı fabrikalarında kantarların açılışı, 23 Eylül 2026.",
+    "en": "The opening of the weighbridges at the Uşak, Elazığ and Ağrı factories, 23 September 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5141 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5141); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_pancar_sahasi": {
+    "tr": "Yozgat Şeker Fabrikası'nda 29. pancar alım kampanyasının açılışı, 30 Eylül 2026.",
+    "en": "The opening of the 29th beet procurement campaign at the Yozgat Sugar Factory, 30 September 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5143 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5143); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_kastamonu_saha": {
+    "tr": "Kastamonu Şeker Fabrikası'nda 64. pancar alım kampanyasının açılışı, 2 Ekim 2026.",
+    "en": "The opening of the 64th beet procurement campaign at the Kastamonu Sugar Factory, 2 October 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5145 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5145); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_isciler": {
+    "tr": "Kastamonu Şeker Fabrikası'nın çalışanları, 2 Ekim 2026.",
+    "en": "The workers of the Kastamonu Sugar Factory, 2 October 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5145 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5145); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_sam_fuari": {
+    "tr": "TÜRKŞEKER'in Şam'daki 360 Food Syria & Agritech Expo'daki standı, 5 Ekim 2026.",
+    "en": "TÜRKŞEKER's stand at the 360 Food Syria & Agritech Expo in Damascus, 5 October 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5148 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5148); haberin başlığı ve tarihi."
+  },
+  "galeri_kurum_kazan_atesleme": {
+    "tr": "Ilgın Şeker Fabrikası'nda kazanın ateşlenmesi, 20 Kasım 2026.",
+    "en": "The firing of the boiler at the Ilgın Sugar Factory, 20 November 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5157 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5157); haberin başlığı ve tarihi."
+  },
+  "galeri_ciftci_pancarla": {
+    "tr": "Elinde şeker pancarıyla bir üretici, pancar tarlasında.",
+    "en": "A grower holding sugar beet in a beet field.",
+    "_dayanak": "turkseker.gov.tr haberi 62, “Türkşeker'den Çiftçimize 650 Milyon TL Destek!”, 1 Eylül 2021 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=62)."
+  },
+  "galeri_ciftci_traktor": {
+    "tr": "Ekim yapılan tarlada bir üretici ve mibzerli traktör.",
+    "en": "A grower and a tractor with a seed drill in a field being sown.",
+    "_dayanak": "turkseker.gov.tr haberi 62, “Türkşeker'den Çiftçimize 650 Milyon TL Destek!”, 1 Eylül 2021 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=62)."
+  },
+  "galeri_ciftci_lokal_masa": {
+    "tr": "Çiftçi Lokali'nde üreticiler.",
+    "en": "Growers at a Çiftçi Lokali, the company's rest house for growers.",
+    "_dayanak": "turkseker.gov.tr haberi 63, “Türkşeker Çiftçi Lokalleri Yeni Üretim Sezonuna Hazır!”, 6 Eylül 2021 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=63)."
+  },
+  "galeri_ciftci_lokal_gece": {
+    "tr": "Bir Çiftçi Lokali, gece.",
+    "en": "A Çiftçi Lokali at night.",
+    "_dayanak": "turkseker.gov.tr haberi 63, “Türkşeker Çiftçi Lokalleri Yeni Üretim Sezonuna Hazır!”, 6 Eylül 2021 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=63)."
+  },
+  "galeri_ciftci_lokal_cay": {
+    "tr": "Çiftçi Lokali'nde çay içen üreticiler.",
+    "en": "Growers drinking tea at a Çiftçi Lokali.",
+    "_dayanak": "turkseker.gov.tr haberi 63, “Türkşeker Çiftçi Lokalleri Yeni Üretim Sezonuna Hazır!”, 6 Eylül 2021 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=63)."
+  },
+  "galeri_ciftci_sozlesme_imza": {
+    "tr": "Pancar sözleşmelerinin imzalanması.",
+    "en": "Beet contracts being signed.",
+    "_dayanak": "turkseker.gov.tr haberi 72, “Türkşeker Pancar Avans Fiyatını Artırdı!”, 18 Mart 2022 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=72)."
+  },
+  "galeri_tarla_mibzer": {
+    "tr": "Mibzerle pancar ekimi.",
+    "en": "Sowing beet with a seed drill.",
+    "_dayanak": "turkseker.gov.tr haberi 62, “Türkşeker'den Çiftçimize 650 Milyon TL Destek!”, 1 Eylül 2021 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=62)."
+  },
+  "galeri_tarla_makine": {
+    "tr": "Pancar tarlasında tarım makinesi.",
+    "en": "An agricultural machine in a beet field.",
+    "_dayanak": "turkseker.gov.tr haberi 72, “Türkşeker Pancar Avans Fiyatını Artırdı!”, 18 Mart 2022 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=72)."
+  },
+  "galeri_tarla_sulama_1": {
+    "tr": "Sulanan şeker pancarı tarlası.",
+    "en": "A sugar beet field under irrigation.",
+    "_dayanak": "turkseker.gov.tr haberi 73, “Avans Ödemesi”, 24 Haziran 2022 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=73)."
+  },
+  "galeri_tarla_sulama_isci": {
+    "tr": "Şeker pancarı tarlasında çalışanlar ve sulama.",
+    "en": "Workers and irrigation in a sugar beet field.",
+    "_dayanak": "turkseker.gov.tr haberi 73, “Avans Ödemesi”, 24 Haziran 2022 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=73)."
+  },
+  "galeri_tarla_sulama_2": {
+    "tr": "Sulanan şeker pancarı tarlası.",
+    "en": "A sugar beet field under irrigation.",
+    "_dayanak": "turkseker.gov.tr haberi 73, “Avans Ödemesi”, 24 Haziran 2022 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=73)."
+  },
+  "galeri_tarla_hasat_makinesi": {
+    "tr": "Şeker pancarı hasadı.",
+    "en": "The sugar beet harvest.",
+    "_dayanak": "TÜRKŞEKER 2024-2028 Stratejik Planı (https://www.turkseker.gov.tr/Belgeler/stratejik_plan_12_09_2024_v4.pdf); yayının kendi fotoğrafı."
+  },
+  "galeri_tarla_siralar": {
+    "tr": "Tarlada şeker pancarı sıraları.",
+    "en": "Rows of sugar beet in a field.",
+    "_dayanak": "TÜRKŞEKER 2024-2028 Stratejik Planı (https://www.turkseker.gov.tr/Belgeler/stratejik_plan_12_09_2024_v4.pdf); yayının kendi fotoğrafı."
+  },
+  "galeri_tarla_traktor_plan": {
+    "tr": "Pancar tarlasında traktör.",
+    "en": "A tractor in a beet field.",
+    "_dayanak": "TÜRKŞEKER 2024-2028 Stratejik Planı (https://www.turkseker.gov.tr/Belgeler/stratejik_plan_12_09_2024_v4.pdf); yayının kendi fotoğrafı."
+  },
+  "galeri_tarla_pelet_tohum": {
+    "tr": "Pelet kaplı şeker pancarı tohumu.",
+    "en": "Pelleted sugar beet seed.",
+    "_dayanak": "TÜRKŞEKER 2024-2028 Stratejik Planı (https://www.turkseker.gov.tr/Belgeler/stratejik_plan_12_09_2024_v4.pdf); yayının kendi fotoğrafı."
+  },
+  "galeri_yukleme_su_kanali": {
+    "tr": "Fabrikaya gelen pancarın su kanalına verilmesi.",
+    "en": "Beet arriving at the factory being fed into the water flume.",
+    "_dayanak": "turkseker.gov.tr haberi 72, “Türkşeker Pancar Avans Fiyatını Artırdı!”, 18 Mart 2022 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=72)."
+  },
+  "galeri_yukleme_silo_bant": {
+    "tr": "Fabrika sahasında pancar siloları ve taşıma bandı.",
+    "en": "Beet silos and a conveyor in a factory yard.",
+    "_dayanak": "TÜRKŞEKER 2024-2028 Stratejik Planı (https://www.turkseker.gov.tr/Belgeler/stratejik_plan_12_09_2024_v4.pdf); yayının kendi fotoğrafı."
+  },
+  "galeri_isci_montaj": {
+    "tr": "TÜRKŞEKER çalışanları bir tesisin montajında.",
+    "en": "TÜRKŞEKER staff assembling a plant unit.",
+    "_dayanak": "TÜRKŞEKER 2024-2028 Stratejik Planı (https://www.turkseker.gov.tr/Belgeler/stratejik_plan_12_09_2024_v4.pdf); yayının kendi fotoğrafı."
+  },
+  "galeri_urun_cuvallama": {
+    "tr": "TÜRKŞEKER şekerinin çuvallanması.",
+    "en": "TÜRKŞEKER sugar being bagged.",
+    "_dayanak": "TÜRKŞEKER 2024-2028 Stratejik Planı (https://www.turkseker.gov.tr/Belgeler/stratejik_plan_12_09_2024_v4.pdf); yayının kendi fotoğrafı."
+  },
+  "galeri_urun_market_raf": {
+    "tr": "TÜRKŞEKER Tarım Ekolojik Market'te raflar.",
+    "en": "The shelves of a TÜRKŞEKER agricultural ecological market.",
+    "_dayanak": "turkseker.gov.tr haberi 3080, “Türkşeker'in İlk Tarım Ekolojik Marketi Ankara'da Açıldı!”, 22 Nisan 2025 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=3080)."
+  },
+  "galeri_cevresi_sera": {
+    "tr": "Ankara Şeker Fabrikası yerleşkesindeki serada TAGEM protokolünün imzalanması.",
+    "en": "The TAGEM protocol being signed in the greenhouse on the Ankara Sugar Factory estate.",
+    "_dayanak": "turkseker.gov.tr haberi 5099, “TAGEM Ürünleri TÜRKŞEKER Ekolojik Marketlerinde”, 19 Aralık 2025 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5099)."
+  }
+}

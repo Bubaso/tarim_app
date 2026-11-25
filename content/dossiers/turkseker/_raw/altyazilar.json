@@ -1,0 +1,143 @@
+{
+  "_dosya": "Türkşeker — görsel altyazıları",
+  "_kural": "Altyazı KÜNYEDİR: konu + yer + tarih. Fotoğrafın NE OLDUĞU yazılır, karede ne görüldüğü tahlil edilmez. Kullanıcı bu düzeltmeyi iki kez verdi (8 ve 12 Kasım 2026).",
+  "_yer_kurali": "Yer yalnız KAYNAK söylüyorsa yazıldı. Commons açıklaması ülke ya da il vermiyorsa altyazı da vermiyor ve bunu açıkça söylüyor.",
+  "_gozle_dogrulama": "Dört kare açılıp bakıldı: alpullu_1928 (albüm sayfası olduğu, köprü gösterdiği ve arkada fabrika bacası durduğu doğrulandı), usak_kurucular (on bir kişilik arşiv portresi), usak_hisse (Osmanlıca antet 'Uşak Terakki Ziraat Türk Anonim Şirketi' okundu, altında basılı '…Hisse Senedi (1926)'), ankara (cephede TÜRKİYE ŞEKER FABRİKALARI A.Ş., kapıda Genel Müdürlüğü). Kalan onu Commons açıklaması yeterince belirli olduğu için künyeden yazıldı.",
+  "_bagis_notu": "Uşak karelerinin üçü bir aile arşivinden geliyor. Commons kredisi: 'Mehmet Hacım'a ait olan bu resimler torunu Tanju Bilgen tarafından kamuya bağışlanmıştır.' Altyazılar bu bağışı anıyor.",
+  "turkseker_alpullu_1928": {
+    "tr": "İstanbul ve Trakya Şeker Fabrikaları'nın Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Alpullu Sinanlı Köprüsü, 29 Aralık 1928.",
+    "en": "A page from the Alpullu Sugar and Spirit Factories album of Istanbul and Trakya Sugar Factories: the Alpullu Sinanlı Bridge, 29 December 1928.",
+    "_dayanak": "aciklama 'Photos of Alpullu Sinanlı Bridge in Istanbul and Trakya Sugar Factories Alpullu Sugar and Spirit Factories album.' + tarih 1928-12-29 + kredi SALT Research"
+  },
+  "turkseker_usak_kurucular": {
+    "tr": "Uşak Şeker Fabrikası'nın kurucuları. Tanju Bilgen'in kamuya bağışı. Kaynak çekim tarihini kaydetmiyor.",
+    "en": "The founders of the Uşak Sugar Factory. Donated to the public by Tanju Bilgen. The source does not record when it was taken.",
+    "_dayanak": "nesne_adi 'Uşak Şeker Fabrikası Kurucuları' + aciklama 'Founders of Uşak Sugar Factory' + kredi 'Resim hakları Tanju Bilgen tarafından kamuya bağış'. Commons'taki 2006 tarihi YÜKLEME tarihi; çekim tarihi kaynakta yok."
+  },
+  "turkseker_usak_hisse": {
+    "tr": "Uşak Terakki Ziraat Türk Anonim Şirketi'nin hisse senedi, 1926.",
+    "en": "A share certificate of Uşak Terakki Ziraat Türk Anonim Şirketi, 1926.",
+    "_dayanak": "aciklama 'share certificate of Uşak Sugar Factory' + senedin kendi üzerindeki basılı künye: 'Uşak Şeker Fabrikası Hisse Senedi (1926)' ve Osmanlıca antet. Şirket adı stratejik planda da geçiyor (19/04/1923, 600.000 TL)."
+  },
+  "turkseker_usak_disaridan": {
+    "tr": "Uşak Şeker Fabrikası, kuruluş dönemi. Mehmet Hacım'ın arşivinden; torunu Tanju Bilgen'in kamuya bağışı.",
+    "en": "The Uşak Sugar Factory in its founding years. From the archive of Mehmet Hacım, donated to the public by his grandchild Tanju Bilgen.",
+    "_dayanak": "nesne_adi 'Uşak Şeker Fabrikası Kuruluşdaki Resmi' + aciklama 'Outside of Turkey Uşak Sugar Factory' + kredi (bağış cümlesi)"
+  },
+  "turkseker_eskisehir": {
+    "tr": "Eskişehir Şeker Fabrikası. Kaynak çekim tarihini kaydetmiyor.",
+    "en": "The Eskişehir Sugar Factory. The source does not record when it was taken.",
+    "_dayanak": "nesne_adi 'Eskisehirseker'. Açıklama alanı BOŞ; Commons'taki 2007 tarihi yükleme tarihi."
+  },
+  "turkseker_bogazliyan": {
+    "tr": "Boğazlıyan Şeker Fabrikası, Türkiye, Ocak 2007. 2006'da Fransız ve Türk şirketlerinden kurulu bir ortaklıkça yapıldı.",
+    "en": "The Boğazlıyan sugar factory, Türkiye, January 2007. Built in 2006 by a consortium of French and Turkish companies.",
+    "_dayanak": "aciklama 'The Bogazliyan sugar factory has been built in 2006 by a consortium of French and Turkish companies.' + tarih 2007-01. İl kaynakta YOK, yazılmadı."
+  },
+  "turkseker_pancar_tarla": {
+    "tr": "Şeker pancarı tarlası, 30 Temmuz 2018. Kaynak ülkeyi kaydetmiyor.",
+    "en": "A sugar beet field, 30 July 2018. The source does not record the country.",
+    "_dayanak": "aciklama 'Sugar beets Beta vulgaris subsp. vulgaris var. altissima drought' + tarih 2018-07-30"
+  },
+  "turkseker_pancar_kiyim": {
+    "tr": "Kıyılmış şeker pancarı (kozet), 8 Mayıs 2011. Kaynak yeri kaydetmiyor.",
+    "en": "Sugar beet cossettes, 8 May 2011. The source does not record the place.",
+    "_dayanak": "aciklama 'Sugar beet cossettes.' + tarih 2011-05-08"
+  },
+  "turkseker_misir_tesisi": {
+    "tr": "Archer Daniels Midland'ın mısır işleme tesisi, Columbus, Nebraska, ABD, 15 Aralık 2009.",
+    "en": "The Archer Daniels Midland corn-processing plant, Columbus, Nebraska, USA, 15 December 2009.",
+    "_dayanak": "aciklama 'Archer Daniels Midland (ADM) corn-processing plant near Columbus, Nebraska' + tarih 2009-12-15"
+  },
+  "turkseker_pancar": {
+    "tr": "Şeker pancarı, 25 Mart 2016. Kaynak ili kaydetmiyor.",
+    "en": "Sugar beet, 25 March 2016. The source does not record the province.",
+    "_dayanak": "aciklama 'Köyde yetişen bir bitki olan şeker pancarı.' + tarih 2016-03-25"
+  },
+  "turkseker_erzurum": {
+    "tr": "Erzurum Şeker Fabrikası'nın girişi, 25 Ağustos 2012.",
+    "en": "The entrance of the Erzurum Sugar Factory, 25 August 2012.",
+    "_dayanak": "nesne_adi ve aciklama 'Erzurum Şeker Fabrikası Giriş' + tarih 2012-08-25"
+  },
+  "turkseker_chino_1906": {
+    "tr": "Şeker pancarı işleme tesisi, Chino Vadisi, Kaliforniya, ABD, 1906 civarı. USC Dijital Kütüphanesi.",
+    "en": "A sugar beet processing plant, Chino Valley, California, USA, circa 1906. USC Digital Library.",
+    "_dayanak": "aciklama 'Photograph of a sugar beet processing plant, Chino Valley, California, ca.1906.' + tarih 'circa 1906' + kredi USC Digital Library"
+  },
+  "turkseker_usak_ic": {
+    "tr": "Uşak Şeker Fabrikası'nın içi, kuruluş dönemi. Mehmet Hacım'ın arşivinden; torunu Tanju Bilgen'in kamuya bağışı.",
+    "en": "Inside the Uşak Sugar Factory in its founding years. From the archive of Mehmet Hacım, donated to the public by his grandchild Tanju Bilgen.",
+    "_dayanak": "nesne_adi 'Uşak Şeker Fabrikası Kuruluş İç Bölüm' + aciklama 'Inside of Uşak (Turkey) Sugar Factory' + kredi (bağış cümlesi)"
+  },
+  "turkseker_gm_binasi": {
+    "tr": "Türkiye Şeker Fabrikaları A.Ş. Genel Müdürlüğü, Ankara. Kurumun kendi tanıtım görseli.",
+    "en": "The head office of Türkiye Şeker Fabrikaları A.Ş., Ankara. The company's own promotional image.",
+    "_dayanak": "turkseker.gov.tr ana sayfa afişi (site/assets/images/main-slider/main_banner1.jpg). Afişin merkezinde Genel Müdürlük binası; cephede 'Türkşeker 1926' amblemi okunuyor. Künye, karenin bir TANITIM GÖRSELİ olduğunu açıkça söylüyor — belge fotoğrafı sanılmasın diye."
+  },
+  "_gm_binasi_notu": "§12'nin altyazısı 'kurumun kendi tanıtım görseli' diyor. Kare kurgu: gökyüzü işlenmiş, solunda yazı, sağında paketleme hattı var. Altyazı bunu söylemeseydi okur onu bir belge fotoğrafı sanırdı.",
+  "turkseker_s07_ozbekistan": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın iç mekânı ve personeli. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Interior of the factory and staff. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "turkseker_s17_kampanya": {
+    "tr": "Uşak Şeker Fabrikası.",
+    "en": "The Uşak Sugar Factory.",
+    "_dayanak": "SALT Araştırma kaydı AHUSA004 (https://archives.saltresearch.org/handle/123456789/97324). Kaydın başlığı."
+  },
+  "turkseker_s22_ekonomi": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın bölümleri ve personeli. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Sections of the factory and staff. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "turkseker_s24_yerleske": {
+    "tr": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar Ali Mukbil Gökdoğan fotoğrafı. Etimesgut, Ankara.",
+    "en": "Photographs of the Etimesgut Complex of Türkiye Şeker Fabrikası. Photograph by Ali Mukbil Gökdoğan. Etimesgut, Ankara.",
+    "_dayanak": "SALT Araştırma kaydı TMGH007 (https://archives.saltresearch.org/handle/123456789/215423). Kaydın başlığı ve üreteni."
+  },
+  "turkseker_s26_turbin": {
+    "tr": "Alpullu Şeker ve İspirto Fabrikaları albümünden bir sayfa: Fabrikanın bölümleri ve personeli. 1928-1929.",
+    "en": "A page from the album of the Alpullu Sugar and Spirit Factories: Sections of the factory and staff. 1928-1929.",
+    "_dayanak": "SALT Araştırma kaydı AHTURAL013 (https://archives.saltresearch.org/handle/123456789/195731). Albüm sayfasının kendi açıklaması (dataItemFiles)."
+  },
+  "turkseker_s06_tanker": {
+    "tr": "Makine fabrikalarında üretilen orman yangın söndürme tankerleri. Kurumun duyuru görseli, 4 Eylül 2026.",
+    "en": "Forest fire-fighting tankers built in the machine factories. The company's announcement image, 4 September 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5134 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5134); haberin başlığı ve tarihi."
+  },
+  "turkseker_s11_tohum_el": {
+    "tr": "Ekimi yapılan tarlada şeker pancarı tohumu, 18 Şubat 2022.",
+    "en": "Sugar beet seed in a field being sown, 18 February 2022.",
+    "_dayanak": "turkseker.gov.tr haberi 71 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=71); haberin başlığı ve tarihi."
+  },
+  "turkseker_s14_haymana": {
+    "tr": "Haymana'da pancar tarlasında inceleme, 5 Ağustos 2026.",
+    "en": "An inspection in a beet field at Haymana, 5 August 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5132 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5132); haberin başlığı ve tarihi."
+  },
+  "turkseker_s18_burdur": {
+    "tr": "Burdur Şeker Fabrikası'nda tamamlanan revizyon ve modernizasyon. Kurumun duyuru görseli, 28 Ekim 2026.",
+    "en": "The completed revision and modernisation at the Burdur Sugar Factory. The company's announcement image, 28 October 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5150 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5150); haberin başlığı ve tarihi."
+  },
+  "turkseker_s20_ercis_ges": {
+    "tr": "Erciş Şeker Fabrikası arazisinde kurulan güneş enerjisi santrali. Kurumun duyuru görseli, 4 Kasım 2026.",
+    "en": "The solar power plant built on the land of the Erciş Sugar Factory. The company's announcement image, 4 November 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5151 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5151); haberin başlığı ve tarihi."
+  },
+  "turkseker_s21_malatya": {
+    "tr": "Malatya Şeker Fabrikası'nda yılın ilk şekerinin üretimi, 8 Eylül 2026.",
+    "en": "The season's first sugar being produced at the Malatya Sugar Factory, 8 September 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5135 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5135); haberin başlığı ve tarihi."
+  },
+  "turkseker_s25_rolyef_teslim": {
+    "tr": "1934'te Turhal Şeker Fabrikası'nın açılışı için yapılan ahşap rölyefin kuruma teslimi, 31 Mart 2026.",
+    "en": "The wooden relief made for the opening of the Turhal Sugar Factory in 1934 being handed back to the company, 31 March 2026.",
+    "_dayanak": "turkseker.gov.tr haberi 5127 (https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5127); haberin başlığı ve tarihi."
+  },
+  "turkseker_s14_melas": {
+    "tr": "Melas, şeker üretiminin yan ürünü.",
+    "en": "Molasses, a by-product of sugar production.",
+    "_dayanak": "TÜRKŞEKER 2024-2028 Stratejik Planı (https://www.turkseker.gov.tr/Belgeler/stratejik_plan_12_09_2024_v4.pdf); yayının kendi fotoğrafı."
+  }
+}

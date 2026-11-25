@@ -1,0 +1,1086 @@
+{
+  "_dosya": "Türkşeker — Yüzüncü yıl galerisi, kare seçimi",
+  "_amac": "Dosyanın on dört bölüm görseli YERİNDE KALIYOR. Buradakiler o on dördün dışında, sonradan bulunan kareler. Kullanıcı kararı (23 Kasım 2026): 'diğer görselleri koruyalım ancak fazlasını bulup dosyanın sonuna ilk defa yapacağımız bir galeri ekleyelim'.",
+  "_iki_kaynak": "Dizide İLK KEZ iki kaynaklı bir görsel kümesi var. (1) Wikimedia Commons — atıf ve lisans API'den, elle yazılmıyor. (2) turkseker.gov.tr — kurumun kendi yayını. İkincisini kullanıcı açıkça yetkilendirdi: 'Türkşeker'in kendi sitesinde var. ordan çekebilirsin. izni var. sorun olmaz.' Bu kareler CC DEĞİL; atıf satırı kurumu gösteriyor, lisans alanı da bunu açıkça söylüyor — CC rozeti uydurulmadı.",
+  "_neden_kurum_karesi": "Commons Türk şeker sanayiinde yoksul: 'Sugar refineries in Turkey' kategorisinde 5 dosya var ve beşi de zaten dosyada kullanılıyor. TÜRKŞEKER'in 14 fabrikasının çoğunun Commons'ta TEK karesi yok. Kurumun kendi fabrika sayfası on dokuz karesini yayımlıyor; galeriyi taşıyan omurga bu.",
+  "_eleme": "24 Kasım 2026: kullanıcı galeriyi iki kez gözden geçirip eledi — önce 49 kare (167 → 118), sonra üçüncü parti eklendikten sonra 3 kare (142 → 139). Numaralar o günkü sıraya aitti ve kimliğe çevrilip _raw/galeri_eleme.py içine donduruldu.",
+  "_turkce_tuzagi": "ŞEKER BİR SOYADI VE BİR MERMER RENGİ. İlk süzgeç 'Murat Şeker', 'Ali Şeker', 'Şeker Ahmet Paşa' ve 'şeker beji mermer' karelerini A katmanına koymuştu. Aynı tuzak 'pancar'da da var: Mount Pancar bir tepe, Pancar İstasyonu İzmir'de bir durak, 'Jan Pancar' bir kişi.",
+  "kareler": [
+    {
+      "kimlik": "galeri_fab_ankara",
+      "kaynak": "kurum",
+      "dosya": "Ankara_Şeker_Fabrikası.jpg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2021_04_06_10_26_15_205.jpg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_fab_agri",
+      "kaynak": "kurum",
+      "dosya": "Ağrı_Şeker_Fabrikası.jpeg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2021_04_06_11_20_34_531.jpeg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_fab_burdur",
+      "kaynak": "kurum",
+      "dosya": "Burdur_Şeker_Fabrikası.jpeg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2025_08_27_15_33_39_716.jpeg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_fab_elazig",
+      "kaynak": "kurum",
+      "dosya": "Elazığ_Şeker_Fabrikası.jpg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2020_01_31_13_57_53_624.jpg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_fab_ercis",
+      "kaynak": "kurum",
+      "dosya": "Erciş_Şeker_Fabrikası.jpg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2020_01_31_13_58_00_310.jpg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_fab_eregli",
+      "kaynak": "kurum",
+      "dosya": "Ereğli_Şeker_Fabrikası.jpeg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2021_04_06_10_33_04_266.jpeg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_fab_eskisehir",
+      "kaynak": "kurum",
+      "dosya": "Eskişehir_Şeker_Fabrikası.jpg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2021_04_06_10_36_20_725.jpg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_fab_ilgin",
+      "kaynak": "kurum",
+      "dosya": "Ilgın_Şeker_Fabrikası.jpg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2021_04_06_10_38_00_397.JPG",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_fab_kars",
+      "kaynak": "kurum",
+      "dosya": "Kars_Şeker_Fabrikası.jpg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2021_04_06_10_38_58_822.jpg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_fab_kastamonu",
+      "kaynak": "kurum",
+      "dosya": "Kastamonu_Şeker_Fabrikası.jpeg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2021_04_06_10_41_00_352.jpeg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_fab_malatya",
+      "kaynak": "kurum",
+      "dosya": "Malatya_Şeker_Fabrikası.jpeg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2021_04_06_11_21_28_575.jpeg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_fab_susurluk",
+      "kaynak": "kurum",
+      "dosya": "Susurluk_Şeker_Fabrikası.jpg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2021_04_06_10_48_09_146.jpg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_fab_usak",
+      "kaynak": "kurum",
+      "dosya": "Uşak_Şeker_Fabrikası.jpg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2021_04_06_10_47_22_027.jpg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_fab_yozgat",
+      "kaynak": "kurum",
+      "dosya": "Yozgat_Şeker_Fabrikası.jpeg",
+      "obek": "fabrikalar",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2022_06_27_08_26_33_537.jpeg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_mak_ankara",
+      "kaynak": "kurum",
+      "dosya": "Ankara_Makine_Fabrikası.jpg",
+      "obek": "kendi_makinesi",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2025_08_27_16_27_16_579.JPG",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_mak_eskisehir",
+      "kaynak": "kurum",
+      "dosya": "Eskişehir_Makine_Fabrikası.jpg",
+      "obek": "kendi_makinesi",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2025_08_27_16_31_32_806.jpg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_mak_turhal",
+      "kaynak": "kurum",
+      "dosya": "Turhal_Makine_Fabrikası.jpg",
+      "obek": "kendi_makinesi",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2025_08_27_16_41_10_225.jpg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_mak_elektromekanik",
+      "kaynak": "kurum",
+      "dosya": "Elektromekanik_Aygıtlar_Fabrikası.jpg",
+      "obek": "kendi_makinesi",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2025_08_27_15_47_51_485.JPG",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_enstitu",
+      "kaynak": "kurum",
+      "dosya": "Şeker_Enstitüsü.jpg",
+      "obek": "kendi_makinesi",
+      "adres": "https://www.turkseker.gov.tr/data/dosyalar/Dosya_2025_08_27_16_07_25_618.jpg",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_alpullu_kopru_21",
+      "kaynak": "commons",
+      "dosya": "File:Alpullu (near Babaeski), Sokollu era bridge over Ergene (L48a-21, 1970s).jpg",
+      "obek": "alpullu",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_alpullu_gar",
+      "kaynak": "commons",
+      "dosya": "File:Alpullu gari.jpg",
+      "obek": "alpullu",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_alpullu_istasyon_2026",
+      "kaynak": "commons",
+      "dosya": "File:Alpullu Tren İstasyonu 2026-08-29 20.02.24 1788088213.jpg",
+      "obek": "alpullu",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_alpullu_peron",
+      "kaynak": "commons",
+      "dosya": "File:AlpulluTrainStation (2).jpg",
+      "obek": "alpullu",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_turhal_istasyon_1930",
+      "kaynak": "commons",
+      "dosya": "File:Atatürk 1930 Turhal İstasyonu.jpg",
+      "obek": "tarih",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_turhal_ziyaret_1930",
+      "kaynak": "commons",
+      "dosya": "File:Atatürk 1930 Turhal.jpg",
+      "obek": "tarih",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_eskisehir_1934",
+      "kaynak": "commons",
+      "dosya": "File:Eskisehir-seker-fabrikasi-90inci-kurulus-yilini-kutluyor-r3gk cover (1).webp",
+      "obek": "tarih",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_eskisehir_kart",
+      "kaynak": "commons",
+      "dosya": "File:Eskişehir-Şeker-Fabrikası.jpg",
+      "obek": "tarih",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_adapazari",
+      "kaynak": "commons",
+      "dosya": "File:Adapazarı Şeker Farikası.jpg",
+      "obek": "fabrikalar",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_seker_sokak_1",
+      "kaynak": "commons",
+      "dosya": "File:Eskişehir Şeker Sokak area Old situation in 2007 1780.jpg",
+      "obek": "cevresi",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_seker_sokak_2",
+      "kaynak": "commons",
+      "dosya": "File:Eskişehir Şeker Sokak area Old situation in 2007 1782.jpg",
+      "obek": "cevresi",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_etimesgut_lojman",
+      "kaynak": "commons",
+      "dosya": "File:Etimesgut Seker Fabrikasi B Tipi Lojman Yikimi 2026.jpg",
+      "obek": "cevresi",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_etimesgut_cay",
+      "kaynak": "commons",
+      "dosya": "File:Etimesgut Seker Fabrikasi Cay Bahcesı Yikimi 2026.jpg",
+      "obek": "cevresi",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_etimesgut_lojmanlar",
+      "kaynak": "commons",
+      "dosya": "File:Etimesgut Seker Fabrikasi Lojmanlari Yikimii 2026.jpg",
+      "obek": "cevresi",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_hasat",
+      "kaynak": "salt",
+      "dosya": "salt_pancar_hasadi_001.jpg",
+      "obek": "tarla",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/196846",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_hasat_mektup",
+      "kaynak": "salt",
+      "dosya": "salt_pancar_hasadi_002.jpg",
+      "obek": "tarla",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/196846",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_vagon",
+      "kaynak": "salt",
+      "dosya": "salt_usak_vagondan_aktarma_001.jpg",
+      "obek": "yukleme",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/196977",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_silo",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_fabrika_001.jpg",
+      "obek": "yukleme",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/208326",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_silo_arka",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_fabrika_002.jpg",
+      "obek": "yukleme",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/208326",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_usak_pancar",
+      "kaynak": "salt",
+      "dosya": "salt_usak_fabrika_2_001.jpg",
+      "obek": "yukleme",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/103306",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_kapak",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_001.jpg",
+      "obek": "alpullu",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_istasyon",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_005.jpg",
+      "obek": "alpullu",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_kusat",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_006.jpg",
+      "obek": "alpullu",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_acilis",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_008.jpg",
+      "obek": "alpullu",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_genel",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_009.jpg",
+      "obek": "alpullu",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_ispirto",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_011.jpg",
+      "obek": "alpullu",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_pancar",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_014.jpg",
+      "obek": "alpullu",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_personel",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_016.jpg",
+      "obek": "isci",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_laboratuvar",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_020.jpg",
+      "obek": "isci",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_ic1",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_022.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_ic2",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_031.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_ic3",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_041.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_personel2",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_044.jpg",
+      "obek": "isci",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_usak_genel",
+      "kaynak": "salt",
+      "dosya": "salt_usak_albumu_001.jpg",
+      "obek": "fabrikalar",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/97324",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_usak_avlu",
+      "kaynak": "salt",
+      "dosya": "salt_usak_albumu_003.jpg",
+      "obek": "fabrikalar",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/97324",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_usak_salon1",
+      "kaynak": "salt",
+      "dosya": "salt_usak_albumu_004.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/97324",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_usak_salon2",
+      "kaynak": "salt",
+      "dosya": "salt_usak_albumu_006.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/97324",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_usak_salon3",
+      "kaynak": "salt",
+      "dosya": "salt_usak_albumu_008.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/97324",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_usak_makine",
+      "kaynak": "salt",
+      "dosya": "salt_usak_makine_dairesi_001.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/196979",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_usak_makine_isci",
+      "kaynak": "salt",
+      "dosya": "salt_usak_makine_dairesi_calisanlar_001.jpg",
+      "obek": "isci",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/196978",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_usak_kart",
+      "kaynak": "salt",
+      "dosya": "salt_usak_fabrika_1_001.jpg",
+      "obek": "fabrikalar",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/116005",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_usak_havuz",
+      "kaynak": "salt",
+      "dosya": "salt_usak_sosyal_tesisler_001.jpg",
+      "obek": "cevresi",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/117021",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_etim_fabrika",
+      "kaynak": "salt",
+      "dosya": "salt_etimesgut_fabrika_001.jpg",
+      "obek": "fabrikalar",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/196860",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_etim_2",
+      "kaynak": "salt",
+      "dosya": "salt_etimesgut_kompleksi_003.jpg",
+      "obek": "cevresi",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/215423",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_etim_3",
+      "kaynak": "salt",
+      "dosya": "salt_etimesgut_kompleksi_005.jpg",
+      "obek": "cevresi",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/215423",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_etim_4",
+      "kaynak": "salt",
+      "dosya": "salt_etimesgut_kompleksi_009.jpg",
+      "obek": "cevresi",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/215423",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_etim_5",
+      "kaynak": "salt",
+      "dosya": "salt_etimesgut_kompleksi_012.jpg",
+      "obek": "cevresi",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/215423",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_etim_6",
+      "kaynak": "salt",
+      "dosya": "salt_etimesgut_kompleksi_014.jpg",
+      "obek": "cevresi",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/215423",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_etim_7",
+      "kaynak": "salt",
+      "dosya": "salt_etimesgut_kompleksi_015.jpg",
+      "obek": "cevresi",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/215423",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_turhal",
+      "kaynak": "salt",
+      "dosya": "salt_turhal_fabrika_001.jpg",
+      "obek": "fabrikalar",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/105027",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_eskisehir",
+      "kaynak": "salt",
+      "dosya": "salt_eskisehir_cizim_001.jpg",
+      "obek": "tarih",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/236467",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_turkseker_s06_makine",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_040.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_turkseker_s11_tohum",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_021.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_turkseker_s14_uydu",
+      "kaynak": "salt",
+      "dosya": "salt_usak_albumu_002.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/97324",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_turkseker_s18_yatirim",
+      "kaynak": "salt",
+      "dosya": "salt_usak_albumu_007.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/97324",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_turkseker_s20_enerji",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_039.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_turkseker_s21_deprem",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_037.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/195731",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_turkseker_s25_rolyef",
+      "kaynak": "salt",
+      "dosya": "salt_turhal_fabrika_002.jpg",
+      "obek": "fabrika_ici",
+      "kayit": "https://archives.saltresearch.org/handle/123456789/105027",
+      "parti": 1
+    },
+    {
+      "kimlik": "galeri_salt_alb_003",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_003.jpg",
+      "obek": "isci",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_alb_010",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_010.jpg",
+      "obek": "alpullu",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_alb_012",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_012.jpg",
+      "obek": "fabrika_ici",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_alb_013",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_013.jpg",
+      "obek": "alpullu",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_alb_015",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_015.jpg",
+      "obek": "isci",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_alb_017",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_017.jpg",
+      "obek": "isci",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_alb_018",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_018.jpg",
+      "obek": "isci",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_alb_019",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_019.jpg",
+      "obek": "isci",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_alb_045",
+      "kaynak": "salt",
+      "dosya": "salt_alpullu_albumu_045.jpg",
+      "obek": "isci",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_etim_k004",
+      "kaynak": "salt",
+      "dosya": "salt_etimesgut_kompleksi_004.jpg",
+      "obek": "cevresi",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_etim_k006",
+      "kaynak": "salt",
+      "dosya": "salt_etimesgut_kompleksi_006.jpg",
+      "obek": "cevresi",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_etim_k007",
+      "kaynak": "salt",
+      "dosya": "salt_etimesgut_kompleksi_007.jpg",
+      "obek": "cevresi",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_etim_k008",
+      "kaynak": "salt",
+      "dosya": "salt_etimesgut_kompleksi_008.jpg",
+      "obek": "cevresi",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_etim_k011",
+      "kaynak": "salt",
+      "dosya": "salt_etimesgut_kompleksi_011.jpg",
+      "obek": "cevresi",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_usak_pancar_arka",
+      "kaynak": "salt",
+      "dosya": "salt_usak_fabrika_2_002.jpg",
+      "obek": "fabrikalar",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_usak_makine_arka",
+      "kaynak": "salt",
+      "dosya": "salt_usak_makine_dairesi_002.jpg",
+      "obek": "fabrika_ici",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_usak_makine_isci_arka",
+      "kaynak": "salt",
+      "dosya": "salt_usak_makine_dairesi_calisanlar_002.jpg",
+      "obek": "isci",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_usak_havuz_arka",
+      "kaynak": "salt",
+      "dosya": "salt_usak_sosyal_tesisler_002.jpg",
+      "obek": "cevresi",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_usak_havuz_2",
+      "kaynak": "salt",
+      "dosya": "salt_usak_sosyal_tesisler_003.jpg",
+      "obek": "cevresi",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_salt_usak_havuz_2_arka",
+      "kaynak": "salt",
+      "dosya": "salt_usak_sosyal_tesisler_004.jpg",
+      "obek": "cevresi",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_alpullu_peron_4",
+      "kaynak": "commons",
+      "dosya": "File:AlpulluTrainStation (4).jpg",
+      "obek": "alpullu",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_alpullu_peron_6",
+      "kaynak": "commons",
+      "dosya": "File:AlpulluTrainStation (6).jpg",
+      "obek": "alpullu",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_adapazari_sehir",
+      "kaynak": "commons",
+      "dosya": "File:Serdivan, Sakarya.jpg",
+      "obek": "cevresi",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_pancar_yazisi",
+      "kaynak": "commons",
+      "dosya": "File:Pancar şekerinden üretilmiştir yazısı.jpg",
+      "obek": "urun",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_tohum_avuc",
+      "kaynak": "kurum",
+      "dosya": "1077__1077_Haberler2024_08_06_11_34_08_171.jpeg",
+      "obek": "tarla",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_tohum_bitki",
+      "kaynak": "kurum",
+      "dosya": "1077__1077_Haberler2024_08_06_11_34_11_647.jpeg",
+      "obek": "tarla",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_tohum_ciftci",
+      "kaynak": "kurum",
+      "dosya": "71__71_Haberler2022_02_18_14_00_47_255.png",
+      "obek": "tarla",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_haymana_2",
+      "kaynak": "kurum",
+      "dosya": "5132__5132_Haberler2026_08_05_10_47_49_289.jpeg",
+      "obek": "tarla",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_rolyef_2",
+      "kaynak": "kurum",
+      "dosya": "5127__5127_Haberler2026_03_31_10_33_06_158.jpeg",
+      "obek": "tarih",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_malatya_bosaltma",
+      "kaynak": "kurum",
+      "dosya": "5133__5133_Haberler2026_09_04_15_49_10_004.jpeg",
+      "obek": "yukleme",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_ilgin_hava",
+      "kaynak": "kurum",
+      "dosya": "5137__5137_Haberler2026_09_18_15_42_40_200.jpeg",
+      "obek": "fabrikalar",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_kantar_1",
+      "kaynak": "kurum",
+      "dosya": "5137__5137_Haberler2026_09_18_16_33_20_758.jpeg",
+      "obek": "yukleme",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_laboratuvar_2",
+      "kaynak": "kurum",
+      "dosya": "5138__5138_Haberler2026_09_21_10_46_39_690.jpeg",
+      "obek": "isci",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_pancar_bandi",
+      "kaynak": "kurum",
+      "dosya": "5138__5138_Haberler2026_09_21_10_46_47_242.jpeg",
+      "obek": "isci",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_numune_1",
+      "kaynak": "kurum",
+      "dosya": "5139__5139_Haberler2026_09_21_16_56_59_231.jpeg",
+      "obek": "isci",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_numune_2",
+      "kaynak": "kurum",
+      "dosya": "5141__5141_Haberler2026_09_23_15_16_19_333.jpg",
+      "obek": "isci",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_pancar_sahasi",
+      "kaynak": "kurum",
+      "dosya": "5143__5143_Haberler2026_09_30_10_20_31_274.jpeg",
+      "obek": "yukleme",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_kastamonu_saha",
+      "kaynak": "kurum",
+      "dosya": "5145__5145_Haberler2026_10_02_15_53_19_803.JPG",
+      "obek": "fabrikalar",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_isciler",
+      "kaynak": "kurum",
+      "dosya": "5145__5145_Haberler2026_10_02_15_53_47_017.JPG",
+      "obek": "isci",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_sam_fuari",
+      "kaynak": "kurum",
+      "dosya": "5148__5148_Haberler2026_10_05_14_58_04_611.jpeg",
+      "obek": "urun",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_kurum_kazan_atesleme",
+      "kaynak": "kurum",
+      "dosya": "5157__5157_Haberler2026_11_20_11_50_07_789.jpeg",
+      "obek": "fabrika_ici",
+      "parti": 2
+    },
+    {
+      "kimlik": "galeri_ciftci_pancarla",
+      "kaynak": "kurum",
+      "dosya": "62__Turkseker__5.jpeg",
+      "obek": "ciftci",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_ciftci_traktor",
+      "kaynak": "kurum",
+      "dosya": "62__Turkseker__3.jpg",
+      "obek": "ciftci",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_ciftci_lokal_masa",
+      "kaynak": "kurum",
+      "dosya": "63__63_Haberler2021_09_06_09_40_39_060.jpg",
+      "obek": "ciftci",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_ciftci_lokal_gece",
+      "kaynak": "kurum",
+      "dosya": "63__63_Haberler2021_09_06_09_40_44_562.JPG",
+      "obek": "ciftci",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_ciftci_lokal_cay",
+      "kaynak": "kurum",
+      "dosya": "63__63_Haberler2021_09_06_09_40_50_702.jpg",
+      "obek": "ciftci",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_ciftci_sozlesme_imza",
+      "kaynak": "kurum",
+      "dosya": "72__72_Haberler2022_03_18_13_50_45_179.jpeg",
+      "obek": "ciftci",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_tarla_mibzer",
+      "kaynak": "kurum",
+      "dosya": "62__Turkseker__4.jpg",
+      "obek": "tarla",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_tarla_makine",
+      "kaynak": "kurum",
+      "dosya": "72__72_Haberler2022_03_18_13_50_50_505.jpeg",
+      "obek": "tarla",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_tarla_sulama_1",
+      "kaynak": "kurum",
+      "dosya": "73__73_Haberler2022_06_27_14_07_19_721.jpeg",
+      "obek": "tarla",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_tarla_sulama_isci",
+      "kaynak": "kurum",
+      "dosya": "73__73_Haberler2022_06_27_14_07_23_197.jpeg",
+      "obek": "tarla",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_tarla_sulama_2",
+      "kaynak": "kurum",
+      "dosya": "73__73_Haberler2022_06_27_14_07_26_676.jpeg",
+      "obek": "tarla",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_tarla_hasat_makinesi",
+      "kaynak": "kurum",
+      "dosya": "stratejik_plan_s036_15.jpg",
+      "obek": "hasat",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_tarla_siralar",
+      "kaynak": "kurum",
+      "dosya": "stratejik_plan_s064_25.jpg",
+      "obek": "tarla",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_tarla_traktor_plan",
+      "kaynak": "kurum",
+      "dosya": "stratejik_plan_s102_32.jpg",
+      "obek": "tarla",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_tarla_pelet_tohum",
+      "kaynak": "kurum",
+      "dosya": "stratejik_plan_s059_22.jpg",
+      "obek": "tarla",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_yukleme_su_kanali",
+      "kaynak": "kurum",
+      "dosya": "72__72_Haberler2022_03_18_13_50_53_787.jpeg",
+      "obek": "yukleme",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_yukleme_silo_bant",
+      "kaynak": "kurum",
+      "dosya": "stratejik_plan_s031_14.jpg",
+      "obek": "yukleme",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_isci_montaj",
+      "kaynak": "kurum",
+      "dosya": "stratejik_plan_s100_30.jpg",
+      "obek": "isci",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_urun_cuvallama",
+      "kaynak": "kurum",
+      "dosya": "stratejik_plan_s038_16.jpg",
+      "obek": "urun",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_urun_market_raf",
+      "kaynak": "kurum",
+      "dosya": "3080__3080_Haberler2025_04_22_12_30_09_384.jpeg",
+      "obek": "urun",
+      "parti": 4
+    },
+    {
+      "kimlik": "galeri_cevresi_sera",
+      "kaynak": "kurum",
+      "dosya": "5099__5099_Haberler2025_12_19_14_11_35_702.jpg",
+      "obek": "cevresi",
+      "parti": 4
+    }
+  ],
+  "_reddedilen": {
+    "File:1930 Turhal visit.jpg": "256×140 ve karede yalnız bir köpek var. Ad ziyareti vaat ediyor, kare vermiyor.",
+    "File:Turhal İstasyonu 1930.jpg": "175×113. Bu boyutta yayımlanacak bir kare değil.",
+    "Turhal 2004 serisi (18 kare)": "Kasabanın kendisi — ırmak, kale, cadde. Fabrika hiçbirinde yok.",
+    "GÜZEL TURHALIM / Turha-City Tour / Tokat Mahperi Kervansarayı": "Turhal ve Tokat manzarası. Şekerle ilgisi yalnız kasaba adı.",
+    "File:Türkşeker logo.svg": "Logo; galeri fotoğraf galerisi.",
+    "File:Atatürk - Turhal gezisi görüntüleri & Foks.webm": "Video. Galeri kare galerisi, oynatıcı değil.",
+    "File:Eskişehir Şeker Sokak … 1783, 1784": "Aynı sokağın beş karesinden üçü alındı; kalan ikisi tekrar.",
+    "File:Etimesgut … Lojmanlari Yikimi 20.jpg ve C Tipi": "İkisi de boş arazi; yıkımı gösteren üç kare seçildi.",
+    "File:Boyacılar mah. / Dubleksler / Mimar sinan mahallesi ev": "Köy evi fotoğrafları. Arama 'lojman' terimiyle getirdi, ilgisi yok.",
+    "File:Pancar şekerinden üretilmiştir yazısı.jpg": "Bir içecek şişesinin etiketi.",
+    "File:E 68 017.jpg": "Elektrikli lokomotif; şeker fabrikasıyla bağı kurulamadı.",
+    "'Something about sugar' (1917) levhaları (4 kare)": "KAYNAK HER LEVHANIN KONUSUNU ADLANDIRMIYOR. Commons açıklaması kitabın künyesini ve levhanın ÖNCESİNDEKİ/SONRASINDAKİ metni veriyor; önceki metin çoğu kez BİR ÖNCEKİ levhanın başlığı. 14793071953 örneğin kitabın KÜBA bölümünde ve pancar değil kamış anlatıyor. Künye kuralı karede ne görüldüğünü yazmayı yasakladığı için bu levhalara dürüst bir altyazı yazılamıyor.",
+    "File:Mülheim adR - Am Nordhafen + Aspera 01 ies.jpg": "Tankerde 'FLÜSSIGZUCKER' yazıyor ama kaynağın konusu bir BİRA FABRİKASI (Aspera Brauerei). Altyazı konuyu söylemek zorunda.",
+    "File:Beta vulgaris Chioggia (candy-striped beetroot).jpg": "Sofra pancarı, şeker pancarı değil.",
+    "File:Rock-Candy-Closeup.jpg · Sugarcubecastle.JPG · Sugar cube pyramid": "tasarim.json/_yasak: şekerleme ve şeker küpü süsü.",
+    "File:Sugar tongs, sugar bowl, sugar cubes.jpg · Packaged Sugar with tableware.jpg": "tasarim.json/_yasak: şekerlik klişesi; dosya sofrayı değil SANAYİYİ anlatıyor.",
+    "File:Beta vulgaris seedling kz01.jpg": "tasarim.json/_yasak: 'toprakta filizlenen fide makrosu — büyüme klişesi'.",
+    "Busem Şeker / Sadi Evren Şeker kareleri": "ŞEKER BİR SOYADI. Futbolcu ve akademisyen portreleri; ilk süzgeç bunları 'Türkiye'de şeker' saydı.",
+    "File:KMP Pancar Mas II.jpg": "PANCAR BİR GEMİ ADI. Endonezya feribotu.",
+    "Zuckerrüben nach der Ernte 001-013 (çoğu)": "Hasat sonrası çıplak toprak; on üç kare aynı şeyi gösteriyor.",
+    "File:Mendiguren 01.jpg": "Kaynak yalnız yeri söylüyor: 'Mendiguren (Vitoria, Álava)'. Pancardan söz etmiyor; dürüst bir künye yazılamıyor.",
+    "galeri_alpullu_kopru_22": "Kullanıcı kararı 24 Kasım 2026 (galeride 02): 01 ile aynı köprünün ikinci karesi.",
+    "galeri_alpullu_peron_2": "Kullanıcı kararı 24 Kasım 2026 (galeride 06): 05 ile aynı peronun ikinci karesi.",
+    "galeri_seker_sokak_3": "Kullanıcı kararı 24 Kasım 2026 (galeride 64): aynı sokağın üçüncü karesi."
+  },
+  "_aranan_bulunamayan": {
+    "genel müdürlük binası": "Commons'ta TEK kare var ve o da §12'de kullanılan, yalnız tabelanın göründüğü kare (intitle:'Şeker Fabrikaları' → 1 sonuç). turkseker.gov.tr'de bina YALNIZ İKİ KURGU AFİŞİN İÇİNDE: gece çekimi (main_banner1.jpg, üstünde yazı ve yanında paketleme hattı) ve yüzüncü yıl kurşun kalem afişi (banner01.jpg). İkisi de tek başına bir bina fotoğrafı değil. Fabrika detay sayfası, iletişim sayfası ve 2026 faaliyet raporunun ilk sekiz sayfası da tarandı.",
+    "pancar tarlasında çiftçi (Türkiye)": "Commons'ta yok. Pancar tarlası kareleri Avrupa'dan.",
+    "fabrika içi (Türkiye)": "Kurumun sitesinde afiş içinde var, tek başına kare yok."
+  },
+  "_kurum_adresleri_notu": "kurum kareleri turkseker.gov.tr'nin fabrika detay sayfasından (?ModulID=11&MenuID=57); adres her karenin kendi kaydında.",
+  "_ikinci_tur": "23 Kasım 2026, kullanıcı: 'galeri için ayrıca tarladan, çiftçiden, hasattan, yüklemeden, son ürün şeker içeren daha fazla görsel bul. 30-35 görsel daha bul bu konularda.' Eklenen 34 kare beş öbekte: tarla · isci · hasat · yukleme · urun.",
+  "_yurtdisi_karari": "23 Kasım 2026, kullanıcı: 'daha sonra eklediğin çoğu görseller yurtdışından. yurtdışı görseli koyamayız. aynı konularda Türkiye'den görseller bulmalıyız. ancak o zaman anlamlı olur. İsviçre'deki şeker pancarı tarlasından Türk okuyucuya ne?' — İkinci partinin 33 karesi GERİ ÇEKİLDİ. Galeri yüzüncü yıl galerisi; tarla, çiftçi, hasat, yükleme ve ürün kareleri Türkiye'den olmalı.",
+  "_salt": "SALT Araştırma kareleri 24 Kasım 2026'da eklendi. Kullanıcı yurtdışı karelerini reddedince (23 Kasım) aynı konular Türkiye'den arandı; Commons'ta yok, SALT'ta var. Kullanıcı: 'kullandığın her görsele tam künye yazmayı unutma. izne gerek yok.' ve 'olabildiğince geniş bir yelpazede seç.' On dört kaydın hepsinden kare alındı.",
+  "_tur9_gorsel_degisimi": "24 Kasım 2026: yedi yeni bölüm doğrudan ilgili kareye kavuştu (kurumun haber arşivi); yerlerini bırakan SALT kareleri galeriye taşındı. §17, §19, §22, §7 ve §26 için doğrudan ilgili kare bulunamadı, mevcut kareleri kaldı. §24'e dokunulmadı.",
+  "_parti2": "24 Kasım 2026, kullanıcı: 'SALT dosyasından hiç kullanmadığın görselleri de galeriye ekle… şuanki son resimden (79) sonra hepsini sırala.' İkinci parti kareler `parti: 2` taşıyor; kur_galeri.py önce partiye göre sıralıyor, ilk 79 kare bugünkü sırasında kalıyor.",
+  "_tekrar_cikarma": "24 Kasım 2026: algısal karşılaştırma (dHash) on üç tekrar buldu ve hepsi çıkarıldı — yedisi Commons'tan yeniden alınmış bölüm görseli, biri SALT albüm sayfası, üçü SALT'ın çift taraması, ikisi ilk 79'un içinde duran eski tekrar. Gerekçeler galeri_cikar.py/CIKAR içinde. dogrula_galeri.py 13. kural bundan sonra adrese değil görüntüye bakıyor.",
+  "_parti3": "24 Kasım 2026: yedi bölüm çifti birleşti; boşta kalan bölüm görselleri galerinin sonuna eklendi.",
+  "_parti4": "24 Kasım 2026: kullanıcı çiftçi, tarla ve şeker dışı kalemleri eksik buldu. Commons'ta Türkiye'den tarla yok (Category:Sugar beets in Turkey = 2 dosya); kareler kurumun indirilmemiş 88 haberinden ve 2024-2028 Stratejik Planı'ndan geldi. Yeni öbek: ciftci."
+}

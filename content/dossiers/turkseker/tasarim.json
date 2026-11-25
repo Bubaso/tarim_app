@@ -1,0 +1,157 @@
+{
+  "_dosya": "Türkşeker — Kurum Dosyası Sayı 07 · tasarım künyesi",
+  "_amac": "Evrak görsel dilinin bu dosyadaki uygulaması. DossierTheme bu dosyadan üretilir.",
+  "_kural": "Buradaki hiçbir kontrast sayısı elle yazılmadı. Hepsi _ortak/kontrast.py'nin ölçü fonksiyonuyla ÖLÇÜLDÜ ve bu dosya _raw/kur_tasarim.py'den üretildi; dogrula_tasarim.py her sayıyı yeniden ölçüp karşılaştırıyor.",
+  "_uretec": "content/dossiers/turkseker/_raw/kur_tasarim.py",
+  "tez_cumlesi": {
+    "tr": "Alpullu'dan bugüne yüz yıl: pancarı şekere çeviren kurum.",
+    "en": "A hundred years from Alpullu: the institution that turns beet into sugar.",
+    "_not": "§8.2 — tez cümlesi İDDİA KURMAZ, tanıtır. Dizinin bir kez durdurulma sebebi iddianame tonuydu."
+  },
+  "kume": {
+    "ad": "Üretim",
+    "sira": 9,
+    "kagit_vurgu": "#1F5626",
+    "kapak_vurgu": "#4CC756",
+    "_devralindi": "Küme TİGEM dosyasında (Sayı 06) kuruldu ve Türkşeker orada ADIYLA anıldı. Yeni küme açılmadı, yeni renk üretilmedi.",
+    "gerekce": "Devletin BİZZAT ÜRETİCİ olması. TÜRKŞEKER kendi fabrikasında pancarı şekere çeviriyor; kota bölüştüren düzenleyici değil, üreten KİT."
+  },
+  "palet": {
+    "ad": "Evrak — kağıt gövde",
+    "kaynak_fikir": "Kurumun manzarası yok; maddi karşılığı kağıttır. Bu dosyada kağıt ayrıca konunun kendisi: şeker rejimi 1925'ten beri özel mevzuatla yürüyor ve üretim kotayla planlanıyor. Çiftçinin pancarı da bir kağıtla başlıyor — Şeker Pancarı Üretim Sözleşmesi.",
+    "mod": "KOYU KAPAK → KAĞIT GÖVDE. Dosya sayfası sistem açık/koyu tercihini izlemez.",
+    "mod_gerekcesi": "Fiziksel dosyanın kendisi: dışı mukavva kapak, içi kağıt.",
+    "sayfa": {
+      "zemin": {
+        "hex": "#E3E7E5",
+        "rol": "Sayfa zemini — arşiv kağıdı",
+        "kontrast_app_krem": 1.109
+      },
+      "yuzey": {
+        "hex": "#F0F2F0",
+        "rol": "Kart, tablo, kayıt bloğu",
+        "kontrast_zemin": 1.11
+      },
+      "murekkep": {
+        "hex": "#15191A",
+        "rol": "Gövde metni",
+        "kontrast_zemin": 14.19,
+        "kontrast_yuzey": 15.74
+      },
+      "sessiz": {
+        "hex": "#575F61",
+        "rol": "Meta, kaynak satırı, altyazı",
+        "kontrast_zemin": 5.23,
+        "kontrast_yuzey": 5.81
+      },
+      "vurgu": {
+        "hex": "#1F5626",
+        "rol": "Üretim — rakamlar, başlık vurguları, ülke serisi",
+        "kontrast_zemin": 6.96,
+        "kontrast_yuzey": 7.72
+      },
+      "ikincil": {
+        "hex": "#575F61",
+        "rol": "Karşılaştırmanın ikinci ölçüsü — TÜRKŞEKER satırı, şirket sayısı",
+        "kontrast_zemin": 5.23,
+        "kontrast_yuzey": 5.81,
+        "_not": "Kasıtlı olarak NÖTR, TİGEM'deki kararın aynısı. Bu dosyada ikinci seri bir kez 'TÜRKŞEKER', bir kez 'şirket sayısı' — ikisi de başka bir KURUM TÜRÜ değil, aynı şeyin başka ölçüsü. Başka kümenin rengi ödünç alınsaydı okur orada bir kurum türü arardı."
+      },
+      "cizgi": {
+        "hex": "#C0C6C3",
+        "rol": "Marj rayı, tablo kuralı",
+        "kontrast_zemin": 1.39
+      },
+      "cizgiVurgu": {
+        "hex": "#767E7C",
+        "rol": "Bölüm ayırıcı, motif",
+        "kontrast_zemin": 3.34
+      }
+    },
+    "kapak": {
+      "zemin": {
+        "hex": "#131718",
+        "rol": "Kapak zemini — mukavva"
+      },
+      "yuzey": {
+        "hex": "#1D2325",
+        "rol": "Kapak üstü blok",
+        "kontrast_zemin": 1.13
+      },
+      "murekkep": {
+        "hex": "#F0F2F0",
+        "rol": "Kapak başlığı",
+        "kontrast_zemin": 16.04
+      },
+      "sessiz": {
+        "hex": "#98A1A2",
+        "rol": "Seri etiketi, belge satırı",
+        "kontrast_zemin": 6.84
+      },
+      "vurgu": {
+        "hex": "#4CC756",
+        "rol": "Üretim, kapak karşılığı",
+        "kontrast_zemin": 8.26
+      }
+    },
+    "serit": {
+      "_amac": "Ana sayfadaki dosya şeridi sayfanın içinde yaşıyor; krem zemin.",
+      "murekkep": {
+        "hex": "#15191A",
+        "kontrast_krem": 15.73
+      },
+      "vurguKoyu": {
+        "hex": "#1F5626",
+        "rol": "Üretim'in krem zemindeki karşılığı",
+        "kontrast_krem": 7.72
+      },
+      "ikincilKoyu": {
+        "hex": "#575F61",
+        "kontrast_krem": 5.8
+      },
+      "_ayrisma": {
+        "uygulamanin_yapisal_yesili": "#2F4B2E",
+        "oran": 1.12,
+        "_not": "Aynı risk TİGEM'de ölçülmüştü ve bu dosyada aynen duruyor: kümenin rengi yeşil, uygulamanın yapısal yeşili #2F4B2E. Kart kendi zemininden parlaklıkla değil, krem zemin üzerindeki konumuyla ayrışıyor. Dizinin en dar aralığı."
+      }
+    }
+  },
+  "motif": {
+    "ad": "Cetvel çizgisi",
+    "tanim": "Defter ve resmî evrak kağıdının marj rayı: solda dikey ray, aralarda ince yatay kural çizgileri.",
+    "gerekce": "Kuruma göre DEĞİŞMEZ, dizi kimliğidir (§8.4). Değişen renktir.",
+    "uygulama": {
+      "opaklik": "%8",
+      "renk": "cizgiVurgu #767E7C üzerine opaklık",
+      "bicim": "Vektör (CustomPainter) — telif yok, ölçeklenir",
+      "yerlesim": "Bölüm ayırıcılarında ve kapak altı geçiş bandında. Gövde metninin ARKASINDA kullanılmaz.",
+      "aralik_notu": "Izgara aralığı 24 px'in altına inmeyecek (moiré)."
+    }
+  },
+  "kapak": {
+    "yon": "Kuruluş belgesinden kurulan tipografik kapak",
+    "gerekce": "Fotoğraf kapak yine reddedildi (§8.8). Bu dosyada ayrıca bir sebep daha var: kurumun kuruluş karesi YOK. Commons'ta Alpullu Şeker Fabrikası'nın hiçbir fotoğrafı bulunmuyor.",
+    "sinir": "Kapak bir belgeyi ALINTILAR, TAKLİT ETMEZ. Resmî Gazete anteti, mühür, arma veya kurum logosu yeniden üretilmez. Kapakta her zaman seri etiketi ve sayı numarası bulunur.",
+    "tipografi_katmani": {
+      "ust_satir": "KURUM DOSYASI · 07 · ÜRETİM",
+      "baslik": "TÜRKİYE ŞEKER FABRİKALARI",
+      "_baslik_notu": "Büyük harfler ELLE yazıldı. Türkçede upper() 'i' harfini 'I' yapıyor ve TÜRKIYE çıkıyor; dizide aynı hata iki kez yaşandı (§8.5, _Kartlar ve yaka başlığı).",
+      "belge_satiri": "Türkiye Şeker Fabrikaları A.Ş. · 6 Temmuz 1935 — ilk Türk şekeri · Alpullu · 26 Kasım 1926",
+      "_iki_tarih_notu": "Kurumun iki doğum tarihi var ve ikisi de doğru: tüzel kişilik 1935'te, şeker 1926'da. Dosyanın ekseni 1926 (kullanıcı kararı), kuruluş belgesi 1935. Kapak ikisini de taşıyor."
+    }
+  },
+  "_yasak": [
+    "Kurum logosu, arma, mühür, Resmî Gazete anteti — yeniden üretilmez.",
+    "Kapakta fotoğraf (§8.8).",
+    "Stok 'mutlu çiftçi' fotoğrafı ve dekoratif ikon seti.",
+    "Şekerlikte küp şeker, fincan yanında şeker, kaşıkta dökülen şeker: 'şeker' kelimesinin en yıpranmış stok karesi ve dosyanın anlattığı şey sofra değil, SANAYİ.",
+    "Şekerleme, pasta, tatlı — her türlü şekerli mamul. Türkçede 'şeker' hem ürünü hem şekerlemeyi anlatıyor; dosya pancardan kristal şeker üreten bir KİT'i anlatıyor.",
+    "Toprakta filizlenen fide makrosu: 'büyüme' klişesi. Kurumun ürettiği şey fide değil, kristal şeker.",
+    "Grafikte rengi tek ayırt edici işaret yapmak (bkz. renk_korlugu)."
+  ],
+  "renk_korlugu": {
+    "_olcum": "TİGEM · _raw/kontrast.py · Viénot-Mollon benzetimi + CIE76 ΔE",
+    "_ayni_kume": "Küme TİGEM ile aynı olduğu için ayrışma ölçümü de aynı; yeniden ölçülmedi, kararı devralındı.",
+    "KARAR": "RENK TEK BAŞINA HİÇBİR YERDE ANLAM TAŞIMAZ. Üretim kümesinin kağıt vurgusu deuteranopi altında Kamu gücü'ne ΔE 3,6 mesafede; dizinin mevcut tabanı zaten 2,0. Her grafikte rol BİÇİMLE de ayrışıyor (etiket, tarama, konum)."
+  }
+}

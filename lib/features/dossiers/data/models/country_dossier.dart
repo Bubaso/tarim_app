@@ -234,6 +234,20 @@ class CountryDossier {
     return ham.whereType<Map>().map(DossierGap.fromJson).toList();
   }
 
+  /// Dosyanın sonundaki kare galerisi — `data.galeri`.
+  ///
+  /// Bölümde değil dosya verisinde duruyor, `bosluklar` ve `_kaynaklar` gibi:
+  /// otuz beş kare tek bir bölümün `gorsel` alanına sığmıyor ve bölüm
+  /// tablosuna otuz beş sütun eklemek, galerisi olmayan dosyalarda boş
+  /// sütunlar bırakırdı.
+  ///
+  /// Nerede çizileceğini BÖLÜM söylüyor: türü `galeri` olan bölümün içinde.
+  /// Ayrı bir "şu bölümden sonra" alanı yok — iki yer aynı kararı söylerse
+  /// ayrışıyorlar, ve "sonuncudan önce" gibi bir kural da Kaynakça'nın her
+  /// dosyada son bölüm olduğunu varsayardı. Yer bir yayın kararı; metindeki
+  /// başlığın durduğu yer o kararın kendisi.
+  DossierGaleri? get galeri => DossierGaleri.fromJson(data['galeri']);
+
   /// Kaynak künyesi — hangi kurumdan ne çekildi.
   ///
   /// Anahtar sırası korunuyor: `data.json` kaynakları önem sırasına göre
@@ -346,12 +360,28 @@ class DossierGorsel {
   final String altTr;
   final String altEn;
 
+  /// Genişlik / yükseklik. Çizici çoğu kareyi 4:3 pencereye kırpıyor; bu alan
+  /// panoramik kareyi o kırpımdan muaf tutmak için var (bkz. _BolumGorseli).
+  /// 0 ise bilinmiyor demektir ve 4:3 uygulanır.
+  final double enBoy;
+
+  /// Izgara boyu kopya. 173 karelik galeride ızgaranın her gözü 1600 px'lik
+  /// asıl dosyayı çekseydi bir ekran 70 MB indirir ve çözülmüş bitmap'ler
+  /// telefonun belleğini bitirirdi. Boşsa [url] kullanılıyor — bölüm
+  /// görselinin küçüğü yok, tek başına zaten tam genişlikte çiziliyor.
+  final String? kucuk;
+
+  /// Izgarada çizilecek adres: küçüğü varsa o, yoksa aslı.
+  String get izgaraUrl => (kucuk != null && kucuk!.isNotEmpty) ? kucuk! : url;
+
   const DossierGorsel({
     required this.url,
     required this.atif,
     required this.altTr,
     required this.altEn,
     this.kaynak,
+    this.enBoy = 0,
+    this.kucuk,
   });
 
   /// Eksik alanlı görsel çizilmez: yarım atıf, atıfsızlıktan farksız.
@@ -366,10 +396,50 @@ class DossierGorsel {
       kaynak: ham['kaynak']?.toString(),
       altTr: ham['alt_tr']?.toString() ?? '',
       altEn: ham['alt_en']?.toString() ?? '',
+      enBoy: (ham['en_boy'] as num?)?.toDouble() ?? 0,
+      kucuk: ham['kucuk']?.toString(),
     );
   }
 
   String alt(bool isEn) => isEn && altEn.isNotEmpty ? altEn : altTr;
+}
+
+/// Dosya sonundaki kare galerisi.
+///
+/// Kareler bölüm görselinin aynı kabından (`DossierGorsel`) geliyor: aynı
+/// zorunlu alanlar, aynı atıf kuralı. Galeride atıf GİZLENMİYOR — her karenin
+/// altında üreteni ve lisansı yazıyor, bölüm görselinde olduğu gibi.
+class DossierGaleri {
+  final String baslikTr;
+  final String baslikEn;
+
+  final List<DossierGorsel> kareler;
+
+  const DossierGaleri({
+    required this.baslikTr,
+    required this.baslikEn,
+    required this.kareler,
+  });
+
+  /// Karesiz galeri çizilmez: başlığı olup içi boş bir blok, hiç olmamasından
+  /// kötü. Eksik alanlı kare `DossierGorsel.fromJson`'da zaten eleniyor.
+  static DossierGaleri? fromJson(Object? ham) {
+    if (ham is! Map) return null;
+    final kareler = (ham['kareler'] as List?)
+            ?.map(DossierGorsel.fromJson)
+            .whereType<DossierGorsel>()
+            .toList() ??
+        const <DossierGorsel>[];
+    if (kareler.isEmpty) return null;
+    return DossierGaleri(
+      baslikTr: ham['baslik_tr']?.toString() ?? '',
+      baslikEn: ham['baslik_en']?.toString() ?? '',
+      kareler: kareler,
+    );
+  }
+
+  String baslik(bool isEn) =>
+      isEn && baslikEn.isNotEmpty ? baslikEn : baslikTr;
 }
 
 class DossierSection {
@@ -450,7 +520,7 @@ class DossierSection {
   /// Bölüm numarası "01", "02" biçiminde.
   String get ordLabel => ord.toString().padLeft(2, '0');
 
-  static const _turler = {'anlati', 'belge', 'veri', 'akis'};
+  static const _turler = {'anlati', 'belge', 'veri', 'akis', 'galeri'};
 
   static String _turVeya(Object? ham) {
     final t = ham?.toString();

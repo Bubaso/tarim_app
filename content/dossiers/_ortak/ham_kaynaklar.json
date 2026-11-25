@@ -2,9 +2,9 @@
  "_ne": "Depodan çıkarılan ham kaynakların kaydı. Dosyalar diskte duruyor, git izlemiyor. Bir dosyayı doğrulamak için sha256 karşılaştır.",
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
- "_tarih": "2026-11-12",
- "dosya_sayisi": 452,
- "toplam_bayt": 1094089975,
+ "_tarih": "2026-11-23",
+ "dosya_sayisi": 567,
+ "toplam_bayt": 1196028911,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1503,6 +1503,1271 @@
    "bayt": 730352,
    "sha256": "bb64bd2e26b3aeaee7c4b9157e33ba4b3cf75d0de184aaa6096616259cbb8689",
    "kaynak": null
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_adapazari.jpg",
+   "bayt": 317711,
+   "sha256": "8f2b1174422bab99140fa0d2b954049acddd7cde2b993e5ab2678c64b1abf5c2",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Adapazar%C4%B1_%C5%9Eeker_Farikas%C4%B1.jpg",
+    "atif": "Acar54",
+    "lisans": "CC BY-SA 3.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_alpullu_gar.jpg",
+   "bayt": 148078,
+   "sha256": "768b5d7f2528be0e032f5c4a9001e4b1f7be767309b6fddc01d6f42b9e4cfdbb",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Alpullu_gari.jpg",
+    "atif": "Ihsan Dolguner",
+    "lisans": "CC BY-SA 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_alpullu_istasyon_2026.jpg",
+   "bayt": 435811,
+   "sha256": "ce9ee45f3274c6905bc7df18ce6c998ea3fc1c610a2c3de5e837ad42e7775577",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Alpullu_Tren_%C4%B0stasyonu_2026-08-29_20.02.24_1788088213.jpg",
+    "atif": "Alicembasli",
+    "lisans": "CC BY-SA 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_alpullu_kopru_21.jpg",
+   "bayt": 179111,
+   "sha256": "60d466eee5df3e63d13f64807f89ca251b606e3fc6c665e1cf872590c9ed410a",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Alpullu_(near_Babaeski),_Sokollu_era_bridge_over_Ergene_(L48a-21,_1970s).jpg",
+    "atif": "Machiel Kiel",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_alpullu_kopru_22.jpg",
+   "bayt": 166769,
+   "sha256": "b52d362f17a2aba9a4eb3299257f949c50561bd7a914c40124ce766e5f33a5a8",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Alpullu_(near_Babaeski),_Sokollu_era_bridge_over_Ergene_(L48a-22,_1970s).jpg",
+    "atif": "Machiel Kiel",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_alpullu_peron.jpg",
+   "bayt": 418642,
+   "sha256": "fd1a2e3ff5d55908bcd1b40dfeb43901090cdabc46c4a1d726dc78de87d88a20",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:AlpulluTrainStation_(2).jpg",
+    "atif": "CeeGee",
+    "lisans": "CC BY-SA 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_alpullu_peron_2.jpg",
+   "bayt": 601852,
+   "sha256": "9e6132bda3e52b9189da5acd36371028076b5b8a4cce6d77d23cac6f8cae55f7",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:AlpulluTrainStation_(6).jpg",
+    "atif": "CeeGee",
+    "lisans": "CC BY-SA 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_enstitu.jpg",
+   "bayt": 192516,
+   "sha256": "0bf0837a7f044ca5851eddbc85fc544626c63cbecb9220b6134aaec445a7a373",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_eskisehir_1934.jpg",
+   "bayt": 214512,
+   "sha256": "d51e42263a913e002aad6d7e454bb85c07c298fa679e31aa895952d83a48c3e3",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Eskisehir-seker-fabrikasi-90inci-kurulus-yilini-kutluyor-r3gk_cover_(1).webp",
+    "atif": "Seltundo26",
+    "lisans": "CC BY-SA 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_eskisehir_2018.jpg",
+   "bayt": 128282,
+   "sha256": "dd84320b847a48d1b2554f17f6cc4bdfb80e35f6a32ac5bf6a8a4c8bf62b31c4",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Eski%C5%9Fehir_%C5%9Eeker_Fabrikas%C4%B1.jpg",
+    "atif": "Seltundo26",
+    "lisans": "CC BY-SA 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_eskisehir_kart.jpg",
+   "bayt": 38277,
+   "sha256": "1c19a1c5f7d01d3cef5fa54444cc443871ebe878d9922b33e884f97f44fa79ba",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Eski%C5%9Fehir-%C5%9Eeker-Fabrikas%C4%B1.jpg",
+    "atif": "Seltundo26",
+    "lisans": "CC BY-SA 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_etimesgut_cay.jpg",
+   "bayt": 322236,
+   "sha256": "88d5cd4d65f5f996df375b5baa1cbe1d782c960089f7926e604f2ef808d48981",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Etimesgut_Seker_Fabrikasi_Cay_Bahces%C4%B1_Yikimi_2026.jpg",
+    "atif": "Balışeyh71",
+    "lisans": "CC0",
+    "lisans_adresi": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_etimesgut_lojman.jpg",
+   "bayt": 365769,
+   "sha256": "833729249dbc217cc5e566e291da2f52ed4a53fce56ee343e9eb79f966644031",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Etimesgut_Seker_Fabrikasi_B_Tipi_Lojman_Yikimi_2026.jpg",
+    "atif": "Balışeyh71",
+    "lisans": "CC0",
+    "lisans_adresi": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_etimesgut_lojmanlar.jpg",
+   "bayt": 214528,
+   "sha256": "ed56b4330573093191baed582233c4bd2b113c763de6187eeed5bf0553462663",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Etimesgut_Seker_Fabrikasi_Lojmanlari_Yikimii_2026.jpg",
+    "atif": "Balışeyh71",
+    "lisans": "CC0",
+    "lisans_adresi": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_agri.jpg",
+   "bayt": 81879,
+   "sha256": "8c8182fb81c9c26f1409bbb44c9b4a835292d4b4e8c5367d07a92ea5064fd9b9",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_ankara.jpg",
+   "bayt": 95591,
+   "sha256": "57cbc266646c958bb1af7b6b62ce673b65c71fc3c96a2de25138ca2b73ddee36",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_burdur.jpg",
+   "bayt": 188997,
+   "sha256": "71d4e7e8da567c892d551042ed490c5f0ecb1b4036b236dbb6a71a17fbe70eab",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_elazig.jpg",
+   "bayt": 34719,
+   "sha256": "2cc40c14c467a61d92d8f157d91e6911096af7d237942ee096ac8935225a47d6",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_ercis.jpg",
+   "bayt": 48352,
+   "sha256": "32d85a6612a543842fc2e3f2eaa48a70d43f419951cb31e2fc84924404cd38c5",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_eregli.jpg",
+   "bayt": 123636,
+   "sha256": "f93ad15100ad2282e44a707f12f7b651a485615b8d402db8fe9f2a4ed7a6783f",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_eskisehir.jpg",
+   "bayt": 128282,
+   "sha256": "dd84320b847a48d1b2554f17f6cc4bdfb80e35f6a32ac5bf6a8a4c8bf62b31c4",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_ilgin.jpg",
+   "bayt": 112337,
+   "sha256": "d7e39cce31adbb59c1551aac4e9def769c02edd94eeac83aed5b266c95894bca",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_kars.jpg",
+   "bayt": 134329,
+   "sha256": "febcee3625e1244aa26983be7b146e785a45d2a2b5aa95cfa8256eb87c47a09e",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_kastamonu.jpg",
+   "bayt": 198151,
+   "sha256": "cb90de4ffcf7836b1a0c3b11ade5beacfe26d0a10a348c58101a08accaf3b5f7",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_malatya.jpg",
+   "bayt": 75775,
+   "sha256": "5810de2178f6aeb9764efcdd88512cc1d3d9aacedb2e88285a8604a132a642e0",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_susurluk.jpg",
+   "bayt": 102379,
+   "sha256": "a8844c96ea13a3b1a055bd64eec21d551d4c14232f67a46807490d2fcbe64e06",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_usak.jpg",
+   "bayt": 100090,
+   "sha256": "cf951fd1901aa6c2dcc50b8a72a18afb64336337b2a599af59adc738244cb651",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_fab_yozgat.jpg",
+   "bayt": 445190,
+   "sha256": "d94fd4d6252535837e297bdd2016474c404a712f9e9406120e6067e889f44550",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_mak_ankara.jpg",
+   "bayt": 450262,
+   "sha256": "c04ea7e5832d1f8fe896e04cf4b2a5d29d2b967081f86f05fc8958db77cbc065",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_mak_elektromekanik.jpg",
+   "bayt": 268520,
+   "sha256": "b78fb6fb21d372e5084d6498a172edf42d5508026f13ff538a723572b6fe4c90",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_mak_eskisehir.jpg",
+   "bayt": 362819,
+   "sha256": "0aee18a99594b4a80ac47e70a32d7bfb51b8dcc1a575fd7427448ccaad00e355",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_mak_turhal.jpg",
+   "bayt": 398618,
+   "sha256": "df1278d0f79f947d1fe238dad695935fb406e8cfab5da0f61ac201fcf31d3253",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=11&MenuID=57",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_alb_acilis.jpg",
+   "bayt": 293936,
+   "sha256": "d1cef4d751b9cf33f013d5c5f4713f8fa2eb4ac4d40f9d1a83e4bf6efca42896",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_alb_genel.jpg",
+   "bayt": 310506,
+   "sha256": "1ea8030af2d55c3fe247ab7915504396fd6410b4625501f2ed1afc86a6a01565",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_alb_ic1.jpg",
+   "bayt": 318814,
+   "sha256": "a2dd4c6dff2730b9ffbd6988debc49c11946fbbcfe2c04ee5c11859c1659b6ed",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_alb_ic2.jpg",
+   "bayt": 343345,
+   "sha256": "58ae4b30b2f4382109b77256aa51fc4916ad41d6f4a17a4d0d92a38c4687dc3d",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_alb_ic3.jpg",
+   "bayt": 320866,
+   "sha256": "76d78128d751dbe454191b0b3870e6847f6e8a3539e1ebb23ef39e67c92b810a",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_alb_ispirto.jpg",
+   "bayt": 296077,
+   "sha256": "9ff48644541f8b65d84f915d4993dab7f2282e9c0b922b07ec9ccbf0eb295f6e",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_alb_istasyon.jpg",
+   "bayt": 303241,
+   "sha256": "32f82c3c07dd6b76ba6eb31c587ec0d6b4d1b919fea6e3a32864a70fe7e598e4",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_alb_kapak.jpg",
+   "bayt": 361781,
+   "sha256": "3515398296b9e777cb3e6281cd3c47a0fdb7b02dc7e13fb6fe5946fd5f43ac6a",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_alb_kusat.jpg",
+   "bayt": 323991,
+   "sha256": "65ef067110bb8ce73aaca1328aaf6134cf9cad7933d79ee6a45f59012b61ecee",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_alb_laboratuvar.jpg",
+   "bayt": 308222,
+   "sha256": "e5066f6545d3654fd12c9ceb347f37e5d9fd4efa3610cb3daa8472e7b1c0b249",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_alb_pancar.jpg",
+   "bayt": 285223,
+   "sha256": "db85f992c5ca5cac154c9018119c3837ce6a22546b83eef7a6b3bb982a40a052",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_alb_personel.jpg",
+   "bayt": 283968,
+   "sha256": "b2d309d139669220cd6ba218cf22b79e6efe33e93c6faedad396acaf6da812a9",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_alb_personel2.jpg",
+   "bayt": 303179,
+   "sha256": "f48817d82a9168b5789446ab3c87562accded8b78665ac9330381230e6f0d1c6",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_eskisehir.jpg",
+   "bayt": 255204,
+   "sha256": "018964aabbe4bda2be80e32b2ae4d85fb324198a84749b6fb700aa8ed07ef26c",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/236467",
+    "atif": "Eskişehir Şeker Fabrikası çizimi · AHESK033 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_etim_1.jpg",
+   "bayt": 325057,
+   "sha256": "2b69c3cb007ca4eae1a82a913e3013a27f7de7c0ef4817421653112fc544ddae",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/215423",
+    "atif": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar · Ali Mukbil Gökdoğan · TMGH007 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_etim_2.jpg",
+   "bayt": 321410,
+   "sha256": "cd07d04e902b2761c255abb590d306df5de23dcc7dfe151c3e96089e4a76f5a2",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/215423",
+    "atif": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar · Ali Mukbil Gökdoğan · TMGH007 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_etim_3.jpg",
+   "bayt": 338887,
+   "sha256": "c7749cd8e0eeec74144e6f6df08314f33e7a3140f00771a009e5e4e0e80ad9d6",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/215423",
+    "atif": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar · Ali Mukbil Gökdoğan · TMGH007 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_etim_4.jpg",
+   "bayt": 338852,
+   "sha256": "85161b0905508f617d0f834cfabdf467064a2197f78e9a0ac16bac269b6f0e1b",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/215423",
+    "atif": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar · Ali Mukbil Gökdoğan · TMGH007 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_etim_5.jpg",
+   "bayt": 303481,
+   "sha256": "b9e5b5037cf59195a81bfe27b3ec42221f510109592b25338027f98d1f8d6a4d",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/215423",
+    "atif": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar · Ali Mukbil Gökdoğan · TMGH007 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_etim_6.jpg",
+   "bayt": 344729,
+   "sha256": "d992a0d605893401ab243d6279fb3ee0b96b92917bd525e9220cae637b226114",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/215423",
+    "atif": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar · Ali Mukbil Gökdoğan · TMGH007 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_etim_7.jpg",
+   "bayt": 245587,
+   "sha256": "593abe3f2740358c493d0413b117dc806cb41f8eab6c521695aa2c189ce1c39a",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/215423",
+    "atif": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar · Ali Mukbil Gökdoğan · TMGH007 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_etim_fabrika.jpg",
+   "bayt": 376245,
+   "sha256": "42496504979070e8bcc74f3d332f0e28e727f3f767721d0408f6007ec243afc3",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/196860",
+    "atif": "Etimesgut Şeker Fabrikası · AHANKA191 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_hasat.jpg",
+   "bayt": 347753,
+   "sha256": "2ab4a8788e4c654f6b1ce7995443bf21cee6a54e329077005a65ecba7d39c99f",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/196846",
+    "atif": "Şeker pancarı tarlasında hasat yapılırken · AFDIVH215 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_hasat_mektup.jpg",
+   "bayt": 367146,
+   "sha256": "07b3f151c26379d91d6861c7c75ae9a4ebbad3a072bbd2e635155b6751eba9f7",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/196846",
+    "atif": "Şeker pancarı tarlasında hasat yapılırken · AFDIVH215 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_silo.jpg",
+   "bayt": 385028,
+   "sha256": "9b920bc01ef541ba3a0291a0a87ab7877704992a745d4b6d369051abac39269e",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/208326",
+    "atif": "Alpullu Şeker Fabrikası · AHKIR008 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_silo_arka.jpg",
+   "bayt": 225906,
+   "sha256": "8d03de5edb6ff6fd15f60a35dc612c838bbce171053913dd349554d3822bb8a3",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/208326",
+    "atif": "Alpullu Şeker Fabrikası · AHKIR008 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_turhal.jpg",
+   "bayt": 308161,
+   "sha256": "4e46fb76ce0c34fa6d00002e8ec0b6abc630d285f854c9b013ea6a8bc5ed2b7c",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/105027",
+    "atif": "Turhal Şeker Fabrikası · AHTOK001 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_usak_avlu.jpg",
+   "bayt": 294442,
+   "sha256": "bf00af0835a051f4c0c3590146674b7144db552661aaaba9d3b04cdbf4032117",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/97324",
+    "atif": "Uşak Şeker Fabrikası · AHUSA004 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_usak_genel.jpg",
+   "bayt": 272860,
+   "sha256": "9c3c78debd4055c52d2e8870d21d6857bd0664f25dff9535519a229b6f405f54",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/97324",
+    "atif": "Uşak Şeker Fabrikası · AHUSA004 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_usak_havuz.jpg",
+   "bayt": 299810,
+   "sha256": "243ab898d98adf45b5ca8a4d4ef9f1f138fbbb0898501d247f91cc1eb0c33316",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/117021",
+    "atif": "Uşak Şeker Fabrikası Sosyal Tesisleri · AHUSA002 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_usak_kart.jpg",
+   "bayt": 302511,
+   "sha256": "611f2db8b8e624d3fe4296bef7b99db7e535efc2b364c18f7a2c1146c99e5e8c",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/116005",
+    "atif": "Uşak Şeker Fabrikası · AHUSA001 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_usak_makine.jpg",
+   "bayt": 337917,
+   "sha256": "8c935bc211802c1d4e1b3cdc5a9df08ccf75bf1c07fe950b2ba8a8b8bef1df9c",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/196979",
+    "atif": "Uşak Şeker Fabrikası'nın makine dairesi · AHUSA008 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_usak_makine_isci.jpg",
+   "bayt": 344281,
+   "sha256": "ed6758e3dd41fad5215ad741bfec632ec237e836b1f62cb6a964ae51ea54d4a7",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/196978",
+    "atif": "Uşak Şeker Fabrikası'nın makine dairesi ve çalışanları · AHUSA007 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_usak_pancar.jpg",
+   "bayt": 340087,
+   "sha256": "33acc43395f83783d76f98d8d483ccbe3325cef41e4b099fe179aee9d16a6ebb",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/103306",
+    "atif": "Uşak Şeker Fabrikası · AHUSA003 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_usak_salon1.jpg",
+   "bayt": 367887,
+   "sha256": "af10b90368530811582fed1d80915bf3b08fd64dab5a38e7b6fef6fcefb2b9be",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/97324",
+    "atif": "Uşak Şeker Fabrikası · AHUSA004 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_usak_salon2.jpg",
+   "bayt": 312048,
+   "sha256": "3f78970058b49e0327d706a19cec89cf3734ea1bc58d48c95a2f958de2d7699f",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/97324",
+    "atif": "Uşak Şeker Fabrikası · AHUSA004 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_usak_salon3.jpg",
+   "bayt": 344690,
+   "sha256": "6ea3a6f30a6b7a8322beba1ba283c4863d6d35c333ab4643bc79a17c5b5c3b60",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/97324",
+    "atif": "Uşak Şeker Fabrikası · AHUSA004 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_salt_vagon.jpg",
+   "bayt": 274078,
+   "sha256": "9595107b8739cb517e94b50a6d30e7ba1295d2ee09d94f2619c1c33d34f7d56f",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/196977",
+    "atif": "Uşak Şeker Fabrikası'na gelen şeker pancarları vagonlardan aktarılırken · AHUSA006 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_seker_sokak_1.jpg",
+   "bayt": 389439,
+   "sha256": "4aa82e2f9897f519449a4a8aba5377e3ffd41e502e1c44bf5625566631b5fff3",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Eski%C5%9Fehir_%C5%9Eeker_Sokak_area_Old_situation_in_2007_1780.jpg",
+    "atif": "Dosseman",
+    "lisans": "CC BY-SA 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_seker_sokak_2.jpg",
+   "bayt": 502482,
+   "sha256": "41880b128c2658b1cefca77134ebd5ba45673c9729cb601250d0c6448a136dfb",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Eski%C5%9Fehir_%C5%9Eeker_Sokak_area_Old_situation_in_2007_1782.jpg",
+    "atif": "Dosseman",
+    "lisans": "CC BY-SA 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_seker_sokak_3.jpg",
+   "bayt": 432744,
+   "sha256": "58eca643b4928dcd9e3203075c28caa29f426bba9aaca318fe1dc87435c521aa",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Eski%C5%9Fehir_%C5%9Eeker_Sokak_area_Old_situation_in_2007_1785.jpg",
+    "atif": "Dosseman",
+    "lisans": "CC BY-SA 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_turhal_istasyon_1930.jpg",
+   "bayt": 28734,
+   "sha256": "6f221affbd25a1394467938835a5aa01786e3297539fb4c64b26707330686a05",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Atat%C3%BCrk_1930_Turhal_%C4%B0stasyonu.jpg",
+    "atif": "Unknown photographer",
+    "lisans": "Public domain",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/galeri_turhal_ziyaret_1930.jpg",
+   "bayt": 27138,
+   "sha256": "104f9dcedcdedb80839307a40f9f9a7f998c49acf3e4899db63dd2591e530459",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Atat%C3%BCrk_1930_Turhal.jpg",
+    "atif": "Unknown photographer",
+    "lisans": "Public domain",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_alpullu_1928.jpg",
+   "bayt": 623109,
+   "sha256": "1774fbc2bf9b6538e88d9f459b9797c2519eccfc310885a3dfb1d558ac63355a",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:AHTURAL013006.jpg",
+    "atif": "Unknown author",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_ankara.jpg",
+   "bayt": 709929,
+   "sha256": "7613451eedc8258831f1f5a7b1edad8dfc06c855e2af56d31c48a65ab62c8b1b",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:T%C3%BCrkiye_%C5%9Feker_fabrikalar%C4%B1.jpg",
+    "atif": "Vikiçizer",
+    "lisans": "CC BY-SA 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_bogazliyan.jpg",
+   "bayt": 39427,
+   "sha256": "1b1894e497778ef3638312f3ddfe717f2ca60d789e032e02cf5184d578246535",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Bogazliyan_sugar_factory_(Turkey).jpg",
+    "atif": "JFLM",
+    "lisans": "Public domain",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_chino_1906.jpg",
+   "bayt": 601644,
+   "sha256": "9dec6b27bdc530c6eba3b57404201954f4a5b96697d0e5ecea94066ccac6efce",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Sugar_factory_in_Chino,_California,_ca.1906_(CHS-1663).jpg",
+    "atif": "Rieder, M.",
+    "lisans": "Public domain",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_erzurum.jpg",
+   "bayt": 836435,
+   "sha256": "91abbb5f39f75545772f30b13c060f4b8332fb97560f10d365fcb3ea60e511b8",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Erzurum_%C5%9Eeker_Fabrikas%C4%B1_Giri%C5%9F.jpg",
+    "atif": "Eğitmen Mahmut",
+    "lisans": "CC BY-SA 3.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_eskisehir.jpg",
+   "bayt": 186751,
+   "sha256": "b2e0327dc4be19063f84fe296948924e4071d2ee35556cc5a85bd2015dc06f3d",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Eskisehirseker.jpg",
+    "atif": "Aycan at Turkish Wikipedia",
+    "lisans": "CC BY-SA 3.0",
+    "lisans_adresi": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_gm_binasi.jpg",
+   "bayt": 1153179,
+   "sha256": "98e3497b1aa3e819d729adc9f81dd8332b3ae321b0105dde13dbcca389b9a6e4",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_misir_tesisi.jpg",
+   "bayt": 327867,
+   "sha256": "1a6e520c06f942dfeea70ae8cb0117157b11b46a003662cafcb4c031e9c9b1ed",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:ADM_corn_plant_(Columbus,_Nebraska).JPG",
+    "atif": "Ammodramus",
+    "lisans": "Public domain",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_pancar.jpg",
+   "bayt": 200534,
+   "sha256": "1a7475d9cf1751d27786f593f8bb60947f1f32a256fcbf95bdc04db5efa8c169",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Pancar_.jpg",
+    "atif": "Okt154",
+    "lisans": "CC BY-SA 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_pancar_kiyim.jpg",
+   "bayt": 608183,
+   "sha256": "ec3158605c40db64030c3b85d1b8337a4aff526071fe82700ef64fa608eddd82",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Sugar_beet_cossettes.jpg",
+    "atif": "Sandstein",
+    "lisans": "CC BY-SA 3.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_pancar_tarla.jpg",
+   "bayt": 1070661,
+   "sha256": "7ed08a798ca91b255fb91eec6da113dd568633fee6c053aa672004852964a2dc",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Beta_vulgaris_subsp._vulgaris_var._altissima_drought_(04).jpg",
+    "atif": "Rasbak",
+    "lisans": "CC BY-SA 3.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s06_makine.jpg",
+   "bayt": 342984,
+   "sha256": "edb3d474e917809fb37498a443365ae7e00c26e4f5cf0f451e9ec415958f1d0a",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s06_tanker.jpg",
+   "bayt": 471710,
+   "sha256": "04ba31c49997c129462393fd017157d7a0a44207369213a7bf6d8f17d1011919",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5134",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s07_ozbekistan.jpg",
+   "bayt": 342796,
+   "sha256": "088a50cace85ee5fa24f32d4f57d838e7913514d76f60d1a77f29ff65b58f2ea",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s11_tohum.jpg",
+   "bayt": 334890,
+   "sha256": "4226223e1559e2b6aaf7f45e22db2b08ca58fbf590fe7a18fd810e59dfe9977c",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s11_tohum_el.jpg",
+   "bayt": 274050,
+   "sha256": "20cd35354a7d8b62a90edd4fffb04b1c44d252a644c48962939b947bcd10732a",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=71",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s14_haymana.jpg",
+   "bayt": 404789,
+   "sha256": "4fde3cdc1b13d06d57945e4e305d547d328716d1c15fdd21bf8bc4ab60f0a823",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5132",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s14_uydu.jpg",
+   "bayt": 319517,
+   "sha256": "e188aedf8921ab23c9442144723ebb6c9ca42cb5b8a57961a60178b1dc78fb32",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/97324",
+    "atif": "Uşak Şeker Fabrikası · AHUSA004 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s17_kampanya.jpg",
+   "bayt": 335998,
+   "sha256": "eef3a877cc50d43b56fcc3bfdd8ddf69b49f53e19bb127d1eb6e7b7a055daac7",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/97324",
+    "atif": "Uşak Şeker Fabrikası · AHUSA004 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s18_burdur.jpg",
+   "bayt": 181491,
+   "sha256": "5bb799a9fea6a99587669b5356e72f3e243e9189c1d24c86611603b2c5807888",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5150",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s18_yatirim.jpg",
+   "bayt": 339898,
+   "sha256": "cb5d53693261db5ae444be89277d8814e30b5c75aaa2dae3a10232a7ee2df667",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/97324",
+    "atif": "Uşak Şeker Fabrikası · AHUSA004 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s19_yanurun.jpg",
+   "bayt": 355385,
+   "sha256": "4175212e8399910146b6ef82525677c22e8859beabc1ef61877138cad7da3bfa",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s20_enerji.jpg",
+   "bayt": 319526,
+   "sha256": "875a62076edb0ecbc62a4b11ae7a1f65d6671c2010592ceeb3e02f7c78344200",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s20_ercis_ges.jpg",
+   "bayt": 506424,
+   "sha256": "c869d0db06465656b7e36313f31e5debf6925a81a1edb78f22ab868414f461c7",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5151",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s21_deprem.jpg",
+   "bayt": 314837,
+   "sha256": "0433bc3281930a01a672b19892c459e993b3061ef924dc2c0248eeb1212cdd9c",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s21_malatya.jpg",
+   "bayt": 376374,
+   "sha256": "4649b41f0201535010ce66de8e4ce573698fdda43d6b5ca5f3ba3184ee32397d",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5135",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s22_ekonomi.jpg",
+   "bayt": 331333,
+   "sha256": "721ba84c99c2eeb1f2d8a12a58be27d5dfca8b71c61df121242e4642142893e8",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s24_yerleske.jpg",
+   "bayt": 327672,
+   "sha256": "8e5df4282d9cbc18d9e19e2a0bce3f9cbc46ccf0419206d6a27ed94f47f47116",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/215423",
+    "atif": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar · Ali Mukbil Gökdoğan · TMGH007 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s25_rolyef.jpg",
+   "bayt": 298602,
+   "sha256": "9c342c7ffa8fdde5822fccdabb017cf75d7ca01b8e522e284d76a6527b74f393",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/105027",
+    "atif": "Turhal Şeker Fabrikası · AHTOK001 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s25_rolyef_teslim.jpg",
+   "bayt": 314258,
+   "sha256": "50bca405e3973deb649a5b2ce230458442221b4ba0424ba56affc333a96bb198",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/?ModulID=1&MenuID=53&ID=5127",
+    "atif": "Türkiye Şeker Fabrikaları A.Ş.",
+    "lisans": "Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_s26_turbin.jpg",
+   "bayt": 327206,
+   "sha256": "96fe45122d01e381af04a0f02a1a1f62636de04c28c5c769dd41efa0278c33a9",
+   "kaynak": {
+    "adres": "https://archives.saltresearch.org/handle/123456789/195731",
+    "atif": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları · 1928-1929 · AHTURAL013 · Salt Araştırma · CC BY-NC-ND 4.0",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.tr"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_usak_disaridan.jpg",
+   "bayt": 170124,
+   "sha256": "7350f6eaad46b36d907d14eab6efca1f489fb73b98ea00782a7b5208d4b26e25",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:U%C5%9Fak_%C5%9Eeker_Fabrikas%C4%B1_Kurulu%C5%9Fdaki_Resmi.jpg",
+    "atif": "The original uploader was chansey at Turkish Wikipedia",
+    "lisans": "CC0",
+    "lisans_adresi": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_usak_hisse.jpg",
+   "bayt": 1362311,
+   "sha256": "ce4e32d2b7c2bce062482b4801616adf7ab38206e963b3b8df4b89a4755b916c",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:U%C5%9Fak_%C5%9Eeker_Fabrikas%C4%B1_Hisse_Senedi.JPG",
+    "atif": "Maderibeyza",
+    "lisans": "Public domain",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_usak_ic.jpg",
+   "bayt": 186637,
+   "sha256": "6420e79ec34f669a9dde09a25d3a27b798ed496ef037162a4a632810c660c783",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:U%C5%9Fak_%C5%9Eeker_Fabrikas%C4%B1_Kurulu%C5%9F_%C4%B0%C3%A7_B%C3%B6l%C3%BCm.jpg",
+    "atif": "The original uploader was chansey at Turkish Wikipedia",
+    "lisans": "CC0",
+    "lisans_adresi": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/gorseller/turkseker_usak_kurucular.jpg",
+   "bayt": 545562,
+   "sha256": "9c16380223a6bbbdd0ebd955b3fae4292e73c964014b8f85ef2f762f3c69dfee",
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:U%C5%9Fak_%C5%9Eeker_Fabrikas%C4%B1_Kurucular%C4%B1.jpg",
+    "atif": "The original uploader was chansey at Turkish Wikipedia",
+    "lisans": "CC0",
+    "lisans_adresi": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/kaynak_dosyalari/ana_statu.pdf",
+   "bayt": 2364347,
+   "sha256": "15e422c8650e531006ab9b85f60d3e9739d95448edddf6d335b6513554ec5fcc",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/data/dokumanlar/Ana_Statu.pdf",
+    "atif": "TÜRKŞEKER (Türkiye Şeker Fabrikaları A.Ş.)",
+    "lisans": "Kamu kurumu yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/kaynak_dosyalari/seker_kanunu_4634.pdf",
+   "bayt": 237129,
+   "sha256": "e8924cf7583bc3262e40212e1feefc3c784d2a2d46e05febd492548be2909a99",
+   "kaynak": {
+    "adres": "https://www.mevzuat.gov.tr/MevzuatMetin/1.5.4634.pdf",
+    "atif": "T.C. Resmî Gazete",
+    "lisans": "Mevzuat",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/kaynak_dosyalari/sektor_raporu_2025.pdf",
+   "bayt": 2441031,
+   "sha256": "c8178fed60420e29c2033b408f77530b7dbbf099b9ff41752b39804479daf311",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/data/dokumanlar/2025_sektor_raporu.pdf",
+    "atif": "TÜRKŞEKER (Türkiye Şeker Fabrikaları A.Ş.)",
+    "lisans": "Kamu kurumu yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/kaynak_dosyalari/stratejik_plan_2024.pdf",
+   "bayt": 45269848,
+   "sha256": "efcc2d25f4f1c990cf190698a048abcda06d12d807f10b5b1cc2865fb69c32cd",
+   "kaynak": {
+    "adres": "https://www.turkseker.gov.tr/Belgeler/stratejik_plan_12_09_2024_v4.pdf",
+    "atif": "TÜRKŞEKER (Türkiye Şeker Fabrikaları A.Ş.)",
+    "lisans": "Kamu kurumu yayını",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/dossiers/turkseker/_raw/x/psd_sugar.csv",
+   "bayt": 15682725,
+   "sha256": "7505feb6eef8e22ad5416d29991f51e60cff72d0f966b919126ab5436e066c76",
+   "kaynak": {
+    "adres": "https://apps.fas.usda.gov/psdonline/downloads/psd_sugar_csv.zip",
+    "atif": "USDA Foreign Agricultural Service",
+    "lisans": "Kamu malı (ABD federal kurumu)",
+    "lisans_adresi": null
+   }
   },
   {
    "yol": "content/dossiers/ziraat-bankasi/_raw/faaliyet_2021.pdf",
@@ -5020,5 +6285,6 @@
     "kaynak": null
    }
   ]
- }
+ },
+ "kaynak_nesnesi_var_adresi_yok": 41
 }

@@ -1,0 +1,122 @@
+{
+  "_dosya": "SALT Araştırma — Türkşeker galerisi için indirme listesi",
+  "_lisans": "SALT Araştırma kullanım şartları (archives.saltresearch.org/salt/info_rights.jsp): CC BY-NC-ND 4.0. Üç koşul — ilk sahibin belirtilmesi, TİCARİ ORTAMDA KULLANILMAMASI, belgeye müdahale edilmemesi. Kullanıcı 23 Kasım 2026'da portalın ticari olmadığını bildirdi; NC koşulu bu beyana dayanıyor.",
+  "_kredi_bicimi": "Salt Araştırma — her kaydın kendi kredisi kayıt sayfasında.",
+  "_nd_notu": "ND maddesi KIRPMAYI yasaklıyor. Ölçü küçültme (biçim değişikliği) türev sayılmıyor; hattaki 1600 px tavanı bu yüzden sorun değil. Galeri ızgarası göz içinde görsel olarak kırpıyor ama DOSYA değişmiyor ve tam ekran görünüm karenin tamamını gösteriyor.",
+  "_engel": "archives.saltresearch.org Cloudflare arkasında: curl hem sayfalara hem bitstream adreslerine HTTP 403 alıyor. Katalog tarayıcı bölmesinden okundu. İndirme için ya tarayıcı ya da kullanıcının kendi makinesi gerekiyor.",
+  "_toplam": 91,
+  "kalemler": [
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/195731",
+      "ad": "Alpullu albümü — İstanbul ve Trakya Şeker Fabrikaları T.A.Ş., Alpullu Şeker ve İspirto Fabrikaları",
+      "kod": "AHTURAL013",
+      "tarih": "1928-12-28; 1929",
+      "dosya_sayisi": 45,
+      "haklar": "Open Access"
+    },
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/215423",
+      "ad": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar",
+      "kod": "TMGH007",
+      "tarih": null,
+      "dosya_sayisi": 16,
+      "haklar": "Open Access"
+    },
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/97324",
+      "ad": "Uşak Şeker Fabrikası albümü",
+      "kod": "AHUSA004",
+      "tarih": null,
+      "dosya_sayisi": 8,
+      "haklar": "Open Access"
+    },
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/117021",
+      "ad": "Uşak Şeker Fabrikası Sosyal Tesisleri",
+      "kod": "AHUSA002",
+      "tarih": null,
+      "dosya_sayisi": 4,
+      "haklar": "Open Access"
+    },
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/103306",
+      "ad": "Uşak Şeker Fabrikası",
+      "kod": "AHUSA003",
+      "tarih": null,
+      "dosya_sayisi": 2,
+      "haklar": "Open Access"
+    },
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/105027",
+      "ad": "Turhal Şeker Fabrikası",
+      "kod": "AHTOK001",
+      "tarih": null,
+      "dosya_sayisi": 2,
+      "haklar": "Open Access"
+    },
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/116005",
+      "ad": "Uşak Şeker Fabrikası",
+      "kod": "AHUSA001",
+      "tarih": null,
+      "dosya_sayisi": 2,
+      "haklar": "Open Access"
+    },
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/196846",
+      "ad": "Şeker pancarı tarlasında hasat yapılırken",
+      "kod": "AFDIVH215",
+      "tarih": null,
+      "dosya_sayisi": 2,
+      "haklar": "Open Access"
+    },
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/196860",
+      "ad": "Etimesgut Şeker Fabrikası",
+      "kod": "AHANKA191",
+      "tarih": null,
+      "dosya_sayisi": 2,
+      "haklar": "Open Access"
+    },
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/196978",
+      "ad": "Uşak Şeker Fabrikası'nın makine dairesi ve çalışanları",
+      "kod": "AHUSA007",
+      "tarih": null,
+      "dosya_sayisi": 2,
+      "haklar": "Open Access"
+    },
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/196979",
+      "ad": "Uşak Şeker Fabrikası'nın makine dairesi",
+      "kod": "AHUSA008",
+      "tarih": null,
+      "dosya_sayisi": 2,
+      "haklar": "Open Access"
+    },
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/208326",
+      "ad": "Alpullu Şeker Fabrikası",
+      "kod": "AHKIR008",
+      "tarih": null,
+      "dosya_sayisi": 2,
+      "haklar": "Open Access"
+    },
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/196977",
+      "ad": "Uşak Şeker Fabrikası'na gelen şeker pancarları vagonlardan aktarılırken",
+      "kod": "AHUSA006",
+      "tarih": null,
+      "dosya_sayisi": 1,
+      "haklar": "Open Access"
+    },
+    {
+      "handle": "https://archives.saltresearch.org/handle/123456789/236467",
+      "ad": "Eskişehir Şeker Fabrikası çizimi",
+      "kod": "AHESK033",
+      "tarih": null,
+      "dosya_sayisi": 1,
+      "haklar": "Open Access"
+    }
+  ]
+}

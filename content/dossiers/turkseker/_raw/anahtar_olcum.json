@@ -1,0 +1,117 @@
+{
+  "_olcum": "1555 yayımlanmış haber",
+  "_kural": "terim_geciyor · eşik 2",
+  "sonuc": {
+    "TÜRKŞEKER": {
+      "baslik": 27,
+      "seo": 37,
+      "ozet_spot": 27,
+      "toplam_eslesme": 37,
+      "ornekler": [
+        "TÜRKŞEKER Ilgın Şeker Fabrikasına 3,7 milyar liralık yatırım planlıyor",
+        "Burdur Şeker Fabrikası'ndaki alım gecikmeleri Ankara'ya taşındı",
+        "TÜRKŞEKER Aksaray heyetiyle pancar üretimini görüştü"
+      ]
+    },
+    "Türkiye Şeker Fabrikaları": {
+      "baslik": 0,
+      "seo": 1,
+      "ozet_spot": 1,
+      "toplam_eslesme": 2,
+      "ornekler": [
+        "TÜRKŞEKER Ankara fabrikasında 65. Üretim kampanyasını başlattı",
+        "Türkiye şeker sektöründe yüzyıllık üretim serüveni"
+      ]
+    },
+    "şeker pancarı": {
+      "baslik": 3,
+      "seo": 41,
+      "ozet_spot": 14,
+      "toplam_eslesme": 42,
+      "ornekler": [
+        "TÜRKŞEKER Ilgın Şeker Fabrikasına 3,7 milyar liralık yatırım planlıyor",
+        "Burdur Şeker Fabrikası'ndaki alım gecikmeleri Ankara'ya taşındı",
+        "TÜRKŞEKER Aksaray heyetiyle pancar üretimini görüştü"
+      ]
+    },
+    "pancar üreticisi": {
+      "baslik": 1,
+      "seo": 4,
+      "ozet_spot": 0,
+      "toplam_eslesme": 5,
+      "ornekler": [
+        "Pancar üreticilerine 952 milyon liralık avans ödemesi yapıldı",
+        "Pancar üreticisine 952 milyon liralık avans aktarıldı",
+        "TÜRKŞEKER pancar üreticilerine 952 milyon lira ödedi"
+      ]
+    },
+    "şeker kotası": {
+      "baslik": 0,
+      "seo": 3,
+      "ozet_spot": 0,
+      "toplam_eslesme": 3,
+      "ornekler": [
+        "PANKOBİRLİK şeker üretiminde 2,8 milyon ton bekliyor",
+        "Bor şeker Adapazarı fabrikasını 50 milyon dolara devraldı",
+        "Türkiye şeker sektöründe yüzyıllık üretim serüveni"
+      ]
+    },
+    "Alpullu": {
+      "baslik": 0,
+      "seo": 0,
+      "ozet_spot": 0,
+      "toplam_eslesme": 0,
+      "ornekler": []
+    },
+    "nişasta bazlı şeker": {
+      "baslik": 0,
+      "seo": 2,
+      "ozet_spot": 1,
+      "toplam_eslesme": 2,
+      "ornekler": [
+        "Şeker pancarında hasat öncesi taban fiyat beklentisi arttı",
+        "Yüksek fruktozlu mısır şurubu tüketimi sağlık risklerini artırıyor"
+      ]
+    },
+    "Şeker Kurumu": {
+      "baslik": 0,
+      "seo": 0,
+      "ozet_spot": 0,
+      "toplam_eslesme": 0,
+      "ornekler": []
+    },
+    "şeker": {
+      "baslik": 22,
+      "seo": 56,
+      "ozet_spot": 58,
+      "toplam_eslesme": 65,
+      "ornekler": [
+        "Güçlenen dolar küresel tarım emtialarında sert satış getirdi",
+        "TÜRKŞEKER Ilgın Şeker Fabrikasına 3,7 milyar liralık yatırım planlıyor",
+        "Burdur Şeker Fabrikası'ndaki alım gecikmeleri Ankara'ya taşındı"
+      ]
+    },
+    "pancar": {
+      "baslik": 16,
+      "seo": 27,
+      "ozet_spot": 25,
+      "toplam_eslesme": 38,
+      "ornekler": [
+        "Burdur Şeker Fabrikası'ndaki alım gecikmeleri Ankara'ya taşındı",
+        "TÜRKŞEKER Aksaray heyetiyle pancar üretimini görüştü",
+        "TÜRKŞEKER pancar üreticisine sağlanan finansal destekleri açıkladı"
+      ]
+    },
+    "Şeker Fabrikası": {
+      "baslik": 5,
+      "seo": 23,
+      "ozet_spot": 17,
+      "toplam_eslesme": 23,
+      "ornekler": [
+        "TÜRKŞEKER Ilgın Şeker Fabrikasına 3,7 milyar liralık yatırım planlıyor",
+        "Burdur Şeker Fabrikası'ndaki alım gecikmeleri Ankara'ya taşındı",
+        "TÜRKŞEKER Burdur Şeker Fabrikası'nda 30 yıllık revizyonu değerlendirdi"
+      ]
+    }
+  }
+}

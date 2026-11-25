@@ -19,6 +19,7 @@ import '../../data/models/dossier_theme.dart';
 import '../../providers/dossier_providers.dart';
 import '../widgets/dossier_chart_view.dart';
 import '../widgets/dossier_contents_sheet.dart';
+import '../widgets/dossier_galeri.dart';
 import '../widgets/dossier_prose.dart';
 import '../widgets/dossier_reveal.dart';
 import '../widgets/diger_dosyalar.dart';
@@ -398,6 +399,9 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
                         key: _bolumAnahtari.putIfAbsent(i, GlobalKey.new),
                         bolum: bolumler[i],
                         grafikler: dosya.chartsFor(bolumler[i]),
+                        // Galeri yalnızca türü `galeri` olan bölümde çiziliyor;
+                        // ötekilerde null geçiyor ve blok hiç kurulmuyor.
+                        galeri: bolumler[i].tur == 'galeri' ? dosya.galeri : null,
                         tema: tema,
                         isEn: isEn,
                         olcek: olcek,
@@ -923,10 +927,15 @@ class _Bolum extends StatelessWidget {
     required this.olcek,
     required this.sonuncu,
     required this.toplamBolum,
+    this.galeri,
   });
 
   final DossierSection bolum;
   final List<DossierChart> grafikler;
+
+  /// Dosya sonundaki kare galerisi — yalnızca türü `galeri` olan bölümde
+  /// dolu geliyor. Bölümün metni galeriyi AÇIYOR, yerini almıyor.
+  final DossierGaleri? galeri;
   final DossierTheme tema;
   final bool isEn;
   final double olcek;
@@ -1006,6 +1015,16 @@ class _Bolum extends StatelessWidget {
                 ),
           ),
         ),
+        // Galeri oluğu kırıyor: otuz beş kare 720 px'te iki sütuna sıkışıyor
+        // ve masaüstünde ızgara, yanındaki metinden dar kalıyordu. 1040,
+        // `veri` bölümlerindeki grafiklerin genişliğiyle aynı — sayfada
+        // zaten bilinen bir kırılma noktası, yenisi açılmıyor.
+        if (galeri != null)
+          _Oluk(
+            genislik: 1040,
+            child: DossierGaleriBlogu(
+                galeri: galeri!, tema: tema, isEn: isEn),
+          ),
         if (grafikler.isNotEmpty)
           _Oluk(
             genislik: bolum.genisVeri ? 1040 : 720,
@@ -1074,8 +1093,15 @@ class _BolumGorseli extends StatelessWidget {
             // Kare değil, 4:3 pencere. Uydu görselleri kare geliyor ve tam
             // kare bir blok 720 px olukta ekranın tamamını yiyip metni
             // aşağı itiyordu; kırpma kompozisyonu koruyor.
+            //
+            // PANORAMİK KARE MUAF. 12. bölümün karesi 2,82:1 bir afiş ve
+            // 4:3'e kırpıldığında yarısından çoğu — binanın iki kanadı —
+            // dışarıda kalıyordu. Eşik 2:1: bunun altındaki hiçbir kare
+            // etkilenmiyor (dosyadaki en geniş öteki kare 1,45) ve 4:3
+            // kararı olduğu gibi duruyor. Geniş kare 4:3'ten ALÇAK olduğu
+            // için metni de aşağı itmiyor.
             AspectRatio(
-              aspectRatio: 4 / 3,
+              aspectRatio: gorsel.enBoy >= 2.0 ? gorsel.enBoy : 4 / 3,
               child: ColoredBox(
                 color: tema.yuzey,
                 // NewsArticleImage DEĞİL: o, yüklenirken sonsuz bir shimmer

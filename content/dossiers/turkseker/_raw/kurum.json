@@ -1,0 +1,94 @@
+{
+  "_kaynak": "TÜRKŞEKER, 2024-2028 Stratejik Plan — Tablo 17 (s. 49) ve Tablo 21 (s. 50)",
+  "_cekim": "2026-11-23",
+  "_veri_yili_siniri": "Stratejik plan 2024-2028 dönemi için hazırlandı; içindeki en yeni personel verisi 2022'ye ait. 2023 sonrası personel sayısı taranan belgelerde YOK.",
+  "personel_yillik": {
+    "2018": {
+      "memur_sozlesmeli": 1473,
+      "daimi_isci": 4495,
+      "kampanya_mevsimlik": 1595,
+      "toplam": 7563
+    },
+    "2019": {
+      "memur_sozlesmeli": 1021,
+      "daimi_isci": 3285,
+      "kampanya_mevsimlik": 1181,
+      "toplam": 5487
+    },
+    "2020": {
+      "memur_sozlesmeli": 904,
+      "daimi_isci": 3548,
+      "kampanya_mevsimlik": 1134,
+      "toplam": 5586
+    },
+    "2021": {
+      "memur_sozlesmeli": 832,
+      "daimi_isci": 3999,
+      "kampanya_mevsimlik": 1024,
+      "toplam": 5855
+    },
+    "2022": {
+      "memur_sozlesmeli": 828,
+      "daimi_isci": 3826,
+      "kampanya_mevsimlik": 998,
+      "toplam": 5652
+    }
+  },
+  "personel_2022_statu": {
+    "memur": 147,
+    "sozlesmeli": 1088,
+    "daimi_isci": 3551,
+    "kampanya_mevsimlik": 1238,
+    "toplam": 6024,
+    "alt_isverenle_toplam": 10535,
+    "_dayanak": "147 memur, 1.088 sözleşmeli personel, 3.551 daimi işçi ve 1.238 geçici işçi olmak üzere toplam 6.024 kişi istihdam edilmiştir. Alt-işverenle birlikte toplam 10.535 kişi"
+  },
+  "personel_2022_cinsiyet": {
+    "erkek_yuzde": 91,
+    "kadin_yuzde": 9,
+    "_dayanak": "çalışan personelin %91'i erkek, %9'u kadındır"
+  },
+  "gayrimenkul_m2": {
+    "Genel Müdürlük": 2597,
+    "Afyon": 227827,
+    "Ağrı": 1823626,
+    "Alpullu": 179383,
+    "Ankara": 1118047,
+    "Burdur": 777019,
+    "Çarşamba": 776361,
+    "Çorum": 1067,
+    "Elazığ": 742225,
+    "Elbistan": 2285,
+    "Erciş": 2395824,
+    "Ereğli": 2413746,
+    "Erzincan": 126885,
+    "Erzurum": 39482,
+    "Eskişehir": 1670017,
+    "Ilgın": 2148526,
+    "Kars": 672457,
+    "Kastamonu": 799065,
+    "Kırşehir": 1755,
+    "Malatya": 392582,
+    "Muş": 14524,
+    "Susurluk": 826391,
+    "Şeker Enstitüsü": 1723220,
+    "Turhal": 271361,
+    "Uşak": 370818,
+    "Yozgat": 760134,
+    "TOPLAM": 20277224
+  },
+  "personel_dusus": {
+    "_2018": 7563,
+    "_2019": 5487,
+    "_2022": 5652,
+    "ozellestirme_yili_degisim_yuzde": -27.4,
+    "_2018_2022_degisim_yuzde": -25.3,
+    "_not": "On fabrikanın özelleştirildiği 2018'in ardından personel bir yılda 2.076 kişi azaldı. İki olayın aynı yıla düşmesi ölçülmüş bir gerçek; nedensellik bu belgelerden okunamaz."
+  },
+  "gayrimenkul_ozet": {
+    "toplam_m2": 20277224,
+    "toplam_km2": 20.3,
+    "yer_sayisi": 26,
+    "_serh": "Liste 2022 tarihli ve özelleştirilen fabrikaların yerlerini de taşıyor (Alpullu, Turhal, Uşak…). Bu kalemlerin neden listede durduğu belgede AÇIKLANMIYOR; yayına tek başına gerekçe yapılamaz."
+  }
+}

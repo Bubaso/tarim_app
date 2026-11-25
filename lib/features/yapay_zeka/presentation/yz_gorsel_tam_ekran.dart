@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 /// Telefonda görselin tam ekran gösterimi (mobil okuma turu, karar 62).
@@ -19,21 +20,53 @@ import 'package:google_fonts/google_fonts.dart';
 ///
 /// [uzun]: içerik ekran genişliğinde kuruluyor ve boyu sınırsız (çizilmiş
 /// şemanın dar düzeni); 1 katta dikey kaydırılıyor, çekip kapatma yok.
+///
+/// [gezinti]: verilirse gösterim bir DİZİ üzerinde geziyor — oklarla,
+/// klavyeyle ve yana kaydırarak. Verilmezse eski davranış birebir duruyor;
+/// tek kare açan çağıranlar (yz_gorsel.dart) değişmedi.
 Future<void> yzGorselTamEkran(
   BuildContext context, {
   required Widget gorunum,
   required String altyazi,
   required bool en,
   bool uzun = false,
+  YzGezinti? gezinti,
 }) =>
     Navigator.of(context, rootNavigator: true).push<void>(PageRouteBuilder<void>(
       opaque: true,
       fullscreenDialog: true,
       transitionDuration: const Duration(milliseconds: 180),
       reverseTransitionDuration: const Duration(milliseconds: 140),
-      pageBuilder: (c, a1, a2) => YzGorselTamEkran(gorunum: gorunum, altyazi: altyazi, en: en, uzun: uzun),
+      pageBuilder: (c, a1, a2) => YzGorselTamEkran(
+          gorunum: gorunum, altyazi: altyazi, en: en, uzun: uzun, gezinti: gezinti),
       transitionsBuilder: (c, a, a2, cocuk) => FadeTransition(opacity: a, child: cocuk),
     ));
+
+/// Tam ekranda bir diziyi gezmenin sözleşmesi.
+///
+/// Kareleri HAZIR WIDGET LİSTESİ olarak almıyor: 173 karelik bir galeride
+/// bu, gösterim açılır açılmaz 173 `Image.network` kurardı. Kurucu
+/// işlevler yalnız bakılan kareyi (ve komşularını) çiziyor.
+class YzGezinti {
+  const YzGezinti({
+    required this.adet,
+    required this.baslangic,
+    required this.gorunum,
+    required this.altyazi,
+  }) : assert(adet > 0);
+
+  /// Dizideki kare sayısı.
+  final int adet;
+
+  /// Açılışta gösterilen karenin sırası (0'dan).
+  final int baslangic;
+
+  /// i. karenin görünümü.
+  final Widget Function(int i) gorunum;
+
+  /// i. karenin künyesi.
+  final String Function(int i) altyazi;
+}
 
 /// Görseli bu kadar çekip bırakınca gösterim kapanıyor.
 const double kYzCekipKapatma = 120;
@@ -48,11 +81,13 @@ class YzGorselTamEkran extends StatefulWidget {
     required this.altyazi,
     required this.en,
     this.uzun = false,
+    this.gezinti,
   });
   final Widget gorunum;
   final String altyazi;
   final bool en;
   final bool uzun;
+  final YzGezinti? gezinti;
 
   @override
   State<YzGorselTamEkran> createState() => _YzGorselTamEkranState();
@@ -61,18 +96,52 @@ class YzGorselTamEkran extends StatefulWidget {
 class _YzGorselTamEkranState extends State<YzGorselTamEkran> {
   static const double _ciftDokunusOlcegi = 2.5;
 
+  /// Yana bu kadar çekip bırakınca bir sonraki/önceki kareye geçiliyor.
+  static const double _kaydirmaEsigi = 80;
+
   final _donusum = TransformationController();
+  final _odak = FocusNode(debugLabel: 'yzTamEkran');
   Offset _dokunus = Offset.zero;
+
+  /// Dizideki yer. Gezinti yoksa hep 0 ve kullanılmıyor.
+  late int _i = widget.gezinti?.baslangic ?? 0;
+
+  YzGezinti? get _gez => widget.gezinti;
+  bool get _gezinilir => _gez != null && _gez!.adet > 1;
+
+  Widget get _gorunum => _gez == null ? widget.gorunum : _gez!.gorunum(_i);
+  String get _altyazi => _gez == null ? widget.altyazi : _gez!.altyazi(_i);
 
   @override
   void dispose() {
     _donusum.dispose();
+    _odak.dispose();
     super.dispose();
+  }
+
+  /// YAKINLAŞMA SIFIRLANIYOR. Kare değişirken eski karenin dönüşümü
+  /// kalsaydı yeni kare 2,5 kat yakınlaşmış ve kaydırılmış açılırdı.
+  void _git(int yon) {
+    if (!_gezinilir) return;
+    final hedef = _i + yon;
+    if (hedef < 0 || hedef >= _gez!.adet) return;
+    setState(() {
+      _i = hedef;
+      _donusum.value = Matrix4.identity();
+      _kaydirma = 0;
+      _cekme = 0;
+    });
   }
 
   /// Çekip kapatma: tek parmakla, yakınlaşmamışken başlayan hareket.
   bool _cekiliyor = false;
   double _cekme = 0;
+
+  /// Yana çekme (yalnız gezinti varken). Eksen İLK ANLAMLI HAREKETTE
+  /// kilitleniyor: kilitlenmeseydi çapraz bir hareket hem kareyi kaydırır
+  /// hem kapatmaya yaklaştırırdı.
+  double _kaydirma = 0;
+  Axis? _eksen;
 
   /// Çift dokunuş: yakın değilse dokunulan yere 2,5 kat yaklaş (o nokta
   /// yerinde kalır), yakınlaşmışsa geri dön.
@@ -94,6 +163,7 @@ class _YzGorselTamEkranState extends State<YzGorselTamEkran> {
 
   void _cekmeBasladi(ScaleStartDetails d) {
     _cekiliyor = !widget.uzun && d.pointerCount == 1 && _donusum.value.getMaxScaleOnAxis() <= 1.01;
+    _eksen = null;
   }
 
   void _cekmeSurdu(ScaleUpdateDetails d) {
@@ -101,21 +171,81 @@ class _YzGorselTamEkranState extends State<YzGorselTamEkran> {
     if (d.pointerCount > 1 || (d.scale - 1).abs() > 0.01) {
       // İkinci parmak geldi: yakınlaştırma, çekme değil.
       _cekiliyor = false;
-      if (_cekme != 0) setState(() => _cekme = 0);
+      _eksen = null;
+      if (_cekme != 0 || _kaydirma != 0) setState(() { _cekme = 0; _kaydirma = 0; });
       return;
     }
-    setState(() => _cekme += d.focalPointDelta.dy);
+    final d2 = d.focalPointDelta;
+    if (_eksen == null) {
+      // Eksen kilidi: yatay yalnız gezinti varken açılıyor; yoksa her
+      // hareket dikey sayılıyor ve eski kapatma davranışı korunuyor.
+      final toplam = Offset(_kaydirma + d2.dx, _cekme + d2.dy);
+      if (toplam.distance < 8) {
+        setState(() { _cekme += d2.dy; _kaydirma += d2.dx; });
+        return;
+      }
+      _eksen = (_gezinilir && toplam.dx.abs() > toplam.dy.abs())
+          ? Axis.horizontal
+          : Axis.vertical;
+      setState(() {
+        if (_eksen == Axis.horizontal) { _cekme = 0; } else { _kaydirma = 0; }
+      });
+    }
+    setState(() {
+      if (_eksen == Axis.horizontal) {
+        _kaydirma += d2.dx;
+      } else {
+        _cekme += d2.dy;
+      }
+    });
   }
 
   void _cekmeBitti(ScaleEndDetails d) {
-    final hiz = d.velocity.pixelsPerSecond.dy.abs();
-    final kapat = _cekiliyor && (_cekme.abs() > kYzCekipKapatma || (hiz > 900 && _cekme.abs() > 24));
+    final yatay = _eksen == Axis.horizontal;
+    final h = d.velocity.pixelsPerSecond;
+    if (_cekiliyor && yatay) {
+      final gec = _kaydirma.abs() > _kaydirmaEsigi ||
+          (h.dx.abs() > 900 && _kaydirma.abs() > 24);
+      _cekiliyor = false;
+      _eksen = null;
+      if (gec) {
+        _git(_kaydirma < 0 ? 1 : -1);   // sola çekmek ileri götürüyor
+      } else {
+        setState(() => _kaydirma = 0);
+      }
+      return;
+    }
+    final kapat = _cekiliyor &&
+        (_cekme.abs() > kYzCekipKapatma || (h.dy.abs() > 900 && _cekme.abs() > 24));
     _cekiliyor = false;
+    _eksen = null;
     if (kapat) {
       _kapat();
-    } else if (_cekme != 0) {
-      setState(() => _cekme = 0);
+    } else if (_cekme != 0 || _kaydirma != 0) {
+      setState(() { _cekme = 0; _kaydirma = 0; });
     }
+  }
+
+  /// Klavye: masaüstünde ve web'de okun karşılığı. Yakınlaşmışken de
+  /// çalışıyor; _git zaten yakınlaşmayı sıfırlıyor.
+  KeyEventResult _tus(FocusNode _, KeyEvent olay) {
+    if (olay is! KeyDownEvent && olay is! KeyRepeatEvent) {
+      return KeyEventResult.ignored;
+    }
+    final t = olay.logicalKey;
+    if (t == LogicalKeyboardKey.arrowRight || t == LogicalKeyboardKey.pageDown) {
+      _git(1);
+      return KeyEventResult.handled;
+    }
+    if (t == LogicalKeyboardKey.arrowLeft || t == LogicalKeyboardKey.pageUp) {
+      _git(-1);
+      return KeyEventResult.handled;
+    }
+    if (t == LogicalKeyboardKey.escape) {
+      _kapat();
+      return KeyEventResult.handled;
+    }
+    return KeyEventResult.ignored;
   }
 
   @override
@@ -128,7 +258,7 @@ class _YzGorselTamEkranState extends State<YzGorselTamEkran> {
     final gorsel = GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {},
-      child: Semantics(image: true, label: widget.altyazi, child: widget.gorunum),
+      child: Semantics(image: true, label: _altyazi, child: _gorunum),
     );
     final Widget icerik;
     if (widget.uzun) {
@@ -140,14 +270,18 @@ class _YzGorselTamEkranState extends State<YzGorselTamEkran> {
       );
     } else {
       icerik = Transform.translate(
-        offset: Offset(0, _cekme),
+        offset: Offset(_kaydirma, _cekme),
         child: Padding(
           padding: EdgeInsets.only(top: pay.top, bottom: pay.bottom),
           child: Center(child: gorsel),
         ),
       );
     }
-    return Material(
+    return Focus(
+      focusNode: _odak,
+      autofocus: true,
+      onKeyEvent: _tus,
+      child: Material(
       color: kYzTamEkranZemin,
       child: Stack(children: [
         Positioned.fill(
@@ -200,7 +334,7 @@ class _YzGorselTamEkranState extends State<YzGorselTamEkran> {
                 padding: EdgeInsets.fromLTRB(16 + pay.left, 28, 16 + pay.right, 16 + pay.bottom),
                 child: ExcludeSemantics(
                   child: Text(
-                    widget.altyazi,
+                    _altyazi,
                     maxLines: 4,
                     overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.outfit(
@@ -232,7 +366,91 @@ class _YzGorselTamEkranState extends State<YzGorselTamEkran> {
             ),
           ),
         ),
+        // ── Diziyi gezme ─────────────────────────────────────────────
+        // Oklar yalnız gidilecek yer varken çiziliyor: sönük ama basılabilen
+        // bir düğme, okura "burada bir şey var" diyip hiçbir şey yapmaz.
+        if (_gezinilir) ...[
+          if (_i > 0)
+            _Ok(
+              sol: true,
+              pay: pay,
+              etiket: en ? 'Previous' : 'Önceki',
+              bas: () => _git(-1),
+            ),
+          if (_i < _gez!.adet - 1)
+            _Ok(
+              sol: false,
+              pay: pay,
+              etiket: en ? 'Next' : 'Sonraki',
+              bas: () => _git(1),
+            ),
+          // Sayaç: 173 karelik bir dizide okurun nerede olduğunu söyleyen
+          // tek işaret.
+          Positioned(
+            top: pay.top + 16,
+            left: pay.left + 20,
+            child: IgnorePointer(
+              child: Text(
+                '${_i + 1} / ${_gez!.adet}',
+                style: GoogleFonts.outfit(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 0.4,
+                    color: const Color(0xFFE6EAE7)),
+              ),
+            ),
+          ),
+        ],
       ]),
+      ),
+    );
+  }
+}
+
+/// Tam ekranda ileri/geri oku. Kapatma düğmesiyle aynı dilde: 48 piksel,
+/// yarı saydam siyah daire.
+class _Ok extends StatelessWidget {
+  const _Ok({
+    required this.sol,
+    required this.pay,
+    required this.etiket,
+    required this.bas,
+  });
+
+  final bool sol;
+  final EdgeInsets pay;
+  final String etiket;
+  final VoidCallback bas;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: sol ? pay.left + 8 : null,
+      right: sol ? null : pay.right + 8,
+      top: 0,
+      bottom: 0,
+      child: Center(
+        child: Semantics(
+          button: true,
+          label: etiket,
+          onTap: bas,
+          excludeSemantics: true,
+          child: Material(
+            color: Colors.black.withValues(alpha: 0.45),
+            shape: const CircleBorder(),
+            child: IconButton(
+              tooltip: etiket,
+              constraints: const BoxConstraints.tightFor(width: 48, height: 48),
+              padding: EdgeInsets.zero,
+              icon: Icon(
+                  sol ? Icons.chevron_left_rounded : Icons.chevron_right_rounded,
+                  color: Colors.white,
+                  size: 30),
+              onPressed: bas,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -1,0 +1,226 @@
+{
+ "_kaynak": "TÜRKŞEKER 2025 Sektör Raporu · Tablo 26",
+ "_nitelik": "BİRİNCİL — kurumun kendi yayını",
+ "_kapsam": "Türkiye geneli, pancar eken çiftçi sayısı ve ekiliş",
+ "_cekim": "23 Kasım 2026",
+ "_ayrisma_notu": "Aynı yılın üretimi FAOSTAT ile sektör raporunda farklı olabiliyor. 2023'te ikisi birebir aynı; 2024'te FAOSTAT 23.000.000 diyor, rapor 22.413.958. FAOSTAT'ın rakamı yuvarlak. Türkiye'ye ait idari rakam için rapor esas.",
+ "_iki_tablo_notu": "Tablo 26 ÜLKE geneli, Tablo 27 yalnız TÜRKŞEKER. İkisi aynı başlığı taşıyor ve arka arkaya geliyor; ilk yazımda karıştırıldı ve FAOSTAT karşılaştırması yakaladı.",
+ "yillar": {
+  "2016": {
+   "ciftci": 105460,
+   "alan_dekar": 3219533,
+   "uretim_ton": 19592731,
+   "verim_ton_dekar": 6.086,
+   "baz_fiyat_tl_ton": 194
+  },
+  "2017": {
+   "ciftci": 110131,
+   "alan_dekar": 3388829,
+   "uretim_ton": 21149020,
+   "verim_ton_dekar": 6.241,
+   "baz_fiyat_tl_ton": 210
+  },
+  "2018": {
+   "ciftci": 106237,
+   "alan_dekar": 2906976,
+   "uretim_ton": 17436100,
+   "verim_ton_dekar": 5.998,
+   "baz_fiyat_tl_ton": 235
+  },
+  "2019": {
+   "ciftci": 88279,
+   "alan_dekar": 3100807,
+   "uretim_ton": 18054320,
+   "verim_ton_dekar": 5.822,
+   "baz_fiyat_tl_ton": 300
+  },
+  "2020": {
+   "ciftci": 93812,
+   "alan_dekar": 3363483,
+   "uretim_ton": 23025738,
+   "verim_ton_dekar": 6.846,
+   "baz_fiyat_tl_ton": 336
+  },
+  "2021": {
+   "ciftci": 86097,
+   "alan_dekar": 3023486,
+   "uretim_ton": 17767086,
+   "verim_ton_dekar": 5.876,
+   "baz_fiyat_tl_ton": 420
+  },
+  "2022": {
+   "ciftci": 77065,
+   "alan_dekar": 2954052,
+   "uretim_ton": 19253962,
+   "verim_ton_dekar": 6.518,
+   "baz_fiyat_tl_ton": 1400
+  },
+  "2023": {
+   "ciftci": 99714,
+   "alan_dekar": 3628146,
+   "uretim_ton": 25250213,
+   "verim_ton_dekar": 6.96,
+   "baz_fiyat_tl_ton": 1750
+  },
+  "2024": {
+   "ciftci": 93293,
+   "alan_dekar": 3281033,
+   "uretim_ton": 22413958,
+   "verim_ton_dekar": 6.831,
+   "baz_fiyat_tl_ton": 2375
+  },
+  "2025": {
+   "ciftci": 76767,
+   "alan_dekar": 3065844,
+   "uretim_ton": 20801254,
+   "verim_ton_dekar": 6.785,
+   "baz_fiyat_tl_ton": 3100
+  }
+ },
+ "turkseker": {
+  "2016": {
+   "ciftci": 36400,
+   "alan_dekar": 1066470,
+   "uretim_ton": 6556324,
+   "verim_ton_dekar": 6.148,
+   "baz_fiyat_tl_ton": 190
+  },
+  "2017": {
+   "ciftci": 38028,
+   "alan_dekar": 1109462,
+   "uretim_ton": 6936251,
+   "verim_ton_dekar": 6.252,
+   "baz_fiyat_tl_ton": 210
+  },
+  "2018": {
+   "ciftci": 40240,
+   "alan_dekar": 953602,
+   "uretim_ton": 5763711,
+   "verim_ton_dekar": 6.044,
+   "baz_fiyat_tl_ton": 235
+  },
+  "2019": {
+   "ciftci": 34424,
+   "alan_dekar": 1105924,
+   "uretim_ton": 6651672,
+   "verim_ton_dekar": 6.015,
+   "baz_fiyat_tl_ton": 300
+  },
+  "2020": {
+   "ciftci": 38238,
+   "alan_dekar": 1241827,
+   "uretim_ton": 8582038,
+   "verim_ton_dekar": 6.911,
+   "baz_fiyat_tl_ton": 336
+  },
+  "2021": {
+   "ciftci": 36821,
+   "alan_dekar": 1194881,
+   "uretim_ton": 6470264,
+   "verim_ton_dekar": 5.415,
+   "baz_fiyat_tl_ton": 420
+  },
+  "2022": {
+   "ciftci": 28427,
+   "alan_dekar": 1037468,
+   "uretim_ton": 6350317,
+   "verim_ton_dekar": 6.121,
+   "baz_fiyat_tl_ton": 1400
+  },
+  "2023": {
+   "ciftci": 40132,
+   "alan_dekar": 1483800,
+   "uretim_ton": 9698334,
+   "verim_ton_dekar": 6.536,
+   "baz_fiyat_tl_ton": 1750
+  },
+  "2024": {
+   "ciftci": 36109,
+   "alan_dekar": 1144108,
+   "uretim_ton": 7314019,
+   "verim_ton_dekar": 6.393,
+   "baz_fiyat_tl_ton": 2262
+  },
+  "2025": {
+   "ciftci": 28219,
+   "alan_dekar": 1081266,
+   "uretim_ton": 7113547,
+   "verim_ton_dekar": 6.579,
+   "baz_fiyat_tl_ton": 2980
+  }
+ },
+ "ciftci_zirve_yil": 2017,
+ "ciftci_zirve": 110131,
+ "ciftci_son_yil": 2025,
+ "ciftci_son": 76767,
+ "ciftci_dusus_yuzde": -30.3,
+ "faostat_ayrismasi": {
+  "2016": {
+   "sektor_raporu": 19592731,
+   "faostat": 19592731,
+   "fark_ton": 0,
+   "fark_yuzde": 0.0
+  },
+  "2017": {
+   "sektor_raporu": 21149020,
+   "faostat": 21149020,
+   "fark_ton": 0,
+   "fark_yuzde": 0.0
+  },
+  "2018": {
+   "sektor_raporu": 17436100,
+   "faostat": 17436100,
+   "fark_ton": 0,
+   "fark_yuzde": 0.0
+  },
+  "2019": {
+   "sektor_raporu": 18054320,
+   "faostat": 18054320,
+   "fark_ton": 0,
+   "fark_yuzde": 0.0
+  },
+  "2020": {
+   "sektor_raporu": 23025738,
+   "faostat": 23025738,
+   "fark_ton": 0,
+   "fark_yuzde": 0.0
+  },
+  "2021": {
+   "sektor_raporu": 17767086,
+   "faostat": 17767085,
+   "fark_ton": -1,
+   "fark_yuzde": -0.0
+  },
+  "2022": {
+   "sektor_raporu": 19253962,
+   "faostat": 19253962,
+   "fark_ton": 0,
+   "fark_yuzde": 0.0
+  },
+  "2023": {
+   "sektor_raporu": 25250213,
+   "faostat": 25250213,
+   "fark_ton": 0,
+   "fark_yuzde": 0.0
+  },
+  "2024": {
+   "sektor_raporu": 22413958,
+   "faostat": 23000000,
+   "fark_ton": 586042,
+   "fark_yuzde": 2.61
+  }
+ },
+ "ciftci_dususu_kimin": {
+  "_uyari": "Ülke rakamı ile TÜRKŞEKER rakamı ayrı şeylerdir ve yayında biri diğerinin yerine yazılamaz. Düşüş iki tarafta da ağırdır.",
+  "_karsilastirma_yili": "2017-2025 (iki tablonun ortak aralığı)",
+  "ulke_degisim_yuzde": -30.3,
+  "turkseker_degisim_yuzde": -25.8,
+  "turkseker_disi_degisim_yuzde": -32.7,
+  "ulke_ilk": 110131,
+  "ulke_son": 76767,
+  "turkseker_ilk": 38028,
+  "turkseker_son": 28219,
+  "turkseker_disi_ilk": 72103,
+  "turkseker_disi_son": 48548
+ }
+}

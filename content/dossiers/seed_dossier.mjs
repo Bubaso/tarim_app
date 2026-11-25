@@ -242,7 +242,11 @@ for (const b of tr) {
 // ─── Bölüm türleri ───────────────────────────────────────────────────────
 // Sayfadaki görsel ritim. Yazılmayan bölüm 'anlati' sayılıyor: tür sonradan
 // eklenen bir alan ve eski içerik klasörleri onsuz da üretilebilmeli.
-const GECERLI_TURLER = ['anlati', 'belge', 'veri', 'akis'];
+// 'galeri' Türkşeker (Sayı 7) ile geldi: bölümün metnini çizdikten sonra
+// data.galeri'deki kareleri ızgaraya seriyor. Liste istemcideki
+// DossierSection._turler ile AYNI olmalı — orada tanınmayan bir tür
+// sessizce 'anlati'ya düşüyor ve galeri hiç çizilmiyor.
+const GECERLI_TURLER = ['anlati', 'belge', 'veri', 'akis', 'galeri'];
 const turEsleme = yayin.bolum_turleri ?? {};
 const turler = [];
 
@@ -286,9 +290,11 @@ for (const b of tr) {
     }
   }
   // Yalnızca yayımlanacak alanlar geçiyor; '_' ile başlayanlar not.
+  // en_boy çizici için: 2:1'den geniş kare 4:3 kırpımından muaf tutuluyor
+  // (bkz. _BolumGorseli). Yoksa panoramik kare yarısından çoğunu kaybediyor.
   gorseller.push({
     url: g.url, atif: g.atif, kaynak: g.kaynak ?? null,
-    alt_tr: g.alt_tr, alt_en: g.alt_en,
+    alt_tr: g.alt_tr, alt_en: g.alt_en, en_boy: g.en_boy ?? null,
   });
 }
 

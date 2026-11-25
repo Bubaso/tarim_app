@@ -1,0 +1,130 @@
+{
+  "_dosya": "SALT Araştırma kayıtları — künye kaynağı",
+  "_kural": "Altyazılar SALT'ın KENDİ açıklamalarından yazılıyor. Albüm sayfalarının her birinin ayrı açıklaması var (dataItemFiles/description); ötekilerde kaydın başlığı geçerli. Karede ne görüldüğü TAHLİL EDİLMİYOR.",
+  "_lisans": "CC BY-NC-ND 4.0 · Salt Araştırma. Kullanıcı 24 Kasım 2026: 'kullandığın her görsele tam künye yazmayı unutma. izne gerek yok.'",
+  "_tam_kunye": "Her karenin atıf satırı şunları taşıyor: kaydın başlığı · varsa üreten · varsa tarih · kayıt kodu · Salt Araştırma · lisans. Kaynak alanı da kaydın adresini veriyor.",
+  "kayitlar": {
+    "alpullu_albumu": {
+      "baslik": "İstanbul ve Trakya Şeker Fabrikaları T.A.Ş. Alpullu Şeker ve İspirto Fabrikaları",
+      "kod": "AHTURAL013", "tarih": "1928-1929", "yer": "Babaeski, Kırklareli",
+      "tur": "Fotokart", "handle": "https://archives.saltresearch.org/handle/123456789/195731",
+      "ureten": null
+    },
+    "alpullu_fabrika": {
+      "baslik": "Alpullu Şeker Fabrikası", "kod": "AHKIR008", "tarih": null,
+      "yer": null, "tur": "Fotoğraf",
+      "handle": "https://archives.saltresearch.org/handle/123456789/208326", "ureten": null
+    },
+    "pancar_hasadi": {
+      "baslik": "Şeker pancarı tarlasında hasat yapılırken", "kod": "AFDIVH215",
+      "tarih": null, "yer": null, "tur": "Fotokart",
+      "handle": "https://archives.saltresearch.org/handle/123456789/196846", "ureten": null
+    },
+    "usak_vagondan_aktarma": {
+      "baslik": "Uşak Şeker Fabrikası'na gelen şeker pancarları vagonlardan aktarılırken",
+      "kod": "AHUSA006", "tarih": null, "yer": null, "tur": "Fotoğraf",
+      "handle": "https://archives.saltresearch.org/handle/123456789/196977", "ureten": null
+    },
+    "usak_makine_dairesi_calisanlar": {
+      "baslik": "Uşak Şeker Fabrikası'nın makine dairesi ve çalışanları", "kod": "AHUSA007",
+      "tarih": null, "yer": null, "tur": "Kartpostal",
+      "handle": "https://archives.saltresearch.org/handle/123456789/196978", "ureten": null
+    },
+    "usak_makine_dairesi": {
+      "baslik": "Uşak Şeker Fabrikası'nın makine dairesi", "kod": "AHUSA008",
+      "tarih": null, "yer": null, "tur": "Kartpostal",
+      "handle": "https://archives.saltresearch.org/handle/123456789/196979", "ureten": null
+    },
+    "usak_albumu": {
+      "baslik": "Uşak Şeker Fabrikası", "kod": "AHUSA004", "tarih": null,
+      "yer": null, "tur": "Albüm",
+      "handle": "https://archives.saltresearch.org/handle/123456789/97324", "ureten": null
+    },
+    "usak_fabrika_1": {
+      "baslik": "Uşak Şeker Fabrikası", "kod": "AHUSA001", "tarih": null,
+      "yer": null, "tur": "Fotokart",
+      "handle": "https://archives.saltresearch.org/handle/123456789/116005", "ureten": null
+    },
+    "usak_fabrika_2": {
+      "baslik": "Uşak Şeker Fabrikası", "kod": "AHUSA003", "tarih": null,
+      "yer": null, "tur": "Fotokart",
+      "handle": "https://archives.saltresearch.org/handle/123456789/103306", "ureten": null
+    },
+    "usak_sosyal_tesisler": {
+      "baslik": "Uşak Şeker Fabrikası Sosyal Tesisleri", "kod": "AHUSA002",
+      "tarih": null, "yer": null, "tur": "Kartpostal",
+      "handle": "https://archives.saltresearch.org/handle/123456789/117021", "ureten": null
+    },
+    "etimesgut_kompleksi": {
+      "baslik": "Türkiye Şeker Fabrikası Etimesgut Kompleksi'ne dair fotoğraflar",
+      "kod": "TMGH007", "tarih": null, "yer": "Etimesgut, Ankara", "tur": "Fotoğraf",
+      "handle": "https://archives.saltresearch.org/handle/123456789/215423",
+      "ureten": "Ali Mukbil Gökdoğan"
+    },
+    "etimesgut_fabrika": {
+      "baslik": "Etimesgut Şeker Fabrikası", "kod": "AHANKA191", "tarih": null,
+      "yer": "Etimesgut, Ankara", "tur": "Fotoğraf",
+      "handle": "https://archives.saltresearch.org/handle/123456789/196860", "ureten": null
+    },
+    "turhal_fabrika": {
+      "baslik": "Turhal Şeker Fabrikası", "kod": "AHTOK001", "tarih": null,
+      "yer": "Turhal, Tokat", "tur": "Fotokart",
+      "handle": "https://archives.saltresearch.org/handle/123456789/105027", "ureten": null
+    },
+    "eskisehir_cizim": {
+      "baslik": "Eskişehir Şeker Fabrikası çizimi", "kod": "AHESK033", "tarih": null,
+      "yer": "Eskişehir", "tur": "Fotokart",
+      "handle": "https://archives.saltresearch.org/handle/123456789/236467", "ureten": null
+    }
+  },
+  "sayfa_aciklamalari": {
+    "_kaynak": "archives.saltresearch.org kayıt sayfasındaki dataItemFiles dizisi; her dosyanın kendi description alanı.",
+    "alpullu_albumu": {
+      "001": "Albüm kapağı",
+      "002": "Steiner, Alpullu 1929",
+      "003": "Bir yönetici",
+      "004": "Bir yönetici",
+      "005": "Kırklareli Alpullu Şeker Fabrikası. Kırklareli Alpullu Tren İstasyonu",
+      "006": "\"Alpullu İspirto Fabrikası Resmi Küşadi, 28 Kanunievvel 1928\"",
+      "007": "Alpullu Sinanlı Köprüsü",
+      "008": "Alpullu İspirto Fabrikası'nın açılış töreni, 28 Aralık 1928",
+      "009": "Alpullu Şeker Fabrikası'nın genel görünümü",
+      "010": "Alpullu Şeker Fabrikası'nın genel görünümü",
+      "011": "Alpullu İspirto Fabrikası",
+      "012": "Fabrikanın iç mekânı",
+      "013": "Alpullu İspirto Fabrikası",
+      "014": "Alpullu Şeker Fabrikası ve şeker pancarları. Fabrikanın iç mekânı",
+      "015": "Fabrikanın personeli ve yöneticiler",
+      "016": "Fabrikanın personeli ve yöneticiler",
+      "017": "Fabrikanın personeli ve yöneticiler",
+      "018": "Fabrikanın personeli ve yöneticiler",
+      "019": "Fabrikanın personeli ve yöneticiler",
+      "020": "Fabrikanın laboratuvarı ve personeli",
+      "021": "Fabrikanın bölümleri ve personeli",
+      "022": "Fabrikanın iç mekânı ve personeli",
+      "023": "Fabrikanın iç mekânı ve personeli",
+      "024": "Fabrikanın bölümleri ve personeli",
+      "025": "Fabrikanın iç mekânı ve personeli",
+      "026": "Fabrikanın iç mekânı ve personeli",
+      "027": "Fabrikanın iç mekânı ve personeli",
+      "028": "Fabrikanın iç mekânı",
+      "029": "Fabrikanın iç mekânı ve personeli",
+      "030": "Fabrikanın iç mekânı ve personeli",
+      "031": "Fabrikanın iç mekânı ve personeli",
+      "032": "Fabrikanın iç mekânı ve personeli",
+      "033": "Fabrikanın iç mekânı ve personeli",
+      "034": "Fabrikanın iç mekânı ve personeli",
+      "035": "Fabrikanın iç mekânı ve personeli",
+      "036": "Fabrikanın bölümleri ve personeli",
+      "037": "Fabrikanın iç mekânı",
+      "038": "Fabrikanın iç mekânı ve personeli",
+      "039": "Fabrikanın iç mekânı",
+      "040": "Fabrikanın iç mekânı ve personeli",
+      "041": "Fabrikanın iç mekânı",
+      "042": "Fabrikanın iç mekânı ve personeli",
+      "043": "Fabrikanın bölümleri ve personeli",
+      "044": "Fabrika personeli",
+      "045": "Fabrika personeli"
+    }
+  }
+}

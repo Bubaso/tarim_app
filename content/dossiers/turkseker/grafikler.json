@@ -1,0 +1,790 @@
+{
+  "_dosya": "Türkşeker — Kurum Dosyası Sayı 07 · grafikler",
+  "_kural": "ELLE DÜZENLENMEZ. _raw/kur_grafikler.py üretir; notlardaki rakamlar data.json'dan okunur. Değişiklik betikte yapılır.",
+  "_roller": "vurgu · ikincil · sessiz. Yığın tipleri sessiz KULLANMAZ (yalnız ikincil taranır).",
+  "_isaret_duzeni": "Yüzde işareti TR'de önde, EN'de arkada.",
+  "grafikler": {
+    "kunye_turkseker": {
+      "tur": "kunye",
+      "baslik": {
+        "tr": "Kurum rakamlarla",
+        "en": "The institution in figures"
+      },
+      "kaynak": "TÜRKŞEKER · Şeker Sektör Raporu 2025 ve 2024-2028 Stratejik Plan",
+      "not": {
+        "tr": "Kota 2025/26 pazarlama yılına ait. Fabrika sayısı TESİS sayısıdır; kota tablosundaki 15 kalem ŞİRKET sayar ve bir şirketin birden çok fabrikası olabilir. Personel rakamı 2022 fiili ortalamasıdır; taranan belgelerde daha yenisi yok.",
+        "en": "The quota is for the 2025/26 marketing year. The factory count is of PLANTS; the 15 entries in the quota table count COMPANIES, and one company may own several plants. The staff figure is the 2022 actual average; the documents scanned carry nothing more recent."
+      },
+      "kalemler": [
+        {
+          "deger": "@kimlik.fabrika_bugun",
+          "ondalik": 0,
+          "etiket": {
+            "tr": "şeker fabrikası",
+            "en": "sugar factories"
+          },
+          "alt": {
+            "tr": "1990 öncesi 30",
+            "en": "30 before 1990"
+          }
+        },
+        {
+          "deger": "@kota.turkseker_a_kotasi_ton",
+          "ondalik": 0,
+          "bolen": 1000,
+          "etiket": {
+            "tr": "bin ton A kotası",
+            "en": "thousand tonnes, A quota"
+          },
+          "alt": {
+            "tr": "pancar şekerinin %36,08'i",
+            "en": "36.08% of beet sugar"
+          }
+        },
+        {
+          "deger": "@ciftci.son_sayi",
+          "ondalik": 0,
+          "etiket": {
+            "tr": "pancar üreticisi",
+            "en": "beet growers"
+          },
+          "alt": {
+            "tr": "2025 · ülke geneli",
+            "en": "2025 · nationwide"
+          }
+        },
+        {
+          "deger": "@kurum.personel_2022.toplam",
+          "ondalik": 0,
+          "etiket": {
+            "tr": "çalışan",
+            "en": "staff"
+          },
+          "alt": {
+            "tr": "alt işverenle 10.535",
+            "en": "10,535 with contractors"
+          }
+        }
+      ]
+    },
+    "fabrikalarin_acilisi": {
+      "tur": "zaman_cizelgesi",
+      "baslik": {
+        "tr": "Dört fabrikadan bir sanayiye",
+        "en": "From four factories to an industry"
+      },
+      "kaynak": "TÜRKŞEKER · Şeker Sektör Raporu 2025, Sektörün Tarihsel Gelişimi",
+      "not": {
+        "tr": "Uşak'ın temeli Alpullu'dan bir buçuk ay önce atıldı; Alpullu onbir ayda bitti ve ilk Türk şekerini o üretti. Uşak yirmi bir gün sonra açıldı.",
+        "en": "Uşak's foundations were laid six weeks before Alpullu's; Alpullu was finished in eleven months and made the first Turkish sugar. Uşak opened twenty-one days later."
+      },
+      "olaylar": [
+        {
+          "yil": 1925,
+          "baslik": {
+            "tr": "İki temel atılıyor",
+            "en": "Two foundations are laid"
+          },
+          "aciklama": {
+            "tr": "6 Kasım'da Uşak'ta, 22 Aralık'ta Alpullu'da şeker fabrikalarının temeli atılır.",
+            "en": "On 6 November at Uşak and on 22 December at Alpullu, the foundations are laid."
+          }
+        },
+        {
+          "yil": 1926,
+          "baslik": {
+            "tr": "İlk Türk şekeri",
+            "en": "The first Turkish sugar"
+          },
+          "aciklama": {
+            "tr": "26 Kasım'da Alpullu işletmeye açılır ve ilk Türk şekeri üretilir. Uşak 17 Aralık'ta açılır.",
+            "en": "On 26 November Alpullu opens and the first Turkish sugar is made. Uşak opens on 17 December."
+          }
+        },
+        {
+          "yil": 1933,
+          "baslik": {
+            "tr": "Eskişehir",
+            "en": "Eskişehir"
+          },
+          "aciklama": {
+            "tr": "5 Aralık'ta üçüncü fabrika işletmeye açılır.",
+            "en": "The third factory opens on 5 December."
+          }
+        },
+        {
+          "yil": 1934,
+          "baslik": {
+            "tr": "Turhal",
+            "en": "Turhal"
+          },
+          "aciklama": {
+            "tr": "19 Ekim'de dördüncü fabrika işletmeye açılır.",
+            "en": "The fourth factory opens on 19 October."
+          }
+        },
+        {
+          "yil": 1935,
+          "baslik": {
+            "tr": "Dört şirket tek çatıda",
+            "en": "Four companies, one roof"
+          },
+          "aciklama": {
+            "tr": "6 Temmuz'da üç milli banka eşit paylarla ortak olur; 22 milyon TL sermayeli Türkiye Şeker Fabrikaları A.Ş. kurulur.",
+            "en": "On 6 July three national banks take equal shares; Türkiye Şeker Fabrikaları A.Ş. is founded with a capital of 22 million lira."
+          }
+        },
+        {
+          "yil": 1956,
+          "baslik": {
+            "tr": "Fabrika sayısı on beşe çıkıyor",
+            "en": "The count reaches fifteen"
+          },
+          "aciklama": {
+            "tr": "1951-1956 arasında on bir yeni fabrika kurulur. Aynı yıl 6747 sayılı Şeker Kanunu çıkar.",
+            "en": "Eleven new factories are built between 1951 and 1956. The Sugar Law 6747 is passed the same year."
+          }
+        },
+        {
+          "yil": 2001,
+          "baslik": {
+            "tr": "4634 sayılı Şeker Kanunu",
+            "en": "Sugar Law 4634"
+          },
+          "aciklama": {
+            "tr": "19 Nisan'da yürürlüğe girer; üretim kotayla planlanmaya başlar.",
+            "en": "In force from 19 April; production begins to be planned by quota."
+          }
+        },
+        {
+          "yil": 2018,
+          "baslik": {
+            "tr": "On fabrika el değiştirir",
+            "en": "Ten factories change hands"
+          },
+          "aciklama": {
+            "tr": "Afyon, Alpullu, Bor, Çorum, Elbistan, Erzincan, Erzurum, Kırşehir, Muş ve Turhal özelleştirilir.",
+            "en": "Afyon, Alpullu, Bor, Çorum, Elbistan, Erzincan, Erzurum, Kırşehir, Muş and Turhal are privatised."
+          }
+        },
+        {
+          "yil": 2021,
+          "baslik": {
+            "tr": "Sermaye Varlık Fonu'na",
+            "en": "Capital to the Wealth Fund"
+          },
+          "aciklama": {
+            "tr": "29 Nisan tarihli Cumhurbaşkanı Kararı ile sermayenin tamamı devredilir.",
+            "en": "A Presidential Decision of 29 April transfers the entire capital."
+          }
+        },
+        {
+          "yil": 2025,
+          "baslik": {
+            "tr": "Çarşamba MKE'ye geçer",
+            "en": "Çarşamba passes to MKE"
+          },
+          "aciklama": {
+            "tr": "Devir tamamlanır; TÜRKŞEKER 14 fabrika ile üretim yapar.",
+            "en": "The transfer is completed; TÜRKŞEKER operates 14 factories."
+          }
+        }
+      ]
+    },
+    "kota_uc_kesim": {
+      "tur": "ikili_cubuk",
+      "baslik": {
+        "tr": "Bir şirket, üçte birden fazlası",
+        "en": "One company, more than a third"
+      },
+      "kaynak": "TÜRKŞEKER · Şeker Sektör Raporu 2025, Tablo 24",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "şirket sayısı",
+            "en": "share of companies"
+          },
+          "rol": "ikincil"
+        },
+        {
+          "ad": {
+            "tr": "kota payı",
+            "en": "share of quota"
+          },
+          "rol": "vurgu"
+        }
+      ],
+      "not": {
+        "tr": "Pancar şekeri A kotası 2025/26 için 2.837.250 ton. On beş üreticinin biri TÜRKŞEKER ve tek başına %36,08 tutuyor; üç kooperatif şirketi %35,42, on bir özel şirket %28,49. Her satır kendi içinde oranlanıyor; satırlar birbiriyle değil.",
+        "en": "The beet sugar A quota for 2025/26 is 2,837,250 tonnes. One of the fifteen producers is TÜRKŞEKER, holding 36.08% on its own; three cooperative companies hold 35.42% and eleven private companies 28.49%. Each row is scaled within itself, not against the others."
+      },
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Kamu · TÜRKŞEKER",
+            "en": "Public · TÜRKŞEKER"
+          },
+          "degerler": [
+            "@turetilmis.kesimler.0.sirket_yuzde",
+            "@turetilmis.kesimler.0.kota_yuzde"
+          ],
+          "ondalik": 2,
+          "onek": {
+            "tr": "%",
+            "en": ""
+          },
+          "sonek": {
+            "tr": "",
+            "en": "%"
+          }
+        },
+        {
+          "etiket": {
+            "tr": "Kooperatif · 3 şirket",
+            "en": "Cooperative · 3 companies"
+          },
+          "degerler": [
+            "@turetilmis.kesimler.1.sirket_yuzde",
+            "@turetilmis.kesimler.1.kota_yuzde"
+          ],
+          "ondalik": 2,
+          "onek": {
+            "tr": "%",
+            "en": ""
+          },
+          "sonek": {
+            "tr": "",
+            "en": "%"
+          }
+        },
+        {
+          "etiket": {
+            "tr": "Özel · 11 şirket",
+            "en": "Private · 11 companies"
+          },
+          "degerler": [
+            "@turetilmis.kesimler.2.sirket_yuzde",
+            "@turetilmis.kesimler.2.kota_yuzde"
+          ],
+          "ondalik": 2,
+          "onek": {
+            "tr": "%",
+            "en": ""
+          },
+          "sonek": {
+            "tr": "",
+            "en": "%"
+          }
+        }
+      ]
+    },
+    "sirket_kotalari": {
+      "tur": "siralama",
+      "bolen": 1000,
+      "ondalik": 0,
+      "baslik": {
+        "tr": "On beş üretici, en büyükten en küçüğe",
+        "en": "Fifteen producers, largest to smallest"
+      },
+      "birim": {
+        "tr": "bin ton · A kotası",
+        "en": "thousand tonnes · A quota"
+      },
+      "kaynak": "TÜRKŞEKER · Şeker Sektör Raporu 2025, Tablo 24",
+      "not": {
+        "tr": "Listenin en küçüğü Alpullu: 26.680 ton, pancar şekerinin %0,94'i. İlk Türk şekeri 1926'da bu fabrikada üretilmişti; 2018'de özelleştirildi.",
+        "en": "The smallest on the list is Alpullu: 26,680 tonnes, 0.94% of beet sugar. The first Turkish sugar was made at this factory in 1926; it was privatised in 2018."
+      },
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "KAMU TÜRKŞEKER (14 Fabrika)",
+            "en": "KAMU TÜRKŞEKER (14 Fabrika)"
+          },
+          "deger": "@turetilmis.kota_siralamasi.0.a_kotasi_ton",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Kayseri Şeker Fabrikası A.Ş. (Kayseri, Boğazlı",
+            "en": "Kayseri Şeker Fabrikası A.Ş. (Kayseri, Boğazlı"
+          },
+          "deger": "@turetilmis.kota_siralamasi.1.a_kotasi_ton",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Konya Şeker San. Ve Tic. A.Ş. (Konya, Çumra)",
+            "en": "Konya Şeker San. Ve Tic. A.Ş. (Konya, Çumra)"
+          },
+          "deger": "@turetilmis.kota_siralamasi.2.a_kotasi_ton",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Doğuş Yiyecek Ve İçecek Üretim San. Tic. A.Ş.(",
+            "en": "Doğuş Yiyecek Ve İçecek Üretim San. Tic. A.Ş.("
+          },
+          "deger": "@turetilmis.kota_siralamasi.3.a_kotasi_ton",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Keskinkılıç Gıda San. Tic. A.Ş",
+            "en": "Keskinkılıç Gıda San. Tic. A.Ş"
+          },
+          "deger": "@turetilmis.kota_siralamasi.4.a_kotasi_ton",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Çorum Şeker Fabrikası A.Ş",
+            "en": "Çorum Şeker Fabrikası A.Ş"
+          },
+          "deger": "@turetilmis.kota_siralamasi.5.a_kotasi_ton",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Sukkar Şeker Üretim A.Ş. (Erzurum-Erzincan)",
+            "en": "Sukkar Şeker Üretim A.Ş. (Erzurum-Erzincan)"
+          },
+          "deger": "@turetilmis.kota_siralamasi.6.a_kotasi_ton",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Tutgu Gıda A.Ş.(Kırşehir)",
+            "en": "Tutgu Gıda A.Ş.(Kırşehir)"
+          },
+          "deger": "@turetilmis.kota_siralamasi.7.a_kotasi_ton",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Binbirgıda · Alpullu",
+            "en": "Binbirgıda · Alpullu"
+          },
+          "deger": "@turetilmis.kota_siralamasi.14.a_kotasi_ton",
+          "rol": "ikincil"
+        }
+      ]
+    },
+    "pancar_verimi": {
+      "tur": "cizgi",
+      "bolen": 1000,
+      "ondalik": 1,
+      "baslik": {
+        "tr": "Aynı dönümden üç katı pancar",
+        "en": "Three times the beet from the same field"
+      },
+      "birim": {
+        "tr": "ton/hektar · şeker pancarı verimi",
+        "en": "tonnes per hectare · sugar beet yield"
+      },
+      "kaynak": "FAOSTAT · Üretim, Türkiye (Alan Kodu 223)",
+      "not": {
+        "tr": "1961'de hektar başına 22,1 ton olan verim 2024'te 70,9 tona çıktı: %221 artış. FAOSTAT serisi 1961'de başlıyor; ilk Türk şekeri 1926'da üretildi ve aradaki otuz beş yılın sayısı bu seride yok.",
+        "en": "Yield rose from 22.1 tonnes per hectare in 1961 to 70.9 in 2024, a rise of 221%. The FAOSTAT series begins in 1961; the first Turkish sugar was made in 1926 and the thirty-five years between are not in it."
+      },
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Verim",
+            "en": "Yield"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "liste": "@turetilmis.verim_kayitlari",
+            "x": "yil",
+            "y": "verim"
+          }
+        }
+      ]
+    },
+    "dunya_pancar_sekeri": {
+      "tur": "siralama",
+      "ondalik": 0,
+      "baslik": {
+        "tr": "Dünyada pancar şekeri: Türkiye dördüncü",
+        "en": "Beet sugar worldwide: Türkiye is fourth"
+      },
+      "birim": {
+        "tr": "bin ton",
+        "en": "thousand tonnes"
+      },
+      "kaynak": "USDA Foreign Agricultural Service · Production, Supply and Distribution",
+      "not": {
+        "tr": "Türkiye 3.100 bin tonla dördüncü sırada. Ülkenin kamış şekeri üretimi sıfır: şekerin tamamı pancardan geliyor.",
+        "en": "Türkiye is fourth with 3,100 thousand tonnes. The country's cane sugar output is zero: all of its sugar comes from beet."
+      },
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Avrupa Birliği",
+            "en": "European Union"
+          },
+          "deger": "@turetilmis.dunya_siralamasi.0.bin_ton",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Rusya",
+            "en": "Russia"
+          },
+          "deger": "@turetilmis.dunya_siralamasi.1.bin_ton",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "ABD",
+            "en": "United States"
+          },
+          "deger": "@turetilmis.dunya_siralamasi.2.bin_ton",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Türkiye",
+            "en": "Türkiye"
+          },
+          "deger": "@turetilmis.dunya_siralamasi.3.bin_ton",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Mısır",
+            "en": "Egypt"
+          },
+          "deger": "@turetilmis.dunya_siralamasi.4.bin_ton",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Ukrayna",
+            "en": "Ukraine"
+          },
+          "deger": "@turetilmis.dunya_siralamasi.5.bin_ton",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Çin",
+            "en": "China"
+          },
+          "deger": "@turetilmis.dunya_siralamasi.6.bin_ton",
+          "rol": "sessiz"
+        }
+      ]
+    },
+    "nbs_kotasi": {
+      "tur": "cizgi",
+      "ondalik": 1,
+      "baslik": {
+        "tr": "Nişasta bazlı şekerin kotası dörtte bire indi",
+        "en": "The starch-based sugar quota fell to a quarter"
+      },
+      "birim": {
+        "tr": "bin ton · A kotası",
+        "en": "thousand tonnes · A quota"
+      },
+      "kaynak": "TÜRKŞEKER · Şeker Sektör Raporu 2025, Tablo 23",
+      "not": {
+        "tr": "2017/18'de 267 bin ton olan kota 2019/20'de 67,5 bin tona indi: %74,7 azalma. 7103 sayılı Kanunun 47. maddesi ülke toplam A kotasının %10'u olan payı %5'e indirdi; 2019/20'den sonra Cumhurbaşkanı kararıyla %2,5'te tutuluyor. Aynı kanunun Geçici 11. maddesi ortaya çıkan kota fazlasını TÜRKŞEKER'e aktardı.",
+        "en": "The quota fell from 267 thousand tonnes in 2017/18 to 67.5 in 2019/20, a fall of 74.7%. Article 47 of Law 7103 cut the share from 10 per cent of the national A quota to 5; since 2019/20 a Presidential Decision has held it at 2.5. Provisional Article 11 of the same law transferred the resulting surplus quota to TÜRKŞEKER."
+      },
+      "seriler": [
+        {
+          "ad": {
+            "tr": "NBŞ kotası",
+            "en": "Starch-based sugar quota"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "liste": "@turetilmis.nbs_kayitlari",
+            "x": "yil",
+            "y": "kota"
+          }
+        }
+      ]
+    },
+    "pancarin_yolu": {
+      "tur": "islem_akisi",
+      "baslik": {
+        "tr": "Çiftçi pancarını nasıl satar",
+        "en": "How a grower sells their beet"
+      },
+      "kaynak": "TÜRKŞEKER · Şeker Sektör Raporu 2025 · 4634 sayılı Şeker Kanunu, madde 4",
+      "not": {
+        "tr": "Sözleşmeli üretimin Türkiye'de ilk ve en yaygın uygulandığı ürün şeker pancarıdır. Pancar bir münavebe bitkisi: bölgeye göre üç ya da dört yılda bir ekiliyor. Süreler belgelerde yazılı olmadığı için boş bırakıldı.",
+        "en": "Sugar beet is the crop for which contract farming was first and is most widely used in Türkiye. Beet is a rotation crop, sown every three or four years depending on the region. Durations are left blank because the documents do not state them."
+      },
+      "adimlar": [
+        {
+          "aktor": {
+            "tr": "Üretici ve şirket",
+            "en": "Grower and company"
+          },
+          "baslik": {
+            "tr": "Sözleşme imzalanır",
+            "en": "The contract is signed"
+          },
+          "aciklama": {
+            "tr": "Her yıl ekimden önce Şeker Pancarı Üretim Sözleşmesi yapılır.",
+            "en": "A Sugar Beet Production Contract is made each year before sowing."
+          },
+          "belge": {
+            "tr": "Şeker Pancarı Üretim Sözleşmesi",
+            "en": "Sugar Beet Production Contract"
+          }
+        },
+        {
+          "aktor": {
+            "tr": "Şirket",
+            "en": "Company"
+          },
+          "baslik": {
+            "tr": "Fiyat ekimden önce belirlenir",
+            "en": "The price is set before sowing"
+          },
+          "aciklama": {
+            "tr": "A kotası pancar fiyatı; yıllık enflasyon, üretici maliyetlerindeki artış, dünya pancar fiyatları ve alternatif ürün paritesi dikkate alınarak belirlenir.",
+            "en": "The A quota beet price is set with regard to annual inflation, the rise in growers' costs, world beet prices and the parity of alternative crops."
+          }
+        },
+        {
+          "aktor": {
+            "tr": "Şirket",
+            "en": "Company"
+          },
+          "baslik": {
+            "tr": "Avans verilir",
+            "en": "An advance is paid"
+          },
+          "aciklama": {
+            "tr": "Tohum ve gübre gibi ayni destekler ile nakdi avanslar. Pancar teslim edilmeden önce bedelin yaklaşık yüzde 35'i faiz yansıtılmaksızın ödenir.",
+            "en": "Support in kind, such as seed and fertiliser, and cash advances. About 35 per cent of the price is paid before delivery, with no interest charged."
+          }
+        },
+        {
+          "aktor": {
+            "tr": "Üretici",
+            "en": "Grower"
+          },
+          "baslik": {
+            "tr": "Ekim ve hasat",
+            "en": "Sowing and harvest"
+          },
+          "aciklama": {
+            "tr": "Pancar münavebe ile ekilir; bölgeye göre üç ya da dört yılda bir.",
+            "en": "Beet is sown in rotation, every three or four years by region."
+          }
+        },
+        {
+          "aktor": {
+            "tr": "Üretici",
+            "en": "Grower"
+          },
+          "baslik": {
+            "tr": "Pancar teslim edilir",
+            "en": "The beet is delivered"
+          },
+          "aciklama": {
+            "tr": "Teslimle birlikte nakliye destek ödemesi devreye girer.",
+            "en": "Delivery brings the transport support payment into play."
+          }
+        },
+        {
+          "aktor": {
+            "tr": "Şirket",
+            "en": "Company"
+          },
+          "baslik": {
+            "tr": "Bedel ve primler ödenir",
+            "en": "Price and premiums are paid"
+          },
+          "aciklama": {
+            "tr": "Kota tamamlama primi, pancar üretimini teşvik primi, temizleme ve yükleme primi.",
+            "en": "Quota completion premium, production incentive premium, cleaning and loading premium."
+          },
+          "secenekler": [
+            {
+              "tr": "İstihkak posa bedelsiz verilir",
+              "en": "Pulp is supplied free of charge"
+            }
+          ]
+        }
+      ]
+    },
+    "ciftci_sayisi": {
+      "tur": "cizgi",
+      "bolen": 1000,
+      "ondalik": 1,
+      "baslik": {
+        "tr": "Çiftçi azaldı, üretim yerinde durdu",
+        "en": "Fewer growers, the same harvest"
+      },
+      "birim": {
+        "tr": "bin kişi · pancar üreticisi",
+        "en": "thousand people · beet growers"
+      },
+      "kaynak": "TÜRKŞEKER · Şeker Sektör Raporu 2025, Tablo 26 ve Tablo 27",
+      "not": {
+        "tr": "Ülke genelinde üretici sayısı 2017'de 110.131 ile zirve yaptı, 2025'te 76.767'e indi: %30,3 azalma. Aynı aralıkta TÜRKŞEKER'in üreticisi %25,8, TÜRKŞEKER dışı %32,7 azaldı. İki satır ayrı ölçüdür ve biri diğerinin yerine kullanılamaz.",
+        "en": "Nationwide the number of growers peaked at 110,131 in 2017 and fell to 76,767 in 2025, a fall of 30.3%. Over the same span TÜRKŞEKER's growers fell by 25.8% and growers outside TÜRKŞEKER by 32.7%. The two lines are separate measures and neither stands for the other."
+      },
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Ülke geneli",
+            "en": "Nationwide"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "liste": "@turetilmis.ciftci_kayitlari",
+            "x": "yil",
+            "y": "ulke"
+          }
+        },
+        {
+          "ad": {
+            "tr": "TÜRKŞEKER",
+            "en": "TÜRKŞEKER"
+          },
+          "rol": "ikincil",
+          "noktalar": {
+            "liste": "@turetilmis.ciftci_kayitlari",
+            "x": "yil",
+            "y": "turkseker"
+          }
+        }
+      ]
+    },
+    "bugun_turkseker": {
+      "tur": "kartlar",
+      "baslik": {
+        "tr": "Bugün TÜRKŞEKER",
+        "en": "TÜRKŞEKER today"
+      },
+      "kaynak": "TÜRKŞEKER · Şeker Sektör Raporu 2025 ve 2024-2028 Stratejik Plan",
+      "not": {
+        "tr": "Şeker fabrikalarının yanı sıra üç makine fabrikası, Elektromekanik Aygıtlar Fabrikası, Alkol Fabrikası, Tohum İşleme Fabrikası ve Şeker Enstitüsü kurumun bünyesinde. Personel rakamı 2022 fiili ortalamasıdır.",
+        "en": "Besides the sugar factories the institution runs three machine works, an electromechanical devices plant, an alcohol plant, a seed processing plant and the Sugar Institute. The staff figure is the 2022 actual average."
+      },
+      "kartlar": [
+        {
+          "ust": {
+            "tr": "Fabrika",
+            "en": "Factories"
+          },
+          "baslik": {
+            "tr": "14 şeker fabrikası",
+            "en": "14 sugar factories"
+          },
+          "govde": {
+            "tr": "1990 öncesinde 30 fabrikası vardı. 2018'de on fabrika özelleştirildi, 2025'te Çarşamba MKE'ye devredildi.",
+            "en": "Before 1990 it had 30. Ten were privatised in 2018 and Çarşamba passed to MKE in 2025."
+          }
+        },
+        {
+          "ust": {
+            "tr": "Kota",
+            "en": "Quota"
+          },
+          "baslik": {
+            "tr": "%36,08 pay",
+            "en": "36.08% share"
+          },
+          "govde": {
+            "tr": "2025/26 pazarlama yılında 1.023.820 ton A kotası. Pancar şekeri üretimindeki payı ise %32.",
+            "en": "An A quota of 1,023,820 tonnes for 2025/26. Its share of beet sugar production is 32%."
+          }
+        },
+        {
+          "ust": {
+            "tr": "Çalışan",
+            "en": "Staff"
+          },
+          "baslik": {
+            "tr": "6.024 kişi",
+            "en": "6,024 people"
+          },
+          "govde": {
+            "tr": "2018'de 7.563 olan fiili ortalama 2022'de 5.652. Alt işverenle birlikte 10.535 kişi.",
+            "en": "The actual average was 7,563 in 2018 and 5,652 in 2022. With contractors, 10,535 people."
+          }
+        },
+        {
+          "ust": {
+            "tr": "Sermaye",
+            "en": "Capital"
+          },
+          "baslik": {
+            "tr": "Türkiye Varlık Fonu",
+            "en": "Türkiye Wealth Fund"
+          },
+          "govde": {
+            "tr": "29 Nisan 2021 tarihli Cumhurbaşkanı Kararı ile sermayenin tamamı devredildi; aynı yıl Tarım ve Orman Bakanlığı ile ilgilendirildi.",
+            "en": "A Presidential Decision of 29 April 2021 transferred the entire capital; the same year it was attached to the Ministry of Agriculture and Forestry."
+          }
+        }
+      ]
+    },
+    "iki_model": {
+      "tur": "kartlar",
+      "baslik": {
+        "tr": "Pancar şekerini kim, nasıl üretiyor",
+        "en": "Who makes beet sugar, and how"
+      },
+      "kaynak": "USDA Foreign Agricultural Service · Production, Supply and Distribution",
+      "not": {
+        "tr": "Dünya pancar şekeri üretimi 41.865 bin ton. Kartlar üretim büyüklüğünü ve örgütlenme biçimini yan yana koyuyor; rakamlar USDA'nın 2024 tahminleridir.",
+        "en": "World beet sugar output is 41,865 thousand tonnes. The cards set output against the form of organisation; the figures are USDA estimates for 2024."
+      },
+      "kartlar": [
+        {
+          "ust": {
+            "tr": "Birinci",
+            "en": "First"
+          },
+          "baslik": {
+            "tr": "Avrupa Birliği · 16.546 bin ton",
+            "en": "European Union · 16,546 thousand tonnes"
+          },
+          "govde": {
+            "tr": "Dünya pancar şekerinin en büyük üreticisi; üretim kotası 2017'de kaldırıldı.",
+            "en": "The largest producer of beet sugar; its production quota was abolished in 2017."
+          }
+        },
+        {
+          "ust": {
+            "tr": "İkinci",
+            "en": "Second"
+          },
+          "baslik": {
+            "tr": "Rusya · 6.900 bin ton",
+            "en": "Russia · 6,900 thousand tonnes"
+          },
+          "govde": {
+            "tr": "Pancar şekerinde ikinci sırada.",
+            "en": "Second in beet sugar."
+          }
+        },
+        {
+          "ust": {
+            "tr": "Dördüncü",
+            "en": "Fourth"
+          },
+          "baslik": {
+            "tr": "Türkiye · 3.100 bin ton",
+            "en": "Türkiye · 3,100 thousand tonnes"
+          },
+          "govde": {
+            "tr": "Üretim kotayla planlanıyor; kamu, kooperatif ve özel sektör kotayı %36,08 · %35,42 · %28,49 paylaşıyor.",
+            "en": "Production is planned by quota; public, cooperative and private sectors hold 36.08% · 35.42% · 28.49% of it."
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "_dosya": "Şeker sanayii zaman çizelgesi",
+  "_yontem": "Her madde kaynak metinden birebir bir cümleye bağlı; tarih_kur.py o cümlenin metinde durduğunu sınıyor. Dayanağı tutmayan madde çizelgeye giremiyor.",
+  "_cekim": "2026-11-23",
+  "maddeler": [
+    {
+      "yil": 1925,
+      "tarih": "6 Kasım 1925",
+      "baslik": "Uşak'ta ilk şeker fabrikasının temeli atıldı",
+      "_dayanak": "6 Kasım 1925 tarihinde ilk şeker fabrikasının temeli atılmıştır.",
+      "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025"
+    },
+    {
+      "yil": 1925,
+      "tarih": "22 Aralık 1925",
+      "baslik": "Alpullu'nun temeli atıldı",
+      "_dayanak": "22 Aralık 1925 tarihinde Alpullu Şeker Fabrikasının temeli atılarak",
+      "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025"
+    },
+    {
+      "yil": 1926,
+      "tarih": "26 Kasım 1926",
+      "baslik": "Alpullu'da ilk Türk şekeri üretildi",
+      "_dayanak": "26 Kasım 1926 tarihinde fabrika işletmeye açılarak ilk Türk şekeri üretilmiştir.",
+      "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025"
+    },
+    {
+      "yil": 1926,
+      "tarih": "17 Aralık 1926",
+      "baslik": "Uşak Şeker Fabrikası işletmeye açıldı",
+      "_dayanak": "Uşak Şeker Fabrikası ise 17 Aralık 1926 tarihinde işletmeye açılmıştır.",
+      "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025"
+    },
+    {
+      "yil": 1933,
+      "tarih": "5 Aralık 1933",
+      "baslik": "Eskişehir Şeker Fabrikası açıldı",
+      "_dayanak": "05/12/1933 tarihinde Eskişehir Şeker Fabrikası",
+      "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025"
+    },
+    {
+      "yil": 1934,
+      "tarih": "19 Ekim 1934",
+      "baslik": "Turhal Şeker Fabrikası açıldı",
+      "_dayanak": "19/10/1934 tarihinde Turhal Şeker Fabrikası işletmeye açılmıştır.",
+      "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025"
+    },
+    {
+      "yil": 1935,
+      "tarih": "6 Temmuz 1935",
+      "baslik": "Dört fabrika tek şirkette birleşti: Türkiye Şeker Fabrikaları A.Ş.",
+      "_dayanak": "6 Temmuz 1935 tarihinde, üç milli bankamızın eşit paylarla ortak oldukları tek bir şirket çatısı altında toplanarak Türkiye Şeker Fabrikaları A.Ş. kurulmuştur.",
+      "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025"
+    },
+    {
+      "yil": 1956,
+      "tarih": "1956",
+      "baslik": "Fabrika sayısı 15'e ulaştı",
+      "_dayanak": "1956 yılında fabrika sayısı 15'e ulaşmıştır.",
+      "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025"
+    },
+    {
+      "yil": 1956,
+      "tarih": "22 Haziran 1956",
+      "baslik": "6747 sayılı Şeker Kanunu",
+      "_dayanak": "22 Haziran 1956 tarihli ve 6747 sayılı Şeker Kanunu",
+      "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025"
+    },
+    {
+      "yil": 2001,
+      "tarih": "19 Nisan 2001",
+      "baslik": "4634 sayılı Şeker Kanunu yürürlüğe girdi",
+      "_dayanak": "19 Nisan 2001 tarihinde 4634 sayılı Şeker Kanununun yürürlüğe girmesinden önce",
+      "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025"
+    },
+    {
+      "yil": 2017,
+      "tarih": "20 Kasım 2017",
+      "baslik": "Şeker Kurumu kaldırıldı",
+      "_dayanak": "KHK-696/74, 20 Kasım 2017 — Resmî Gazete. Bu madde Türkşeker'in kendi iki belgesinde GEÇMİYOR; dayanağı mevzuattır.",
+      "_belge_disi": true
+    },
+    {
+      "yil": 2018,
+      "tarih": "2018",
+      "baslik": "On şeker fabrikası özelleştirildi",
+      "_dayanak": "Afyon, Alpullu, Bor, Çorum, Elbistan, Erzincan, Erzurum, Kırşehir, Muş, Turhal Şeker Fabrikaları ise Özelleştirme İdaresi Başkanlığı tarafından satışı yapılarak 2018 yılında özelleştirilmiştir.",
+      "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025"
+    },
+    {
+      "yil": 2021,
+      "tarih": "29 Nisan 2021",
+      "baslik": "Sermayenin tamamı Türkiye Varlık Fonu'na geçti",
+      "_dayanak": "29/04/2021 tarihli ve 3923 sayılı Cumhurbaşkanı Kararı ile özelleştirme kapsam ve programından",
+      "_kaynak": "TÜRKŞEKER, 2024-2028 Stratejik Plan"
+    },
+    {
+      "yil": 2025,
+      "tarih": "2025",
+      "baslik": "Çarşamba Şeker Fabrikası MKE'ye devredildi",
+      "_dayanak": "Çarşamba Şeker Fabrikasının taşınmazları ve üzerinde bulunan yapıların Makine ve Kimya Endüstrisi A.Ş'ye (MKE) devredilmesine karar verilmiş, 2025 yılında devir işlemi tamamlanmıştır.",
+      "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025"
+    }
+  ],
+  "ilk_seker": {
+    "tarih": "26 Kasım 1926",
+    "yer": "Alpullu",
+    "yuzuncu_yil": 2026,
+    "_not": "Uşak'ın temeli 6 Kasım 1925'te, Alpullu'nunki 22 Aralık 1925'te atıldı; Alpullu onbir ayda bitti ve ilk şekeri o üretti. Uşak 17 Aralık 1926'da açıldı."
+  },
+  "fabrika_sayisi": {
+    "1956": 15,
+    "1990_oncesi_turkseker": 30,
+    "2025_26_turkseker": 14,
+    "_dusus_dayanagi": "Stratejik Plan (2024-2028) 15 fabrika diyor, Sektör Raporu 2025 ise 14. Fark Çarşamba'dır: 25/12/2024 tarihli 9315-9316 sayılı Cumhurbaşkanı kararlarıyla MKE'ye devredildi, devir 2025'te tamamlandı."
+  }
+}

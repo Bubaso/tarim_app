@@ -1,0 +1,311 @@
+{
+  "_ne": "Türkşeker — Kurum Dosyası Sayı 07 · tur 1 erişim haritası",
+  "_yontem": "kod + content-type + gövde birlikte okunuyor (§2.12.1)",
+  "_tarih": "2026-11-23",
+  "kaynaklar": [
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 88906,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Türkşeker",
+      "adres": "https://www.turkseker.gov.tr/",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 51931,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Türkşeker — şeker fabrikaları",
+      "adres": "https://www.turkseker.gov.tr/?ModulID=3&MenuID=22",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 51217,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Türkşeker — tarihçe",
+      "adres": "https://www.turkseker.gov.tr/?ModulID=3&MenuID=3",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 56884,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Türkşeker — faaliyet raporları",
+      "adres": "https://www.turkseker.gov.tr/?ModulID=8&MenuID=36",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "application/pdf",
+      "bayt": 2441031,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Türkşeker — 2025 sektör raporu",
+      "adres": "https://www.turkseker.gov.tr/data/dokumanlar/2025_sektor_raporu.pdf",
+      "sinif": "BİRİNCİL",
+      "beklenen": "pdf"
+    },
+    {
+      "kod": 200,
+      "tur": "application/pdf",
+      "bayt": 2364347,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Türkşeker — ana statü",
+      "adres": "https://www.turkseker.gov.tr/data/dokumanlar/Ana_Statu.pdf",
+      "sinif": "BİRİNCİL",
+      "beklenen": "pdf"
+    },
+    {
+      "kod": 200,
+      "tur": "application/pdf",
+      "bayt": 45269848,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Türkşeker — stratejik plan",
+      "adres": "https://www.turkseker.gov.tr/Belgeler/stratejik_plan_12_09_2024_v4.pdf",
+      "sinif": "BİRİNCİL",
+      "beklenen": "pdf"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 47525,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Türkşeker — kuruluş mevzuatı",
+      "adres": "https://www.turkseker.gov.tr/?ModulID=3&MenuID=30",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 73331,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Türkşeker — makine fabrikaları",
+      "adres": "https://www.turkseker.gov.tr/?ModulID=3&MenuID=25",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 0,
+      "tur": null,
+      "bayt": null,
+      "teshis": "bağlantı yok — [Errno 54] Connection reset by peer",
+      "ad": "Türkşeker kütüphanesi (Bakanlık kataloğu)",
+      "adres": "https://kutuphane.tarimorman.gov.tr/vufind/",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 0,
+      "tur": null,
+      "bayt": null,
+      "teshis": "bağlantı yok — [Errno 8] nodename nor servname provided, or not k",
+      "ad": "Şeker Kurumu (kapatıldı, arşiv)",
+      "adres": "https://www.sekerkurumu.gov.tr/",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 3538,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Özelleştirme İdaresi",
+      "adres": "https://www.oib.gov.tr/",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 374676,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Tarım ve Orman Bakanlığı",
+      "adres": "https://www.tarimorman.gov.tr/",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 60000,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Resmî Gazete arşivi",
+      "adres": "https://www.resmigazete.gov.tr/",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "application/pdf",
+      "bayt": 237129,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Mevzuat Bilgi Sistemi — 4634 Şeker Kanunu",
+      "adres": "https://www.mevzuat.gov.tr/MevzuatMetin/1.5.4634.pdf",
+      "sinif": "BİRİNCİL",
+      "beklenen": "pdf"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 60000,
+      "son_adres": "https://www.mevzuat.gov.tr/Anasayfa/ErrorPage?code=404",
+      "teshis": "HATA SAYFASINA YÖNLENDİ — https://www.mevzuat.gov.tr/Anasayfa/ErrorPage?code=404",
+      "ad": "Mevzuat — 6747 (mülga) Şeker Kanunu",
+      "adres": "https://www.mevzuat.gov.tr/MevzuatMetin/1.3.6747.pdf",
+      "sinif": "BİRİNCİL",
+      "beklenen": "pdf"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 60000,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Pankobirlik",
+      "adres": "https://www.pankobirlik.com.tr/",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 3692,
+      "son_adres": "https://veriportali.tuik.gov.tr/Kategori/GetKategori?p=tarim-111",
+      "teshis": "açık",
+      "ad": "TÜİK bitkisel üretim",
+      "adres": "https://data.tuik.gov.tr/Kategori/GetKategori?p=tarim-111",
+      "sinif": "BAĞIMSIZ",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 60000,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "TÜİK API",
+      "adres": "https://biruni.tuik.gov.tr/medas/?kn=92&locale=tr",
+      "sinif": "BAĞIMSIZ",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "application/x-directory",
+      "bayt": 0,
+      "son_adres": null,
+      "teshis": "KABUK — gövde 0 bayt",
+      "ad": "FAOSTAT toplu indirme dizini",
+      "adres": "https://bulks-faostat.fao.org/production/",
+      "sinif": "BAĞIMSIZ",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "application/x-zip-compressed",
+      "bayt": 760779,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "USDA PSD — şeker toplu CSV",
+      "adres": "https://apps.fas.usda.gov/psdonline/downloads/psd_sugar_csv.zip",
+      "sinif": "BAĞIMSIZ",
+      "beklenen": "zip"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 3338,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "USDA FAS GAIN arama",
+      "adres": "https://gain.fas.usda.gov/",
+      "sinif": "BAĞIMSIZ",
+      "beklenen": "html"
+    },
+    {
+      "kod": 0,
+      "tur": null,
+      "bayt": null,
+      "teshis": "bağlantı yok — [Errno 54] Connection reset by peer",
+      "ad": "ISO — Uluslararası Şeker Örgütü",
+      "adres": "https://www.isosugar.org/",
+      "sinif": "BAĞIMSIZ",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 8672,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Eurostat şeker",
+      "adres": "https://ec.europa.eu/eurostat/databrowser/view/apro_cpsh1/default/table",
+      "sinif": "BAĞIMSIZ",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "application/json",
+      "bayt": 60000,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "UN Comtrade API",
+      "adres": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=792&period=2024&cmdCode=1701",
+      "sinif": "BAĞIMSIZ",
+      "beklenen": "json"
+    },
+    {
+      "kod": 308,
+      "tur": null,
+      "bayt": null,
+      "teshis": "HTTP 308",
+      "ad": "TBMM tutanak arşivi",
+      "adres": "https://www.tbmm.gov.tr/tutanaklar/TUTANAK_SD.php",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "text/html",
+      "bayt": 57483,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Cumhuriyet Arşivi (Devlet Arşivleri)",
+      "adres": "https://www.devletarsivleri.gov.tr/",
+      "sinif": "BİRİNCİL",
+      "beklenen": "html"
+    },
+    {
+      "kod": 200,
+      "tur": "application/json",
+      "bayt": 133,
+      "son_adres": null,
+      "teshis": "açık",
+      "ad": "Wikimedia Commons API",
+      "adres": "https://commons.wikimedia.org/w/api.php?action=query&format=json&list=search&srsearch=Alpullu",
+      "sinif": "BAĞIMSIZ",
+      "beklenen": "json"
+    }
+  ]
+}

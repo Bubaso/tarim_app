@@ -1,0 +1,83 @@
+{
+  "_kaynak": "TÜRKŞEKER, Şeker Sektör Raporu 2025 — Tablo 36 (s. 58). Raporun kendi kaynağı: Şeker Dairesi Başkanlığı (DTM, TÜİK)",
+  "_cekim": "2026-11-23",
+  "_birim": "ton, takvim yılı",
+  "yillar": {
+    "2016": {
+      "kristal_seker_ithalat_ton": 280000,
+      "nbs_ithalat_ton": 56200,
+      "nbs_ihracat_ton": 193400
+    },
+    "2017": {
+      "kristal_seker_ithalat_ton": 230000,
+      "nbs_ithalat_ton": 28300,
+      "nbs_ihracat_ton": 232100
+    },
+    "2018": {
+      "kristal_seker_ithalat_ton": 201000,
+      "nbs_ithalat_ton": 22700,
+      "nbs_ihracat_ton": 232000
+    },
+    "2019": {
+      "kristal_seker_ithalat_ton": 169000,
+      "nbs_ithalat_ton": 26100,
+      "nbs_ihracat_ton": 268000
+    },
+    "2020": {
+      "kristal_seker_ithalat_ton": 221000,
+      "nbs_ithalat_ton": 22500,
+      "nbs_ihracat_ton": 326000
+    },
+    "2021": {
+      "kristal_seker_ithalat_ton": 48699,
+      "nbs_ithalat_ton": 21044,
+      "nbs_ihracat_ton": 408117
+    },
+    "2022": {
+      "kristal_seker_ithalat_ton": 602479,
+      "nbs_ithalat_ton": 23406,
+      "nbs_ihracat_ton": 346049
+    },
+    "2023": {
+      "kristal_seker_ithalat_ton": 302570,
+      "nbs_ithalat_ton": 20139,
+      "nbs_ihracat_ton": 267503
+    },
+    "2024": {
+      "kristal_seker_ithalat_ton": 202000,
+      "nbs_ithalat_ton": 20700,
+      "nbs_ihracat_ton": 345100
+    },
+    "2025": {
+      "kristal_seker_ithalat_ton": 110000,
+      "nbs_ithalat_ton": 23000,
+      "nbs_ihracat_ton": 321500
+    }
+  },
+  "ithalat_dalgasi": {
+    "zirve_yil": "2022",
+    "zirve_ton": 602479,
+    "onceki_yil": "2021",
+    "onceki_ton": 48699,
+    "kat": 12.4,
+    "dip_yil": "2021",
+    "dip_ton": 48699
+  },
+  "nbs_disa_donuk": {
+    "ihracat_ithalat_orani": {
+      "2016": 3.4,
+      "2017": 8.2,
+      "2018": 10.2,
+      "2019": 10.3,
+      "2020": 14.5,
+      "2021": 19.4,
+      "2022": 14.8,
+      "2023": 13.3,
+      "2024": 16.7,
+      "2025": 14.0
+    },
+    "_2018_ihracat": 232000,
+    "_2021_ihracat": 408117,
+    "_serh": "NBŞ yurt içi kotası 2018/19'dan başlayarak kesildi ve aynı yıllarda NBŞ ihracatı yükseldi. İki olgu ÖLÇÜLMÜŞTÜR; aralarındaki bağı bu belge kurmuyor, yayına nedensellik olarak yazılamaz."
+  }
+}
