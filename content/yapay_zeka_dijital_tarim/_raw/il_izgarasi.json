@@ -1,0 +1,407 @@
+{
+"1": {
+"ad": "Adana",
+"sutun": 8,
+"satir": 5
+},
+"2": {
+"ad": "Adıyaman",
+"sutun": 10,
+"satir": 4
+},
+"3": {
+"ad": "Afyonkarahisar",
+"sutun": 4,
+"satir": 3
+},
+"4": {
+"ad": "Ağrı",
+"sutun": 15,
+"satir": 2
+},
+"5": {
+"ad": "Amasya",
+"sutun": 8,
+"satir": 1
+},
+"6": {
+"ad": "Ankara",
+"sutun": 6,
+"satir": 2
+},
+"7": {
+"ad": "Antalya",
+"sutun": 4,
+"satir": 5
+},
+"8": {
+"ad": "Artvin",
+"sutun": 14,
+"satir": 1
+},
+"9": {
+"ad": "Aydın",
+"sutun": 2,
+"satir": 4
+},
+"10": {
+"ad": "Balıkesir",
+"sutun": 1,
+"satir": 2
+},
+"11": {
+"ad": "Bilecik",
+"sutun": 3,
+"satir": 2
+},
+"12": {
+"ad": "Bingöl",
+"sutun": 13,
+"satir": 3
+},
+"13": {
+"ad": "Bitlis",
+"sutun": 15,
+"satir": 4
+},
+"14": {
+"ad": "Bolu",
+"sutun": 5,
+"satir": 2
+},
+"15": {
+"ad": "Burdur",
+"sutun": 4,
+"satir": 4
+},
+"16": {
+"ad": "Bursa",
+"sutun": 2,
+"satir": 2
+},
+"17": {
+"ad": "Çanakkale",
+"sutun": 0,
+"satir": 2
+},
+"18": {
+"ad": "Çankırı",
+"sutun": 6,
+"satir": 1
+},
+"19": {
+"ad": "Çorum",
+"sutun": 7,
+"satir": 1
+},
+"20": {
+"ad": "Denizli",
+"sutun": 3,
+"satir": 5
+},
+"21": {
+"ad": "Diyarbakır",
+"sutun": 12,
+"satir": 4
+},
+"22": {
+"ad": "Edirne",
+"sutun": 0,
+"satir": 0
+},
+"23": {
+"ad": "Elazığ",
+"sutun": 11,
+"satir": 3
+},
+"24": {
+"ad": "Erzincan",
+"sutun": 12,
+"satir": 2
+},
+"25": {
+"ad": "Erzurum",
+"sutun": 14,
+"satir": 2
+},
+"26": {
+"ad": "Eskişehir",
+"sutun": 4,
+"satir": 2
+},
+"27": {
+"ad": "Gaziantep",
+"sutun": 10,
+"satir": 5
+},
+"28": {
+"ad": "Giresun",
+"sutun": 11,
+"satir": 1
+},
+"29": {
+"ad": "Gümüşhane",
+"sutun": 11,
+"satir": 2
+},
+"30": {
+"ad": "Hakkari",
+"sutun": 16,
+"satir": 5
+},
+"31": {
+"ad": "Hatay",
+"sutun": 9,
+"satir": 6
+},
+"32": {
+"ad": "Isparta",
+"sutun": 5,
+"satir": 4
+},
+"33": {
+"ad": "Mersin",
+"sutun": 7,
+"satir": 5
+},
+"34": {
+"ad": "İstanbul",
+"sutun": 2,
+"satir": 1
+},
+"35": {
+"ad": "İzmir",
+"sutun": 1,
+"satir": 4
+},
+"36": {
+"ad": "Kars",
+"sutun": 16,
+"satir": 1
+},
+"37": {
+"ad": "Kastamonu",
+"sutun": 7,
+"satir": 0
+},
+"38": {
+"ad": "Kayseri",
+"sutun": 9,
+"satir": 3
+},
+"39": {
+"ad": "Kırklareli",
+"sutun": 1,
+"satir": 0
+},
+"40": {
+"ad": "Kırşehir",
+"sutun": 7,
+"satir": 3
+},
+"41": {
+"ad": "Kocaeli",
+"sutun": 3,
+"satir": 0
+},
+"42": {
+"ad": "Konya",
+"sutun": 6,
+"satir": 4
+},
+"43": {
+"ad": "Kütahya",
+"sutun": 3,
+"satir": 3
+},
+"44": {
+"ad": "Malatya",
+"sutun": 11,
+"satir": 4
+},
+"45": {
+"ad": "Manisa",
+"sutun": 1,
+"satir": 3
+},
+"46": {
+"ad": "Kahramanmaraş",
+"sutun": 9,
+"satir": 4
+},
+"47": {
+"ad": "Mardin",
+"sutun": 13,
+"satir": 5
+},
+"48": {
+"ad": "Muğla",
+"sutun": 2,
+"satir": 5
+},
+"49": {
+"ad": "Muş",
+"sutun": 14,
+"satir": 3
+},
+"50": {
+"ad": "Nevşehir",
+"sutun": 8,
+"satir": 3
+},
+"51": {
+"ad": "Niğde",
+"sutun": 8,
+"satir": 4
+},
+"52": {
+"ad": "Ordu",
+"sutun": 10,
+"satir": 1
+},
+"53": {
+"ad": "Rize",
+"sutun": 13,
+"satir": 1
+},
+"54": {
+"ad": "Sakarya",
+"sutun": 4,
+"satir": 1
+},
+"55": {
+"ad": "Samsun",
+"sutun": 9,
+"satir": 1
+},
+"56": {
+"ad": "Siirt",
+"sutun": 14,
+"satir": 4
+},
+"57": {
+"ad": "Sinop",
+"sutun": 8,
+"satir": 0
+},
+"58": {
+"ad": "Sivas",
+"sutun": 10,
+"satir": 2
+},
+"59": {
+"ad": "Tekirdağ",
+"sutun": 1,
+"satir": 1
+},
+"60": {
+"ad": "Tokat",
+"sutun": 9,
+"satir": 2
+},
+"61": {
+"ad": "Trabzon",
+"sutun": 12,
+"satir": 1
+},
+"62": {
+"ad": "Tunceli",
+"sutun": 12,
+"satir": 3
+},
+"63": {
+"ad": "Şanlıurfa",
+"sutun": 11,
+"satir": 5
+},
+"64": {
+"ad": "Uşak",
+"sutun": 3,
+"satir": 4
+},
+"65": {
+"ad": "Van",
+"sutun": 16,
+"satir": 4
+},
+"66": {
+"ad": "Yozgat",
+"sutun": 8,
+"satir": 2
+},
+"67": {
+"ad": "Zonguldak",
+"sutun": 4,
+"satir": 0
+},
+"68": {
+"ad": "Aksaray",
+"sutun": 7,
+"satir": 4
+},
+"69": {
+"ad": "Bayburt",
+"sutun": 13,
+"satir": 2
+},
+"70": {
+"ad": "Karaman",
+"sutun": 6,
+"satir": 5
+},
+"71": {
+"ad": "Kırıkkale",
+"sutun": 7,
+"satir": 2
+},
+"72": {
+"ad": "Batman",
+"sutun": 13,
+"satir": 4
+},
+"73": {
+"ad": "Şırnak",
+"sutun": 15,
+"satir": 5
+},
+"74": {
+"ad": "Bartın",
+"sutun": 5,
+"satir": 0
+},
+"75": {
+"ad": "Ardahan",
+"sutun": 15,
+"satir": 1
+},
+"76": {
+"ad": "Iğdır",
+"sutun": 16,
+"satir": 2
+},
+"77": {
+"ad": "Yalova",
+"sutun": 3,
+"satir": 1
+},
+"78": {
+"ad": "Karabük",
+"sutun": 6,
+"satir": 0
+},
+"79": {
+"ad": "Kilis",
+"sutun": 10,
+"satir": 6
+},
+"80": {
+"ad": "Osmaniye",
+"sutun": 9,
+"satir": 5
+},
+"81": {
+"ad": "Düzce",
+"sutun": 5,
+"satir": 1
+}
+}

@@ -85,9 +85,18 @@ KURALLAR
  10. KESİŞİM NOTU (karar 57). Bir başlık bir teknolojiyle etiketliyse
      `kesisim_<kod>.json`'da o başlığın tek cümlelik notu var, değilse yok.
      Notun sayıları başlığın kendi kaydından, iki dilde aynı.
+ 17. ATLAS (Türkiye Dijital Tarım Atlası). `atlas_uret.py`'nin kayıtları:
+     ızgarada 81 plaka, 81 ayrı hücre; her "Dosyada" kaydının cümlesi
+     (TR ve varsa EN) kendi .md dosyasında harfi harfine geçiyor ve o ilin
+     adını taşıyor; her "Türkiye dizininde" kaydının ili eşleme dosyasında
+     (`atlas_kurum_ili.json`, geçerli dayanakla) ya da girişimde Kuruluş
+     hücresinde, gösterilen hücreler §25'in tablosunda harfi harfine; §25
+     tablosunda eşleme dosyasında olmayan kurum yok; üretilmiş
+     `yz_atlas.g.dart` güncel (dart_uret.py koşmuş).
 """
 from __future__ import annotations
 
+import importlib.util
 import json
 import math
 import re
@@ -1071,6 +1080,70 @@ def sina_cekmeler() -> None:
     print(f"  · {sayac} öne çıkan cümle sınandı")
 
 
+# ── Kural 17: Türkiye Dijital Tarım Atlası ────────────────────────────────
+
+def sina_atlas() -> None:
+    """Kural 17: atlasın kayıtları metinle ve eşleme dosyasıyla birebir;
+    üretilmiş Dart dosyası güncel."""
+    print("\nAtlas")
+    sp = importlib.util.spec_from_file_location("atlas_uret_k17", BURASI / "atlas_uret.py")
+    atlas = importlib.util.module_from_spec(sp)
+    try:
+        sp.loader.exec_module(atlas)
+        k = atlas.kayitlar()            # ızgara: 81 plaka, 81 ayrı hücre (SystemExit)
+    except SystemExit as e:
+        hata(f"atlas: {e}")
+        return
+    il = k["iller"]
+    metin: dict[str, str] = {}
+
+    def md(ad: str) -> str:
+        if ad not in metin:
+            metin[ad] = (BOLUMLER / ad).read_text(encoding="utf-8")
+        return metin[ad]
+
+    for r in k["dosya"]:
+        ad = il[r["il"]]["ad"]
+        for dil, cumle, dosya in (("tr", r["tr"], r["dosya_tr"]), ("en", r["en"], r["dosya_en"])):
+            if cumle is None:
+                continue
+            if cumle not in md(dosya):
+                hata(f"atlas {dosya}: cümle metinde harfi harfine geçmiyor — {cumle[:60]!r}")
+            if r["il"] not in {p for p, _, _ in atlas.il_bul(cumle, en=dil == "en")}:
+                hata(f"atlas {dosya}: cümlede {ad} yok — {cumle[:60]!r}")
+    esleme = atlas.kurum_dosyasi()
+    tr25 = next(BOLUMLER.glob(f"{atlas.DIZIN_NO}-*.tr.md")).name
+    en25 = tr25.replace(".tr.md", ".en.md")
+    for r in k["dizin"]:
+        ad = il[r["il"]]["ad"]
+        for kurum, dayanak in zip(r["kurum"], r["dayanak"]):
+            if dayanak == "Kuruluş sütunu":
+                if [p for p, _, _ in atlas.il_bul(r["il_hucresi_tr"])] != [r["il"]]:
+                    hata(f"atlas §25 '{kurum}': {ad} Kuruluş hücresinden okunmuyor")
+                continue
+            e = esleme["kurumlar"].get(kurum)
+            if e is None or e.get("il") != ad or e.get("dayanak") not in esleme["dayanaklar"]:
+                hata(f"atlas §25 '{r['ad_tr']}': {kurum} → {ad} eşleme dosyasında (geçerli dayanakla) yok")
+        for dil, dosya in (("tr", tr25), ("en", en25)):
+            for alan in ("ad", "ek", "aciklama"):
+                x = r[f"{alan}_{dil}"]
+                if x is not None and f"| {x} |" not in md(dosya):
+                    hata(f"atlas {dosya}: '{x[:50]}' bir tablo hücresi değil")
+            if f"| {r[f'aciklama_basligi_{dil}']} |" not in md(dosya):
+                hata(f"atlas {dosya}: sütun başlığı '{r[f'aciklama_basligi_{dil}']}' tabloda yok")
+    for p, v in esleme["kurumlar"].items():
+        if v.get("il") not in {x["ad"] for x in il.values()} or v.get("dayanak") not in esleme["dayanaklar"]:
+            hata(f"atlas_kurum_ili.json '{p}': il ya da dayanak geçersiz")
+    for h in k["dizin_ist"]["hatalar"]:
+        hata(f"atlas: {h}")
+    if not atlas.CIKIS.exists() or atlas.CIKIS.read_text(encoding="utf-8") != atlas.dart_kaynagi(k):
+        hata(f"atlas: {atlas.CIKIS.name} eski — dart_uret.py'yi koştur")
+    di = k["dosya_ist"]
+    print(f"  · {len(k['dosya'])} dosya, {len(k['dizin'])} dizin kaydı, "
+          f"{len({r['il'] for r in k['dosya'] + k['dizin']})} il · İngilizce hizalama "
+          f"{di['hizalanan']}/{di['toplam']} · eşlenemeyen kurum {len(k['dizin_ist']['eslenmeyen'])}")
+
+
 def main() -> int:
     gruplar: dict[str, dict[str, Path]] = {}
     for yol in sorted(BOLUMLER.glob("*.md")):
@@ -1107,6 +1180,7 @@ def main() -> int:
     sina_listeler()
     sina_terim_birligi()
     sina_cekmeler()
+    sina_atlas()
     if hatalar:
         print(f"\n✗ {len(hatalar)} HATA")
         return 1

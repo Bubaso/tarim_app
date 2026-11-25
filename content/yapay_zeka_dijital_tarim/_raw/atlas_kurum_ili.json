@@ -1,0 +1,37 @@
+{
+  "_aciklama": "Türkiye Dijital Tarım Atlası — §25 Türkiye dizininin 'Araştırma ve destek programları' ve 'Üniversiteler' tablolarındaki kurumların ili. Elle kuruldu (atlas turu, 25 Kasım 2026). Yalnız tek ve açık bir ilde olan kurum eşlenir; dayanak ya 'adında' (kurumun adı ilin adını taşıyor) ya da 'üniversitenin merkezinin bulunduğu il'. Emin olunmayan ya da bu iki dayanağa girmeyen kurum 'eslenmeyen'de, gerekçesiyle; atlas_uret.py onu haritaya koymaz ve raporda sayar. Tablodaki bir hücrede burada olmayan bir kurum çıkarsa doğrulayıcı (dogrula_bolumler.py kural 17) DURUR: yeni kurum ya eşlenir ya da gerekçesiyle eslenmeyen'e yazılır. Girişimlerin ili eşlemeden değil tablonun 'Kuruluş' sütunundan ('2012, İzmir') okunur. Kamu tabloları ulusal sistemler: haritaya konmaz.",
+  "dayanaklar": [
+    "adında",
+    "üniversitenin merkezinin bulunduğu il"
+  ],
+  "kurumlar": {
+    "Ankara Üniversitesi": {"il": "Ankara", "dayanak": "adında"},
+    "Bilkent Üniversitesi": {"il": "Ankara", "dayanak": "üniversitenin merkezinin bulunduğu il"},
+    "Burdur Mehmet Akif Ersoy Üniversitesi": {"il": "Burdur", "dayanak": "adında"},
+    "Bursa Teknik Üniversitesi": {"il": "Bursa", "dayanak": "adında"},
+    "Bursa Uludağ Üniversitesi": {"il": "Bursa", "dayanak": "adında"},
+    "Çukurova Üniversitesi": {"il": "Adana", "dayanak": "üniversitenin merkezinin bulunduğu il"},
+    "Ege Üniversitesi": {"il": "İzmir", "dayanak": "üniversitenin merkezinin bulunduğu il"},
+    "Gebze Teknik Üniversitesi": {"il": "Kocaeli", "dayanak": "üniversitenin merkezinin bulunduğu il"},
+    "Gebze Teknik Üniversitesi Biyoteknoloji Enstitüsü": {"il": "Kocaeli", "dayanak": "üniversitenin merkezinin bulunduğu il"},
+    "Hacettepe Üniversitesi": {"il": "Ankara", "dayanak": "üniversitenin merkezinin bulunduğu il"},
+    "İstanbul Teknik Üniversitesi": {"il": "İstanbul", "dayanak": "adında"},
+    "İzmir Yüksek Teknoloji Enstitüsü": {"il": "İzmir", "dayanak": "adında"},
+    "Karabük Üniversitesi": {"il": "Karabük", "dayanak": "adında"},
+    "Karamanoğlu Mehmetbey Üniversitesi": {"il": "Karaman", "dayanak": "üniversitenin merkezinin bulunduğu il"},
+    "Kırklareli Üniversitesi": {"il": "Kırklareli", "dayanak": "adında"},
+    "Kırşehir Ahi Evran Üniversitesi": {"il": "Kırşehir", "dayanak": "adında"},
+    "Konya Gıda ve Tarım Üniversitesi": {"il": "Konya", "dayanak": "adında"},
+    "KTO Karatay Üniversitesi": {"il": "Konya", "dayanak": "üniversitenin merkezinin bulunduğu il"},
+    "Marmara Üniversitesi": {"il": "İstanbul", "dayanak": "üniversitenin merkezinin bulunduğu il"},
+    "Muğla Sıtkı Koçman Üniversitesi": {"il": "Muğla", "dayanak": "adında"},
+    "Ondokuz Mayıs Üniversitesi": {"il": "Samsun", "dayanak": "üniversitenin merkezinin bulunduğu il"},
+    "Selçuk Üniversitesi": {"il": "Konya", "dayanak": "üniversitenin merkezinin bulunduğu il"},
+    "Tekirdağ Namık Kemal Üniversitesi": {"il": "Tekirdağ", "dayanak": "adında"},
+    "Yıldız Teknik Üniversitesi": {"il": "İstanbul", "dayanak": "üniversitenin merkezinin bulunduğu il"}
+  },
+  "eslenmeyen": {
+    "TAGEM": "Tarım ve Orman Bakanlığı'nın ulusal genel müdürlüğü; enstitüleri birçok ilde, tek ve açık bir ile bağlanmadı. Adında il yok, üniversite değil.",
+    "TÜBİTAK MAM": "Üniversite değil ve adında il yok: iki dayanaktan birine girmiyor. Aynı satırdaki Gebze Teknik Üniversitesi Biyoteknoloji Enstitüsü satırı Kocaeli'ye bağlıyor."
+  }
+}
