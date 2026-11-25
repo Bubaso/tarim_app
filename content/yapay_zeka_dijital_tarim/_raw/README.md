@@ -1534,7 +1534,7 @@ sifre, password, cerez, cookie…); e-posta biçimli değer atılır. Testte
 | `yz_devam_gorundu`, `yz_devam_tik` | "Kaldığınız yer" | sayfa |
 
 Değerler: `cihaz` telefon / tablet / masaustu; `dil` tr / en; `giris` dis /
-merkez / serit / devam / arama / sozluk / komsu / bildirim; `hizli` 1 ya da 0
+merkez / serit / devam / arama / sozluk / komsu / bildirim / haber; `hizli` 1 ya da 0
 (o noktaya beklenen sürenin %25'inden önce gelindi; TR 180, EN 230 kelime/dk).
 Alt başlığın METNİ, arama sözcüğü ve kimlik GÖNDERİLMEZ; yalnız sırası.
 Okuma adımı olaylarını okuma grubu çağırır; tablo sözleşmedir, yeni bir
@@ -1556,3 +1556,14 @@ connect-src'ye `https://*.googletagmanager.com https://www.google.com`
 19 Kasım 2026): ölçülenler, gönderilmeyenler, Google Analytics ve `_ga`
 çerezleri, okur kaydının yalnız tarayıcıda tutulduğu, bildirim verisi.
 Sağlayıcılar kategoriyle yazılıyordu; ölçüm sağlayıcısı tek istisna, adıyla.
+
+## Haberin arka planı — 25 Kasım 2026
+
+Kullanıcı: dosya haberleri gösteriyordu, haberler dosyayı göstermiyordu.
+Haber sayfasının sonunda (`article_detail_screen.dart`, dosya şeridinin
+hemen ardı) bölümde aktif etiketli habere tek bir davet:
+`YzHaberArkaPlanKarti` (`presentation/yz_haber_arka_plan.dart`). Başlık adı,
+özeti ve okuma süresi iskeletten (ilk yükte; metin paketi inmiyor). Etiket
+`YzDeposu.haberinBasligi` ile okunuyor (`bolum_etiketleri`, aktif). Haberin
+ülke ya da kurum dosyası varsa o şerit çiziliyor, bu kart çizilmiyor (tek
+davet). Sözlük ve kaynakçaya davet yok. Dokununca `giris=haber`.

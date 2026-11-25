@@ -47,6 +47,12 @@ final yzBolumHaberleriProvider =
       .bolumHaberleri(baslikNo: baslikNo, limit: baslikNo == null ? 24 : 12);
 });
 
+/// OKUR TARAFI — haberin bölümde bağlandığı başlık (haber sayfasındaki
+/// "bu haberin arka planı" kartı). Etiket yoksa null.
+final yzHaberBasligiProvider = FutureProvider.family<int?, String>((ref, articleId) {
+  return ref.read(yzDeposuProvider).haberinBasligi(articleId);
+});
+
 /// Bir etiket ya da kuyruk kararı yazıldıktan sonra her şeyi tazeler.
 void yzTazele(WidgetRef ref) {
   ref.invalidate(yzEtiketHaritasiProvider);
@@ -56,4 +62,5 @@ void yzTazele(WidgetRef ref) {
   ref.invalidate(yzDizinEklenenlerProvider);
   ref.invalidate(yzSonTaramaProvider);
   ref.invalidate(yzBolumHaberleriProvider);
+  ref.invalidate(yzHaberBasligiProvider);
 }

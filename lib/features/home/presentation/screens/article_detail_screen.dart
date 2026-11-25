@@ -35,6 +35,7 @@ import '../../../../core/services/notification_service.dart';
 import '../../providers/font_scale_provider.dart';
 import '../widgets/font_size_control_bar.dart';
 import '../../../dossiers/presentation/widgets/haber_dosya_seridi.dart';
+import '../../../yapay_zeka/presentation/yz_haber_arka_plan.dart';
 import '../widgets/next_article_card.dart';
 import '../widgets/reading_progress_bar.dart';
 import '../../../../core/utils/string_extensions.dart';
@@ -692,6 +693,13 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
               // Eşleşme yoksa hiç çizilmiyor ve düzen hiç değişmiyor.
               SliverToBoxAdapter(
                 child: HaberDosyaSeridi(articleId: article.id, isEn: isEn),
+              ),
+
+              // ── Yapay Zeka ve Dijital Tarım: haberin arka planı ──────────
+              // Haber bölümde bir başlığa bağlıysa o başlığa tek davet. Dosya
+              // şeridi çizildiyse bu kart çizilmiyor (tek davet).
+              SliverToBoxAdapter(
+                child: YzHaberArkaPlanKarti(articleId: article.id, isEn: isEn),
               ),
 
               // ── Sonraki haber ─────────────────────────────────────────────
