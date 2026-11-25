@@ -77,9 +77,12 @@ def main():
         print("· yayin.json zaten 'published', dokunulmadı")
     else:
         Y["status"] = "published"
-        # Sıra alanın yerini değiştirmesin: json.dumps eklenen anahtarı sona
-        # atardı, burada var olan anahtar güncelleniyor.
-        yol.write_text(json.dumps(Y, ensure_ascii=False, indent=2) + "\n",
+        # BİÇİM HATTINKİYLE AYNI OLMALI. İlk sürüm sona satır sonu ekliyordu;
+        # `kur_gorseller.py` eklemiyor. Fark tek bayttı ama zincir her
+        # koştuğunda ağacı kirletiyordu ve deploy.sh kirli ağaçta duruyor.
+        # Sıra da korunuyor: var olan anahtar güncelleniyor, yenisi
+        # eklenmiyor, yoksa json.dumps onu sona atardı.
+        yol.write_text(json.dumps(Y, ensure_ascii=False, indent=2),
                        encoding="utf-8")
         print("· yayin.json 'draft' → 'published'")
 
