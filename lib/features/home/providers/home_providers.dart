@@ -831,6 +831,71 @@ bool _bakanGeciyor(NewsArticle a) => kucukHarf(
       false,
     ).contains(_kBakanAdi);
 
+// ─── COP31 DEĞERLENDİRME RAPORU ────────────────────────────────────────────
+//
+// Bölüm 25 Kasım'da kendiliğinden kalktı ve anasayfada bir boşluk bıraktı.
+// O boşluğa beş günlük bir değerlendirme sayfası giriyor: zirvenin kararları,
+// rakamları ve portalın iki aylık izleği tek sayfada.
+//
+// AYRI BİR TARİH KAPISI var ve bilerek: bölümün kapısı (`ozelBolumAktif`)
+// 25 Kasım'da kapandı, raporunki tam o gün açılıyor. Tek kapı olsaydı ya
+// bölüm fazladan beş gün açık kalırdı ya rapor hiç açılmazdı.
+final kRaporBitis = DateTime(2026, 11, 30);
+
+/// Rapor şu an anasayfada mı. [simdi] yalnızca testler için.
+bool raporAktif([DateTime? simdi]) =>
+    (simdi ?? DateTime.now()).isBefore(kRaporBitis);
+
+/// Raporun haber kaynağı — TARİH KAPISI YOK.
+///
+/// [ozelBolumAkisiProvider] bölüm kapandığı için artık boş dönüyor; rapor
+/// ise tam da kapandıktan SONRA o arşivi gösteriyor. Aynı sağlayıcıyı
+/// kullansaydı sayfa boş açılırdı — raporun varlık sebebi o arşiv.
+///
+/// Sınır 200: işaretli haber 54, ama rapor beş gün yayında ve bu sürede
+/// işaretlenen yeni haber olursa listeden düşmesin.
+final cop31RaporAkisiProvider = StreamProvider<List<NewsArticle>>((ref) {
+  if (!raporAktif(ref.watch(simdiProvider)())) {
+    return Stream.value(const <NewsArticle>[]);
+  }
+  return ref
+      .watch(homeRepositoryProvider)
+      .ozelBolumuIzle(kOzelBolum, limit: 200);
+});
+
+/// Raporun "portalın izleği" bloğundaki sayılar.
+///
+/// Zirvenin kendi istatistikleri DEĞİL — onlar haberlere dayanıyor ve
+/// `cop31_rapor_verisi.dart` içinde duruyor. Buradakiler bizim yayın
+/// kaydımızdan hesaplanıyor, yani her an doğrulanabilir. İkisinin
+/// karıştırılmaması sayfanın en önemli kuralı.
+final cop31RaporSayilariProvider = Provider<Map<String, Object>>((ref) {
+  final l = ref.watch(cop31RaporAkisiProvider).valueOrNull ?? const [];
+  if (l.isEmpty) return const {};
+  final konu = <String, int>{};
+  var kelime = 0;
+  for (final a in l) {
+    final k = (a.topic ?? '—').trim();
+    konu[k] = (konu[k] ?? 0) + 1;
+    // Etiket sökümü burada, yerinde: `sadelestir` panel katmanında duruyor
+    // ve anasayfa sağlayıcısının oraya bağlanması katmanları birbirine
+    // geçirirdi. Sayım için bu kadarı yeterli.
+    final duz = a.content
+        .replaceAll(RegExp(r'<[^>]+>'), ' ')
+        .replaceAll(RegExp(r'\s+'), ' ')
+        .trim();
+    kelime += duz.isEmpty ? 0 : duz.split(' ').length;
+  }
+  final t = l.map((a) => a.createdAt).toList()..sort();
+  return {
+    'haber': l.length,
+    'kelime': kelime,
+    'ilk': t.first,
+    'son': t.last,
+    'konu': konu,
+  };
+});
+
 /// Bölümün BÜYÜK kartı her zaman Bakan Yumaklı'nın geçtiği bir haber olur.
 ///
 /// Yayın kararı (12 Kasım 2026): zirvenin Türkiye'deki yüzü bakan; bölümün

@@ -23,6 +23,7 @@ import '../widgets/hero_fold.dart';
 import '../widgets/news_ticker.dart';
 import '../widgets/category_nav_bar.dart';
 import '../widgets/portal_sections/cop31_section.dart';
+import '../widgets/portal_sections/cop31_rapor_seridi.dart';
 import '../widgets/portal_sections/science_reports_dossier.dart';
 import '../../../turkuaz_nexus/presentation/widgets/tni_anasayfa_seridi.dart';
 import '../widgets/portal_sections/turkey_news_grid.dart';
@@ -472,6 +473,10 @@ class _MobileContent extends ConsumerWidget {
           // içinde (sonrasında) taşıyor: 25 Kasım'da bölüm çizilmeyi
           // bıraktığında arada iki boşluk üst üste binmesin.
           Cop31Section(isDark: isDark, spacing: 28),
+          // COP31 bölümü 25 Kasım'da kalktı; değerlendirme şeridi
+          // aynı yeri beş gün tutuyor. Boşluğu bölüm değil ARTIK O
+          // taşıyor — ikisi aynı anda çizilmiyor.
+          Cop31RaporSeridi(isDark: isDark, spacing: 28),
           DossierStrip(isDark: isDark, spacing: 28),
           VideoSerit(isDark: isDark, spacing: 28),
           _ScienceAndReportsSection(isDark: isDark),
@@ -567,6 +572,10 @@ class _TabletContent extends ConsumerWidget {
         _TurkeyNewsSection(isDark: isDark),
         const SizedBox(height: 36),
         Cop31Section(isDark: isDark, spacing: 36),
+        // COP31 bölümü 25 Kasım'da kalktı; değerlendirme şeridi
+        // aynı yeri beş gün tutuyor. Boşluğu bölüm değil ARTIK O
+        // taşıyor — ikisi aynı anda çizilmiyor.
+        Cop31RaporSeridi(isDark: isDark, spacing: 36),
         DossierStrip(isDark: isDark, spacing: 36),
         VideoSerit(isDark: isDark, spacing: 36),
         _ScienceAndReportsSection(isDark: isDark),
@@ -679,6 +688,10 @@ class _DesktopContent extends ConsumerWidget {
         // COP31 de kendi altındakini taşıyor. Bölüm kapandığında geriye
         // tek bir 40'lık aralık kalıyor.
         Cop31Section(isDark: isDark, spacing: 40),
+        // COP31 bölümü 25 Kasım'da kalktı; değerlendirme şeridi
+        // aynı yeri beş gün tutuyor. Boşluğu bölüm değil ARTIK O
+        // taşıyor — ikisi aynı anda çizilmiyor.
+        Cop31RaporSeridi(isDark: isDark, spacing: 40),
         DossierStrip(isDark: isDark, spacing: 40),
         VideoSerit(isDark: isDark, spacing: 40),
         Padding(
