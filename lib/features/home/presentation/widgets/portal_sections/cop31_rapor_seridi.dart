@@ -36,8 +36,15 @@ import '../../screens/cop31_rapor_ekrani.dart' deferred as cop31_rapor;
 //  çizilmeyi bıraktığında alt boşluğu da götürüyor; anasayfaya ayrı bir
 //  `SizedBox` konsaydı o tarihten sonra iki boşluk üst üste binerdi.
 //
-//  Renk kimliği bölümden devralındı: okur aynı şeyin devamını okuduğunu
-//  renkten anlıyor.
+//  RENK KİMLİĞİ ZİRVENİN KENDİSİNDEN (25 Kasım 2026, kullanıcı kararı).
+//  Kart önce bölümden devralınan deniz yeşiliyle çiziliyordu; krem
+//  anasayfada yumuşak kalıyor ve akışta eriyordu. Artık COP31 Türkiye'nin
+//  resmî afiş kimliğini taşıyor: LACİVERT zemin, LALE KIRMIZISI işaret.
+//  Renkler uydurulmadı — Antalya salonundaki afişten alındı (UN Climate
+//  Change · COP31 TÜRKİYE ANTALYA; kartın kendi kapak görseli).
+//
+//  Krem bir sayfada koyu lacivert bir blok duruyor: okur onu kaçıramıyor.
+//  Kontrast da bu yüzden rahat — beyaz metin lacivert üstünde ~14:1.
 // ══════════════════════════════════════════════════════════════════════════
 
 class Cop31RaporSeridi extends ConsumerWidget {
@@ -48,10 +55,16 @@ class Cop31RaporSeridi extends ConsumerWidget {
   /// Şeritten SONRAKİ boşluk; şerit kalkınca birlikte gidiyor.
   final double spacing;
 
-  static const _vurguAcik = Color(0xFF0E5C52);
-  static const _vurguKoyu = Color(0xFF57C9B0);
-  static const _yuzeyAcik = Color(0xFFEDF4F1);
-  static const _yuzeyKoyu = Color(0xFF0F1F1C);
+  /// Afişin lacivert zemini. Koyu kipte bir tık açılıyor: sayfanın kendisi
+  /// zaten koyu, aynı tonda kalsa kart zeminden ayrışmazdı.
+  static const _laciAcikKip = Color(0xFF0B2E63);
+  static const _laciKoyuKip = Color(0xFF123A72);
+
+  /// Afişteki lale kırmızısı — rozet, düğme ve çerçeve.
+  static const _kirmizi = Color(0xFFE1172C);
+
+  /// Lacivert üstünde gövde metni; saf beyaz paragrafta yorucu olurdu.
+  static const _solukMavi = Color(0xFFC7D6EC);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -62,8 +75,7 @@ class Cop31RaporSeridi extends ConsumerWidget {
     final liste = ref.watch(cop31RaporAkisiProvider).valueOrNull ?? const [];
     if (liste.isEmpty) return const SizedBox.shrink();
 
-    final vurgu = isDark ? _vurguKoyu : _vurguAcik;
-    final yuzey = isDark ? _yuzeyKoyu : _yuzeyAcik;
+    final yuzey = isDark ? _laciKoyuKip : _laciAcikKip;
     final dar = !ResponsiveBreakpoints.isContentWide(context);
 
     // Kartın görseli: arşivin en yüksek editör puanlı haberi. Sabit bir
@@ -79,29 +91,40 @@ class Cop31RaporSeridi extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text('COP31 · SONA ERDİ',
-            style: GoogleFonts.inter(
-                fontSize: 11, fontWeight: FontWeight.w800,
-                letterSpacing: 1.1, color: vurgu)),
-        const SizedBox(height: 9),
+        // Düz yazı yerine DOLU ROZET: kullanıcı "daha büyük ve belirgin"
+        // istedi (25 Kasım). Kırmızıyı yazıya değil ZEMİNE vermek hem
+        // kontrastı kurtarıyor (kırmızı yazı lacivert üstünde ~3:1, beyaz
+        // yazı kırmızı üstünde ~4,8:1) hem de ikinci marka rengini karta
+        // sokuyor. Punto 11 → 13.
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 5),
+          decoration: BoxDecoration(
+            color: _kirmizi,
+            borderRadius: BorderRadius.circular(6),
+          ),
+          child: Text('COP31 · SONA ERDİ',
+              style: GoogleFonts.inter(
+                  fontSize: 13, fontWeight: FontWeight.w800,
+                  letterSpacing: 1.0, color: Colors.white)),
+        ),
+        const SizedBox(height: 11),
         Text('Zirvenin muhasebesi: ne kararlaştırıldı, ne kararlaştırılamadı',
             style: GoogleFonts.outfit(
                 fontSize: dar ? 19 : 22, height: 1.22,
                 fontWeight: FontWeight.w800,
-                color: isDark ? Colors.white : Colors.black87)),
+                color: Colors.white)),
         const SizedBox(height: 9),
         Text(
           '${liste.length} haberlik izleğin değerlendirmesi: alınan ve '
           'alınamayan kararlar, tarıma düşen pay, zirveden rakamlar.',
           style: GoogleFonts.inter(
-              fontSize: 13.5, height: 1.5,
-              color: isDark ? Colors.grey[300] : Colors.grey[800]),
+              fontSize: 13.5, height: 1.5, color: _solukMavi),
         ),
         const SizedBox(height: 14),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 11),
           decoration: BoxDecoration(
-            color: vurgu,
+            color: _kirmizi,
             borderRadius: BorderRadius.circular(24),
           ),
           child: Row(
@@ -110,10 +133,10 @@ class Cop31RaporSeridi extends ConsumerWidget {
               Text('Raporu aç',
                   style: GoogleFonts.inter(
                       fontSize: 14, fontWeight: FontWeight.w700,
-                      color: isDark ? Colors.black : Colors.white)),
+                      color: Colors.white)),
               const SizedBox(width: 6),
-              Icon(Icons.arrow_forward_rounded, size: 17,
-                  color: isDark ? Colors.black : Colors.white),
+              const Icon(Icons.arrow_forward_rounded, size: 17,
+                  color: Colors.white),
             ],
           ),
         ),
@@ -180,10 +203,11 @@ class Cop31RaporSeridi extends ConsumerWidget {
             borderRadius: BorderRadius.circular(16),
             // Kart akışta kaybolmasın: çerçeve bir tık koyu, üstüne hafif
             // bir gölge. Bölümün yerini tutuyor, bölüm kadar yer kaplamadan.
-            border: Border.all(color: vurgu.withValues(alpha: 0.45), width: 1.4),
+            border: Border.all(
+                color: _kirmizi.withValues(alpha: 0.55), width: 1.6),
             boxShadow: [
               BoxShadow(
-                color: vurgu.withValues(alpha: isDark ? 0.10 : 0.07),
+                color: _laciAcikKip.withValues(alpha: isDark ? 0.22 : 0.18),
                 blurRadius: 16,
                 offset: const Offset(0, 4),
               ),
