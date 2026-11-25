@@ -18,6 +18,9 @@ String? yzSekmeAdi(Uri adres, bool en) {
   if (parca.length == 1 && '$yzPath/${parca[0]}' == yzAramaPath) {
     return en ? 'Search the section' : 'Bölümde ara';
   }
+  if (parca.length == 1 && '$yzPath/${parca[0]}' == yzAtlasPath) {
+    return en ? kYzAtlasAdEn : kYzAtlasAdTr;
+  }
   if (parca.length == 2 && parca[0] == 'teknoloji') {
     return kYzTeknoloji[parca[1]]?[en ? 'en' : 'tr'] ?? bolum;
   }

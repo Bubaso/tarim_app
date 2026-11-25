@@ -1567,3 +1567,70 @@ hemen ardı) bölümde aktif etiketli habere tek bir davet:
 `YzDeposu.haberinBasligi` ile okunuyor (`bolum_etiketleri`, aktif). Haberin
 ülke ya da kurum dosyası varsa o şerit çiziliyor, bu kart çizilmiyor (tek
 davet). Sözlük ve kaynakçaya davet yok. Dokununca `giris=haber`.
+
+## Atlas turu — TÜRKİYE DİJİTAL TARIM ATLASI · 25 Kasım 2026
+
+Sahibin onayladığı amaç: Türkiye'de dijital tarımın nerede olduğunu bir
+bakışta göstermek. Adres `/yapay-zeka-dijital-tarim/atlas`
+(`yzAtlasPath`; yönlendiricide `:slug`'dan ÖNCE, yoksa "atlas" bir başlık
+sanılır). Giriş: merkez sayfada haberlerin hemen önündeki kart.
+
+**Harita ızgara** (karar verildi): gerçek il sınırı yok; her il 17 × 7'lik
+ızgarada bir hücre, kabaca coğrafi yerinde. Yerleşim `il_izgarasi.json`,
+üreticisi `il_izgarasi.py 17 7 il_izgarasi.json` (koordinatlar il
+merkezlerinin yaklaşık değerleri, yalnız yerleşim için; okura ve Dart'a
+gitmiyor). 81 plaka, 81 ayrı hücre.
+
+**Hat:** `atlas_uret.py` (kayıtlar + rapor; tek başına koşunca il başına
+sayı, İngilizce hizalama, dışlanan eşleşme ve eşlenemeyen kurum basar) →
+`dart_uret.py` → `lib/features/yapay_zeka/data/yz_atlas.g.dart` (yalnız
+erteli paket). `dogrula_bolumler.py` **kural 17** kayıtları metne ve eşleme
+dosyasına karşı sınar, üretilmiş dosyanın güncelliğini denetler.
+
+Üç tür kayıt, hepsi kaynaklı:
+- **Dosyada** — §29 ve §30 dışındaki başlıkların Türkçe metninde il adı
+  geçen cümle (paragraf ve liste maddesi; sınır telefon bölücüsünün
+  kuralı), harfi harfine. İngilizcesi aynı blok sırasındaki paragrafta ilin
+  geçtiği cümle; bulunamazsa kayıt İngilizcede yok. Bağlantı başlığa,
+  cümlenin alt başlığına (`?bolum=`). 18 kayıt, 14 il, hizalama 18/18.
+  Tablo hücresi cümle sayılmıyor (§25 dışındaki tablolarda il yok; çıkarsa
+  rapor söylüyor).
+- **Türkiye dizininde** — §25'in araştırma, üniversite ve girişim
+  tabloları (kamu tabloları ulusal sistemler, haritada yok). Girişimin ili
+  Kuruluş hücresinden ("2012, İzmir"); öbürlerinin ili üniversite
+  sütunundaki kurumdan, `atlas_kurum_ili.json` ile (elle; dayanak "adında"
+  ya da "üniversitenin merkezinin bulunduğu il"). Çok kurumlu hücre birden
+  çok ile düşer. Gösterilen metin tablo hücreleri; satırı ile bağlayan kurum
+  fosforlu kalemle. 34 satırdan 39 kayıt. Eşlenemeyen: TAGEM (ulusal; Merlab
+  satırı bu yüzden haritada yok, Protel satırı Bursa Uludağ'dan Bursa'da),
+  TÜBİTAK MAM (üniversite değil; satırı Gebze Teknik'ten Kocaeli'de).
+  Tabloya eşleme dosyasında olmayan kurum girerse kural 17 DURUR.
+- **Haberlerde** — çalışma anında (`yz_atlas_veri.dart`): bölümün okura
+  açık etiketli haberleri (`bolumHaberleri`, en çok 200), il adı yalnız
+  Türkçe başlıkta ve özette aranıyor. Yüklenirken ya da hata olunca boş.
+
+**İl adı kuralı** (Python ve Dart aynı; eşlik testi
+`test/yz_atlas_test.dart`): büyük harfle başlayan sözcük, harfi harfine
+("ordu", "duruyordu", "ORDU" il değil); ek kesmeyle ("Antalya'da") ya da
+kesmesiz -lı/-li/-lu/-lü ("Antalyalılar"; "-lık" değil: "Aydınlık"). Yazım
+çeşidi "Hakkâri"; halk ağzındaki kısa adlar (Afyon, Urfa, Antep) aranmıyor.
+Dışlama listesi `atlas_uret.py`'de (DISLAMA), Dart'a da gidiyor: "Van der"
+(§9'daki Van der Velde bir soyadı), "Van den". Kurum adındaki il geçerli.
+
+İl başına (dosyada + dizinde, 22 il): Ankara 14, Bursa 4, İstanbul 4,
+İzmir 4, Konya 4, Tekirdağ 4, Kocaeli 3, Muğla 3, Adana 2, Karaman 2,
+Karabük 2; birer: Burdur, Çankırı, Kırklareli, Kırşehir, Mardin, Mersin,
+Niğde, Samsun, Şanlıurfa, Tokat, Yozgat. Haberler buna çalışma anında eklenir.
+
+Sayfa: masaüstünde ızgara içerik genişliğinde (hücre ~58 px; plaka, sığarsa
+ad, üzerine gelince ad ve kayıt sayısı), seçili ilin kayıtları altında üç
+başlıkla, seçim yokken en çok kaydı olan iller; telefonda (< 640 px)
+yazısız ~19 px kareler, altında kayıtlı iller listesi, ile dokununca kayıtlar
+alttan açılan sayfada. Renk çelik mavisi, yoğunluk kayıt sayısıyla
+(logaritmik); lejant var. Sekme "Türkiye Dijital Tarım Atlası | Tarım
+Portalı".
+
+Bilinen sınırlar: kişi adı olarak geçen il adı ("Aydın" soyadı) haberde
+yanlış ile düşebilir; tamamı büyük harfli başlık taranmıyor. Atlasın
+paylaşım kabuğu (`paylasim_sayfasi.mjs`) yok; okur ölçümünde atlastan gelen
+geçiş `giris` için ayrı değer taşımıyor (GA sözleşmesi değişmedi).

@@ -19,5 +19,11 @@ String yzTeknolojiPath(String kod) => '$yzPath/teknoloji/$kod';
 /// Bölüm içi arama (karar 60).
 const String yzAramaPath = '$yzPath/ara';
 
+/// Türkiye Dijital Tarım Atlası (atlas turu, 25 Kasım 2026). Yönlendiricide
+/// `$yzPath/:slug`'dan ÖNCE: "atlas" bir başlığın adresi sanılmasın.
+const String yzAtlasPath = '$yzPath/atlas';
+const String kYzAtlasAdTr = 'Türkiye Dijital Tarım Atlası';
+const String kYzAtlasAdEn = 'Türkiye Digital Agriculture Atlas';
+
 bool yzIsEn(BuildContext context) =>
     Localizations.localeOf(context).languageCode == 'en';

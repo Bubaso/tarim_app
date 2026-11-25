@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_metinler.g.dart';
+import 'yz_atlas_ekrani.dart' show YzAtlasKarti;
 import 'yz_haber_vitrini.dart';
 import 'yz_matris.dart';
 import 'yz_merkez_liste.dart';
@@ -166,6 +167,10 @@ class YzMerkezEkrani extends StatelessWidget {
                             const YzTeknolojiMatrisi(),
                             // Son haberler (madde 28): manşet + üç yan haber;
                             // haber yoksa başlığıyla birlikte hiç çizilmiyor.
+                            // Önlerinde Türkiye Dijital Tarım Atlası'nın giriş
+                            // kartı (atlas turu, 25 Kas 2026).
+                            const SizedBox(height: 34),
+                            const YzAtlasKarti(),
                             YzHaberBlogu(
                               key: const ValueKey('yz-merkez-haberleri'),
                               ust: [

@@ -591,11 +591,27 @@ def main() -> int:
     ck.append("")
     CEK.write_text("\n".join(ck), encoding="utf-8")
 
+    # ── Türkiye Dijital Tarım Atlası (atlas turu, 25 Kasım 2026) ─────────
+    # _raw/il_izgarasi.json + atlas_kurum_ili.json + bölüm metinleri →
+    # yz_atlas.g.dart. Kayıtları _raw/atlas_uret.py çıkarıyor (dosyada ve
+    # Türkiye dizininde); kural 17 aynı içeriği yeniden üretip karşılaştırıyor.
+    _sp = _iu.spec_from_file_location("atlas_uret", raw / "atlas_uret.py")
+    _atlas = _iu.module_from_spec(_sp)
+    _sp.loader.exec_module(_atlas)
+    atlas = _atlas.kayitlar()
+    if atlas["dizin_ist"]["hatalar"]:
+        for h in atlas["dizin_ist"]["hatalar"]:
+            print(f"✗ atlas: {h}", file=sys.stderr)
+        return 1
+    _atlas.CIKIS.write_text(_atlas.dart_kaynagi(atlas), encoding="utf-8")
+
     haber = sum(1 for x in b if x["haber_alir"])
     print(f"✓ {CIKIS.relative_to(KOK)} · {len(b)} başlık, {haber} haber alıyor")
     print(f"✓ {RK.relative_to(KOK)} · {sum(e for e, _ in kapsama.values())}/{sum(t for _, t in kapsama.values())} kalın rakam kaynağa bağlı")
     print(f"✓ {GRAFIK.relative_to(KOK)} · {len(grafikler)} grafik, {len(gorseller)} görsel")
     print(f"✓ {CEK.relative_to(KOK)} · {len(cekmeler)} öne çıkan cümle")
+    print(f"✓ {_atlas.CIKIS.relative_to(KOK)} · {len(atlas['iller'])} il, "
+          f"{len(atlas['dosya'])} dosya + {len(atlas['dizin'])} dizin kaydı")
     print(f"✓ {TEK.relative_to(KOK)} · {sayfa_sayisi} teknoloji sayfası, {not_sayisi} kesişim notu")
     print(f"✓ {METIN.relative_to(KOK)} · {yazilan} yazılmış başlık gömüldü")
     print(f"✓ {SOZLUK.relative_to(KOK)} · {len(terimler)} terim")

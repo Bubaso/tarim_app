@@ -56,6 +56,10 @@ const _agir = [
   'lib/features/yapay_zeka/presentation/yz_parcalar.dart',
   'lib/features/yapay_zeka/presentation/yz_metin_gorunumu.dart',
   'lib/features/yapay_zeka/presentation/yz_ekranlar.dart',
+  // Türkiye Dijital Tarım Atlası (atlas turu): ızgara ve kayıtlar yalnız erteli.
+  'lib/features/yapay_zeka/data/yz_atlas.g.dart',
+  'lib/features/yapay_zeka/presentation/yz_atlas_veri.dart',
+  'lib/features/yapay_zeka/presentation/yz_atlas_ekrani.dart',
 ];
 
 void main() {
@@ -87,8 +91,9 @@ void main() {
       expect(r, matches(RegExp(r"import '[^']*yz_ekranlar\.dart'\s+deferred as yz_ekranlar;")));
       expect(r, isNot(contains('yz_baslik_ekrani.dart')));
       expect(r, isNot(contains('yz_merkez_ekrani.dart')));
-      expect('yz_ekranlar.loadLibrary()'.allMatches(r).length, 4,
-          reason: 'merkez, arama, teknoloji, başlık');
+      expect('yz_ekranlar.loadLibrary()'.allMatches(r).length, 5,
+          reason: 'merkez, arama, teknoloji, atlas, başlık');
+      expect(r, isNot(contains('yz_atlas_ekrani.dart')));
     });
   });
 

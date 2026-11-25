@@ -485,6 +485,16 @@ final GoRouter appRouter = sayfaGorunumunuIzle(GoRouter(
                 kur: () => yz_ekranlar
                     .teknolojiEkrani(state.pathParameters['kod'] ?? ''))),
       ),
+      // Türkiye Dijital Tarım Atlası — `:slug`'dan ÖNCE (yoksa "atlas" bir
+      // başlığın adresi sanılır ve "bulunamadı" açılır).
+      GoRoute(
+        path: yzAtlasPath,
+        pageBuilder: (context, state) => _fadePage(
+            state,
+            YzErteliSayfa(
+                yukle: () => yz_ekranlar.loadLibrary(),
+                kur: () => yz_ekranlar.atlasEkrani())),
+      ),
       GoRoute(
         path: '$yzPath/:slug',
         pageBuilder: (context, state) => _fadePage(
