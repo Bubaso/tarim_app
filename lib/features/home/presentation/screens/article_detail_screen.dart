@@ -1,6 +1,5 @@
 // ignore_for_file: deprecated_member_use
 import 'dart:async' show Timer;
-import 'dart:math' show Random;
 import 'dart:ui';
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:tarim_app/core/theme/brand_icons.dart';
@@ -1312,21 +1311,6 @@ class _ShareButton extends StatelessWidget {
 //  İlgili Haberler — yatay kaydırmalı kart şeridi
 // ═══════════════════════════════════════════════════════════════════════════
 
-/// Bir metinden platformdan bağımsız, kararlı bir tamsayı üretir.
-///
-/// `String.hashCode` kullanılmadı: değeri VM, dart2js ve wasm arasında aynı
-/// olmak zorunda değil, dolayısıyla aynı haber web ile mobilde farklı sıra
-/// verebilirdi. Burada hesap açıkta ve her yerde aynı.
-int _stableSeed(String text) {
-  var hash = 0;
-  for (final unit in text.codeUnits) {
-    // 0x3FFFFFFF maskesi sonucu 30 bitte tutar: JavaScript'te sayılar 2^53'ten
-    // sonra hassasiyet kaybediyor, taşma davranışı platforma göre değişirdi.
-    hash = (hash * 31 + unit) & 0x3FFFFFFF;
-  }
-  return hash;
-}
-
 class _RelatedSection extends ConsumerWidget {
   final NewsArticle currentArticle;
   final bool isEn;
@@ -1340,64 +1324,18 @@ class _RelatedSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ref.watch(latestArticlesProvider).when(
-      data: (articles) {
-        final otherArticles = articles.where((a) => a.id != currentArticle.id).toList();
-        if (otherArticles.isEmpty) return const SizedBox.shrink();
-
-        // Karıştırıcı, okunan haberin kimliğinden tohumlanıyor.
-        //
-        // Önceden her `shuffle()` çağrısı kendi rastgele kaynağını kullanıyordu:
-        // bu `build` metodu ise kaydırmada (`_isScrolled`), yazı boyutu
-        // değişiminde, tema ve dil değişiminde yeniden çalışıyor. Sonuç olarak
-        // ilgili haberler şeridi okuyucunun gözünün önünde durmadan yeniden
-        // diziliyordu; az önce görülen bir kart aranmaya kalkıldığında
-        // bulunamıyordu.
-        //
-        // Tohumu kimliğe bağlamak iki özelliği birden veriyor: aynı haberde sıra
-        // her zaman aynı, farklı haberlerde farklı. Aynı `Random` üç karıştırma
-        // boyunca paylaşılıyor — dizisi de deterministik ilerlediği için sonuç
-        // yine tekrarlanabilir.
-        final rng = Random(_stableSeed(currentArticle.id));
-
-        final List<NewsArticle> recommended = [];
-        final Set<String> recommendedIds = {};
-
-        void addUnique(Iterable<NewsArticle> candidates, int maxToAdd) {
-          int added = 0;
-          for (final a in candidates) {
-            if (added >= maxToAdd) break;
-            if (!recommendedIds.contains(a.id)) {
-              recommended.add(a);
-              recommendedIds.add(a.id);
-              added++;
-            }
-          }
-        }
-
-        // 1. Same Author / Source Prioritization (Up to 2)
-        if (currentArticle.sourceName != null && currentArticle.sourceName!.isNotEmpty) {
-           final sameSourceArticles = otherArticles.where((a) => a.sourceName == currentArticle.sourceName).toList();
-           sameSourceArticles.shuffle(rng);
-           addUnique(sameSourceArticles, 2);
-        }
-
-        // 2. Same Category Matching (Up to 3)
-        if (currentArticle.categoryId != null && currentArticle.categoryId!.isNotEmpty) {
-           final sameCategory = otherArticles.where((a) => a.categoryId == currentArticle.categoryId).take(15).toList();
-           sameCategory.shuffle(rng);
-           addUnique(sameCategory, 3);
-        }
-
-        // 3. Discovery / Fresh News Fill (Up to 6 total)
-        if (recommended.length < 6) {
-           final remainingNeeded = 6 - recommended.length;
-           final generalPool = otherArticles.take(20).toList();
-           generalPool.shuffle(rng);
-           addUnique(generalPool, remainingNeeded);
-        }
-
-        final related = recommended.take(6).toList();
+    // ŞERİT ARTIK PUANLANIYOR, KARIŞTIRILMIYOR (25 Kasım 2026).
+    //
+    // Eski hâli üç kovaydı ve üçü de karıştırılıyordu: aynı KAYNAKTAN 2
+    // haber, aynı KATEGORİDEN 3, kalanı en yeni 20'den rastgele. Kategori
+    // dalı hiç çalışmıyordu — `category_id` 1.597 haberin 1.596'sında boş.
+    // Ölçüldüğünde önerilerin yalnız %13'ü okunan haberle bir anahtar
+    // kelime paylaşıyordu; rastgele seçim beklentisi ~%23'tü.
+    //
+    // Gerekçeler, ölçümler ve puanlama ilgili_haber.dart başında. Aday
+    // havuzu artık en yeni 500 haber değil, arşivin tamamı.
+    return ref.watch(ilgiliHaberlerProvider(IlgiliIstek(currentArticle))).when(
+      data: (related) {
         if (related.isEmpty) return const SizedBox.shrink();
 
         final dividerColor =

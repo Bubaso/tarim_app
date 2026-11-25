@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../core/network/supabase_client.dart';
 import '../../../core/utils/iso_week.dart';
 import '../../../core/utils/localization_helper.dart';
+import '../data/ilgili_haber.dart';
 import '../data/models/news_article.dart';
 import '../data/models/weather_info.dart';
 import '../data/models/market_data.dart';
@@ -15,6 +16,35 @@ import '../../../core/utils/turkce_metin.dart';
 final homeRepositoryProvider = Provider<HomeRepository>((ref) {
   final supabaseClient = ref.watch(supabaseClientProvider);
   return HomeRepository(supabaseClient);
+});
+
+/// [ilgiliHaberlerProvider]'ın anahtarı.
+///
+/// Sağlayıcı ailesi, parametresini `==` ile karşılaştırıyor; [NewsArticle]
+/// eşitlik tanımlamadığı için her `build`de yeni bir aile üyesi açılır ve
+/// sorgu baştan koşardı. Eşitlik KİMLİĞE bağlı: aynı haber aynı sorgu.
+class IlgiliIstek {
+  const IlgiliIstek(this.haber);
+  final NewsArticle haber;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) || (other is IlgiliIstek && other.haber.id == haber.id);
+
+  @override
+  int get hashCode => haber.id.hashCode;
+}
+
+/// Haberin altındaki "İlgili haberler" şeridi.
+///
+/// İki parça: [HomeRepository.ilgiliAdaylar] arşivin tamamından aday
+/// topluyor, [ilgiliHaberleriSec] onları puanlayıp altıya indiriyor.
+/// Gerekçeler ve ölçümler ilgili_haber.dart başında.
+final ilgiliHaberlerProvider =
+    FutureProvider.family<List<NewsArticle>, IlgiliIstek>((ref, istek) async {
+  final depo = ref.watch(homeRepositoryProvider);
+  final adaylar = await depo.ilgiliAdaylar(istek.haber);
+  return ilgiliHaberleriSec(okunan: istek.haber, adaylar: adaylar);
 });
 
 final initialReadArticlesProvider = FutureProvider<Set<String>>((ref) async {

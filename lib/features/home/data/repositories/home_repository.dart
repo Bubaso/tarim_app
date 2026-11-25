@@ -245,6 +245,75 @@ class HomeRepository {
         .toList();
   }
 
+  /// "İlgili haberler" şeridinin aday havuzu — ARŞİVİN TAMAMINDAN.
+  ///
+  /// NEDEN AYRI SORGU. Şerit eskiden [watchLatestArticles]'ın listesini
+  /// kullanıyordu. O liste 500 haberle sınırlı ve ölçüldüğünde (25 Kasım
+  /// 2026) yalnızca 31 Ekim'e kadar geriye gidiyordu — 25 gün. Arşiv ise
+  /// 1.597 haber ve 2021'e uzanıyor. Mevsimlik konularda (zeytin hasadı,
+  /// buğday ekimi) geçen seneki haber erişilemiyordu.
+  ///
+  /// `_listeSiniri`'ni büyütmek yanlış çözüm olurdu: o sorgu ana sayfanın
+  /// TAMAMINI besliyor, 500'den fazlası ilk yükü ağırlaştırırdı. Bu sorgu
+  /// yalnız haber sayfasında ve yalnız bir kez çalışıyor.
+  ///
+  /// ÖRTÜŞME SORGUSU (`overlaps`) en az bir anahtar kelimeyi paylaşan
+  /// satırları getiriyor. Ölçüm (canlı, 25 Kasım 2026): dört zeytin
+  /// kelimesiyle 23 sonuç 383 ms; içinde "Tarım ve Orman Bakanlığı" gibi
+  /// genel bir kelime olan sorgu 231 sonuç 417 ms. [limit] bu yüzden var.
+  ///
+  /// KONU YEDEĞİ, anahtar kelimesi olmayan %3,6'lık haber için: onlarda
+  /// örtüşme sorgusu boş döner ve şerit hiç çizilmezdi.
+  Future<List<NewsArticle>> ilgiliAdaylar(
+    NewsArticle okunan, {
+    int limit = 120,
+  }) async {
+    final anahtarlar = <String>[
+      for (final k in okunan.seoKeywords ?? const <String>[])
+        if (k.trim().isNotEmpty) k.trim(),
+    ].take(8).toList();
+
+    // Kimliğe göre biriktiriliyor: iki sorgu aynı haberi getirebilir.
+    final toplanan = <String, NewsArticle>{};
+
+    Future<void> calistir(Future<dynamic> sorgu) async {
+      final veri = await sorgu.timeout(const Duration(seconds: 6));
+      for (final m in veri as List) {
+        final a = NewsArticle.fromJson(m as Map<String, dynamic>);
+        if (a.id != okunan.id) toplanan[a.id] = a;
+      }
+    }
+
+    try {
+      if (anahtarlar.isNotEmpty) {
+        await calistir(_supabaseClient
+            .from('articles')
+            .select(_listeSutunlari)
+            .eq('status', 'published')
+            .overlaps('seo_keywords', anahtarlar)
+            .order('created_at', ascending: false)
+            .limit(limit));
+      }
+
+      final konu = okunan.topic;
+      if (toplanan.length < 12 && konu != null && konu.isNotEmpty) {
+        await calistir(_supabaseClient
+            .from('articles')
+            .select(_listeSutunlari)
+            .eq('status', 'published')
+            .eq('topic', konu)
+            .order('created_at', ascending: false)
+            .limit(24));
+      }
+    } catch (e) {
+      // Şerit sayfanın EKİ. Sorgu düşerse haber okunmaya devam etsin; elde
+      // ne varsa onunla, hiç yoksa şerit çizilmeden.
+      if (kDebugMode) print('ilgiliAdaylar hatası: $e');
+    }
+
+    return toplanan.values.toList();
+  }
+
   /// Onay kuyruğu.
   ///
   /// **`handleError` KALDIRILDI.** Eski hâli dönüş değeri kullanılmayan bir
