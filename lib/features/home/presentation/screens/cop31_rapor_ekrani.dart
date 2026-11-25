@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/utils/fade_page_route.dart';
+import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
 import '../../../../core/widgets/haber_dokunma_alani.dart';
 import '../../data/cop31_rapor_verisi.dart';
@@ -252,6 +253,40 @@ class _Aciklama extends StatelessWidget {
           color: isDark ? Colors.grey[400] : Colors.grey[700]));
 }
 
+/// Haberin küçük görseli.
+///
+/// Sayfa baştan sona metin: iddia, künye, iddia, künye. Kullanıcının
+/// gözlemi — "metin yoğunluğunun verdiği yorgunluk" — doğru; göz satır
+/// aralarında tutunacak bir şey bulamıyor. Küçük görsel o çıpayı veriyor
+/// ve okuma yükünü artırmıyor.
+///
+/// `thumb_image_url` zaten liste sorgusunda geliyor, yani ek istek yok.
+/// Yoksa tam boy görsele düşüyor; o da yoksa [NewsArticleImage] kendi
+/// yedeğini çiziyor ve satır boş bir kutuyla kalmıyor.
+class _Kucuk extends StatelessWidget {
+  const _Kucuk({required this.haber, this.en = 44, this.boy = 31});
+  final NewsArticle haber;
+  final double en, boy;
+
+  @override
+  Widget build(BuildContext context) => ClipRRect(
+        borderRadius: BorderRadius.circular(5),
+        child: SizedBox(
+          width: en,
+          height: boy,
+          child: NewsArticleImage(
+            imageUrl: (haber.thumbImageUrl?.isNotEmpty ?? false)
+                ? haber.thumbImageUrl
+                : haber.imageUrl,
+            fit: BoxFit.cover,
+            // Başlık zaten künye satırında yazıyor; ekran okuyucu aynı
+            // metni iki kez söylemesin.
+            semanticLabel: '',
+          ),
+        ),
+      );
+}
+
 /// Dayanak haberin künyesi — her satırın altında aynı biçimde.
 class _Dayanak extends StatelessWidget {
   const _Dayanak({required this.haber, required this.vurgu});
@@ -264,9 +299,12 @@ class _Dayanak extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 6),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(Icons.subdirectory_arrow_right_rounded, size: 13, color: vurgu),
-          const SizedBox(width: 5),
+          const SizedBox(width: 6),
+          _Kucuk(haber: haber),
+          const SizedBox(width: 8),
           Expanded(
             child: Text(
               '${haber.title}  ·  ${t.day}.${t.month}.${t.year}',
@@ -444,12 +482,11 @@ class _IzlekKutusu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final haber = sayilar['haber'] as int;
-    final kelime = sayilar['kelime'] as int;
     final ilk = sayilar['ilk'] as DateTime;
     final son = sayilar['son'] as DateTime;
     final konu = (sayilar['konu'] as Map<String, int>).entries.toList()
       ..sort((a, b) => b.value.compareTo(a.value));
-    final gun = son.difference(ilk).inDays;
+    final gun = son.difference(ilk).inDays + 1; // iki uç dahil
 
     return Container(
       padding: const EdgeInsets.fromLTRB(18, 16, 18, 18),
@@ -461,7 +498,7 @@ class _IzlekKutusu extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('$haber haber · $gun günde · ${_binlik(kelime)} kelime',
+          Text('$haber içerik · $gun günde',
               style: GoogleFonts.outfit(
                   fontSize: 17, fontWeight: FontWeight.w800, color: vurgu)),
           const SizedBox(height: 6),
@@ -495,15 +532,6 @@ class _IzlekKutusu extends StatelessWidget {
     );
   }
 
-  static String _binlik(int n) {
-    final s = n.toString();
-    final b = StringBuffer();
-    for (var i = 0; i < s.length; i++) {
-      if (i > 0 && (s.length - i) % 3 == 0) b.write('.');
-      b.write(s[i]);
-    }
-    return b.toString();
-  }
 }
 
 class _DisBilgiSatiri extends StatelessWidget {
@@ -553,17 +581,25 @@ class _ArsivSatiri extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: 46,
-                child: Text('${t.day}.${t.month}',
-                    style: GoogleFonts.inter(
-                        fontSize: 12, fontWeight: FontWeight.w700,
-                        color: vurgu)),
+                width: 42,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 11),
+                  child: Text('${t.day}.${t.month}',
+                      style: GoogleFonts.inter(
+                          fontSize: 12, fontWeight: FontWeight.w700,
+                          color: vurgu)),
+                ),
               ),
+              _Kucuk(haber: haber, en: 58, boy: 40),
+              const SizedBox(width: 10),
               Expanded(
-                child: Text(haber.title,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 9),
+                  child: Text(haber.title,
                     style: GoogleFonts.inter(
                         fontSize: 13.5, height: 1.45,
                         color: isDark ? Colors.grey[200] : Colors.black87)),
+                ),
               ),
             ],
           ),

@@ -873,23 +873,23 @@ final cop31RaporSayilariProvider = Provider<Map<String, Object>>((ref) {
   final l = ref.watch(cop31RaporAkisiProvider).valueOrNull ?? const [];
   if (l.isEmpty) return const {};
   final konu = <String, int>{};
-  var kelime = 0;
   for (final a in l) {
     final k = (a.topic ?? '—').trim();
     konu[k] = (konu[k] ?? 0) + 1;
-    // Etiket sökümü burada, yerinde: `sadelestir` panel katmanında duruyor
-    // ve anasayfa sağlayıcısının oraya bağlanması katmanları birbirine
-    // geçirirdi. Sayım için bu kadarı yeterli.
-    final duz = a.content
-        .replaceAll(RegExp(r'<[^>]+>'), ' ')
-        .replaceAll(RegExp(r'\s+'), ' ')
-        .trim();
-    kelime += duz.isEmpty ? 0 : duz.split(' ').length;
   }
-  final t = l.map((a) => a.createdAt).toList()..sort();
+  // KELİME SAYISI YOK — ve bilerek.
+  //
+  // Önizlemede "0 kelime" yazıyordu: liste sorgusu (`_listeSutunlari`)
+  // başarım için `content` sütununu çekmiyor, dolayısıyla gövde burada
+  // her zaman boş. Sayıyı kurtarmak için 56 haberin tam HTML'ini listeye
+  // eklemek, bir süs rakamı uğruna anasayfa sorgusunu şişirmek olurdu.
+  // Hesaplanamayan sayı gösterilmiyor; kalanların hepsi elimizdeki
+  // veriden doğrulanabiliyor.
+  final t = l.map((a) => DateTime(a.createdAt.year, a.createdAt.month,
+      a.createdAt.day)).toList()
+    ..sort();
   return {
     'haber': l.length,
-    'kelime': kelime,
     'ilk': t.first,
     'son': t.last,
     'konu': konu,
