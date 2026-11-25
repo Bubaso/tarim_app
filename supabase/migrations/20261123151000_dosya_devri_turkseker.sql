@@ -20,13 +20,27 @@
 -- örtüşme giriyor ve görünüm en yeni başlangıcı seçtiği için o aralıkta da
 -- Türkşeker görünüyor. Boşluk yok.
 --
--- ── TİGEM ARŞİVLEMESİ KOŞULLU ────────────────────────────────────────────
--- TİGEM KOŞULSUZ arşivlenseydi ve göç 26 Kasım'dan önce uygulansaydı,
--- kurum dizisi üç gün boyunca BOŞ kalırdı: arşiv satırı active görünümüne
--- girmiyor, Türkşeker ise henüz başlamamış oluyor. Bu yüzden arşivleme
--- yalnız penceresi dolmuşsa yapılıyor. Göç 26 Kasım'dan önce uygulanırsa
--- TİGEM 'published' kalır, penceresi dolunca kendiliğinden görünmez olur
--- ve arşiv etiketi bir sonraki devirde düşer.
+-- ── TİGEM: ARŞİV DEĞİL, PENCERE ──────────────────────────────────────────
+-- Bu göç devir ANINDAN ÖNCE uygulanıyor; dosya 26 Kasım 00:00'da (TR)
+-- kendiliğinden açılacak. TİGEM burada KOŞULSUZ arşivlenseydi şerit
+-- uygulamadan devir anına kadar BOŞ kalırdı: arşiv satırı active
+-- görünümüne girmiyor, Türkşeker ise henüz başlamamış oluyor.
+--
+-- Bunun yerine TİGEM'in penceresi devir anına çekiliyor: ends_at =
+-- Türkşeker'in starts_at'i. Bayrak elden ele tam o saniyede geçiyor —
+-- ne boşluk ne örtüşme. TİGEM o ana kadar şeritte kalıyor, o andan
+-- sonra arşiv listesine düşüyor (country_dossier_index is_active'i
+-- tarihten hesaplıyor).
+--
+-- Kendi penceresi 23:30Z'de bitecekti; 2,5 saat kısalıyor. Devrin saniyesi
+-- belirsiz kalmasın diye bu tercih edildi: örtüşen 2,5 saatte iki kurum
+-- dosyası da is_active görünür ve "diğer dosyalar" listesinde ikisi birden
+-- güncel gibi çıkardı.
+--
+-- STATUS'Ü BU GÖÇ DEĞİŞTİRMİYOR. 'archived' etiketini devir anında koşan iş
+-- atıyor (scripts/devir_gecesi.sh). O iş hiç koşmasa bile OKURUN GÖRDÜĞÜ
+-- her şey doğru: şerit, arşiv listesi ve hikâye betiği üçü de pencereye
+-- bakıyor. Eksik kalan yalnızca satırdaki etiket olur.
 --
 -- İçteki begin/commit yok: CLI her göçü tek işlemde çalıştırıyor.
 
@@ -38,13 +52,11 @@ update public.country_dossiers
        published_at = coalesce(published_at, now())
  where slug = 'turkseker';
 
--- ── 2. TİGEM, penceresi dolmuşsa arşive ──────────────────────────────────
--- ends_at geçmişe çekilmiyor: arşiv listesi pencereyi olduğu gibi gösteriyor.
+-- ── 2. TİGEM'in penceresi devir anına çekiliyor ──────────────────────────
 update public.country_dossiers
-   set status = 'archived'
+   set ends_at = timestamptz '2026-11-25T21:00:00Z'
  where slug = 'tigem'
-   and status = 'published'
-   and ends_at <= now();
+   and status = 'published';
 
 -- ── 3. "Yakında" kartı Et ve Süt Kurumu'na ───────────────────────────────
 -- §8.13 kurum rotasyonu, sıra 8. Türkşeker artık yayında; takvimde onun
@@ -136,13 +148,22 @@ begin
     raise exception 'Kurum takviminin birinci sırasında Et ve Süt Kurumu yok';
   end if;
 
-  -- 6 · kurum dizisinde boşluk kalmadı
-  -- Pencere açıldığında Türkşeker, açılmadan önce TİGEM görünür olmalı.
+  -- 6 · BAYRAK TAM ELDEN ELE GEÇİYOR
+  -- TİGEM'in bitişi Türkşeker'in başlangıcına eşit olmalı: bir saniye
+  -- boşlukta şerit boş kalır, bir saniye örtüşmede iki dosya birden
+  -- "güncel" görünür. Eşitlik ikisini de imkânsız kılıyor.
+  select ends_at into bit from public.country_dossiers where slug = 'tigem';
+  if bit is distinct from timestamptz '2026-11-25T21:00:00Z' then
+    raise exception 'TİGEM bitişi % — Türkşeker başlangıcıyla aynı olmalı', bit;
+  end if;
+
+  -- 7 · ŞU AN kurum şeridi boş değil. Göç devirden önce uygulanıyor;
+  -- bu anda hâlâ TİGEM görünmeli.
   select count(*) into n from public.country_dossiers
    where tur = 'kurum' and status = 'published'
      and starts_at <= now() and ends_at > now();
-  if n = 0 and now() < timestamptz '2026-11-25T21:00:00Z' then
-    raise exception 'Kurum dizisi BOŞ kaldı — TİGEM erken düşmüş olabilir';
+  if now() < timestamptz '2026-11-25T21:00:00Z' and n <> 1 then
+    raise exception 'Devir anından önce kurum şeridinde % dosya var, 1 olmalı', n;
   end if;
 end
 $kontrol$;

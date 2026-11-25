@@ -1579,3 +1579,67 @@ afişi, ahşap kâselerde kristal şeker. Galeri **142 → 139**.
 "önce/sonra" sayısı var ve yanlış sıraya uygulanırsa duruyor. Numara yine
 kimliğe çevrilip donduruldu: ilk tur çalıştığı anda 132 bambaşka bir kareyi
 gösterir hâle gelirdi.
+
+---
+
+## Yayına alma hazırlığı — 26 Kasım 2026 00:00 (25 Kasım 2026)
+
+> *"türkşeker dosyasının bu gece saat 00:01'de kendiliğinden yayına girmesi,
+> hikaye kartlarının görünmesi, yerini aldığı dosyanın arşive gitmesi, bir
+> sonraki kurumun hafızadan teyit edilerek yakında olarak görünmesi için
+> gerekli her türlü hazırlığı yap."*
+
+CLAUDE.md §2.12 devirde **altı** yer sayıyor. Üçünü ilk tasarım kaçırıyordu.
+
+### KRİTİK YOL TARİH SÜRÜCÜLÜ — gece yarısı hiçbir şey koşmak zorunda değil
+
+| ne | nasıl döner |
+|----|-------------|
+| Türkşeker şeride gelir | `starts_at = 2026-11-25T21:00Z`; `active_country_dossier` `starts_at <= now()` arıyor |
+| TİGEM şeritten düşer | `ends_at` aynı ana çekildi; görünüm `ends_at > now()` arıyor |
+| TİGEM arşiv listesine girer | `country_dossier_index.is_active` TARİHTEN hesaplanıyor, durumdan değil |
+| "Yakında" Et ve Süt Kurumu | devir göçünde, uygulandığı anda |
+
+### Bayrak tam elden ele
+TİGEM'in bitişi Türkşeker'in başlangıcına **eşitlendi**. Bir saniye boşlukta
+şerit boş kalır, bir saniye örtüşmede iki dosya birden "güncel" görünür.
+Eşitlik ikisini de imkânsız kılıyor; devir göçünün 6. sağlaması bunu sınıyor.
+TİGEM'in penceresi 2,5 saat kısalıyor (23:30Z yerine 21:00Z).
+
+İlk tasarım TİGEM'i "penceresi dolmuşsa" arşivliyordu — göç devirden önce
+uygulandığı için o koşul hiç tutmayacaktı ve TİGEM `published` kalacaktı.
+
+### Hikâye baloncuğu TEK gerçek zamanlı iş
+`dosya_hikayeleri.py` yalnız penceresi AÇIK dosyaya baloncuk üretiyor
+(`if bitis <= now: continue`), dolayısıyla önceden koşturulamıyor. İstemci de
+hikâyeleri yalnız `expires_at > now()` ile süzüyor — başlangıç alanı yok, yani
+satırı önceden yazıp sonra göstermek de mümkün değil.
+
+`scripts/devir_gecesi.py` + launchd (`scripts/net.tarimportali.devir-gecesi.plist`)
+00:01 · 00:20 · 01:00 · 08:00'de deniyor. Mac uykudaysa launchd işi uyanışta
+koşturuyor; betik tekrara dayanıklı ("zaten arşivde", "hikâye zaten güncel").
+
+**Betiğin saat kilidi var.** Devir anından önce koşarsa hiçbir şey yapmıyor:
+erken arşivleme kurum şeridini devre kadar BOŞ bırakırdı. Ayrıca arşivlemeden
+önce Türkşeker'in gerçekten şeritte olduğunu sınıyor.
+
+### Sıralama bekçi tarafından zorunlu kılınıyor
+`durum_bekcisi.mjs` iki yönü de durduruyor:
+
+- `yayin.json` published + veritabanında satır yok → **dağıtım durur**
+- `yayin.json` draft + veritabanı published → **dağıtım durur** (og kabuğunu siler)
+
+Yani bayrak göçten önce de sonra da çevrilemez, tam arasında çevrilir.
+`scripts/devir_sonrasi.py` bunu yapıyor ve önce veritabanını sınıyor.
+
+### Görseller göçten ÖNCE — sınandı
+298 adresin hepsi canlıda, hepsi `image/jpeg`. §2.12/4 (25 Ağustos 2026'da
+kırık görsellerle yayına çıkılmıştı) karşılandı.
+
+### Sıradaki kurum kayıttan teyit edildi
+CLAUDE.md §8.13: Türkşeker 7., **Et ve Süt Kurumu 8.** Göçteki kayıt doğru.
+
+### Hikâye slaytları sınandı
+Beş slaytın beşi de `rakam` ve `etiket` taşıyor, dördü de gösterim sınırları
+içinde, beşinin de görseli canlıda. `dosya_hikayeleri.py` üçten az slayt
+görürse "0 slayt — atlanıyor" deyip SESSİZCE geçiyor.

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Devir gecesi — 26 Kasım 2026 00:00 (TR), Türkşeker devri.
+
+  KURULUM:
+      cp scripts/net.tarimportali.devir-gecesi.plist ~/Library/LaunchAgents/
+      launchctl load ~/Library/LaunchAgents/net.tarimportali.devir-gecesi.plist
+
+  KALDIRMA (devirden sonra):
+      launchctl unload ~/Library/LaunchAgents/net.tarimportali.devir-gecesi.plist
+      rm ~/Library/LaunchAgents/net.tarimportali.devir-gecesi.plist
+
+  BU İŞ KRİTİK YOLDA DEĞİL. Devrin kendisi veritabanında tarih sürücülü:
+  Türkşeker'in starts_at'i ve TİGEM'in ends_at'i aynı ana (2026-11-25T21:00Z)
+  ayarlı, "Yakında" kartı zaten Et ve Süt Kurumu'na çevrildi. Bu iş hiç
+  koşmasa bile okurun gördüğü her şey doğru olur. Tamamladığı iki şey:
+  TİGEM satırındaki 'archived' etiketi ve Türkşeker'in hikâye baloncuğu.
+
+  DÖRT KEZ DENİYOR. Mac uykudaysa launchd işi uyanışta çalıştırıyor, saatinde
+  değil. Betik kendi içinde tekrara dayanıklı: ikinci koşuda "zaten arşivde"
+  ve "hikâye zaten güncel" deyip çıkıyor. Dört deneme, uyanmanın geciktiği
+  hâli de kapsıyor.
+
+  ERKEN KOŞMAYA KARŞI KİLİT BETİKTE. Devir anından önce çalıştırılırsa
+  hiçbir şey yapmadan çıkıyor; erken arşivleme kurum şeridini boş bırakırdı.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>net.tarimportali.devir-gecesi</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/BURHAN/Developer/tarim_app/scripts/devir_gecesi.py</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/BURHAN/Developer/tarim_app</string>
+
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>0</integer><key>Minute</key><integer>1</integer></dict>
+    <dict><key>Hour</key><integer>0</integer><key>Minute</key><integer>20</integer></dict>
+    <dict><key>Hour</key><integer>1</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>0</integer></dict>
+  </array>
+
+  <key>StandardOutPath</key>
+  <string>/Users/BURHAN/Developer/tarim_app/devir_gecesi.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/BURHAN/Developer/tarim_app/devir_gecesi.log</string>
+
+  <key>RunAtLoad</key><false/>
+</dict>
+</plist>

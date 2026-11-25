@@ -27,9 +27,21 @@ GRAFIK = len(json.loads(
     (KOK / "grafikler.json").read_text(encoding="utf-8"))["grafikler"])
 
 hata = []
+MIG = KOK.parent.parent.parent / "supabase" / "migrations"
+
+# GÖÇLER İKİ YERDE OLABİLİR. Onay öncesi beklemede/ altında dururlar; onay
+# verilip taşındıklarında supabase/migrations/ altına geçerler ve orada da
+# sağlamaları İÇERİKLE TUTMAYA DEVAM ETMELİ — taşınmak denetimi bitirmiyor.
+ADLAR = ["20261123140000_dossier_bolum_turu_galeri.sql",
+         "20261123150000_turkseker_icerik_draft.sql",
+         "20261123151000_dosya_devri_turkseker.sql"]
 gocler = sorted(BEK.glob("*.sql"))
+tasindi = False
 if not gocler:
-    sys.exit("✗ beklemede/ boş — göçler nerede?")
+    gocler = sorted(p for p in (MIG / a for a in ADLAR) if p.exists())
+    tasindi = bool(gocler)
+if not gocler:
+    sys.exit("✗ göçler ne beklemede/ ne migrations/ altında — nerede?")
 
 # 1 · BÖLÜM SAYISI. Her göçteki `<> N then` sağlamalarından bölüm sayısına
 #     bakanlar, metindeki bölüm sayısını söylemeli.
@@ -77,10 +89,9 @@ for ad, sayi in bulunan_grafik:
 #     JOKERLE ARANMIYOR. İlk hâli "*turkseker*" arıyordu ve dosyayla
 #     ilgisi olmayan, aylar önce uygulanmış iki göçü (ilan adresi, ilan
 #     detayı) yakaladı. Aranan şey beklemede duran dosyaların TAM ADI.
-MIG = KOK.parent.parent.parent / "supabase" / "migrations"
 bekleyen_adlar = {p.name for p in gocler}
 kacan = sorted(p.name for p in MIG.glob("*.sql") if p.name in bekleyen_adlar)
-if kacan:
+if kacan and not tasindi:
     hata.append("4 · onaysız göç supabase/migrations/ altında: " + ", ".join(kacan))
 
 # 5 · DAMGA SIRASI. Kısıt göçü içerik göçünden ÖNCE gelmeli.
@@ -91,8 +102,9 @@ if kisit and icerik and kisit[0] >= icerik[0]:
     hata.append("5 · kısıt göçünün damgası içerik göçünden sonra: %s ≥ %s"
                 % (kisit[0], icerik[0]))
 
-print("  %d göç · beklenen: %d bölüm · %d kare · %d grafik · 5 kural"
-      % (len(gocler), BOLUM, KARE, GRAFIK))
+print("  %d göç (%s) · beklenen: %d bölüm · %d kare · %d grafik · 5 kural"
+      % (len(gocler), "migrations/ — onay verilmiş" if tasindi else "beklemede/",
+         BOLUM, KARE, GRAFIK))
 if hata:
     print("\n  ✗ " + "\n  ✗ ".join(hata))
     sys.exit(1)
