@@ -1634,3 +1634,79 @@ Bilinen sınırlar: kişi adı olarak geçen il adı ("Aydın" soyadı) haberde
 yanlış ile düşebilir; tamamı büyük harfli başlık taranmıyor. Atlasın
 paylaşım kabuğu (`paylasim_sayfasi.mjs`) yok; okur ölçümünde atlastan gelen
 geçiş `giris` için ayrı değer taşımıyor (GA sözleşmesi değişmedi).
+
+## Kaynak karnesi — 25 Kasım 2026 (dal `uyg/karne`)
+
+Sahibin onayıyla: her başlığın ve teknoloji sayfasının mavi rakamlarının
+hangi tür kaynağa dayandığı. Yorum yok, hesap var.
+
+**Ölçü.** Sayfa başına (b01-b28 ve dokuz `tek_<kod>`; 37 sayfa), sayfanın
+mavi rakamlarını destekleyen FARKLI kaynakların türe göre sayısı: rakam
+eşlemesindeki (`rakam_kaynaklari.py`) bütün adaylar, TR ve EN birlikte, iki
+dilde aynı karne. Ayrıca dil başına kaynaklı rakam sayısı (farklı kalın
+rakam; bugün TR = EN). Dört tür, sabit sırayla: hakemli çalışma (`HAKEMLI`),
+kurumsal rapor (`KURUMSAL` + `PROJE`), resmî kaynak (`RESMI`), satıcı beyanı
+(`SATICI`). **`PROJE` kurumsal rapora katılıyor:** tek bir proje raporu
+(AquaTag broşürü; b07 ve tek_sensor'da birer kaynak). Metinde bu rakamlar
+"proje beyanı" diye etiketli ve kural 3 `PROJE`'yi satıcı gibi sınıyor
+(karar 34); birleştirme yalnız karnenin sayımında. Niteliği olmayan ya da
+tanınmayan kaynak sayılmaz; `dart_uret.py` ve `dogrula_bolumler.py` uyarı
+verir (bugün 0). Bütün karne: `python3 -I _raw/rakam_kaynaklari.py karne`.
+
+| sayfa | hakemli | kurumsal | resmî | satıcı | toplam | kaynaklı rakam (dil başına) |
+|---|---|---|---|---|---|---|
+| b23 Türkiye'de durum | 0 | 4 | 3 | 0 | 7 | 20 |
+| b22 Dünyada durum | 0 | 2 | 10 | 0 | 12 | 61 |
+| b25 Türkiye dizini | 0 | 5 | 3 | 0 | 8 | 10 |
+| b27 Başarısız örnekler | 2 | 3 | 2 | 3 | 10 | 37 |
+| tek_genomik | 4 | 0 | 1 | 0 | 5 | 14 |
+| tek_uzaktan | 6 | 6 | 2 | 0 | 14 | 14 |
+| 37 sayfa (sayfa-kaynak çifti) | 129 | 102 | 64 | 7 | 302 | 837 |
+
+Hakemli kaynağı olmayan dört başlık: b22, b23, b24, b25. Satıcı beyanı
+dört sayfada: b03, b08, b27, tek_robotik.
+
+| parça | yer |
+|---|---|
+| hesap (`karne()`, `KARNE_NITELIK`) | `_raw/rakam_kaynaklari.py` |
+| üretim → `kYzKaynakKarnesi` (`YzKarne`) | `dart_uret.py` → `lib/features/yapay_zeka/data/yz_kaynak_karnesi.g.dart` |
+| kural 18: kayıtlardan bağımsız yeniden hesap = üretilen dosya; eksik/fazla sayfa yok; sayılar ≥ 0; toplamı ≥ 1 sayfa var; niteliksiz kaynak UYARI | `_raw/dogrula_bolumler.py` (bilerek bozulan beş durumun beşi yakalandı) |
+| çubuk, satırlar, alttan açılan döküm, renkler | `presentation/yz_kaynak_karnesi.dart` |
+| okuma sayfası başı | `yz_makale.dart` › `_baslikBlogu` |
+| merkezde ikinci görünüm, seçici | `yz_matris.dart` (`YzIsiHaritasiBasligi`, `YzKaynakMatrisi`); `yz_merkez_ekrani.dart`'ta tek satır |
+| testler | `test/yz_kaynak_karnesi_test.dart`; `yz_erteli_test.dart` listesine iki dosya |
+
+**Okuma sayfası.** Masaüstünde künye satırının (yazdır düğmesi dahil) hemen
+altında 140×6 yığılmış çubuk ve "Rakamlar 7 kaynağa dayanıyor: 4 kurumsal
+rapor · 3 resmî kaynak"; sıfır olan tür yazılmaz. Başlık bloğu 610 px; üç
+türlü cümle çubukla oraya sığmıyor (13 px Newsreader'da en uzunu 483 px),
+satır görsel ve tablonun kullandığı sağ paya (43 px) taşabiliyor. Dört türün
+de geçtiği üç sayfada (b03, b27, tek_robotik; 556-570 px) ayrıntı iki
+noktadan sonra ikinci satırda. Telefonda kısa künyenin altında küçük çubuk,
+"7 kaynak" ve bilgi simgesi; dokununca `yzAltSayfa`'da toplam, dört türün
+sayısı (sıfır dahil) ve bir cümlelik tanımı. Üst bölüm 5 px uzuyor
+(15 px satır + 6 px pay, eski 16 px boşluğun yerine; sınır ~24 px idi ama
+`yz_mobil_cerceve_test` "metin ilk ekranın üçte birinde" sınaması §28'de
+yazı tipi yüklenmeden ölçülünce yalnız 7,7 px pay bırakıyor). Dokunma alanı
+satır ve payı: 21 px yüksek, tam genişlik. Sözlük ve kaynakçada
+hiçbir şey çizilmez. Sayılar türün renginde değil: bu bölümde mavi rakam
+"dokununca kaynağı açılır" demek.
+
+**Merkez.** "Teknoloji ve Alan Isı Haritası" başlığı ve yeşil vurgu satırı
+aynen; altında "Teknoloji | Kaynak niteliği" seçicisi (varsayılan teknoloji,
+bugünkü görünüm değişmedi). Kaynak görünümü masaüstünde türler satırda,
+başlıklar sütunda (teknolojinin yatay düzeniyle aynı sütunlar ve döndürülmüş
+adlar); dar pencerede ve telefonda başlıklar satırda, dört tür sütunda, yatay
+kaydırma yok. Hücre: o türden kaynak sayısı, türün renginde, yoğunluk
+bütün hücrelerin en büyüğüne göre; ipucu "§23 Türkiye'de durum · resmî
+kaynak: 3"; dokununca başlık. Seçim, sayfanın PageStorage kovasındaki tek
+bildirimde: seçici başlık bloğunda, harita onun kardeşi; yeni sayfada yine
+teknoloji. Merkez dosyasında yalnız `YzBolumBasligi(` → `YzIsiHaritasiBasligi(`.
+
+**Renk.** Hakemli `YzRenk.bitki`, kurumsal `YzRenk.makine`, resmî
+`0xFF5B6B7D` (grafik paletinin gri-mavisinin koyusu; zeminde 4,98:1, beyazda
+5,46:1), satıcı `YzRenk.bekleyen`. Dilimler arasında 1,5 px boşluk; hücre
+yazısı beyaz ya da mürekkep, her yoğunlukta ≥ 4,5:1 (test).
+
+Ağırlık: iki yeni dosya yalnız erteli ekranlardan içe aktarılıyor; ilk yüke
+kod eklenmedi (`yz_erteli_test.dart`).

@@ -155,7 +155,7 @@ class YzMerkezEkrani extends StatelessWidget {
                             ),
                             const YzHarita(),
                             const SizedBox(height: 34),
-                            YzBolumBasligi(
+                            YzIsiHaritasiBasligi(
                               en ? 'Technology and Field Heat Map' : 'Teknoloji ve Alan Isı Haritası',
                               vurgu: en
                                   ? 'Follow the pulse of AI use in agriculture here.'
