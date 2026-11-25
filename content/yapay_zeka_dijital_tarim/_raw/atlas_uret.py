@@ -183,7 +183,7 @@ def dislananlar(metin: str, en: bool = False) -> list[str]:
 # ── Metin ────────────────────────────────────────────────────────────────
 
 _YONERGE = re.compile(r"^\[\[([a-z]+):([a-z0-9-]+)\]\]$")
-_BILINEN_YONERGE = {"grafik", "gorsel", "cekme"}
+_BILINEN_YONERGE = {"grafik", "gorsel", "cekme", "canli"}
 _AYIRAC = re.compile(r"^\|?[\s:|-]+\|?$")
 
 

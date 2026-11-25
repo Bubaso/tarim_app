@@ -63,6 +63,8 @@ const _agir = [
   'lib/features/yapay_zeka/data/yz_atlas.g.dart',
   'lib/features/yapay_zeka/presentation/yz_atlas_veri.dart',
   'lib/features/yapay_zeka/presentation/yz_atlas_ekrani.dart',
+  // "Uzaydan bugün" canlı uydu penceresi: yalnız bölüm metninin çizicisinden.
+  'lib/features/yapay_zeka/presentation/yz_uzaydan_bugun.dart',
 ];
 
 void main() {

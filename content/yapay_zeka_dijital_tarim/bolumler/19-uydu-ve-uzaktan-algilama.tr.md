@@ -8,6 +8,8 @@ Uydu, tarlayı birkaç günde bir, aynı yöntemle ve geniş alanda gören bir �
 
 [[gorsel:b19-uydunun-bitki-ortusunu-olcme-ilkesi]]
 
+[[canli:uzaydan-bugun]]
+
 ## Saha ne diyor
 
 Landsat görüntülerini ücretsiz dağıtma kararını ABD Jeoloji Araştırmaları Kurumu (USGS) verdi. Landsat Bilim Ekibi'nden Zhu ve arkadaşlarının 2019 makalesini özetleyen NASA sayfasına göre karardan sonra Landsat'a dayanan bilimsel yayınlar da dört kat arttı; yazarlar açık veri politikasının kaybının araştırma topluluğunu ciddi biçimde etkileyeceğini söylüyor. USGS'nin kendi değerlemesine göre Landsat görüntülerinin ABD'deki ve ABD dışındaki kullanıcılara faydası 2017'de tahminen **3,45** milyar dolardı (2011'de **2,19** milyar); bu değerin büyük kısmı ücretsiz ve açık veri politikasından geliyor. Küçük bir ücret bile kullanıcı kaybına, büyük olasılıkla da indirilen görüntü miktarında keskin bir düşüşe yol açar; kullanıcıların **%50**'den fazlasının ödemeyi reddetmesi bekleniyor.

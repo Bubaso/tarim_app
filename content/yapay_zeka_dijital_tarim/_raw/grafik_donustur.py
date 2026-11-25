@@ -348,8 +348,9 @@ def donustur(o: dict) -> dict:
     return g
 
 
-# Blok sayılmayan yönerge: öne çıkan cümle ([[cekme:…]], madde 6) ve
-# tanınmayan her [[ad:kimlik]] satırı (gorsel_isle.py ile aynı kural).
+# Blok sayılmayan yönerge: öne çıkan cümle ([[cekme:…]], madde 6), canlı
+# pencere ([[canli:…]], kural 20) ve tanınmayan her [[ad:kimlik]] satırı
+# (gorsel_isle.py ile aynı kural).
 SAYILMAZ = re.compile(r"\[\[(?!(?:grafik|gorsel):)[a-z]+:[a-z0-9-]+\]\]")
 
 

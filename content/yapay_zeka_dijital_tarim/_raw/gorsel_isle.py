@@ -346,8 +346,8 @@ def aday_kimligi(a: dict) -> str:
     return kimlik("t-" + a["teknoloji"] if a.get("teknoloji") else a["baslik_no"], a["konu"])
 
 
-# Blok sayılmayan yönerge: öne çıkan cümle ([[cekme:…]], madde 6) ve
-# tanınmayan her [[ad:kimlik]] satırı. Sayılsaydı bir dilde eksik kalan
+# Blok sayılmayan yönerge: öne çıkan cümle ([[cekme:…]], madde 6), canlı
+# pencere ([[canli:…]], kural 20) ve tanınmayan her [[ad:kimlik]] satırı. Sayılsaydı bir dilde eksik kalan
 # satır öteki dilin blok sırasını kaydırırdı.
 SAYILMAZ = re.compile(r"\[\[(?!(?:grafik|gorsel):)[a-z]+:[a-z0-9-]+\]\]")
 

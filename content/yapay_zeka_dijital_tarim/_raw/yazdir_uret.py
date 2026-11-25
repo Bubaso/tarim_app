@@ -102,6 +102,11 @@ def bloklar(md: str) -> list[tuple[str, object]]:
             kapat(); i += 1
         elif m := re.fullmatch(r"\[\[(grafik|gorsel):([a-z0-9-]+)\]\]", t):
             kapat(); cikti.append((m.group(1), m.group(2))); i += 1
+        elif re.fullmatch(r"\[\[canli:[a-z0-9-]+\]\]", t):
+            # Canlı pencere (kural 20, "Uzaydan bugün") basılı sürüme HİÇ girmez:
+            # veri canlı (basım anında bayatlar, üretim ağsız), görselsiz künye
+            # boşluğa altyazı olurdu; sayfa sonunda çevrimiçi adres zaten yazıyor.
+            kapat(); i += 1
         elif re.fullmatch(r"\[\[[a-z]+:[a-z0-9-]+\]\]", t):
             # Öne çıkan cümle (madde 6) basılı sürüme girmez: metnin tekrarı.
             # Tanınmayan yönerge de blok değil.

@@ -101,6 +101,12 @@ KURALLAR
      hücresinde, gösterilen hücreler §25'in tablosunda harfi harfine; §25
      tablosunda eşleme dosyasında olmayan kurum yok; üretilmiş
      `yz_atlas.g.dart` güncel (dart_uret.py koşmuş).
+ 20. CANLI PENCERE. `[[canli:<kimlik>]]` (ör. §19'daki "Uzaydan bugün" NDVI
+     haritası) yalnız başlık sayfalarında; kimlik `CANLI_PENCERELER`de
+     (Dart eşi `kYzCanliPencereler`); TR ve EN'de aynı yerde (önündeki
+     canli'siz blok sayısı aynı); bir sayfada aynı pencere en çok bir kez;
+     tanımlı her pencere bir metinde kullanılıyor. Basılı sürüme, aramaya
+     ve okuma süresine girmez.
 """
 from __future__ import annotations
 
@@ -385,7 +391,7 @@ DIZI_ROLLERI = {"", "ongoru", "referans", "toplam", "alt"}
 YONERGE_DESENI = re.compile(r"^\[\[(grafik|gorsel|cekme):([a-z0-9-]+)\]\]$", re.M)
 # Her yönerge satırı (tanınmayanlar dahil): ayrıştırıcılarda blok sayılmaz.
 YONERGE_SATIRI = re.compile(r"^\[\[([a-z]+):([a-z0-9-]+)\]\]$")
-BILINEN_YONERGE = {"grafik", "gorsel", "cekme"}
+BILINEN_YONERGE = {"grafik", "gorsel", "cekme", "canli"}
 
 
 def _alan_degerleri(deger) -> list[float]:
@@ -530,8 +536,8 @@ def sina_grafikler() -> None:
 
 def sayfa_bloklari(md: str) -> list[dict]:
     """Sayfanın blokları sırayla: {tur, metin, ogeler}. Tür: paragraf,
-    altBaslik, liste, tablo, ozet, grafik, gorsel, cekme (yönergede metin
-    kimliktir). Başlık satırı ve tanınmayan yönerge blok sayılmaz."""
+    altBaslik, liste, tablo, ozet, grafik, gorsel, cekme, canli (yönergede
+    metin kimliktir). Başlık satırı ve tanınmayan yönerge blok sayılmaz."""
     bloklar: list[dict] = []
     par: list[str] = []
     satirlar = md.replace("\r\n", "\n").split("\n")
@@ -883,6 +889,8 @@ def tel_yuksekligi(b: dict, giris: bool = False) -> float:
         return 22 + 110 * max(0, len(b["ogeler"]) - 2)
     if b["tur"] in ("gorsel", "grafik"):
         return 360.0
+    if b["tur"] == "canli":
+        return CANLI_TEL_YUKSEKLIGI
     return 0.0
 
 
@@ -1159,6 +1167,61 @@ def sina_atlas() -> None:
           f"{di['hizalanan']}/{di['toplam']} · eşlenemeyen kurum {len(k['dizin_ist']['eslenmeyen'])}")
 
 
+# ── Kural 20: canlı pencere ───────────────────────────────────────────────
+
+# Dart eşi: lib/features/yapay_zeka/presentation/yz_uzaydan_bugun.dart ›
+# kYzCanliPencereler (test/yz_uzaydan_bugun_test.dart ikisini karşılaştırıyor).
+CANLI_PENCERELER = {"uzaydan-bugun"}
+# Canlı pencerenin 375 px'lik telefondaki boyu: harita kenardan kenara (168),
+# lejant, tarih, kaydırıcı, künye ve Worldview bağlantısı. Gömülü yazı
+# tipleriyle ölçüldü: 461 px (25 Kasım 2026).
+CANLI_TEL_YUKSEKLIGI = 460.0
+
+
+def _canli_konumlari(bloklar: list[dict]) -> list[tuple[str, int]]:
+    """(kimlik, önündeki canli'siz blok sayısı) — iki dilin yer eşitliği için."""
+    cikti, n = [], 0
+    for b in bloklar:
+        if b["tur"] == "canli":
+            cikti.append((b["metin"], n))
+        else:
+            n += 1
+    return cikti
+
+
+def sina_canli_pencereler() -> None:
+    """Kural 20: canlı pencere yalnız başlık sayfasında, tanınan kimlikle,
+    iki dilde aynı yerde, sayfada en çok bir kez; tanımlı her pencere
+    kullanılıyor."""
+    print("\nCanlı pencereler")
+    for md in sorted(TEKNOLOJILER.glob("*.md")):
+        for n, satir in enumerate(md.read_text(encoding="utf-8").split("\n"), 1):
+            m = YONERGE_SATIRI.fullmatch(satir.strip())
+            if m and m.group(1) == "canli":
+                hata(f"{md.name}:{n}: canlı pencere teknoloji sayfasında — yalnız başlık sayfası (kural 20)")
+    kullanilan: set[str] = set()
+    sayac = 0
+    for tr in sorted(BOLUMLER.glob("*.tr.md")):
+        en = tr.with_name(tr.name.replace(".tr.md", ".en.md"))
+        konum = {"tr": _canli_konumlari(sayfa_bloklari(tr.read_text(encoding="utf-8"))),
+                 "en": _canli_konumlari(sayfa_bloklari(en.read_text(encoding="utf-8"))) if en.exists() else []}
+        if konum["tr"] != konum["en"]:
+            hata(f"{tr.name}: canlı pencere yönergeleri iki dilde aynı yerde değil — "
+                 f"TR {konum['tr']}, EN {konum['en']} (kural 20)")
+        for d, yol in (("tr", tr), ("en", en)):
+            kimlikler = [k for k, _ in konum[d]]
+            for k in sorted(set(kimlikler)):
+                if k not in CANLI_PENCERELER:
+                    hata(f"{yol.name}: [[canli:{k}]] tanınmıyor — CANLI_PENCERELER'de yok (kural 20)")
+                if kimlikler.count(k) > 1:
+                    hata(f"{yol.name}: [[canli:{k}]] sayfada {kimlikler.count(k)} kez — en çok bir (kural 20)")
+            kullanilan.update(kimlikler)
+        sayac += len(konum["tr"])
+    for k in sorted(CANLI_PENCERELER - kullanilan):
+        hata(f"canlı pencere {k}: hiçbir metinde yönergesi yok (kural 20)")
+    print(f"  · {sayac} canlı pencere sınandı")
+
+
 # ── Kural 18: kaynak karnesi ──────────────────────────────────────────────
 
 KARNE_DART = BURASI.parents[2] / "lib/features/yapay_zeka/data/yz_kaynak_karnesi.g.dart"
@@ -1262,6 +1325,7 @@ def main() -> int:
     sina_cekmeler()
     sina_atlas()
     sina_karne()
+    sina_canli_pencereler()
     if uyarilar:
         print(f"\n⚠ {len(uyarilar)} UYARI (durdurmaz)")
     if hatalar:

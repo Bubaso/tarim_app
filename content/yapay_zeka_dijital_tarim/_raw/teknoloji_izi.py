@@ -125,7 +125,7 @@ def bloklar(md: str) -> list[str]:
     cikti, paragraf = [], []
     for satir in md.splitlines()[1:]:
         t = satir.strip()
-        if YONERGE.fullmatch(t):          # [[grafik:…]] / [[gorsel:…]] / [[cekme:…]] ve tanınmayan
+        if YONERGE.fullmatch(t):          # [[grafik:…]] / [[gorsel:…]] / [[cekme:…]] / [[canli:…]] ve tanınmayan
             if paragraf:
                 cikti.append(" ".join(paragraf))
                 paragraf = []

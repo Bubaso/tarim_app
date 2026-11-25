@@ -1710,3 +1710,78 @@ yazısı beyaz ya da mürekkep, her yoğunlukta ≥ 4,5:1 (test).
 
 Ağırlık: iki yeni dosya yalnız erteli ekranlardan içe aktarılıyor; ilk yüke
 kod eklenmedi (`yz_erteli_test.dart`).
+
+## "Uzaydan bugün" — canlı uydu penceresi · 25 Kasım 2026 (dal `uyg/uzay`)
+
+§19 "Ne yapıyor"da, bitki örtüsünü ölçme ilkesinin görselinin
+(`b19-uydunun-bitki-ortusunu-olcme-ilkesi`) hemen ardında
+`[[canli:uzaydan-bugun]]` (TR ve EN aynı yerde): Türkiye'nin NDVI haritası,
+NASA GIBS'ten sayfa açılınca. Teknoloji sayfasında yok; basılı sürümde
+hiçbir şey basılmaz (veri canlı, üretim ağsız; görselsiz künye boşluğa
+altyazı olurdu).
+
+**Veri.** WMTS `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/<katman>/default/[<YYYY-MM-DD>/]GoogleMapsCompatible_Level9/<z>/<y>/<x>.png`.
+`MODIS_Terra_NDVI_8Day` (GIBS: "rolling 8-day", MOD13Q4N NRT, 250 m; GÜNLÜK
+tarihli, her gün yeni bir kayan 8 günlük bileşik) ve üstünde
+`Reference_Features` (kıyı ve sınırlar; "© OpenStreetMap contributors,
+Natural Earth"). z6'da x 36-40, y 23-25 (15 + 15 döşeme); kesit batı 25,0 /
+güney 35,5 / doğu 45,5 / kuzey 42,6 derece (oran ~2,24). Döşemeler tek
+tuvalde, kenar yumuşatmasız: ölçekte dikiş yok. `Reference_Features_15m`
+z6'da kullanılamıyor (500, sonra siyah döşeme). CORS: bütün yanıtlarda
+`access-control-allow-origin: *`; `firebase.json` CSP'sine (rapor kipi)
+`img-src` ve `connect-src` için `https://gibs.earthdata.nasa.gov`.
+
+**Tarih.** Aday dünün UTC günü; önce ortadaki döşeme (6/24/38) yoklanıyor,
+404 ise bir gün geri (en çok 7 gün; arşivdeki boş günler de böyle atlanıyor),
+sonra 15 döşeme. Künyede GIBS'in TEK tarihi: bileşiğin hangi 8 günü
+kapsadığı GIBS belgelerinde yazmıyor, aralık yazılmaz.
+
+**Kaydırıcı: son 12 ay, 13 AYLIK durak** (her ayın aynı günü; ilki ve
+sonuncusu bir yıl arayla). Günlük 365 adımda komşu kareler aynı (kayan
+bileşik her gün 1/8 değişiyor) ve sürükleme yüzlerce istek; haftalık 52
+adımda da bitki örtüsünün yıllık döngüsünü göstermek için gereğinden fazla
+durak var. Ay ise okurun mevsimi düşündüğü birim: 375 px telefonda duraklar
+~26 px arayla (parmakla tutuluyor), klavye ve ekran okuyucuda bir adım bir
+ay, bir yıl öncesiyle karşılaştırma tek hareket. Sürüklerken tarih anında,
+döşemeler 300 ms durunca ya da bırakınca; yüklenirken harita soluk (hareket
+azaltmada geçişsiz).
+
+**Hata.** 404 dışı yanıt, ağ yok ya da 7 gün üst üste 404: ilk yüklemede
+blok HİÇ çizilmez; sonradan seçilen tarih yüklenemezse kaydırıcı gösterilen
+tarihe döner. Yükleme boyunca aynı boyda yer tutucu (yüklenince kayma yok).
+
+**Lejant.** GIBS `MODIS_NDVI` renk haritası (colormaps/v1.3, 140 girdi,
+GIBS lejantındaki gibi eşit dilimler); etiketler GIBS'inkiler: 0,0 0,2 0,3
+0,4 0,6 0,8 1,0 (EN'de nokta), çentikler 0,1 0,5 0,7 0,9; dar yerde çakışan
+etiket düşüyor (önce 0,3).
+
+**Künye.** "MODIS (Terra) bitki örtüsü endeksi (NDVI), 8 günlük kayan
+bileşik, 24 Kasım 2026" · "NASA EOSDIS GIBS · Kıyı ve sınırlar: ©
+OpenStreetMap katkıcıları, Natural Earth"; EN "MODIS (Terra) vegetation
+index (NDVI), rolling 8-day composite, …" · "NASA EOSDIS GIBS · Coastlines
+and borders: © OpenStreetMap contributors, Natural Earth". Başlık yok
+(görsel kartları gibi).
+
+**Worldview.** "NASA Worldview'da aç": aynı kesit, katman ve gün. Biçim
+Worldview'un kendi kodundan ve yapılandırmasından doğrulandı (build/wv.js,
+config/wv.json; 25 Kasım 2026): `v` batı,güney,doğu,kuzey derece; `l`
+katmanlar, üstteki önce; `t` `YYYY-MM-DD-THH:MM:SSZ` (uygulamanın içindeki
+örnek bağlantı da bu biçimde). `MODIS_Terra_NDVI_8Day` Worldview'da var;
+`Reference_Features_15m` oradan `Admin_Boundaries`,
+`DoS_International_Boundaries`, `Coastlines_15m`'ye yönlendiriliyor, bağlantı
+ikincisini ve üçüncüsünü doğrudan veriyor. Tarayıcıda tıklanarak SINANMADI
+(sayfa Google Tag Manager yüklüyor; izin yalnız NASA alanlarıydı).
+
+**Görsel sınama** (gerçek döşemeler: 24 Kasım 2026, 24 Mayıs 2026, 24 Kasım
+2025; 375, 696 ve 1866 px): Türkiye kesitte tam (Trakya, Ege adaları, Hatay,
+Iğdır), kıyı çizgisi NDVI'nin kara kenarıyla örtüşüyor (Marmara ve Karadeniz
+2 kat büyütmede), döşeme dikişi yok; göller ve Kasım'da Doğu'nun yüksek
+kesimleri zemin renginde (GIBS'te NDVI < 0,0001 ve veri yok saydam).
+
+| parça | yer |
+|---|---|
+| pencere, tarih ve adres işlevleri, lejant | `presentation/yz_uzaydan_bugun.dart` (yalnız `yz_metin_gorunumu.dart`'tan; erteli) |
+| yönerge (`YzBlokTuru.canli`) | `yz_metin_gorunumu.dart`; `yz_okuma_olcer.dart` switch'i |
+| kural 20: yalnız başlık sayfası, `CANLI_PENCERELER`, iki dilde aynı yer, sayfada en çok bir | `_raw/dogrula_bolumler.py` |
+| ayrıştırıcılar (blok, metin değil) | `telefon_bolme.py` (fikstür yenilendi), `atlas_uret.py`, `yazdir_uret.py` (atlıyor); öbürleri zaten saymıyordu |
+| testler | `test/yz_uzaydan_bugun_test.dart` (ağsız, sahte GIBS), `_raw/dogrula_canli_test.py`, `yz_erteli_test.dart` listesi |

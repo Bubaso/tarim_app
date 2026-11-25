@@ -20,6 +20,7 @@ import 'yz_sozluk_esle.dart';
 import 'yz_tasarim.dart';
 import 'yz_telefon_bolme.dart';
 import 'yz_teknoloji_izi.dart';
+import 'yz_uzaydan_bugun.dart';
 
 /// Bölüm metinlerinin çizicisi.
 ///
@@ -44,7 +45,9 @@ import 'yz_teknoloji_izi.dart';
 /// `cekme`: `[[cekme:<kimlik>]]`, öne çıkan cümle (madde 6); metnin tekrarı,
 /// arama, okuma süresi ve sözlük görmez. Tanınmayan `[[ad:kimlik]]` satırı
 /// blok sayılmaz, metin olarak da çizilmez.
-enum YzBlokTuru { ozet, altBaslik, paragraf, tablo, grafik, gorsel, liste, cekme }
+/// `canli`: `[[canli:<kimlik>]]`, canlı veri penceresi (yz_uzaydan_bugun.dart;
+/// dogrula_bolumler.py kural 20); metin değil, grafik ve görsel gibi.
+enum YzBlokTuru { ozet, altBaslik, paragraf, tablo, grafik, gorsel, liste, cekme, canli }
 
 class YzBlok {
   const YzBlok(this.tur, {this.metin = '', this.satirlar = const [], this.ogeler = const []});
@@ -80,7 +83,7 @@ List<String> _hucreler(String satir) {
 bool _ayiracMi(String satir) =>
     RegExp(r'^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)*\|?\s*$').hasMatch(satir.trim());
 
-final RegExp _yonerge = RegExp(r'^\[\[(grafik|gorsel|cekme):([a-z0-9-]+)\]\]$');
+final RegExp _yonerge = RegExp(r'^\[\[(grafik|gorsel|cekme|canli):([a-z0-9-]+)\]\]$');
 final RegExp _herYonerge = RegExp(r'^\[\[[a-z]+:[a-z0-9-]+\]\]$');
 
 /// Metni bloklara ayırır. Testler doğrudan bunu sınıyor.
@@ -608,7 +611,8 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
       for (var i = 0; i < _bloklar.length; i++)
         _bloklar[i].tur == YzBlokTuru.grafik ||
                 _bloklar[i].tur == YzBlokTuru.gorsel ||
-                _bloklar[i].tur == YzBlokTuru.cekme
+                _bloklar[i].tur == YzBlokTuru.cekme ||
+                _bloklar[i].tur == YzBlokTuru.canli
             ? null
             : GlobalKey(),
     ];
@@ -903,6 +907,9 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
         case YzBlokTuru.cekme:
           cikti.add(yzCekme(b.metin, _bloklar,
               en: en, telefon: telefon, olcek: o, genislik: metinW, etkilesim: etkilesim, oncekiAralik: ritim.paragrafArasi));
+        case YzBlokTuru.canli:
+          // Görsel kartı gibi tam genişlikte (sütun yok).
+          cikti.add(yzCanliPencere(b.metin, en: en));
         case YzBlokTuru.tablo:
           cikti.add(Padding(
             key: _anahtar[i],

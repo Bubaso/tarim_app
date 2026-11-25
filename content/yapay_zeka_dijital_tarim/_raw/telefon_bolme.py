@@ -220,7 +220,9 @@ def parcalar(metin: str, noktalar: list[int]) -> list[str]:
 
 
 # ── yzAyristir'in paragraf kesiti ───────────────────────────────────────
-_YONERGE = re.compile(r"^\[\[(grafik|gorsel):([a-z0-9-]+)\]\]$")
+# yzAyristir'in blok saydığı yönergeler: grafik, görsel, öne çıkan cümle,
+# canlı pencere (kural 20). Hepsi tek blok; paragraf değil.
+_YONERGE = re.compile(r"^\[\[(grafik|gorsel|cekme|canli):([a-z0-9-]+)\]\]$")
 
 
 def bloklar(md: str) -> list[tuple[str, str]]:

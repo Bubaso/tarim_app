@@ -109,8 +109,8 @@ def bloklar(md: str) -> list[tuple[str, str]]:
                 parca.append(re.sub(r"^>\s?", "", satirlar[i].strip(), count=1)); i += 1
             out.append(("ozet", " ".join(parca).strip()))
         elif re.fullmatch(r"\[\[[a-z]+:[a-z0-9-]+\]\]", t):
-            # Yönerge satırı: grafik, görsel (karar 58), öne çıkan cümle (madde 6)
-            # ya da tanınmayan; metin değil, terim aranmaz.
+            # Yönerge satırı: grafik, görsel (karar 58), öne çıkan cümle (madde 6),
+            # canlı pencere (kural 20) ya da tanınmayan; metin değil, terim aranmaz.
             kapat(); out.append(("yonerge", t)); i += 1
         elif t.startswith("|"):
             kapat()

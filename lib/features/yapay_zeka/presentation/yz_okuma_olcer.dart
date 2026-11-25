@@ -59,7 +59,7 @@ class YzMetinHaritasi {
         YzBlokTuru.paragraf || YzBlokTuru.ozet || YzBlokTuru.altBaslik => b.metin,
         YzBlokTuru.liste => b.ogeler.join(' '),
         YzBlokTuru.tablo => [for (final s in b.satirlar) ...s].join(' '),
-        YzBlokTuru.grafik || YzBlokTuru.gorsel || YzBlokTuru.cekme => '',
+        YzBlokTuru.grafik || YzBlokTuru.gorsel || YzBlokTuru.cekme || YzBlokTuru.canli => '',
       };
       if (b.tur == YzBlokTuru.altBaslik) {
         altAdlari.add(b.metin);
