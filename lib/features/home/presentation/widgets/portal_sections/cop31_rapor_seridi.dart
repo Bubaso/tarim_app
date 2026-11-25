@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../../core/utils/erteli_sayfa.dart';
 import '../../../../../core/utils/fade_page_route.dart';
 import '../../../../../core/utils/image_fallback_helper.dart';
 import '../../../../../core/utils/responsive_breakpoints.dart';
 import '../../../../../core/widgets/haber_dokunma_alani.dart';
 import '../../../providers/home_providers.dart';
-import '../../screens/cop31_rapor_ekrani.dart';
+// Rapor sayfası ERTELİ pakette: on dört parçası ve veri dosyası ilk
+// yükte değil, kartı tıklayan okur indiriyor (bkz. cop31_rapor_ekrani
+// .dart, raporEkrani). Şerit ilk yükte — kart her ziyarette çiziliyor.
+import '../../screens/cop31_rapor_ekrani.dart' deferred as cop31_rapor;
 
 // ══════════════════════════════════════════════════════════════════════════
 //  COP31 Değerlendirme şeridi — bölümün bıraktığı yerde
@@ -161,7 +165,14 @@ class Cop31RaporSeridi extends ConsumerWidget {
         etiket: 'COP31 değerlendirme raporu. ${liste.length} haberin '
             'muhasebesi.',
         borderRadius: BorderRadius.circular(16),
-        onTap: () => pushScreen(context, const Cop31RaporEkrani()),
+        onTap: () => pushScreen(
+          context,
+          ErteliSayfa(
+            kimlik: 'cop31-rapor',
+            yukle: () => cop31_rapor.loadLibrary(),
+            kur: () => cop31_rapor.raporEkrani(),
+          ),
+        ),
         child: Container(
           padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(

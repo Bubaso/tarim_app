@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -7,6 +9,8 @@ import 'package:tarim_app/features/home/data/models/news_article.dart';
 import 'package:tarim_app/features/home/presentation/screens/cop31_rapor_ekrani.dart';
 import 'package:tarim_app/features/home/presentation/widgets/portal_sections/cop31_rapor_seridi.dart';
 import 'package:tarim_app/features/home/providers/home_providers.dart';
+
+import 'yz_erteli_test.dart' show ilkYukKapanisi;
 
 // ══════════════════════════════════════════════════════════════════════════
 //  COP31 Değerlendirme Raporu
@@ -161,6 +165,55 @@ void main() {
       for (final s in [...kRaporHukmu, ...kAlinanKararlar, ...kAlinamayanlar]) {
         expect(find.text(s.metin), findsNothing);
       }
+    });
+  });
+
+  // ════════════════════════════════════════════════════════════════════
+  //  Erteli paket
+  // ────────────────────────────────────────────────────────────────────
+  //  Sayfa beş gün yayında ve okurun küçük bir bölümü açıyor; ilk yükte
+  //  kalsaydı portalın HER sayfası onu indirirdi. 25 Kasım 2026'da
+  //  deploy.sh'in ağırlık bekçisi tam bunu yakaladı: main.dart.js
+  //  1.838.608 bayt, tavan 1.830.000. Bekçinin kendi notu tavanı
+  //  yükseltmeyi yasaklıyor.
+  //
+  //  Buradaki sınav, sayfanın ilk yüke SESSİZCE geri sızmasını yakalıyor:
+  //  şeride ya da başka bir ilk yük dosyasına erteli olmayan tek bir
+  //  `import` yeter, hiçbir şey görünürde bozulmaz ve ağırlık geri gelir.
+  // ════════════════════════════════════════════════════════════════════
+  group('erteli paket', () {
+    const ekran = 'lib/features/home/presentation/screens/cop31_rapor_ekrani.dart';
+    const veri = 'lib/features/home/data/cop31_rapor_verisi.dart';
+    const serit =
+        'lib/features/home/presentation/widgets/portal_sections/cop31_rapor_seridi.dart';
+
+    test('ilk yükten rapor sayfasına erteli olmayan yol yok', () {
+      final ilk = ilkYukKapanisi('lib/main.dart');
+      // Tarama gerçekten yürüyor mu: şerit ve sağlayıcıları ilk yükte.
+      expect(ilk, contains(serit));
+      expect(ilk, contains('lib/features/home/providers/home_providers.dart'));
+      expect(ilk, isNot(contains(ekran)),
+          reason: 'rapor ekranı ilk yüke girmiş: portalın her sayfası onu '
+              'indirir. Şerit ekranı yalnız `deferred as` ile almalı.');
+      expect(ilk, isNot(contains(veri)), reason: 'rapor verisi ilk yüke girmiş');
+    });
+
+    test('şerit ekranı yalnız erteli giriş üzerinden alıyor', () {
+      final k = File(serit).readAsStringSync();
+      expect(
+          k,
+          matches(RegExp(
+              r"import '[^']*cop31_rapor_ekrani\.dart'\s+deferred as cop31_rapor;")));
+      expect(k, contains('cop31_rapor.loadLibrary()'));
+      expect(k, contains('cop31_rapor.raporEkrani()'));
+      // Erteli kütüphanenin tipi ilk yükte kullanılamaz: anılırsa derleme
+      // değil, ÇALIŞMA ânı patlar.
+      expect(k, isNot(contains('const Cop31RaporEkrani()')));
+    });
+
+    test('erteli giriş sayfanın tamamına ve verisine ulaşıyor', () {
+      final erteli = ilkYukKapanisi(ekran);
+      expect(erteli, contains(veri));
     });
   });
 }

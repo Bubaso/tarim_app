@@ -240,6 +240,39 @@ fi
 #     çizen sayfada yüklüyor — gömülmeden önce de aynı dosyaları Google'ın
 #     sunucusundan aynı anda indiriyordu. summernote.ttf de yalnız panel
 #     editöründe. Ölçü amaca çekildi: manifestteki fontlar toplanıyor.
+#
+#  25 Kasım 2026 — ağırlık bekçisi yine durdurdu: main.dart.js 1.838.608,
+#  tavan 1.830.000 (8.608 bayt aşım). TAVAN YÜKSELTİLMEDİ; yukarıdaki
+#  yasak uygulandı. Ölçüm, aşımın tek bir özellikten gelmediğini gösterdi:
+#  canlıdaki main.dart.js 1.810.695'ti, 18 Kasım'dan bu yana eklenenler
+#  27.913 bayt getirmiş. COP31 değerlendirme raporunun payı 5.726 bayt;
+#  kalan ~22 KB Türkşeker dosyasıyla gelen galeri ve tam ekran altyapısı
+#  (536 satır Dart) ile Tarladan kapısı.
+#
+#  İki ekran erteliye alındı. Düzenek artık ortak: core/utils/erteli_sayfa
+#  .dart — yz_erteli.dart'ın yazı tipinden ve bölümden bağımsız hâli, yeni
+#  bir ekranı ertelemek için dosya yazmak gerekmiyor.
+#   · COP31 raporu — beş gün yayında, okurun küçük bir bölümü açıyor.
+#     Kendine ait kodu yalnız 6.427 bayt (gzip) çıktı: ağırlığının çoğu
+#     zaten ana pakette duran paylaşımlı pencere öğelerinde. Tek başına
+#     yetmedi (1.832.882, hâlâ 2.882 bayt aşım).
+#   · Uzayda Tarım — 322 KB kaynak, 258 KB'ı üretilmiş veri dosyası
+#     (uzay_veri.g.dart 143 KB, uzay_akis.g.dart 27 KB). Ana sayfa şeridi
+#     ilk yükte KALDI (uzay_seridi.dart + uzay_duraklar.g.dart): kart her
+#     ziyarette çiziliyor. Ekrana yalnız adresle giriliyor, sayfa nesnesi
+#     olarak hiçbir yere itilmiyordu — bu yüzden erteleme iki dosyaya
+#     dokundu ve _pathOf'a girmedi.
+#  Sonuç: 1.804.939 bayt, tavanın 25.061 bayt altında. Sürüm bekçisinin
+#  32 belirtecinin HİÇBİRİ bu iki bölümde değil; bekçi main.dart.js'yi
+#  taramaya devam ediyor ve yanlış alarm vermiyor (elle doğrulandı).
+#
+#  BİR SONRAKİ AŞIMDA tavanı yine yükseltmeyin. Sırada duran en büyük yer
+#  hâlâ PANEL: 19 dosya, 346 KB kaynak ve okur onu hiç açmıyor. Bu turda
+#  seçilmedi, çünkü panel üç yerde sayfa NESNESİ olarak itiliyor
+#  (app_router _pathOf, home_screen, login_screen — biri oturum açma yolu)
+#  ve bekçi belirteçlerinin çoğu panelde: erteli paket, bekçinin parça
+#  dosyalarını da taramasını gerektirir. İkisi birlikte, dağıtım beklerken
+#  yapılacak iş değildi. Ertesi sıra: Turkuaz Nexus (9 dosya, 108 KB).
 # ══════════════════════════════════════════════════════════════════════════
 JS_TAVAN=1830000      # bayt, gzip — 6 Kas 2026: 1.664.255 · 18 Kas 2026: 1.804.897 (yukarıda)
 FONT_TAVAN=70000      # bayt, ham  — 6 Kas 2026 ölçümü: 49.180

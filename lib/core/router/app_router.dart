@@ -33,12 +33,16 @@ import '../utils/iso_week.dart';
 import '../../features/legal/data/legal_documents.dart';
 import '../../features/legal/presentation/screens/legal_page_screen.dart';
 import '../../features/settings/presentation/screens/settings_screen.dart';
+import '../utils/erteli_sayfa.dart';
 import 'gezinti_derinligi.dart';
 import '../../features/stories/presentation/screens/hikaye_arsivi_ekrani.dart';
 import '../../features/sergi/presentation/screens/sergi_ekrani.dart';
 import '../../features/sergi/presentation/screens/sergi_izleyici.dart';
 import '../../features/turkuaz_nexus/presentation/screens/tni_ekrani.dart';
-import '../../features/uzay_tarimi/presentation/screens/uzay_ekrani.dart';
+// Ekran ERTELİ: bölümün 322 KB'lık veri katmanı ilk yükte değil, bölüme
+// giren okur indiriyor (bkz. uzay_ekrani.dart, uzayEkrani).
+import '../../features/uzay_tarimi/presentation/screens/uzay_ekrani.dart'
+    deferred as uzay_ekran;
 // Bölümün ekranları ERTELİ: metinleri, grafikleri ve kaynak kayıtları ilk
 // yükte değil, okur bölüme girince iniyor (bkz. yz_ekranlar.dart).
 import '../../features/yapay_zeka/presentation/yz_ekranlar.dart'
@@ -429,9 +433,20 @@ final GoRouter appRouter = sayfaGorunumunuIzle(GoRouter(
 
     // Uzayda Tarım. Ekran hiçbir argüman almıyor: veri katmanı derlemede
     // gömülü, yani adres tek başına sayfayı tam kuruyor ve paylaşılabilir.
+    //
+    // Ekran ERTELİ pakette: rota önce paketi indiriyor, sonra ekranı kuruyor.
+    // Bölüme geçiş yalnız ADRESLE (`context.push(uzayTarimiPath)`); sayfa
+    // nesnesi olarak hiçbir yere itilmediği için `_pathOf`ta da yok.
     GoRoute(
       path: uzayTarimiPath,
-      pageBuilder: (context, state) => _fadePage(state, const UzayEkrani()),
+      pageBuilder: (context, state) => _fadePage(
+        state,
+        ErteliSayfa(
+          kimlik: 'uzayda-tarim',
+          yukle: () => uzay_ekran.loadLibrary(),
+          kur: () => uzay_ekran.uzayEkrani(),
+        ),
+      ),
     ),
 
     // Yapay Zeka ve Dijital Tarım — merkez sayfa ve başlık sayfaları

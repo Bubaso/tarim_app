@@ -29,6 +29,23 @@ import '../widgets/uzay_zaman_cizgisi.dart';
 /// yer değiştirdiğini hissediyor. Açık zeminli duraklarda metin rengi
 /// tersine dönüyor; hangi durağın açık olduğu veri katmanında yazılı ve
 /// üretici onu zeminin parlaklığıyla sınıyor.
+/// ERTELİ PAKETİN GİRİŞİ — yönlendirici bu dosyayı `deferred as` ile
+/// alıyor. Bölümün veri katmanı derlemede gömülü ve BÜYÜK: `uzay_veri.g.dart`
+/// 143 KB, `uzay_akis.g.dart` 27 KB, pencere öğeleriyle birlikte 322 KB
+/// kaynak. İlk yükte kalsalar portalın HER sayfası — ana sayfa, haber,
+/// piyasa — bunları indirirdi; bölümü açan okur ise azınlıkta.
+///
+/// Ana sayfa şeridi ilk yükte KALIYOR (`uzay_seridi.dart` ve onun aldığı
+/// `uzay_duraklar.g.dart`): kart her ziyarette çiziliyor.
+///
+/// 25 Kasım 2026'da deploy.sh'in ağırlık bekçisi ilk yükü tavanın 2.882
+/// bayt üstünde buldu ve bekçinin kendi notu tavanı yükseltmeyi yasaklıyor.
+/// Yer buradan açıldı.
+///
+/// Yönlendirici ekranın TİPİNİ anamıyor (erteli kütüphanenin tipleri ilk
+/// yükte kullanılamaz); bu işlevi çağırıyor.
+Widget uzayEkrani() => const UzayEkrani();
+
 class UzayEkrani extends StatefulWidget {
   const UzayEkrani({super.key});
 

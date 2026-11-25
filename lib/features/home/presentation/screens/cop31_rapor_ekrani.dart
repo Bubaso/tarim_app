@@ -43,6 +43,18 @@ const _vurguKoyu = Color(0xFF57C9B0);
 const _yuzeyAcik = Color(0xFFEDF4F1);
 const _yuzeyKoyu = Color(0xFF0F1F1C);
 
+/// ERTELİ PAKETİN GİRİŞİ — ana sayfa şeridi bu dosyayı `deferred as` ile
+/// alıyor (bkz. cop31_rapor_seridi.dart). Sayfanın on dört parçası ve
+/// `cop31_rapor_verisi.dart` artık İLK YÜKTE DEĞİL: yalnız rapora giren
+/// okur indiriyor. 25 Kasım 2026'da ağırlık bekçisi ilk yükü tavanın
+/// 8.608 bayt üstünde buldu; bekçinin kendi notu tavanı yükseltmeyi
+/// yasaklıyor, yer açmanın yolu bu. Sayfa beş gün yayında ve okurun
+/// küçük bir bölümü açıyor — ertelemeye en uygun ekran.
+///
+/// Şerit ekranın TİPİNİ anamıyor (erteli kütüphanenin tipleri ilk yükte
+/// kullanılamaz); bu işlevi çağırıyor.
+Widget raporEkrani() => const Cop31RaporEkrani();
+
 class Cop31RaporEkrani extends ConsumerWidget {
   const Cop31RaporEkrani({super.key});
 
