@@ -295,12 +295,36 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
     final olcek = ref.watch(fontScaleProvider);
 
     return ref.watch(dossierBySlugProvider(widget.slug)).when(
-          data: (dosya) => dosya == null
-              ? _Durum(
-                  tema: DossierTheme.yedek,
-                  mesaj: isEn ? 'Dossier not found.' : 'Dosya bulunamadı.',
-                )
-              : _sayfa(dosya, isEn: isEn, olcek: olcek),
+          data: (dosya) {
+            if (dosya == null) {
+              return _Durum(
+                tema: DossierTheme.yedek,
+                mesaj: isEn ? 'Dossier not found.' : 'Dosya bulunamadı.',
+              );
+            }
+            // PENCERESİ AÇILMAMIŞ DOSYA OKUNMUYOR.
+            //
+            // Türkşeker dizinin ilk ZAMANLANMIŞ dosyası: satırı yayın
+            // gününden önce 'published' yazıldı ki pencere açıldığında
+            // kendiliğinden görünsün. RLS 'published'ı okutuyor ve pencereye
+            // BAKMIYOR (arşiv dosyaları da aynı yoldan açılıyor), yani
+            // adresi bilen okur dosyayı gününden önce okuyabiliyordu —
+            // 25 Kasım 2026'da canlıda ölçüldü.
+            //
+            // Listeden süzmek yetmedi: /kurumlar listesi `fetchIndex`te
+            // süzülüyor ama doğrudan adres o yoldan geçmiyor.
+            final baslangic = dosya.summary.startsAt;
+            if (baslangic != null &&
+                baslangic.toUtc().isAfter(DateTime.now().toUtc())) {
+              return _Durum(
+                tema: DossierTheme.yedek,
+                mesaj: isEn
+                    ? 'This dossier is not published yet.'
+                    : 'Bu dosya henüz yayında değil.',
+              );
+            }
+            return _sayfa(dosya, isEn: isEn, olcek: olcek);
+          },
           loading: () => const _Durum(tema: DossierTheme.yedek, bekliyor: true),
           error: (_, __) => _Durum(
             tema: DossierTheme.yedek,
