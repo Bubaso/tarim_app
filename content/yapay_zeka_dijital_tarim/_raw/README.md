@@ -1891,3 +1891,69 @@ adresten farklı bir yolda (`/SGB/Belgeler/` ↔ `/SGB/BelgelerArsiv/Belgeler/`)
 yol `.pdf` ile bittiği için `#page=N` ekleniyor.
 
 Ağırlık: ilk yüke kod eklenmedi (`yz_erteli_test.dart`).
+
+## Sahadan — saha fotoğrafları galerisi · 25 Kasım 2026 (dal `uyg/sahadan`)
+
+Sahibin seçtiği sekiz kare (A-H; seçim kaydı
+`~/Developer/tarim_wt/sahadan/secilen.json`): Türkiye'de dijital tarımın
+sahadan fotoğrafları, her biri yayımlayan kurumun künyesi ve kaynağıyla.
+Künye fotoğrafın NE OLDUĞUNU söyler (proje ya da sistem, yer, tarih) ve
+seçim kaydındaki `ne_gosteriyor` ile kaynak sayfanın bilgisinden yazılır;
+karede görünen tahlil edilmez. Kaynak satırı "Fotoğraf: <yayımlayan kurum>"
+(sekizinde de fotoğrafçı adı yok), yanında "Kaynağı aç ↗".
+
+**İndirme** (`gorsel_al.py`, robots.txt indirmede yeniden sınandı; SharePoint
+adreslerinde önce parametresiz özgün dosya — hepsinde açıldı): A 800×600,
+B 800×449 (Kocaeli BB), C 1600×1066 (Elazığ), E 640×512 (Kırklareli Atatürk
+Toprak-Su; özgünü bu boyda), G 1365×768 (Çankırı), H 1600×1067 (AKSAM);
+toplam 0,76 MB. D (Kırşehir TARBİL, DSC_0943) ve F (OGM Balcalı kulesi,
+04.jpg) Tur 12'de aynı adreslerden alınmıştı (`b03-tarbil-zirai-gozlem-ve-meteoroloji`,
+`b15-kamerali-insansiz-yangin-gozetleme`): yeniden indirilmedi, galeri aynı
+dosyayı ve kaydı kullanıyor. D'nin künyesinden "40.12 numaralı istasyon"
+çıkarıldı: numara karedeki levhadan okunmuştu, kaynak sayfa karenin hangi
+istasyon olduğunu yazmıyor.
+
+**Başlık içi.** D §3'te TARBİL paragrafının ardında zaten duruyordu. E
+(`b07-dijital-sulama-yonetim-sistemi-disu`) §7'de DİSU paragrafının hemen
+ardında, TAGEM-SuET şeklinden önce, TR ve EN aynı yerde. Basılı sürümün iki
+sayfası (`web/yz/yazdir/tarihce`, `sulama-ve-su`) yeniden üretildi.
+
+**Galeri** `/yapay-zeka-dijital-tarim/sahadan` (`yzSahadanPath`; yönlendiricide
+`:slug`'dan ÖNCE; sekme "Sahadan | Tarım Portalı", EN "From the Field").
+Telefonda tek, içerik 900 pikselden darsa iki, değilse üç sütun; fotoğraf 3:2
+kırpılı, tam ekranda bütünü. Kartta künye, kaynak satırı, "Kaynağı aç ↗",
+"Dosyada: <başlık>" (`?bolum=` ile alt başlığa; başlık içindeki karede
+yönergenin alt başlığı) ve "Atlas'ta: <il>" (`?il=`; E'de yok). Tam ekran
+erteli `yz_sahadan_tam_ekran.dart`: dizide oklar, ← →, yana kaydırma; Esc,
+Kapat ya da zemine dokunuş kapatıyor; altta künye, kaynak ve "Kaynağı aç ↗".
+`yz_gorsel_tam_ekran.dart`'a (ilk yük) içe aktarma eklenmedi.
+
+**Atlas.** İli olan her kare o ilin "Fotoğraf" kaydı (yeni tür; Kocaeli 2,
+Elazığ, Kırşehir, Adana, Çankırı, Antalya birer): küçük resim, künye, kaynak;
+dokununca ilin kareleri tam ekranda. Kayıt sayısına ve hücre rengine giriyor
+(Antalya artık haber olmadan da kayıtlı). `?il=<plaka>` ile atlas o il seçili
+açılıyor (telefonda alttan sayfa). Açıklama "… Sahadan galerisinde … yer alan
+iller" oldu.
+
+**Merkez.** Atlas kartının hemen altında aynı biçimde "Sahadan" kartı; sağda
+`merkez` işaretli üç kare (A, F, G: üç ayrı haber, en hafif dosyalar), üzerine
+gelince kaynak satırı.
+
+| parça | yer |
+|---|---|
+| kayıt (8 kare; başlık içindekiler gorseller.json'la alan alan aynı) | `_raw/sahadan.json` |
+| üretim → `kYzSahadan` (`YzSahadanKare`) | `_raw/sahadan_uret.py` ← `dart_uret.py` → `lib/features/yapay_zeka/data/yz_sahadan.g.dart` |
+| kural 21: dosya, sha256, piksel boyu, künye/kaynak iki dilde ve "Fotoğraf:", adresler, ajans izi "hayır", il, başlık ve alt başlık metinde, gorseller.json'la ortak alanlar ve yönergenin alt başlığı, çift dosya yok (aynı görsel adresi başka dosyada; aynı dosyanın başka kimlikle yeniden kullanımı serbest), artık `sahadan-*.webp` yok, Dart güncel | `_raw/dogrula_bolumler.py` (`sina_sahadan`) |
+| kural 21'in bozulmuş kopyaları (18 durum) ve serbest yeniden kullanım | `_raw/sahadan_test.py` |
+| galeri, merkez kartı | `presentation/yz_sahadan_ekrani.dart` |
+| tam ekran görüntüleyici | `presentation/yz_sahadan_tam_ekran.dart` |
+| atlasın "Fotoğraf" kaydı, `?il=` | `yz_atlas_veri.dart`, `yz_atlas_ekrani.dart` |
+| testler | `test/yz_sahadan_test.dart`; `yz_erteli_test.dart` listesine üç dosya ve altıncı `loadLibrary`; `yz_atlas_test.dart` (Antalya) |
+
+Hak sahibi itiraz ederse: `sahadan.json`daki kayıt ve dosya silinir; kare
+başlık içindeyse `gorseller.json` kaydı ve `[[gorsel:…]]` yönergesi de
+(kural 12 ve 21 eksik ya da artık olanı yakalar).
+
+Ağırlık: ilk yüke yalnız adres ve ad sabitleri (`yz_yollar.dart`), sekme adının
+bir dalı ve bir rota girdi; galeri, kareler ve görüntüleyici erteli
+(`yz_erteli_test.dart`).

@@ -25,5 +25,11 @@ const String yzAtlasPath = '$yzPath/atlas';
 const String kYzAtlasAdTr = 'Türkiye Dijital Tarım Atlası';
 const String kYzAtlasAdEn = 'Türkiye Digital Agriculture Atlas';
 
+/// Sahadan galerisi (25 Kasım 2026). Yönlendiricide `$yzPath/:slug`'dan
+/// ÖNCE: "sahadan" bir başlığın adresi sanılmasın.
+const String yzSahadanPath = '$yzPath/sahadan';
+const String kYzSahadanAdTr = 'Sahadan';
+const String kYzSahadanAdEn = 'From the Field';
+
 bool yzIsEn(BuildContext context) =>
     Localizations.localeOf(context).languageCode == 'en';

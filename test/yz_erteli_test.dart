@@ -69,6 +69,11 @@ const _agir = [
   // yalnız erteli (balondan; yz_gorsel_tam_ekran.dart ilk yükte, ona ek yok).
   'lib/features/yapay_zeka/data/yz_makbuz.g.dart',
   'lib/features/yapay_zeka/presentation/yz_makbuz.dart',
+  // Sahadan galerisi: kareler, galeri ve merkez kartı, tam ekran görüntüleyici
+  // yalnız erteli (yz_gorsel_tam_ekran.dart ilk yükte, ona ek yok).
+  'lib/features/yapay_zeka/data/yz_sahadan.g.dart',
+  'lib/features/yapay_zeka/presentation/yz_sahadan_ekrani.dart',
+  'lib/features/yapay_zeka/presentation/yz_sahadan_tam_ekran.dart',
 ];
 
 void main() {
@@ -100,9 +105,10 @@ void main() {
       expect(r, matches(RegExp(r"import '[^']*yz_ekranlar\.dart'\s+deferred as yz_ekranlar;")));
       expect(r, isNot(contains('yz_baslik_ekrani.dart')));
       expect(r, isNot(contains('yz_merkez_ekrani.dart')));
-      expect('yz_ekranlar.loadLibrary()'.allMatches(r).length, 5,
-          reason: 'merkez, arama, teknoloji, atlas, başlık');
+      expect('yz_ekranlar.loadLibrary()'.allMatches(r).length, 6,
+          reason: 'merkez, arama, teknoloji, atlas, sahadan, başlık');
       expect(r, isNot(contains('yz_atlas_ekrani.dart')));
+      expect(r, isNot(contains('yz_sahadan_ekrani.dart')));
     });
   });
 

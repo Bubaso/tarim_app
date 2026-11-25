@@ -121,6 +121,18 @@ KURALLAR
      canli'siz blok sayısı aynı); bir sayfada aynı pencere en çok bir kez;
      tanımlı her pencere bir metinde kullanılıyor. Basılı sürüme, aramaya
      ve okuma süresine girmez.
+ 21. SAHADAN. `sahadan.json`daki her karenin dosyası `web/yz/gorsel/`
+     altında, sha256'sı ve piksel boyu kayıttakiyle aynı; künye ve kaynak
+     satırı iki dilde dolu, kaynak "Fotoğraf: …" / "Photo: …"; kaynak sayfası
+     ve görsel adresi https; ajans izi "hayır"; il boş ya da ızgaradaki 81
+     ilden biri; başlık ve alt başlığı (`bolum`) metinde iki dilde var; harf
+     ve kimlik tekil. Başlık içinde de duran kare (gorseller.json'da aynı
+     kimlik) ortak alanlarda (dosya, boy, sha256, künye, kaynak, adresler,
+     indirme günü) gorseller.json'la birebir, sayfası `baslik` ve yönergesi
+     iki dilde o alt başlıkta. Aynı görsel adresi gorseller.json'da başka
+     bir dosyayla yok (çift dosya yok; aynı dosyayı başka kimlikle yeniden
+     kullanmak serbest); `sahadan-*.webp` artık dosya yok; `yz_sahadan.g.dart`
+     güncel.
 """
 from __future__ import annotations
 
@@ -1237,6 +1249,137 @@ def sina_canli_pencereler() -> None:
     print(f"  · {sayac} canlı pencere sınandı")
 
 
+# ── Kural 21: Sahadan galerisi ────────────────────────────────────────────
+
+# Galerideki kare başlık içinde de duruyorsa (gorseller.json'da aynı kimlik)
+# bu alanlar iki kayıtta AYNI: tek dosya, tek künye.
+_DIL_ADI = {"tr": "TR", "en": "EN"}
+SAHADAN_ORTAK = ("dosya", "genislik", "yukseklik", "sha256", "kunye", "kaynak",
+                 "sayfa_adresi", "gorsel_adresi", "indirme_gunu")
+
+
+def _gorsel_adres_koku(adres: str) -> str:
+    """Görsel adresinin sorgusuz, yüzde kodu çözülmüş hâli: SharePoint'in
+    `?RenditionID=` sürümleri aynı dosyadır. Küçültme yok (Türkçe İ tuzağı;
+    yüzde kodunun harf büyüklüğünü çözme zaten eşitliyor)."""
+    from urllib.parse import unquote
+    return unquote(adres.split("?")[0])
+
+
+def sina_sahadan(su=None) -> None:
+    """Kural 21: Sahadan galerisinin kayıtları dosyalarla, gorseller.json'la ve
+    metinle tutarlı; üretilmiş Dart dosyası güncel. [su]: sahadan_uret
+    modülü (sahadan_test.py yollarını geçici kopyalara çeviriyor)."""
+    print("\nSahadan")
+    if su is None:
+        sp = importlib.util.spec_from_file_location("sahadan_uret_k21", BURASI / "sahadan_uret.py")
+        su = importlib.util.module_from_spec(sp)
+        sp.loader.exec_module(su)
+    if not su.KAYIT.exists():
+        hata("sahadan.json yok (kural 21)")
+        return
+    kareler = su.kareler()
+    if not kareler:
+        hata("sahadan: kayıt yok (kural 21)")
+    gorseller = json.loads(su.GORSELLER.read_text(encoding="utf-8")).get("gorseller", {})
+    plaka = su.plakalar()
+    depo = su.DEPO
+    basliklar = {b["no"] for b in json.loads((BURASI.parent / "iskelet.json").read_text(encoding="utf-8"))["basliklar"]}
+    for alan in ("harf", "kimlik", "dosya"):
+        degerler = [r.get(alan) for r in kareler]
+        for x in sorted({d for d in degerler if degerler.count(d) > 1}, key=str):
+            hata(f"sahadan: {alan} '{x}' iki kez (kural 21)")
+    merkez = sum(1 for r in kareler if r.get("merkez"))
+    if kareler and not 2 <= merkez <= 3:
+        hata(f"sahadan: merkez kartı için {merkez} kare işaretli — 2 ya da 3 olmalı (kural 21)")
+    for r in kareler:
+        kimlik = str(r.get("kimlik") or "")
+        ad = f"sahadan {r.get('harf')} {kimlik}"
+        g = gorseller.get(kimlik)
+        dosya = str(r.get("dosya") or "")
+        yol = depo / dosya
+        if dosya != f"web/yz/gorsel/{kimlik}.webp" or not yol.exists():
+            hata(f"{ad}: dosya yok ya da kimlikle adlanmamış ({dosya!r}) (kural 21)")
+        else:
+            veri = yol.read_bytes()
+            if hashlib.sha256(veri).hexdigest() != r.get("sha256"):
+                hata(f"{ad}: sha256 tutmuyor (kural 21)")
+            if webp_boyu(veri) != (r.get("genislik"), r.get("yukseklik")):
+                hata(f"{ad}: piksel boyu kayıttakiyle aynı değil — dosyada {webp_boyu(veri)} (kural 21)")
+        if g is None and not kimlik.startswith("sahadan-"):
+            hata(f"{ad}: yalnız galerideki karenin kimliği 'sahadan-' ile başlamalı (kural 21)")
+        for a in ("kunye", "kaynak"):
+            if not all(str((r.get(a) or {}).get(d) or "").strip() for d in ("tr", "en")):
+                hata(f"{ad}: {a} iki dilde de dolu değil (kural 21)")
+        kaynak = r.get("kaynak") or {}
+        if not str(kaynak.get("tr") or "").startswith("Fotoğraf: ") or \
+                not str(kaynak.get("en") or "").startswith("Photo: "):
+            hata(f"{ad}: kaynak satırı 'Fotoğraf: <kurum>' / 'Photo: <institution>' değil (kural 21)")
+        for a in ("sayfa_adresi", "gorsel_adresi"):
+            if not str(r.get(a) or "").startswith("https://"):
+                hata(f"{ad}: {a} yok ya da https değil (kural 21)")
+        for a in ("indirme_gunu", "tarih"):
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(r.get(a) or "")):
+                hata(f"{ad}: {a} YYYY-AA-GG değil (kural 21)")
+        if not str(r.get("ajans_izi") or "").startswith("hayır"):
+            hata(f"{ad}: ajans izi 'hayır' değil — ajans fotoğrafı galeriye girmez (kural 21)")
+        if r.get("il") is not None and r["il"] not in plaka:
+            hata(f"{ad}: il {r['il']!r} ızgaradaki 81 ilden biri değil (kural 21)")
+        # Çift dosya yok: aynı görsel gorseller.json'da başka bir DOSYAYLA
+        # duruyorsa o kayıt kullanılır. Aynı dosyayı başka kimlikle yeniden
+        # kullanmak (teknoloji sayfası) serbest.
+        kok = _gorsel_adres_koku(str(r.get("gorsel_adresi") or ""))
+        for k, x in gorseller.items():
+            if k != kimlik and x.get("dosya") != dosya and \
+                    _gorsel_adres_koku(str(x.get("gorsel_adresi") or "")) == kok:
+                hata(f"{ad}: aynı görsel gorseller.json'da '{k}' kimliğiyle başka dosyada — "
+                     f"çift dosya, o kaydı kullan (kural 21)")
+        # Başlık bağlantısı: başlık ve alt başlığı iki dilde metinde.
+        no = r.get("baslik")
+        if no not in basliklar or no in (29, 30):
+            hata(f"{ad}: başlık {no!r} yok ya da başvuru sayfası (kural 21)")
+            continue
+        bolum = r.get("bolum") or {}
+        bloklar: dict[str, list[dict]] = {}
+        for d in ("tr", "en"):
+            md = next(BOLUMLER.glob(f"{no:02d}-*.{d}.md"), None)
+            bloklar[d] = sayfa_bloklari(md.read_text(encoding="utf-8")) if md else []
+            if bolum.get(d) and not any(x["tur"] == "altBaslik" and x["metin"] == bolum[d] for x in bloklar[d]):
+                hata(f"{ad}: alt başlık {bolum[d]!r} §{no} {_DIL_ADI[d]} metninde yok (kural 21)")
+        if g is None:
+            continue
+        # Başlık içinde de duran kare: gorseller.json'la birebir; yönergesi
+        # iki dilde kaydın alt başlığında (bağlantı fotoğrafın yanına açılsın).
+        for a in SAHADAN_ORTAK:
+            if g.get(a) != r.get(a):
+                hata(f"{ad}: '{a}' gorseller.json'daki kayıttan ayrışmış (kural 21)")
+        if g.get("sayfa") != f"b{no:02d}":
+            hata(f"{ad}: başlık §{no}, gorseller.json'da sayfa {g.get('sayfa')!r} (kural 21)")
+        for d in ("tr", "en"):
+            bl = bloklar[d]
+            bn = bolum_numaralari(bl)
+            gi = [i for i, x in enumerate(bl) if x["tur"] == "gorsel" and x["metin"] == kimlik]
+            if len(gi) != 1:
+                hata(f"{ad}: §{no} {_DIL_ADI[d]} metninde yönergesi {len(gi)} kez — tam bir kez olmalı (kural 21)")
+                continue
+            alt = next((x["metin"] for x, n in zip(bl, bn) if x["tur"] == "altBaslik" and n == bn[gi[0]]), None)
+            if bolum.get(d) != alt:
+                hata(f"{ad}: yönerge §{no} {_DIL_ADI[d]} {alt!r} alt başlığında, kayıtta {bolum.get(d)!r} (kural 21)")
+    # Artık dosya: hiçbir kayıtta olmayan sahadan-*.webp.
+    kayitli = {r.get("dosya") for r in kareler}
+    for f in sorted((depo / "web/yz/gorsel").glob("sahadan-*.webp")):
+        if f"web/yz/gorsel/{f.name}" not in kayitli:
+            hata(f"sahadan: web/yz/gorsel/{f.name} hiçbir kayıtta yok — artık dosya (kural 21)")
+    try:
+        beklenen = su.dart_kaynagi(kareler)
+    except SystemExit:
+        beklenen = None                                 # geçersiz il yukarıda yakalandı
+    if beklenen is not None and (not su.CIKIS.exists() or su.CIKIS.read_text(encoding="utf-8") != beklenen):
+        hata(f"sahadan: {su.CIKIS.name} eski — dart_uret.py'yi koştur (kural 21)")
+    print(f"  · {len(kareler)} kare sınandı ({sum(1 for r in kareler if r.get('kimlik') in gorseller)} "
+          f"başlık içinde de, {sum(1 for r in kareler if r.get('il'))} ilde, merkez kartında {merkez})")
+
+
 # ── Kural 18: kaynak karnesi ──────────────────────────────────────────────
 
 KARNE_DART = BURASI.parents[2] / "lib/features/yapay_zeka/data/yz_kaynak_karnesi.g.dart"
@@ -1460,6 +1603,7 @@ def main() -> int:
     sina_karne()
     sina_makbuz(agir="--makbuz" in sys.argv[1:])
     sina_canli_pencereler()
+    sina_sahadan()
     if uyarilar:
         print(f"\n⚠ {len(uyarilar)} UYARI (durdurmaz)")
     if hatalar:

@@ -599,8 +599,13 @@ void main() {
       await t.pumpAndSettle();
       expect(find.byKey(const ValueKey('yz-atlas-kayitlar')), findsOneWidget);
       expect(find.byKey(const ValueKey('yz-atlas-haberlerde')), findsNothing);
-      // Antalya'nın tek kaydı haberdi: hücre kayıtsız.
-      expect(yzAtlasKayitlari(en: false)[7], isNull);
+      // Antalya'nın dosya ve dizin kaydı yok: haber düşünce yalnız Sahadan
+      // galerisinin fotoğrafı kalıyor.
+      final antalya = yzAtlasKayitlari(en: false)[7]!;
+      expect(antalya.haber, isEmpty);
+      expect(antalya.dosya, isEmpty);
+      expect(antalya.dizin, isEmpty);
+      expect(antalya.foto.map((f) => f.harf), ['H']);
     });
 
     test('İngilizcede İngilizce cümlesi olmayan dosya kaydı yok', () {

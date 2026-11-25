@@ -9,6 +9,7 @@ import 'yz_merkez_liste.dart';
 import 'yz_mobil.dart';
 import 'yz_parcalar.dart';
 import 'yz_paylas_satiri.dart';
+import 'yz_sahadan_ekrani.dart' show YzSahadanKarti;
 import 'yz_tasarim.dart';
 
 /// Yapay Zeka ve Dijital Tarım — merkez sayfa (karar 8: merkez + alt sayfalar).
@@ -168,9 +169,12 @@ class YzMerkezEkrani extends StatelessWidget {
                             // Son haberler (madde 28): manşet + üç yan haber;
                             // haber yoksa başlığıyla birlikte hiç çizilmiyor.
                             // Önlerinde Türkiye Dijital Tarım Atlası'nın giriş
-                            // kartı (atlas turu, 25 Kas 2026).
+                            // kartı (atlas turu, 25 Kas 2026) ve hemen altında,
+                            // aynı biçimde, Sahadan galerisinin kartı.
                             const SizedBox(height: 34),
                             const YzAtlasKarti(),
+                            const SizedBox(height: 14),
+                            const YzSahadanKarti(),
                             YzHaberBlogu(
                               key: const ValueKey('yz-merkez-haberleri'),
                               ust: [

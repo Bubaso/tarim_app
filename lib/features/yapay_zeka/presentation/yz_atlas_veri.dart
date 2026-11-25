@@ -4,14 +4,17 @@ import '../../../core/utils/turkce_metin.dart';
 import '../../home/data/models/news_article.dart';
 import '../data/yz_atlas.g.dart';
 import '../data/yz_deposu.dart';
+import '../data/yz_sahadan.g.dart';
 import '../yz_providers.dart';
 
 /// Türkiye Dijital Tarım Atlası — veri (atlas turu, 25 Kasım 2026).
 ///
-/// Üç tür kayıt, hepsi kaynaklı:
+/// Dört tür kayıt, hepsi kaynaklı:
 ///   * Dosyada — başlık metinlerinde ilin adı geçen cümle (`yz_atlas.g.dart`,
 ///     `_raw/atlas_uret.py` çıkarıyor);
 ///   * Türkiye dizininde — §25 tablosunun satırı (aynı dosya);
+///   * Fotoğraf — Sahadan galerisinin ili yazılı karesi (`yz_sahadan.g.dart`,
+///     `_raw/sahadan.json`; ili olmayan kare atlasta yok);
 ///   * Haberlerde — ÇALIŞMA ANINDA: bölümün okura açık etiketli haberleri,
 ///     başlığında ya da özetinde ilin adı geçenler.
 ///
@@ -92,9 +95,12 @@ class YzAtlasIlKayitlari {
   final YzAtlasIl il;
   final List<YzAtlasDosyaKaydi> dosya = [];
   final List<YzAtlasDizinKaydi> dizin = [];
+
+  /// Sahadan galerisinin bu ildeki kareleri (iki dilde de künyeli).
+  final List<YzSahadanKare> foto = [];
   final List<YzHaber> haber = [];
 
-  int get sayi => dosya.length + dizin.length + haber.length;
+  int get sayi => dosya.length + dizin.length + foto.length + haber.length;
 }
 
 YzAtlasIl? yzAtlasIl(int plaka) =>
@@ -111,6 +117,10 @@ Map<int, YzAtlasIlKayitlari> yzAtlasKayitlari({required bool en, List<YzHaber> h
   }
   for (final r in kYzAtlasDizin) {
     al(r.il).dizin.add(r);
+  }
+  for (final k in kYzSahadan) {
+    final p = k.plaka;
+    if (p != null && yzAtlasIl(p) != null) al(p).foto.add(k);
   }
   for (final h in haberler) {
     for (final p in yzAtlasHaberIlleri(h.haber)) {

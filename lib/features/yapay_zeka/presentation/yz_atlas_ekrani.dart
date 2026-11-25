@@ -9,12 +9,14 @@ import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_atlas.g.dart';
 import '../data/yz_deposu.dart';
 import '../data/yz_iskelet.g.dart';
+import '../data/yz_sahadan.g.dart';
 import 'yz_atlas_veri.dart';
 import 'yz_baslik_ekrani.dart' show kYzDizinAdresi;
 import 'yz_metin_gorunumu.dart' show yzSatirIci;
 import 'yz_mobil.dart';
 import 'yz_okuma.dart' show yzBaslikSlugla;
 import 'yz_parcalar.dart';
+import 'yz_sahadan_tam_ekran.dart';
 import 'yz_tasarim.dart';
 
 /// Türkiye Dijital Tarım Atlası — `/yapay-zeka-dijital-tarim/atlas` (atlas
@@ -25,15 +27,24 @@ import 'yz_tasarim.dart';
 /// veri-tarla ızgarası, karar 44). Hücrenin rengi ilin kayıt sayısıyla
 /// koyulaşıyor. İle dokununca orada ne geçtiği kaynağıyla açılıyor: dosyanın
 /// cümlesi (başlığa, alt başlığına bağlı), Türkiye dizininin satırı (§25'e
-/// bağlı), bölümün haberi (haber sayfasına bağlı). Okura giden her metin
+/// bağlı), Sahadan galerisinin fotoğrafı (künyesi ve kaynağı galerinin
+/// kaydından; tam ekran), bölümün haberi (haber sayfasına bağlı). Okura
+/// giden her metin
 /// kaynağından harfi harfine; ekranın kendi yazısı yalnız başlık, açıklama,
 /// düğme ve sayı.
 ///
 /// Masaüstünde kayıtlar haritanın altında, telefonda (< 640 px) alttan açılan
 /// sayfada. Yazı boyu düğmesi sayfanın bütün yazısını büyütüyor; ızgaranın
 /// hücre boyu genişlikten.
+///
+/// `?il=<plaka>` (Sahadan galerisinin kartındaki bağlantı): sayfa o il seçili
+/// açılıyor — masaüstünde kayıtları haritanın altında, telefonda alttan açılan
+/// sayfada. Kaydı olmayan ya da geçersiz plaka yok sayılıyor.
 class YzAtlasEkrani extends ConsumerStatefulWidget {
-  const YzAtlasEkrani({super.key});
+  const YzAtlasEkrani({super.key, this.il});
+
+  /// Açılışta seçili il (verilmezse adresin `?il=` değeri).
+  final int? il;
 
   @override
   ConsumerState<YzAtlasEkrani> createState() => _YzAtlasEkraniState();
@@ -41,6 +52,28 @@ class YzAtlasEkrani extends ConsumerStatefulWidget {
 
 class _YzAtlasEkraniState extends ConsumerState<YzAtlasEkrani> {
   int? _secili;
+  bool _ilOkundu = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_ilOkundu) return;
+    _ilOkundu = true;
+    final p = widget.il ??
+        (GoRouter.maybeOf(context) == null
+            ? null
+            : int.tryParse(GoRouterState.of(context).uri.queryParameters['il'] ?? ''));
+    // Yalnız gömülü kaydı (dosya, dizin, fotoğraf) olan il; haber sorgusu
+    // beklenmiyor.
+    if (p == null || !yzAtlasKayitlari(en: yzIsEn(context)).containsKey(p)) return;
+    if (yzTelefon(context)) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _telefondaAc(p);
+      });
+    } else {
+      _secili = p;
+    }
+  }
 
   /// Telefonda ilin kayıtları alttan açılan sayfada; kapanınca seçim kalkar.
   Future<void> _telefondaAc(int plaka) async {
@@ -158,10 +191,11 @@ class _YzAtlasEkraniState extends ConsumerState<YzAtlasEkrani> {
   }
 }
 
-/// Sayfanın ve merkez kartının açıklaması (ekranın kendi yazısı).
+/// Sayfanın ve merkez kartının açıklaması (ekranın kendi yazısı). Sahadan
+/// galerisinin kareleri de ilin kaydı (25 Kasım 2026): "yer alan iller".
 String _aciklama(bool en) => en
-    ? 'Provinces named in the file, in the Türkiye directory and in the section’s news. Tap a province to see what comes up there, with its source.'
-    : 'Dosyada, Türkiye dizininde ve bölümün haberlerinde adı geçen iller. Bir ile dokununca orada ne geçtiği kaynağıyla açılır.';
+    ? 'Provinces that appear in the file, in the Türkiye directory, in the From the Field gallery and in the section’s news. Tap a province to see what comes up there, with its source.'
+    : 'Dosyada, Türkiye dizininde, Sahadan galerisinde ve bölümün haberlerinde yer alan iller. Bir ile dokununca orada ne geçtiği kaynağıyla açılır.';
 
 // ── Renk ─────────────────────────────────────────────────────────────────
 
@@ -606,6 +640,10 @@ class _IlKayitlari extends StatelessWidget {
           bolum('yz-atlas-dizinde', en ? 'In the Türkiye directory' : 'Türkiye dizininde', k.dizin.length, [
             for (final r in k.dizin) _DizinKarti(r: r, git: git),
           ]),
+        if (k.foto.isNotEmpty)
+          bolum('yz-atlas-fotograf', en ? 'Photos' : 'Fotoğraf', k.foto.length, [
+            for (final f in k.foto) _FotoKarti(f: f, ilinkiler: k.foto),
+          ]),
         if (k.haber.isNotEmpty)
           bolum('yz-atlas-haberlerde', en ? 'In the news' : 'Haberlerde', k.haber.length, [
             for (final h in k.haber) _HaberKarti(h: h, plaka: p, git: git),
@@ -618,10 +656,13 @@ class _IlKayitlari extends StatelessWidget {
 /// Kayıt kartı: beyaz yüzey, saç çizgisi çerçeve (solda dikey vurgu yok);
 /// kartın tamamı tek dokunma hedefi.
 class _Kart extends StatelessWidget {
-  const _Kart({required this.etiket, required this.cocuklar, this.onTap});
+  const _Kart({required this.etiket, required this.cocuklar, this.onTap, this.ikon = Icons.arrow_forward_rounded});
   final String etiket;
   final List<Widget> cocuklar;
   final VoidCallback? onTap;
+
+  /// Dokunma simgesi: sayfaya gidiş oku ya da tam ekran (fotoğraf).
+  final IconData ikon;
 
   @override
   Widget build(BuildContext context) => Material(
@@ -644,7 +685,7 @@ class _Kart extends StatelessWidget {
                   Expanded(child: Text(etiket, style: YzYazi.veri(boy: 12, renk: YzRenk.makine))),
                   if (onTap != null) ...[
                     const SizedBox(width: 8),
-                    const Icon(Icons.arrow_forward_rounded, size: 16, color: YzRenk.makine),
+                    Icon(ikon, size: 16, color: YzRenk.makine),
                   ],
                 ]),
                 const SizedBox(height: 6),
@@ -723,6 +764,57 @@ class _DizinKarti extends StatelessWidget {
           TextSpan(text: '${en ? r.aciklamaBasligiEn : r.aciklamaBasligiTr}: ', style: soluk),
           yzSatirIci(en ? r.aciklamaEn : r.aciklamaTr, _govde.copyWith(fontSize: 15.5)),
         ])),
+      ],
+    );
+  }
+}
+
+/// Fotoğraf: Sahadan galerisinin bu ildeki karesi — küçük resim, künye ve
+/// kaynak satırı; dokununca tam ekran (ilin kareleri arasında gezilir,
+/// "Kaynağı aç" orada).
+class _FotoKarti extends StatelessWidget {
+  const _FotoKarti({required this.f, required this.ilinkiler});
+  final YzSahadanKare f;
+  final List<YzSahadanKare> ilinkiler;
+
+  @override
+  Widget build(BuildContext context) {
+    final en = yzIsEn(context);
+    return _Kart(
+      etiket: en ? kYzSahadanAdEn : kYzSahadanAdTr,
+      ikon: Icons.open_in_full_rounded,
+      onTap: () => yzSahadanTamEkran(context, baslangic: ilinkiler.indexOf(f), en: en, kareler: ilinkiler),
+      cocuklar: [
+        Row(
+          key: ValueKey('yz-atlas-foto-${f.harf}'),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(3),
+              child: SizedBox(
+                width: 96,
+                height: 64,
+                child: ColoredBox(
+                  color: YzRenk.cizgi,
+                  child: Image.network(
+                    f.adres,
+                    fit: BoxFit.cover,
+                    excludeFromSemantics: true,
+                    errorBuilder: (c, h, i) => const SizedBox.shrink(),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text(f.kunye(en), style: _govde.copyWith(fontSize: 15, height: 1.45)),
+                const SizedBox(height: 4),
+                Text(f.kaynak(en), style: YzYazi.veri(boy: 11.5, renk: YzRenk.soluk).copyWith(height: 1.4)),
+              ]),
+            ),
+          ],
+        ),
       ],
     );
   }

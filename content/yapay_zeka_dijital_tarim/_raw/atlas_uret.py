@@ -37,6 +37,9 @@ için; okura gösterilmiyor, Dart'a da gitmiyor.
      kendisi (kurum adı, ek hücre, açıklama hücresi ve o sütunun başlığı).
   3. HABERLERDE. Çalışma anında, bölümün okura açık etiketli haberleri
      (yz_atlas_veri.dart); burada yok.
+  (4.) FOTOĞRAF (25 Kasım 2026). Sahadan galerisinin ili yazılı karesi:
+     `sahadan.json` → `sahadan_uret.py` → `yz_sahadan.g.dart`, atlasa
+     yz_atlas_veri.dart ekliyor; burada yok (doğrulaması kural 21).
 
 İL ADI. Büyük harfle başlayan sözcük (büyük-küçük harfe duyarlı): "ordu",
 "duruyordu" Ordu değildir. Türkçe ekler: kesmeyle ("Antalya'da",

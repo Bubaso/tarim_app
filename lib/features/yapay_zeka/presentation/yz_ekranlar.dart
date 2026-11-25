@@ -4,6 +4,7 @@ import 'yz_arama_ekrani.dart';
 import 'yz_atlas_ekrani.dart';
 import 'yz_baslik_ekrani.dart';
 import 'yz_merkez_ekrani.dart';
+import 'yz_sahadan_ekrani.dart';
 import 'yz_teknoloji_ekrani.dart';
 
 /// Bölümün ekranları — ERTELİ PAKETİN GİRİŞİ.
@@ -27,5 +28,8 @@ Widget teknolojiEkrani(String kod) => YzTeknolojiEkrani(kod: kod);
 
 /// Türkiye Dijital Tarım Atlası (atlas turu, 25 Kasım 2026).
 Widget atlasEkrani() => const YzAtlasEkrani();
+
+/// Sahadan galerisi (25 Kasım 2026).
+Widget sahadanEkrani() => const YzSahadanEkrani();
 
 Widget baslikEkrani(String slug) => YzBaslikEkrani(slug: slug);

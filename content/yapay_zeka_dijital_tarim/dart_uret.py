@@ -676,6 +676,15 @@ def main() -> int:
     _makbuz.CIKIS.write_text(_makbuz.dart_kaynagi(), encoding="utf-8")
     _mo = _makbuz.ozet()
 
+    # ── Sahadan galerisi (25 Kasım 2026) ─────────────────────────────────
+    # _raw/sahadan.json → yz_sahadan.g.dart (galeri, atlasın "Fotoğraf"
+    # kayıtları, merkez kartı; yalnız erteli paket). Kural 21 aynı içeriği
+    # _raw/sahadan_uret.py ile yeniden üretip karşılaştırıyor.
+    _sp = _iu.spec_from_file_location("sahadan_uret", raw / "sahadan_uret.py")
+    _sahadan = _iu.module_from_spec(_sp)
+    _sp.loader.exec_module(_sahadan)
+    _sahadan.CIKIS.write_text(_sahadan.dart_kaynagi(), encoding="utf-8")
+
     haber = sum(1 for x in b if x["haber_alir"])
     print(f"✓ {CIKIS.relative_to(KOK)} · {len(b)} başlık, {haber} haber alıyor")
     print(f"✓ {RK.relative_to(KOK)} · {sum(e for e, _ in kapsama.values())}/{sum(t for _, t in kapsama.values())} kalın rakam kaynağa bağlı")
@@ -688,6 +697,7 @@ def main() -> int:
           f"{len(atlas['dosya'])} dosya + {len(atlas['dizin'])} dizin kaydı")
     print(f"✓ {_makbuz.CIKIS.relative_to(KOK)} · {_mo['cift']} alıntı · sayfası bulunan {_mo['sayfa']} · "
           f"kesitli {_mo['kesit']}")
+    print(f"✓ {_sahadan.CIKIS.relative_to(KOK)} · {len(_sahadan.kareler())} kare")
     print(f"✓ {TEK.relative_to(KOK)} · {sayfa_sayisi} teknoloji sayfası, {not_sayisi} kesişim notu")
     print(f"✓ {METIN.relative_to(KOK)} · {yazilan} yazılmış başlık gömüldü")
     print(f"✓ {SOZLUK.relative_to(KOK)} · {len(terimler)} terim")

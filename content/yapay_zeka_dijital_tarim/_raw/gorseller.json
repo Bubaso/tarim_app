@@ -2571,8 +2571,8 @@
    "yukseklik": 900,
    "sha256": "086a93c586839de3602473ac1272e21cd6c614ab885c8d5eaa181b65777a6770",
    "kunye": {
-    "tr": "Tarımsal İzleme ve Bilgi Sistemi (TARBİL) kapsamında Kırşehir'de kurulan zirai gözlem ve meteoroloji yer istasyonlarından 40.12 numaralı istasyon; Kırşehir İl Tarım ve Orman Müdürlüğü'nün, ilde İTÜ iş birliğiyle 12 istasyon kurulduğunu duyuran 23 Ocak 2015 tarihli haberinin fotoğraf galerisinden.",
-    "en": "TARBİL (Agricultural Monitoring and Information System) agro-meteorological ground observation station no. 40.12 in Kırşehir province; from the photo gallery of the Kırşehir Provincial Directorate of Agriculture and Forestry's news item of 23 January 2015 announcing 12 stations set up in the province in cooperation with Istanbul Technical University."
+    "tr": "Tarımsal İzleme ve Bilgi Sistemi (TARBİL) kapsamında Kırşehir'de kurulan zirai gözlem ve meteoroloji yer istasyonları; Kırşehir İl Tarım ve Orman Müdürlüğü'nün, ilde İTÜ iş birliğiyle 12 istasyon kurulduğunu duyuran 23 Ocak 2015 tarihli haberinin fotoğraf galerisinden.",
+    "en": "TARBİL (Agricultural Monitoring and Information System) agro-meteorological ground observation stations in Kırşehir province; from the photo gallery of the Kırşehir Provincial Directorate of Agriculture and Forestry's news item of 23 January 2015 announcing 12 stations set up in the province in cooperation with Istanbul Technical University."
    },
    "kaynak": {
     "tr": "Fotoğraf: Kırşehir İl Tarım ve Orman Müdürlüğü",
@@ -2703,6 +2703,30 @@
    "indirme_gunu": "2026-11-18",
    "lisans_notu": "Makale sayfasında ve PDF'te lisans ibaresi bulunamadı; indirmeyi ya da yeniden kullanımı yasaklayan bir koşul da görülmedi. dergipark.org.tr robots.txt makale ve indirme yollarını kapatmıyor. Ekran görüntüsündeki arayüz TAGEM'in; SuET kılavuzu sistemin içerik kullanım hakkının TAGEM'e ait olduğunu ve ticari amaçla kullanılamayacağını yazıyor (kılavuz www.tarimorman.gov.tr'de, robots kapalı; bilgi arama özetinden).",
    "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Dijital tarafta iki tedbir var. Uzaktan algılama ve coğrafi bilgi sistemleriyle sulama programı",
+   "konum": "sonra"
+  },
+  "b07-dijital-sulama-yonetim-sistemi-disu": {
+   "sayfa": "b07",
+   "baslik_no": 7,
+   "dosya": "web/yz/gorsel/b07-dijital-sulama-yonetim-sistemi-disu.webp",
+   "genislik": 640,
+   "yukseklik": 512,
+   "sha256": "9ca83467d688fb345b4267ef606b824a39f5a78f0957c619c3052361c409c7fe",
+   "kunye": {
+    "tr": "Atatürk Toprak, Su ve Tarımsal Meteoroloji Araştırma Enstitüsü'nün geliştirdiği Dijital Sulama Yönetim Sistemi (DİSU) çalışmalarında deneme alanlarının İHA, multispektral ve termal kamera sistemiyle izlenmesi; enstitünün 9 Mayıs 2022 tarihli haberinden.",
+    "en": "Monitoring of trial plots with a UAV, multispectral and thermal camera system in work on the Digital Irrigation Management System (DİSU) developed by the Atatürk Soil, Water and Agricultural Meteorology Research Institute; from the institute's news item of 9 May 2022."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: Atatürk Toprak, Su ve Tarımsal Meteoroloji Araştırma Enstitüsü Müdürlüğü",
+    "en": "Photo: Atatürk Soil, Water and Agricultural Meteorology Research Institute"
+   },
+   "sayfa_adresi": "https://arastirma.tarimorman.gov.tr/kirklarelitopraksu/Haber/85/Tarimda-Dijital-Sulama-Yonetimi-Siteminin-Gelistirilmesi-Calismalarimiz-Devam-Ediyor",
+   "gorsel_adresi": "https://arastirma.tarimorman.gov.tr/kirklarelitopraksu/FotografGalerisi/DiSu/10.JPG",
+   "indirme_gunu": "2026-11-25",
+   "lisans_notu": "arastirma.tarimorman.gov.tr robots.txt yalnız /_layouts/, /_vti_bin/, /_catalogs/ yollarını kapatıyor; /FotografGalerisi/ açık (gorsel_al.py indirmede yeniden sınadı). Altbilgi: '© T.C. Tarım ve Orman Bakanlığı. Tüm Hakları Saklıdır.'; açık indirme yasağı görülmedi. Galerinin bağladığı ?RenditionId=3 sürümü yerine parametresiz özgün dosya alındı (640×512). Fotoğrafçı adı yok.",
+   "tur": "foto",
    "yapay_zeka": false,
    "yer": "Dijital tarafta iki tedbir var. Uzaktan algılama ve coğrafi bilgi sistemleriyle sulama programı",
    "konum": "sonra"
