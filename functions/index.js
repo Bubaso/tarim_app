@@ -1382,7 +1382,6 @@ const STATIC_ROUTES = [
   { path: '/', priority: '1.0', changefreq: 'hourly' },
   { path: '/yazarlar', priority: '0.7', changefreq: 'weekly' },
   { path: '/yyt-dosyasi', priority: '0.7', changefreq: 'weekly' },
-  { path: '/piyasalar', priority: '0.8', changefreq: 'daily' },
   // Arşiv 28 günde bir büyüyor; aylık tarama yeni dosyayı ortalama iki hafta
   // geç görürdü.
   { path: '/ulkeler', priority: '0.7', changefreq: 'weekly' },

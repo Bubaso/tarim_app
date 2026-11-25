@@ -13,7 +13,7 @@ devreye girmiyor (aynı davranış §2.5'te dosya sayfaları için de yazılı).
 
 Derleme anında gömmenin fonksiyonla elde edilemeyecek bir yan faydası var:
 `**` yakalayıcısı TÜM rotaları aynı index.html ile sunduğu için bu liste
-/piyasalar, /yazarlar ve kategori sayfalarında da bulunuyor.
+/yazarlar, /ulkeler ve kategori sayfalarında da bulunuyor.
 
 KULLANICI BUNU GÖRMÜYOR: üstünde tam ekran #splash var ve Flutter ilk kareyi
 çizer çizmez index.html'deki `hide()` bloğu #ssr-content düğümünü DOM'dan

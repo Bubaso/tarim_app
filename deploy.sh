@@ -273,6 +273,10 @@ fi
 #  ve bekçi belirteçlerinin çoğu panelde: erteli paket, bekçinin parça
 #  dosyalarını da taramasını gerektirir. İkisi birlikte, dağıtım beklerken
 #  yapılacak iş değildi. Ertesi sıra: Turkuaz Nexus (9 dosya, 108 KB).
+#
+#  25 Kasım 2026 (ikinci) — Finans Terminali kaldırıldı (kullanıcı artık
+#  kullanmıyordu; /piyasalar'a uygulamadan giden tek bir bağlantı yoktu).
+#  1.540 satır gitti, ilk yük 1.804.620 → 1.795.272. Pay 34.728 bayt.
 # ══════════════════════════════════════════════════════════════════════════
 JS_TAVAN=1830000      # bayt, gzip — 6 Kas 2026: 1.664.255 · 18 Kas 2026: 1.804.897 (yukarıda)
 FONT_TAVAN=70000      # bayt, ham  — 6 Kas 2026 ölçümü: 49.180

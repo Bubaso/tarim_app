@@ -19,7 +19,6 @@ import '../../features/home/presentation/screens/all_columnists_screen.dart';
 import '../../features/home/presentation/screens/article_detail_screen.dart';
 import '../../features/home/presentation/screens/author_article_detail_screen.dart';
 import '../../features/home/presentation/screens/category_articles_screen.dart';
-import '../../features/home/presentation/screens/financial_terminal_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/home/presentation/screens/kisa_kisa_screen.dart';
 import '../../features/home/presentation/screens/weather_detail_screen.dart';
@@ -171,7 +170,6 @@ class CategoryArgs {
   // Yapay Zeka ve Dijital Tarım burada yok: ekranları erteli pakette
   // (tipleri ilk yükte anılamıyor) ve hiçbir yerde sayfa nesnesi olarak
   // itilmiyor — bölüme her geçiş adresle (`context.push(yzPath)`).
-  if (page is FinancialTerminalScreen) return (path: '/piyasalar', extra: null);
   if (page is AboutScreen) return (path: '/hakkimizda', extra: null);
   if (page is SettingsScreen) return (path: '/ayarlar', extra: null);
   if (page is LegalPageScreen) {
@@ -498,11 +496,18 @@ final GoRouter appRouter = sayfaGorunumunuIzle(GoRouter(
       ),
     ],
 
-    GoRoute(
-      path: '/piyasalar',
-      pageBuilder: (context, state) =>
-          _fadePage(state, const FinancialTerminalScreen()),
-    ),
+    // FİNANS TERMİNALİ KALDIRILDI (25 Kasım 2026, kullanıcı kararı).
+    // Ekran /piyasalar adresinde duruyordu ama uygulamada ona giden tek bir
+    // bağlantı yoktu — ne menüde, ne kartta, ne çipte; yalnız adresi elle
+    // yazan ulaşıyordu. Kullanıcı artık kullanmadığını bildirdi.
+    //
+    // Emtia fiyatları BUNDAN AYRI ve duruyor: anasayfadaki CommodityStrip ve
+    // /emtia/<slug> detay sayfası `features/commodities/` altında, terminale
+    // hiç bağlı değildi.
+    //
+    // /piyasalar artık rota değil; `onException` onu ana sayfaya alıyor.
+    // Site haritasından da çıkarıldı (functions/index.js), yoksa Google
+    // günlük taramaya devam ederdi.
     // Fotoğraf sergisi. Adresten tamamen yeniden kurulabiliyor: ekran
     // hiçbir argüman almıyor, yarışma kodu varsayılandan geliyor. Anasayfa
     // bandındaki "tümünü gör" buraya geliyor.
