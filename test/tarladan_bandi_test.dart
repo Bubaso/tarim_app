@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tarim_app/features/tarladan_paylasim/data/paylasim_modelleri.dart';
+import 'package:tarim_app/features/tarladan_paylasim/kose_kapisi.dart';
 import 'package:tarim_app/features/tarladan_paylasim/paylasim_providers.dart';
 import 'package:tarim_app/features/tarladan_paylasim/presentation/widgets/gomme_kutusu.dart';
 import 'package:tarim_app/features/tarladan_paylasim/presentation/widgets/tarladan_bandi.dart';
@@ -70,8 +71,11 @@ void main() {
     expect(find.byType(Text), findsNothing);
   });
 
-  testWidgets('paylaşım varsa başlık, tarih ve kapı görünüyor',
+  testWidgets('KÖŞE KAPISI: kapalıyken veri olsa da çizilmiyor',
       (tester) async {
+    // Bu sınama kapının ASIL işini tutuyor: görünmezlik veriye değil koda
+    // bağlı olmalı. Veri dolu geliyor; kapı kapalıysa yine hiçbir şey
+    // çizilmemeli. Kapı açıldığında aşağıdaki dal devreye giriyor.
     await tester.pumpWidget(_sar([
       tarladanBandiProvider.overrideWith((ref) async => [
             _birim('1', 'instagram', 'https://www.instagram.com/p/a/'),
@@ -79,6 +83,14 @@ void main() {
           ]),
     ]));
     await tester.pumpAndSettle();
+
+    if (!koseAcik) {
+      expect(find.byType(GommeKutusu), findsNothing,
+          reason: 'kapı kapalıyken gömme çizilmemeli');
+      expect(find.byType(Text), findsNothing,
+          reason: 'kapı kapalıyken tek satır metin bile çıkmamalı');
+      return;
+    }
 
     expect(find.text('From the Field'), findsOneWidget);
     expect(find.text('November 20'), findsOneWidget);
@@ -96,6 +108,8 @@ void main() {
           ]),
     ]));
     await tester.pumpAndSettle();
+
+    if (!koseAcik) return; // kapı kapalı: çizilen metin zaten yok
 
     final metinler = tester
         .widgetList<Text>(find.byType(Text))

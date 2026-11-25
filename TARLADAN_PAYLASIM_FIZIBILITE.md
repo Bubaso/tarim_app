@@ -786,3 +786,57 @@ burada düzeltilmiş hâliyle.
 Beş akış da duruyor ve toplayıcı onları okumaya devam ediyor — maliyeti
 yok, bir gün bir şey getirirse kuyruğa düşer. Ama **köşenin bulma yolu
 artık arama kısayolları.** Alerts bir yedek, hat değil.
+
+---
+
+## 19. Köşe kapısı (25 Kasım 2026)
+
+Köşe bitti ama **yayına alınmasına onay verilmedi**. Portalın hosting
+dağıtımı Flutter paketinin tamamını götürdüğü için, başka bir işin
+dağıtımı köşeyi de canlıya taşır.
+
+### 19.1 Görünmezlik veriye bırakılamazdı
+
+Dağıtım günü köşe zaten görünmüyordu, ama yalnız şu sebeple:
+
+```
+bandBirimleri → sonDerlemeler(gun: 2) → eşik 2026-11-23
+canlıdaki tek derleme: 2026-11-20 yayinda  → pencere dışı → boş
+```
+
+Bugünün tarihiyle bir derleme yayına alınsa köşe o anda belirirdi, yeni
+dağıtım bile gerekmezdi. **"Bugün görünmüyor" ile "görünmesi imkânsız"
+aynı şey değil.**
+
+### 19.2 Üç delik vardı, bant yalnız birincisiydi
+
+| delik | kapatan |
+|---|---|
+| Ana sayfa şeridi | `TarladanBandi` → `koseAcik` kapalıyken hiç çizilmiyor |
+| **Adres çubuğuna `/tarladan` yazmak** | rotaya `redirect` → ana sayfa |
+| **Bağlantı paylaşmak / robot** | `/tarladan` rewrite'ı `firebase.json`'dan çıkarıldı |
+
+İkincisi ve üçüncüsü ölçülerek bulundu: rota tanımlıydı, yani adresi
+yazan köşeyi görürdü; rewrite da duruyordu, yani `tarladanRenderer`
+paylaşıma düzgün bir og kartı ve SSR başlığı veriyordu — robot bunu
+indeksleyebilirdi. Yalnız banda kapı koymak köşeyi kapatmazdı.
+
+### 19.3 Anahtar tek yerde
+
+`lib/features/tarladan_paylasim/kose_kapisi.dart` → `const bool koseAcik`
+
+**Asıl kilit bu.** Rewrite geri gelse bile `koseAcik` kapalıyken köşe
+açılmıyor. Panel etkilenmiyor: editör kuyruğu doldurmaya ve derleme
+hazırlamaya devam edebiliyor.
+
+Sınama kapıya bağlandı (`test/tarladan_bandi_test.dart`): veri dolu
+geliyor, kapı kapalıyken tek satır metin bile çizilmiyor. Kapı açılınca
+sınamanın öteki dalı devreye giriyor, yani sınama iki durumda da doğru.
+
+### 19.4 Köşeyi açarken
+
+1. `koseAcik` → `true`
+2. `firebase.json`'a `/tarladan` → `tarladanRenderer` rewrite'ı geri, `**`
+   kuralından ÖNCE
+
+İkincisi atlanırsa köşe çalışır, yalnız paylaşım kartı çıkmaz.

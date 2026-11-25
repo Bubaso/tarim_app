@@ -23,6 +23,7 @@ import '../../features/home/presentation/screens/financial_terminal_screen.dart'
 import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/home/presentation/screens/kisa_kisa_screen.dart';
 import '../../features/home/presentation/screens/weather_detail_screen.dart';
+import '../../features/tarladan_paylasim/kose_kapisi.dart';
 import '../../features/tarladan_paylasim/presentation/tarladan_paylasim_ekrani.dart';
 import '../../features/home/presentation/screens/weekly_recap_screen.dart';
 import '../../features/home/presentation/screens/yyt_dosyasi_screen.dart';
@@ -494,6 +495,10 @@ final GoRouter appRouter = sayfaGorunumunuIzle(GoRouter(
     // derlemesi. Sayfa son yedi günü çiziyor; pencere sorguda.
     GoRoute(
       path: '/tarladan',
+      // KÖŞE KAPISI. Adres çubuğuna yazan da köşeyi göremiyor; şeride
+      // kapı koymak tek başına yetmezdi çünkü rota tanımlı.
+      // Gerekçe `features/tarladan_paylasim/kose_kapisi.dart` başında.
+      redirect: (context, state) => koseAcik ? null : '/',
       pageBuilder: (context, state) =>
           _fadePage(state, const TarladanPaylasimEkrani()),
     ),

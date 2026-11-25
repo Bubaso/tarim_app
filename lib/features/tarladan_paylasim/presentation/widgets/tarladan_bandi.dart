@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../data/paylasim_modelleri.dart';
+import '../../kose_kapisi.dart';
 import '../../paylasim_providers.dart';
 import 'gomme_kutusu.dart';
 
@@ -45,6 +46,10 @@ class TarladanBandi extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // KÖŞE KAPISI — veriden ÖNCE. Kapalıyken sağlayıcı hiç izlenmiyor,
+    // yani sorgu da atılmıyor. Gerekçe `kose_kapisi.dart` başında.
+    if (!koseAcik) return const SizedBox.shrink();
+
     final birimler = ref.watch(tarladanBandiProvider);
     return birimler.when(
       data: (liste) =>
