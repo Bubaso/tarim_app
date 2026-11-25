@@ -1710,3 +1710,109 @@ yazısı beyaz ya da mürekkep, her yoğunlukta ≥ 4,5:1 (test).
 
 Ağırlık: iki yeni dosya yalnız erteli ekranlardan içe aktarılıyor; ilk yüke
 kod eklenmedi (`yz_erteli_test.dart`).
+
+## Rakamın makbuzu — 25 Kasım 2026 (dal `uyg/makbuz`)
+
+Sahibin onayıyla: mavi rakamın kaynak balonu rakamı taşıyan alıntıyı
+gösteriyordu; şimdi kaynağın yerel PDF kopyası varsa alıntının o PDF'teki
+SAYFASI da, resmî/kurumsal/satıcı/proje kaynağında o yerin vurgulu KESİTİ de.
+
+**Balonda.** Kesitli kaynakta alıntının altında "Kaynağında gör · s. N"
+(EN "See it in the source · p. N"); dokununca tam ekran: koyu zemin, kesit
+(iki parmakla ya da çift dokunuşla 4 kata kadar), altında künye (en çok 3
+satır), "s. N" ve "Belgenin tamamını aç ↗" (bağlantı PDF'in kendisiyse
+`#page=N` ile). Telefonda alt sayfa, masaüstünde balon altında açık kalıyor;
+kapatınca okur balona dönüyor (düğme, Esc, zemine dokunuş). Hakemli
+kaynakta kesit yok (yayıncının sayfası çoğaltılmıyor): "Kaynağı aç ↗" yerine
+"Kaynakta aç · s. N ↗" (EN "Open in the source · p. N ↗"). Sayfası
+bulunamayan ya da PDF olmayan kaynakta balon değişmedi. "s. N" PDF'in kendi
+sayfa sırası (basılı numara değil): bağlantı onu açıyor.
+
+**Kapsama.** Rakam eşlemesinde yerel kopyası PDF olan ve alıntısı boş
+olmayan 240 (sayfa, kaynak, parça) üçlüsü (RESMI 118, KURUMSAL 85, HAKEMLI
+31, PROJE 5, SATICI 1) 49 PDF'te 180 tekil (dosya, alıntı) çiftine iniyor.
+180'inin de sayfası bulundu (tam 170, sıra dışı 9, parça 1); 156'sında kesit
+var (HAKEMLI 24 çiftte yok). Balonda 696 kaynak satırına dokunuyor: 608
+"Kaynağında gör", 88 "Kaynakta aç · s. N". 156 kesit 6,41 MB (WebP, kalite
+80; ortalama 892×290 piksel, 43 KB; en büyüğü 85 KB; tavan 12 MB).
+
+**Kesit kuralı.** Bir PDF'in kesiti yalnız o dosyayı anan BÜTÜN kayıtlar
+(her `*_kaynaklar.json`) RESMI, KURUMSAL, SATICI ya da PROJE iken; tek kayıt
+HAKEMLI (ya da niteliksiz) ise o dosyanın hiçbir alıntısında kesit yok.
+
+**Kesit adı ve önbellek.** `web/yz/makbuz/<pdf kökü>-s<sayfa>-<webp'nin
+sha256'sı[:10]>.webp`. `firebase.json` webp'yi bir yıl `immutable`
+önbelleğe alıyor: çizim değişince içerik özeti, dolayısıyla ad değişiyor
+(elle artırılan sürüm numarası unutulabilirdi). Kural 19 her dosyanın
+özetini adıyla karşılaştırıyor. Üretim belirlenimci (iki koşu aynı bayt).
+
+**Arama (`makbuz.swift`, macOS PDFKit).** Metin katlanıyor (NFKD, işaret
+yok, küçük harf, ı → i, yalnız harf ve rakam): tireleme, boşluk ve tırnak
+farkı eşleşmeyi bozmuyor. Sırayla: tam; parça (en uzun ayırt edici kelime
+penceresi, sağı ve solu yakında); sıra dışı (tablo satırı, grafik etiketi,
+paragrafın yer değiştirmiş ilk satırı: kelime koşuları çapanın sayfasında
+sıradan bağımsız, satır bandındaki ya da en yakın geçiş seçilerek; her koşu
+kelime sınırında; yalnız bütün kelimeler yerleşirse). Kayda eklenmiş not
+(eksik öbeğin iki yanındaki parçalar PDF'te bitişik) sıra dışı yolu açmıyor:
+notun kelimeleri sayfanın başka satırlarında geçse de toplanmıyor (elle
+yazılmış PDF'le sınanıyor).
+
+**Tuzaklar (ölçüldü).**
+- `PDFPage.characterBounds(at:)` ve `characterIndex(at:)` GLİF sırasıyla
+  çalışıyor: bağ harfi (ﬁ, ﬂ) ya da ayrışmış harf (İ = I + ◌̇) olan sayfada
+  dizgi sırasından kayıyor (fao_2022_sofa s. 20'de vurgu bir satır aşağıya,
+  58 pt sağa düşüyordu). Harf kutusu `PDFSelection`'dan alınıyor.
+- Seçimin kutusu SATIR boyunda: dergi kapağında logoyla aynı satırdaki
+  küçük yazı (agrosens) ve iri baş harfin yanındaki satırlar (fao_2017 s.
+  60) 83-125 pt boy alıyordu. Böyle harfte glif, yatayda örtüşen en yakın
+  sıradaki `characterBounds` kutusundan bulunuyor; küçük yazı ortak taban
+  çizgisine ve yazı tipinin çıkıntı/inişine, iri yazı glif kutularının
+  birleşimine oturtuluyor.
+- Yan yatırılmış tablo (fao_aquastat_2025 s. 46): yazı akışı dikey →
+  kesit okuma yönüne döndürülüyor (`donus` −90).
+- `draw(with: .cropBox, to:)` kırpma kutusunun başlangıcını kendisi
+  uyguluyor (agrosens y = 7,83; elle yazılmış PDF'te (20, 40)): vurgu hizalı.
+- Kenar boşluğundaki dikey rapor adı ve başlık/şekil gibi iri kutular bağlam
+  satırına girmiyor; bağlam paragraf boşluğunda kesiliyor.
+
+**Bulunamayan 2 alıntı çözüldü (sıra dışı).** `yillik_program_2027.pdf`
+s. 177 Tablo II:11 satırı: PDFKit metninde "Tarım Sigortası Destekleme⏎19
+200,0 23 000,0 30 000,0 Hizmetleri" (dört kelimelik çapa yok, parça yolu
+hiç başlamıyordu). `israil_iia_2025_yuksek_teknoloji.pdf` s. 27 ağaç
+haritasının beş etiketi: PDFKit sırası alıntıdakinden farklı. Aynı yolla
+tob_2025_ukks s. 89 ve s. 110'un tablo satırları, tucsap s. 3 satırı ve
+fao_2017 s. 60'ın iki cümlesi de tam vurgulu.
+
+**Koşturma.**
+
+    ~/tarim_ai_pipeline/venv/bin/python -I content/yapay_zeka_dijital_tarim/_raw/makbuz_uret.py   # ~30 sn
+    env PATH=/usr/bin:/bin python3 content/yapay_zeka_dijital_tarim/dart_uret.py
+    python3 -I content/yapay_zeka_dijital_tarim/_raw/dogrula_bolumler.py [--makbuz]
+    python3 -I content/yapay_zeka_dijital_tarim/_raw/makbuz_test.py
+
+Pillow yalnız boru hattının sanal ortamında; `makbuz_uret.py` onu tembel
+içe aktarıyor (dart_uret.py ve doğrulayıcı sistem Python'uyla koşuyor).
+PDF'ler git'te değil: üretim ve `--makbuz` yerel kopyaları ister, SHA-256
+`content/dossiers/_ortak/ham_kaynaklar.json`la tutmazsa durur. Bir alıntı
+ya da nitelik değişince: önce `makbuz_uret.py`, sonra `dart_uret.py`.
+
+| parça | yer |
+|---|---|
+| arama, harf kutusu, kesit çizimi | `_raw/makbuz.swift` |
+| çiftler, SHA, WebP, `makbuz.json`, Dart kaynağı | `_raw/makbuz_uret.py` → `_raw/makbuz.json`, `web/yz/makbuz/` |
+| üretim → `kYzMakbuzlar`, `kYzMakbuzSirasi` (`YzMakbuz`) | `dart_uret.py` → `lib/features/yapay_zeka/data/yz_makbuz.g.dart` |
+| kural 19: eşlemeyle birebir, SHA, nitelik, kesit adı = içerik özeti, piksel boyu, artık dosya yok, ≤ 12 MB, Dart güncel; `--makbuz` sayfaları PDF'te yeniden arar | `_raw/dogrula_bolumler.py` |
+| balon | `presentation/yz_kaynak_balonu.dart` |
+| tam ekran görüntüleyici, `yzMakbuz` | `presentation/yz_makbuz.dart` (yalnız erteli; `yz_gorsel_tam_ekran.dart` ilk yükte, ona dokunulmadı) |
+| testler | `_raw/makbuz_test.py` (elle yazılmış PDF: tireleme, kayda eklenmiş not, kırpma kutusu ve vurgu hizası; yıllık programın kayıtlı sayfaları; kural 19'un bozulmuş kopyaları); `test/yz_makbuz_test.dart`; `yz_erteli_test.dart` listesine iki dosya |
+
+**Bilinen sınırlar.** Agrosens kapağındaki küçük yazıda ("NİSAN 2026 - SAYI
+58", logoyla aynı satırda) PDFKit'in glif ölçüleri çizimle tam tutmuyor:
+vurgu ~2 pt aşağıda ve N'yi yarım örtüyor (kelimeler doğru). Bağlantısı
+boş kayıtta (TR Yapay Zekâ Eylem Planı, yıllık program, AQUASTAT,
+AquaTag, Agrosens bültenleri, UYZS) görüntüleyicide "Belgenin tamamını aç"
+yok. `tob_2024_2028_stratejik_plan` bağlantısı yerel kopyanın indirildiği
+adresten farklı bir yolda (`/SGB/Belgeler/` ↔ `/SGB/BelgelerArsiv/Belgeler/`);
+yol `.pdf` ile bittiği için `#page=N` ekleniyor.
+
+Ağırlık: ilk yüke kod eklenmedi (`yz_erteli_test.dart`).

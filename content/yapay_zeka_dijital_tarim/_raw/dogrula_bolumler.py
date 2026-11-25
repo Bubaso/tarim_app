@@ -3,6 +3,7 @@
 Yapay Zeka ve Dijital Tarım — bölüm metinlerinin doğrulayıcısı (karar 25/48).
 
     python3 dogrula_bolumler.py
+    python3 dogrula_bolumler.py --makbuz     # + kural 19'un ağır sınaması (PDF, Swift)
 
 Her `bolumler/NN-*.{tr,en}.md` dosyası kendi kilitli kaydına
 (`_raw/bNN_kaynaklar.json`) karşı sınanır. Kayıt yoksa bölüm yazılmış
@@ -101,9 +102,23 @@ KURALLAR
      hücresinde, gösterilen hücreler §25'in tablosunda harfi harfine; §25
      tablosunda eşleme dosyasında olmayan kurum yok; üretilmiş
      `yz_atlas.g.dart` güncel (dart_uret.py koşmuş).
+ 19. RAKAMIN MAKBUZU. `makbuz.json` (makbuz_uret.py) rakam eşlemesiyle
+     birebir: PDF kopyalı her [kaynak, parça] çiftinin tam alıntısı için
+     tek kayıt, fazlası yok; kaydın PDF'i ham_kaynaklar.json'daki SHA-256'yla
+     üretilmiş; sayfa 1..sayfa sayısı ya da bulunamama nedeni yazılı;
+     niteliği güncel ve kesit yalnız dosyayı anan BÜTÜN kayıtlar RESMI,
+     KURUMSAL, SATICI ya da PROJE iken (bir kayıt HAKEMLI ise kesit yok);
+     her kesit `web/yz/makbuz/` altında, adı `<kök>-s<sayfa>-<özet>.webp`
+     ve özet dosyanın sha256'sıyla tutuyor (site webp'yi bir yıl değişmez
+     önbelleğe alıyor: çizim değişip ad değişmezse eski kesit görünür),
+     piksel boyu kayıttakiyle aynı; klasörde artık dosya yok; toplam 12 MB'ı
+     aşmıyor; `yz_makbuz.g.dart` güncel. `--makbuz` ile AĞIR sınama: yerel
+     PDF'lerin SHA-256'sı ve her alıntının sayfası Swift aramasıyla
+     (makbuz.swift, kesit çizilmeden) yeniden bulunup karşılaştırılıyor.
 """
 from __future__ import annotations
 
+import hashlib
 import importlib.util
 import json
 import math
@@ -1224,6 +1239,124 @@ def sina_karne() -> None:
           f"({sum(sum(v[:5]) for v in beklenen.values())} sayfa-kaynak çifti)")
 
 
+# ── Kural 19: rakamın makbuzu ─────────────────────────────────────────────
+
+def webp_boyu(veri: bytes) -> tuple[int, int] | None:
+    """WebP'nin piksel boyu, RIFF başlığından (Pillow'suz)."""
+    if len(veri) < 30 or veri[:4] != b"RIFF" or veri[8:12] != b"WEBP":
+        return None
+    tur = veri[12:16]
+    if tur == b"VP8 " and veri[23:26] == b"\x9d\x01\x2a":
+        return (int.from_bytes(veri[26:28], "little") & 0x3FFF,
+                int.from_bytes(veri[28:30], "little") & 0x3FFF)
+    if tur == b"VP8L" and veri[20] == 0x2F:
+        b = int.from_bytes(veri[21:25], "little")
+        return (b & 0x3FFF) + 1, ((b >> 14) & 0x3FFF) + 1
+    if tur == b"VP8X":
+        return int.from_bytes(veri[24:27], "little") + 1, int.from_bytes(veri[27:30], "little") + 1
+    return None
+
+
+def sina_makbuz(agir: bool = False, mu=None) -> None:
+    """Kural 19: makbuz.json eşlemeyle, kesit dosyalarıyla ve üretilmiş Dart
+    dosyasıyla tutarlı; [agir] ise sayfalar PDF'te yeniden bulunuyor. [mu]:
+    makbuz_uret modülü (sınama, yolları geçici kopyalara çevrilmiş olarak verir)."""
+    print("\nRakamın makbuzu")
+    if mu is None:
+        sp = importlib.util.spec_from_file_location("makbuz_uret_k19", BURASI / "makbuz_uret.py")
+        mu = importlib.util.module_from_spec(sp)
+        sp.loader.exec_module(mu)
+    if not mu.KAYIT.exists():
+        hata("makbuz.json yok — makbuz_uret.py koşturulmalı (kural 19)")
+        return
+    k = mu.kayitlar()
+    kayit = {(r["dosya"], r["alinti"]): r for r in k["kayitlar"]}
+    if len(kayit) != len(k["kayitlar"]):
+        hata("makbuz: aynı (dosya, alıntı) iki kez (kural 19)")
+    cift, eslenemeyen = mu.ciftler()
+    for x in eslenemeyen:
+        hata(f"makbuz: {x} (kural 19)")
+
+    def ad(c: tuple[str, str]) -> str:
+        return f"{Path(c[0]).name} «{c[1][:45]}…»"
+
+    for c in sorted(set(cift) - set(kayit)):
+        hata(f"makbuz {ad(c)}: eşlemede var, makbuz.json'da yok — makbuz_uret.py koşturulmalı (kural 19)")
+    for c in sorted(set(kayit) - set(cift)):
+        hata(f"makbuz {ad(c)}: makbuz.json'da var, eşlemede yok — makbuz_uret.py koşturulmalı (kural 19)")
+    nitelik = mu.dosya_nitelikleri()
+    ham = mu.ham_ozetler()
+    toplam = 0
+    adlar: set[str] = set()
+    for c, r in kayit.items():
+        dosya = c[0]
+        if r.get("sha256") != (ham.get(dosya) or {}).get("sha256"):
+            hata(f"makbuz {ad(c)}: PDF'in SHA-256'sı ham_kaynaklar.json'dakiyle aynı değil (kural 19)")
+        if r.get("nitelik") != sorted(x for x in nitelik.get(dosya, set()) if x):
+            hata(f"makbuz {ad(c)}: dosyayı anan kayıtların niteliği değişmiş — makbuz_uret.py (kural 19)")
+        s = r.get("sayfa")
+        if s is None:
+            if not r.get("neden"):
+                hata(f"makbuz {ad(c)}: ne sayfa ne bulunamama nedeni var (kural 19)")
+            if r.get("kesit"):
+                hata(f"makbuz {ad(c)}: sayfa yok ama kesit var (kural 19)")
+            continue
+        if not isinstance(s, int) or not 1 <= s <= (r.get("sayfa_sayisi") or 0):
+            hata(f"makbuz {ad(c)}: sayfa {s!r} belgenin dışında (kural 19)")
+        kesitli = mu.kesitli_mi(nitelik.get(dosya))
+        if r.get("kesit") and not kesitli:
+            hata(f"makbuz {ad(c)}: kesit var ama dosyayı anan bir kayıt {'/'.join(mu.KESITLI)} dışında "
+                 f"({', '.join(sorted(str(x) for x in nitelik.get(dosya, set())))}) (kural 19)")
+        if kesitli and not r.get("kesit") and not r.get("neden"):
+            hata(f"makbuz {ad(c)}: kesitli kaynak ama kesit de neden de yok (kural 19)")
+        if not r.get("kesit"):
+            continue
+        yol = mu.KESITLER / Path(r["kesit"]).name
+        m = mu.KESIT_ADI.match(yol.name)
+        if r["kesit"] != f"web/yz/makbuz/{yol.name}" or not m or m["kok"] != Path(dosya).stem \
+                or int(m["sayfa"]) != s:
+            hata(f"makbuz {ad(c)}: kesit adı '{r['kesit']}' <kök>-s<sayfa>-<özet>.webp değil (kural 19)")
+            continue
+        if not yol.exists():
+            hata(f"makbuz {ad(c)}: {r['kesit']} yok — makbuz_uret.py koşturulmalı (kural 19)")
+            continue
+        veri = yol.read_bytes()
+        if hashlib.sha256(veri).hexdigest()[:10] != m["ozet"]:
+            hata(f"makbuz {ad(c)}: {yol.name} içeriği adındaki özetle tutmuyor — ad değişmeden çizim "
+                 f"değişmiş, önbellek eskisini gösterir (kural 19)")
+        if webp_boyu(veri) != (r.get("genislik"), r.get("yukseklik")) or len(veri) != r.get("bayt"):
+            hata(f"makbuz {ad(c)}: {yol.name} boyu kayıttakiyle aynı değil (kural 19)")
+        toplam += len(veri)
+        adlar.add(yol.name)
+    if mu.KESITLER.exists():
+        for f in sorted(x.name for x in mu.KESITLER.iterdir() if x.name not in adlar):
+            hata(f"makbuz: web/yz/makbuz/{f} hiçbir kayıtta yok — artık dosya (kural 19)")
+    if toplam > mu.TAVAN_BAYT:
+        hata(f"makbuz: kesitler {toplam / 1024 / 1024:.1f} MB, tavan {mu.TAVAN_BAYT / 1024 / 1024:.0f} MB (kural 19)")
+    if not mu.CIKIS.exists() or mu.CIKIS.read_text(encoding="utf-8") != mu.dart_kaynagi(k):
+        hata(f"makbuz: {mu.CIKIS.name} eski — dart_uret.py'yi koştur (kural 19)")
+    o = mu.ozet(k)
+    print(f"  · {o['cift']} alıntı · sayfası bulunan {o['sayfa']} · kesitli {o['kesit']} · "
+          f"{toplam / 1024 / 1024:.2f} MB")
+    if not agir:
+        print("  · PDF'te yeniden arama (ağır sınama): --makbuz")
+        return
+    dosyalar = sorted({d for d, _ in kayit})
+    eksik = [d for d in dosyalar if not (BURASI / d).exists()]
+    for d in eksik:
+        hata(f"makbuz --makbuz: {d} diskte yok — yerel kopya olmadan yeniden aranamaz (kural 19)")
+    if eksik:
+        return
+    for d in dosyalar:
+        if mu.sha256(BURASI / d) != (ham.get(d) or {}).get("sha256"):
+            hata(f"makbuz --makbuz: {d} SHA-256'sı ham_kaynaklar.json'dakiyle aynı değil (kural 19)")
+    yeni = mu.yeniden_bul(k)
+    for c, r in kayit.items():
+        if yeni.get(c) != r.get("sayfa"):
+            hata(f"makbuz --makbuz {ad(c)}: kayıtta s. {r.get('sayfa')}, yeniden aramada s. {yeni.get(c)} (kural 19)")
+    print(f"  · ağır sınama: {len(dosyalar)} PDF, {len(kayit)} alıntının sayfası yeniden arandı")
+
+
 def main() -> int:
     gruplar: dict[str, dict[str, Path]] = {}
     for yol in sorted(BOLUMLER.glob("*.md")):
@@ -1262,6 +1395,7 @@ def main() -> int:
     sina_cekmeler()
     sina_atlas()
     sina_karne()
+    sina_makbuz(agir="--makbuz" in sys.argv[1:])
     if uyarilar:
         print(f"\n⚠ {len(uyarilar)} UYARI (durdurmaz)")
     if hatalar:

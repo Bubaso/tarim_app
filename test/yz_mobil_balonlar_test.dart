@@ -141,7 +141,9 @@ void main() {
       expect(_semantik('10 rakamının kaynağı'), findsOneWidget);
       expect(_sayfada(find.byType(SingleChildScrollView)), findsOneWidget,
           reason: 'uzunsa kayıyor');
-      final baglantilar = _sayfada(find.byType(YzBalonEylemi));
+      // Kaynak bağlantıları; kesitli kaynağın "Kaynağında gör" eylemi ayrıca
+      // (yz_makbuz_test.dart).
+      final baglantilar = _sayfada(find.widgetWithText(YzBalonEylemi, 'Kaynağı aç ↗'));
       expect(baglantilar, findsNWidgets(bagliSayisi));
       for (final e in baglantilar.evaluate()) {
         final r = t.getRect(find.byWidget(e.widget));

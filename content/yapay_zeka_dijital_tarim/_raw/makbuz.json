@@ -1,0 +1,2984 @@
+{
+ "_ne": "Rakamın makbuzu: rakamı taşıyan alıntının yerel PDF kopyasındaki sayfası ve (resmî, kurumsal, satıcı, proje kaynağında) vurgulu kesiti.",
+ "_uretici": "content/yapay_zeka_dijital_tarim/_raw/makbuz_uret.py (makbuz.swift)",
+ "ayar": {
+  "satir": 30,
+  "tavan": 1400,
+  "baglam": 3,
+  "webp": {
+   "quality": 80,
+   "method": 6
+  }
+ },
+ "kayitlar": [
+  {
+   "dosya": "kaynak_dosyalari/TurkiyeYapayZekaEylemPlani20262030.pdf",
+   "sha256": "71fe247f7623565133610615f4fb44b1251fd5d697390061fedb1ab4a0b798a0",
+   "alinti": "D-8 üye ülkeleriyle tarım, enerji, ticaret ve sanayi alanlarında sektörel yapay zekâ uygulama iş birlikleri ve ortak pilot programları yürütülecektir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 34,
+   "sayfa_sayisi": 44,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/TurkiyeYapayZekaEylemPlani20262030-s34-d37772d4c1.webp",
+   "genislik": 644,
+   "yukseklik": 353,
+   "bayt": 39310,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/TurkiyeYapayZekaEylemPlani20262030.pdf",
+   "sha256": "71fe247f7623565133610615f4fb44b1251fd5d697390061fedb1ab4a0b798a0",
+   "alinti": "Hedefimiz; sektörel yol haritalarının yayımlandığı; en az üç pilot veri alanı ile en az 25 ortak veri setinin hayata geçirildiği; en az 2.000 kamu veri setinin Ulusal Veri Kütüphanesi'nde makine okunabilir formatta, standart meta veri ve açık lisans bilgisiyle yayımlandığı",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 24,
+   "sayfa_sayisi": 44,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/TurkiyeYapayZekaEylemPlani20262030-s24-4c7ccfdbc6.webp",
+   "genislik": 719,
+   "yukseklik": 491,
+   "bayt": 66118,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/TurkiyeYapayZekaEylemPlani20262030.pdf",
+   "sha256": "71fe247f7623565133610615f4fb44b1251fd5d697390061fedb1ab4a0b798a0",
+   "alinti": "Yapay zekâ ekosistemimizin 5 temel katmanını (enerji, hesaplama-donanım, altyapı, modeller-veri, uygulamalar) ve 3 bileşenini (yetenek, finansman, düzenleme-güven) beslemek üzere 16 eylem belirledik.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 7,
+   "sayfa_sayisi": 44,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/TurkiyeYapayZekaEylemPlani20262030-s7-802f7a496b.webp",
+   "genislik": 709,
+   "yukseklik": 407,
+   "bayt": 51604,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/ab_komisyon_2025_okp_2023_2024_ozet.pdf",
+   "sha256": "e965f02bc311089568a3e202bae32b5d840ffc9c75954ec778cdc55545f2204d",
+   "alinti": "Income support reaching 5.6 million farms",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 5,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/ab_komisyon_2025_okp_2023_2024_ozet-s1-c6551d2276.webp",
+   "genislik": 682,
+   "yukseklik": 248,
+   "bayt": 22052,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/ab_komisyon_2025_okp_2023_2024_ozet.pdf",
+   "sha256": "e965f02bc311089568a3e202bae32b5d840ffc9c75954ec778cdc55545f2204d",
+   "alinti": "Over 20,000 farms received support to adopt digital technologies",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 5,
+   "sayfa_sayisi": 5,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/ab_komisyon_2025_okp_2023_2024_ozet-s5-c3eff0cb98.webp",
+   "genislik": 416,
+   "yukseklik": 280,
+   "bayt": 18952,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/abd_ers_2023_eib248_hassas_tarim.pdf",
+   "sha256": "4af28c57c3a44066650cdbe697f78c36d7334dfb3b0ee31c11ca296cc0fb9f0e",
+   "alinti": "Auto-steer guid - ance systems were used on only 5.3 percent of planted corn acres in 2001, growing to 58 percent in 2016.",
+   "nitelik": [
+    "KURUMSAL",
+    "RESMI"
+   ],
+   "sayfa": 6,
+   "sayfa_sayisi": 52,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/abd_ers_2023_eib248_hassas_tarim-s6-df10858abc.webp",
+   "genislik": 1119,
+   "yukseklik": 308,
+   "bayt": 48070,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/abd_ers_2023_eib248_hassas_tarim.pdf",
+   "sha256": "4af28c57c3a44066650cdbe697f78c36d7334dfb3b0ee31c11ca296cc0fb9f0e",
+   "alinti": "However, adoption of automated guidance has increased sharply in the past 20 years, with application on well over 50 percent of the acreage planted to corn, cotton, rice, sorghum, soybeans, and winter wheat.",
+   "nitelik": [
+    "KURUMSAL",
+    "RESMI"
+   ],
+   "sayfa": 3,
+   "sayfa_sayisi": 52,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/abd_ers_2023_eib248_hassas_tarim-s3-5c9aefeec8.webp",
+   "genislik": 995,
+   "yukseklik": 297,
+   "bayt": 59572,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/abd_ers_2023_eib248_hassas_tarim.pdf",
+   "sha256": "4af28c57c3a44066650cdbe697f78c36d7334dfb3b0ee31c11ca296cc0fb9f0e",
+   "alinti": "In 2020, this particular practice was again the most common CSP enhancement, with more than 2.24 million contracted acres, followed by 1.51 million contracted acres on which participants use precision agriculture technologies to reduce the risk of nutrient losses to surface water.",
+   "nitelik": [
+    "KURUMSAL",
+    "RESMI"
+   ],
+   "sayfa": 30,
+   "sayfa_sayisi": 52,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/abd_ers_2023_eib248_hassas_tarim-s30-f70df24d39.webp",
+   "genislik": 1060,
+   "yukseklik": 327,
+   "bayt": 71022,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/abd_ers_2023_eib248_hassas_tarim.pdf",
+   "sha256": "4af28c57c3a44066650cdbe697f78c36d7334dfb3b0ee31c11ca296cc0fb9f0e",
+   "alinti": "In the same year, GPS applications were used on 40 percent of all U.S. farm and ranchland acreage for on-farm production.",
+   "nitelik": [
+    "KURUMSAL",
+    "RESMI"
+   ],
+   "sayfa": 6,
+   "sayfa_sayisi": 52,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/abd_ers_2023_eib248_hassas_tarim-s6-14031447ce.webp",
+   "genislik": 1086,
+   "yukseklik": 287,
+   "bayt": 52992,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/abd_ers_2023_eib248_hassas_tarim.pdf",
+   "sha256": "4af28c57c3a44066650cdbe697f78c36d7334dfb3b0ee31c11ca296cc0fb9f0e",
+   "alinti": "Though their use has been increasing in recent years, technologies such as yield maps, soil maps, and VRT have been adopted on only between 5 and 25 percent of total U.S. planted acreage for winter wheat, cotton, sorghum, and rice.",
+   "nitelik": [
+    "KURUMSAL",
+    "RESMI"
+   ],
+   "sayfa": 3,
+   "sayfa_sayisi": 52,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/abd_ers_2023_eib248_hassas_tarim-s3-e08d20d1e5.webp",
+   "genislik": 995,
+   "yukseklik": 297,
+   "bayt": 66912,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/afrika_au_2024_yz_stratejisi.pdf",
+   "sha256": "c5429f73786c0a0c170a78278016339ab86f914b239290ba1d6623cc07734e3f",
+   "alinti": "In Africa, the rapid adoption of smartphones and increased use of the Internet, which has jumped from 20% in 2015 to 40% in 2023",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 29,
+   "sayfa_sayisi": 66,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/afrika_au_2024_yz_stratejisi-s29-19b04a1e76.webp",
+   "genislik": 1189,
+   "yukseklik": 421,
+   "bayt": 59028,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/afrika_cta_dalberg_2019_d4ag.pdf",
+   "sha256": "ac76487ced0a6af9ebd4c7fa7f32ade9c677bd998afbf819dc13c57edb48cd93",
+   "alinti": "As of 2019, there are at least 390 distinct, active D4Ag solutions across the continent.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 19,
+   "sayfa_sayisi": 241,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/afrika_cta_dalberg_2019_d4ag-s19-8264654d80.webp",
+   "genislik": 568,
+   "yukseklik": 419,
+   "bayt": 27994,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/afrika_cta_dalberg_2019_d4ag.pdf",
+   "sha256": "ac76487ced0a6af9ebd4c7fa7f32ade9c677bd998afbf819dc13c57edb48cd93",
+   "alinti": "Based on interviews and smallholder survey data from countries like Kenya, we estimated 20% duplication (i.e., users registered to multiple D4Ag solutions), which would mean ~26 million unique users today.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 154,
+   "sayfa_sayisi": 241,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/afrika_cta_dalberg_2019_d4ag-s154-63ab7484c5.webp",
+   "genislik": 563,
+   "yukseklik": 465,
+   "bayt": 42050,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/afrika_cta_dalberg_2019_d4ag.pdf",
+   "sha256": "ac76487ced0a6af9ebd4c7fa7f32ade9c677bd998afbf819dc13c57edb48cd93",
+   "alinti": "D4Ag solutions have already registered over 33 million smallholder farmers and pastoralists across the continent (13% of all Sub-Saharan African smallholders and pastoralists and up to 45% of smallholder households, depending on assumptions used to calculate penetration).",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 19,
+   "sayfa_sayisi": 241,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/afrika_cta_dalberg_2019_d4ag-s19-c9fc7c9bca.webp",
+   "genislik": 508,
+   "yukseklik": 504,
+   "bayt": 39958,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/afrika_cta_dalberg_2019_d4ag.pdf",
+   "sha256": "ac76487ced0a6af9ebd4c7fa7f32ade9c677bd998afbf819dc13c57edb48cd93",
+   "alinti": "Our estimates suggest that 42% of registered farmers and pastoralists actually used the solutions they registered for with any frequency.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 20,
+   "sayfa_sayisi": 241,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/afrika_cta_dalberg_2019_d4ag-s20-0e89089936.webp",
+   "genislik": 531,
+   "yukseklik": 425,
+   "bayt": 35586,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/afrika_cta_dalberg_2019_d4ag.pdf",
+   "sha256": "ac76487ced0a6af9ebd4c7fa7f32ade9c677bd998afbf819dc13c57edb48cd93",
+   "alinti": "Private sector investment is even more limited – in 2018, there was investment of approximately €47 million into African or Africa-focused D4Ag enterprises, including both start-ups and later stage enterprises.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 20,
+   "sayfa_sayisi": 241,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/afrika_cta_dalberg_2019_d4ag-s20-741197a694.webp",
+   "genislik": 518,
+   "yukseklik": 465,
+   "bayt": 40150,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/afrika_cta_dalberg_2019_d4ag.pdf",
+   "sha256": "ac76487ced0a6af9ebd4c7fa7f32ade9c677bd998afbf819dc13c57edb48cd93",
+   "alinti": "THE DIGITALISATION OF AFRICAN AGRICULTURE REPORT 2018–2019 1ST EDITION, JUNE 2019",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 241,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/afrika_cta_dalberg_2019_d4ag-s2-ecaf00ae97.webp",
+   "genislik": 395,
+   "yukseklik": 432,
+   "bayt": 9026,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/afrika_cta_dalberg_2019_d4ag.pdf",
+   "sha256": "ac76487ced0a6af9ebd4c7fa7f32ade9c677bd998afbf819dc13c57edb48cd93",
+   "alinti": "We estimate approximately €175 million in annual donor funding flows for D4Ag.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 20,
+   "sayfa_sayisi": 241,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/afrika_cta_dalberg_2019_d4ag-s20-b39fb832ed.webp",
+   "genislik": 515,
+   "yukseklik": 384,
+   "bayt": 29934,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/afrika_cta_dalberg_2019_d4ag.pdf",
+   "sha256": "ac76487ced0a6af9ebd4c7fa7f32ade9c677bd998afbf819dc13c57edb48cd93",
+   "alinti": "the number of highly active users is likely even lower – i.e., likely in the 15–30% range, on average (based on self-reported data) across all use case areas.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 20,
+   "sayfa_sayisi": 241,
+   "yontem": "parca",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/afrika_cta_dalberg_2019_d4ag-s20-560acfcac2.webp",
+   "genislik": 529,
+   "yukseklik": 211,
+   "bayt": 11646,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/agrosens_2026_04.pdf",
+   "sha256": "6f77ff4894d68f5c64907beccc4e5351a280494e526b59136a40743f437117cc",
+   "alinti": "AGROSENS NİSAN 2026 - SAYI 58",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 51,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/agrosens_2026_04-s1-39ab5d757b.webp",
+   "genislik": 1400,
+   "yukseklik": 340,
+   "bayt": 26598,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/altun_turker_2021_kiziltepe.pdf",
+   "sha256": "81b8ef2fe87822b4ab9c842ef25459fbe2709461ea52393a55b9d946485a391b",
+   "alinti": "Sınıflandırma neticesinde % 96.35 genel doğruluk",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 19,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/aquatag_wur_283306.pdf",
+   "sha256": "0fd679fb419eaa48b81e8bb7e04516511f5c14d7a0d8136a5dc346c65774669e",
+   "alinti": "Ege Üniversitesi sensörü Türkiye’deki uygulamalara adapte etmiş ve Orhanlı Köyü’nde 9 üretici ile denemeler gerçekleştirmiştir.",
+   "nitelik": [
+    "PROJE"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 1,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/aquatag_wur_283306-s1-10d4682168.webp",
+   "genislik": 1270,
+   "yukseklik": 237,
+   "bayt": 50242,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/aquatag_wur_283306.pdf",
+   "sha256": "0fd679fb419eaa48b81e8bb7e04516511f5c14d7a0d8136a5dc346c65774669e",
+   "alinti": "Organik üretimde su tasarrufu % 12 olarak ölçülmüştür.",
+   "nitelik": [
+    "PROJE"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 1,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/aquatag_wur_283306-s1-1bbf960507.webp",
+   "genislik": 527,
+   "yukseklik": 215,
+   "bayt": 18604,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/aquatag_wur_283306.pdf",
+   "sha256": "0fd679fb419eaa48b81e8bb7e04516511f5c14d7a0d8136a5dc346c65774669e",
+   "alinti": "Sensör ile kontrol edilen parsellerde üreticiler daha az değişken bir toprak nem içeriği ve % 13-24 su tasarrufu sağlamışlardır.",
+   "nitelik": [
+    "PROJE"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 1,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/aquatag_wur_283306-s1-96698e0e48.webp",
+   "genislik": 676,
+   "yukseklik": 300,
+   "bayt": 29004,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/btk_2026_q2_pazar_verileri.pdf",
+   "sha256": "d30dfd6e81d41ebea0d17e130471a03d5c96da54670c1cc1c9c185b5b48cc2ed",
+   "alinti": "1 Nisan 2026 tarihinde ülkemizde kullanılmaya başlanan 5G hizmetinin abone sayısı, 2026 yılı Haziran ayı sonunda 44,5 milyona ulaşmıştır.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 8,
+   "sayfa_sayisi": 94,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/btk_2026_q2_pazar_verileri-s8-aef291657d.webp",
+   "genislik": 669,
+   "yukseklik": 306,
+   "bayt": 41872,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/btk_2026_q2_pazar_verileri.pdf",
+   "sha256": "d30dfd6e81d41ebea0d17e130471a03d5c96da54670c1cc1c9c185b5b48cc2ed",
+   "alinti": "2026 yılı ikinci çeyreği itibarıyla işletmecilerin toplam fiber uzunluğu yaklaşık 720 bin km’dir.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 87,
+   "sayfa_sayisi": 94,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/btk_2026_q2_pazar_verileri-s87-72e2b7328e.webp",
+   "genislik": 942,
+   "yukseklik": 245,
+   "bayt": 45640,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/btk_2026_q2_pazar_verileri.pdf",
+   "sha256": "d30dfd6e81d41ebea0d17e130471a03d5c96da54670c1cc1c9c185b5b48cc2ed",
+   "alinti": "Ancak bazı vatandaşlarımızın cihazı veya SIM kartının 5G hizmetine uyumlu olmaması nedeni ile aktif olarak bu hizmeti kullanabilenlerin sayısı ise 26,1 milyon olarak gerçekleşmiştir.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 8,
+   "sayfa_sayisi": 94,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/btk_2026_q2_pazar_verileri-s8-d07c46552d.webp",
+   "genislik": 669,
+   "yukseklik": 351,
+   "bayt": 46140,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/btk_2026_q2_pazar_verileri.pdf",
+   "sha256": "d30dfd6e81d41ebea0d17e130471a03d5c96da54670c1cc1c9c185b5b48cc2ed",
+   "alinti": "Diğer taraftan, Haziran 2026 sonu itibarı ile abonelik bazlı makineler arası iletişim (M2M) abone sayısı yaklaşık 15,2 milyon olmuştur (Şekil 4.2).",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 64,
+   "sayfa_sayisi": 94,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/btk_2026_q2_pazar_verileri-s64-133924fa6d.webp",
+   "genislik": 950,
+   "yukseklik": 180,
+   "bayt": 16734,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/cin_cac_moa_2026_dijital_koy_raporu.pdf",
+   "sha256": "23a2f7d182417bdcdffedab2be277b26c64b902a6788eaabff41712f72053861",
+   "alinti": "从 2018 年底到 2025 年底, 农村地区互联网普及率由 38.4%提升至 69.5%,城乡互联网 普及率差距由 36.2%缩小至 15.6%。",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 9,
+   "sayfa_sayisi": 45,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/cin_cac_moa_2026_dijital_koy_raporu-s9-eda43af974.webp",
+   "genislik": 644,
+   "yukseklik": 372,
+   "bayt": 50384,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/cin_cac_moa_2026_dijital_koy_raporu.pdf",
+   "sha256": "23a2f7d182417bdcdffedab2be277b26c64b902a6788eaabff41712f72053861",
+   "alinti": "截至 2025 年底,累计建设智慧 农业创新中心、分中心 34 个,智慧农业创新应用项目 116 个。",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 13,
+   "sayfa_sayisi": 45,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/cin_cac_moa_2026_dijital_koy_raporu-s13-ab17c79511.webp",
+   "genislik": 642,
+   "yukseklik": 364,
+   "bayt": 46174,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/cin_cac_moa_2026_dijital_koy_raporu.pdf",
+   "sha256": "23a2f7d182417bdcdffedab2be277b26c64b902a6788eaabff41712f72053861",
+   "alinti": "调查显示,2024 年农村成年人具备初级及以上数字 素养与技能的占比达到 50.57%。",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 28,
+   "sayfa_sayisi": 45,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/cin_cac_moa_2026_dijital_koy_raporu-s28-c9747b8515.webp",
+   "genislik": 655,
+   "yukseklik": 334,
+   "bayt": 38248,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/civelek_2022_tarim_bilimleri_dergisi.pdf",
+   "sha256": "fb64733ae86521989144daed1d1f3cd59bb553bfa3591f175780e1bd737f095c",
+   "alinti": "From the BOM costs calculations, it was found out that the hardware could be produced for $55 including PCB manufacturing costs and taxes, excluding software development for the hardware according to prices in May 2020.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 9,
+   "sayfa_sayisi": 11,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/civelek_2022_tarim_bilimleri_dergisi.pdf",
+   "sha256": "fb64733ae86521989144daed1d1f3cd59bb553bfa3591f175780e1bd737f095c",
+   "alinti": "From the GPS tests that were conducted outside of the laboratory it was revealed that the position of the developed hardware was sensed with a maximum 3 meters of error which was declared by the producer of the GPS module.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 9,
+   "sayfa_sayisi": 11,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/civelek_2022_tarim_bilimleri_dergisi.pdf",
+   "sha256": "fb64733ae86521989144daed1d1f3cd59bb553bfa3591f175780e1bd737f095c",
+   "alinti": "Two trials were ended in total 6 months, the hardware created 49121 and 52766 data points, and the batteries were drained in 95 and 98 days which confirms the assumptions that were given in by Aqeel-Ur-Rehman et al. (2014).",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 9,
+   "sayfa_sayisi": 11,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/civelek_2022_tarim_bilimleri_dergisi.pdf",
+   "sha256": "fb64733ae86521989144daed1d1f3cd59bb553bfa3591f175780e1bd737f095c",
+   "alinti": "When one of the tractor manufacturer’s 4G LTE (long-term evolution) based unused device price was considered, which was $795 in the same date including taxes and excluding subscription to the service",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 9,
+   "sayfa_sayisi": 11,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/deere_2019_surdurulebilirlik_raporu.pdf",
+   "sha256": "fdd91b1f38e4abe478ade7a535989e6dd29146f70e861a79344ff0139b1b969b",
+   "alinti": "Blue River Technology’s innovation can reduce the use of herbicides by up to 90%",
+   "nitelik": [
+    "SATICI"
+   ],
+   "sayfa": 14,
+   "sayfa_sayisi": 59,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/deere_2019_surdurulebilirlik_raporu-s14-844c54b83f.webp",
+   "genislik": 579,
+   "yukseklik": 259,
+   "bayt": 29156,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/dunya_bankasi_2009_arip_icr.pdf",
+   "sha256": "a95e591aa648466b5dfd1a276a875713928439feb5dae10f8fa5c8d615922fb3",
+   "alinti": "Almost 100% of 2.75 eligible and registrable farms are registered.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 6,
+   "sayfa_sayisi": 95,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/dunya_bankasi_2009_arip_icr-s6-6769c33939.webp",
+   "genislik": 899,
+   "yukseklik": 368,
+   "bayt": 39282,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/dunya_bankasi_2009_arip_icr.pdf",
+   "sha256": "a95e591aa648466b5dfd1a276a875713928439feb5dae10f8fa5c8d615922fb3",
+   "alinti": "The ERL Letter of Development Policy also spelled out the main features of the impending DIS, to be introduced in 2000-2002 following a piloting phase and the preparation of a National Farmer Registry.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 11,
+   "sayfa_sayisi": 95,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/dunya_bankasi_2009_arip_icr-s11-7f854353ee.webp",
+   "genislik": 1185,
+   "yukseklik": 333,
+   "bayt": 84872,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/dunya_bankasi_tucsap_isr5_2024.pdf",
+   "sha256": "2d2cec73283d571fbb7e17b8d08d5eb79fd92f1ffca2ee9925ec21c7ba3ec32f",
+   "alinti": "0.00 Mar/2022 0.00 22-Feb-2024 0.00 18-Oct-2024 42,500.00 Mar/2028Farmers adopting Climate- Smart Agricultural (CSA) technologies (Number)",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 3,
+   "sayfa_sayisi": 10,
+   "yontem": "sira_disi",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/dunya_bankasi_tucsap_isr5_2024-s3-ebdd6499c5.webp",
+   "genislik": 1400,
+   "yukseklik": 179,
+   "bayt": 37404,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/eurostat_2026_tarim_makine_dijital.pdf",
+   "sha256": "71f98d806350f8fd02f2bf3bd64a5069c54514d9f2386b9c5ab1cd7dba475804",
+   "alinti": "About three-quarters (74%) of all EU farms with a total standard output of C 100 000 or over reported internet access (Figure 2), compared to only one-fifth (about 21%) of those with a total standard output of less than C 2 000.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 12,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/eurostat_2026_tarim_makine_dijital-s2-a3ac4f1575.webp",
+   "genislik": 1400,
+   "yukseklik": 215,
+   "bayt": 68190,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/eurostat_2026_tarim_makine_dijital.pdf",
+   "sha256": "71f98d806350f8fd02f2bf3bd64a5069c54514d9f2386b9c5ab1cd7dba475804",
+   "alinti": "Although only about 18% of EU farms with UAA adopted precision farming technologies or practices, these farms",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 4,
+   "sayfa_sayisi": 12,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/eurostat_2026_tarim_makine_dijital-s4-2a25e45b77.webp",
+   "genislik": 1400,
+   "yukseklik": 108,
+   "bayt": 14302,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/eurostat_2026_tarim_makine_dijital.pdf",
+   "sha256": "71f98d806350f8fd02f2bf3bd64a5069c54514d9f2386b9c5ab1cd7dba475804",
+   "alinti": "By contrast, robotics adoption—defined as machines capable of autonomous operation without direct human intervention—remained relatively low, covering about 7% of all farms.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 12,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/eurostat_2026_tarim_makine_dijital-s1-96b1f4be10.webp",
+   "genislik": 1400,
+   "yukseklik": 149,
+   "bayt": 40952,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/eurostat_2026_tarim_makine_dijital.pdf",
+   "sha256": "71f98d806350f8fd02f2bf3bd64a5069c54514d9f2386b9c5ab1cd7dba475804",
+   "alinti": "In 2023, about 43% of EU farms reported having internet access, with some Northern and Central European countries (Denmark, Germany, Slovakia, Latvia, Czechia, and Austria) recording rates above 90% (Figure 1).",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 12,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/eurostat_2026_tarim_makine_dijital-s1-cd29e62d17.webp",
+   "genislik": 1400,
+   "yukseklik": 245,
+   "bayt": 42284,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/eurostat_2026_tarim_makine_dijital.pdf",
+   "sha256": "71f98d806350f8fd02f2bf3bd64a5069c54514d9f2386b9c5ab1cd7dba475804",
+   "alinti": "Just under 18% of farms with utilised agricultural area (UAA) applied some kind of precision farming technology or practice in 2023, including robotics for plant protection products, band spraying of plant protection products, variable rate techniques, precision monitoring of crops and soil analysis",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 3,
+   "sayfa_sayisi": 12,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/eurostat_2026_tarim_makine_dijital-s3-5db482be09.webp",
+   "genislik": 1400,
+   "yukseklik": 252,
+   "bayt": 76694,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/eurostat_2026_tarim_makine_dijital.pdf",
+   "sha256": "71f98d806350f8fd02f2bf3bd64a5069c54514d9f2386b9c5ab1cd7dba475804",
+   "alinti": "Soil analysis was by far the most widespread practice, with about 11% of farms taking it up, followed by variable rate techniques (about 5%) and band spraying of plant protection products (about 4%).",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 3,
+   "sayfa_sayisi": 12,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/eurostat_2026_tarim_makine_dijital-s3-fa81441c10.webp",
+   "genislik": 1400,
+   "yukseklik": 247,
+   "bayt": 63908,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/eurostat_2026_tarim_makine_dijital.pdf",
+   "sha256": "71f98d806350f8fd02f2bf3bd64a5069c54514d9f2386b9c5ab1cd7dba475804",
+   "alinti": "managed about 44% of the EU’s total UAA (see Figure 5).",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 5,
+   "sayfa_sayisi": 12,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/eurostat_2026_tarim_makine_dijital-s5-e241ed0b5c.webp",
+   "genislik": 1400,
+   "yukseklik": 178,
+   "bayt": 37950,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_2009_how_to_feed_the_world_2050.pdf",
+   "sha256": "33b40d6eb6384c538d2e1881248962c6991b560f7260f62193ae118614f2373e",
+   "alinti": "Annual cereal production will need to rise to about 3 billion tonnes from 2.1 billion today and annual meat production will need to rise by over 200 million tonnes to reach 470 million tonnes.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 35,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_2009_how_to_feed_the_world_2050-s2-a21b2db5b3.webp",
+   "genislik": 1071,
+   "yukseklik": 337,
+   "bayt": 75284,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_2009_how_to_feed_the_world_2050.pdf",
+   "sha256": "33b40d6eb6384c538d2e1881248962c6991b560f7260f62193ae118614f2373e",
+   "alinti": "By 2050 the world’s population will reach 9.1 billion, 34 percent higher than today.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 35,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_2009_how_to_feed_the_world_2050-s2-a5c2f9f305.webp",
+   "genislik": 1070,
+   "yukseklik": 186,
+   "bayt": 35274,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_2009_how_to_feed_the_world_2050.pdf",
+   "sha256": "33b40d6eb6384c538d2e1881248962c6991b560f7260f62193ae118614f2373e",
+   "alinti": "In order to feed this larger, more urban and richer population, food production (net of food used for biofuels) must increase by 70 percent.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 35,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_2009_how_to_feed_the_world_2050-s2-d1440a9262.webp",
+   "genislik": 1071,
+   "yukseklik": 306,
+   "bayt": 67424,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_2017_future_of_food_and_agriculture.pdf",
+   "sha256": "f4f29f7c32ab89495d64a5171fb4ec7ca6d53910370ac2cdfc8bd6b9361869f9",
+   "alinti": "Accounting only for the revised population projections, global agricultural demand is projected to increase by more than 63 percent between 2005/07 and 2050.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 60,
+   "sayfa_sayisi": 180,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_2017_future_of_food_and_agriculture-s60-77f8c00296.webp",
+   "genislik": 417,
+   "yukseklik": 377,
+   "bayt": 35372,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_2017_future_of_food_and_agriculture.pdf",
+   "sha256": "f4f29f7c32ab89495d64a5171fb4ec7ca6d53910370ac2cdfc8bd6b9361869f9",
+   "alinti": "Since production expanded by 15 percent between 2005/07 and 2012, the projected increase in agricultural demand from 2013 to 2050 would amount to approximately 49 percent.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 60,
+   "sayfa_sayisi": 180,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_2017_future_of_food_and_agriculture-s60-a488ceda52.webp",
+   "genislik": 412,
+   "yukseklik": 341,
+   "bayt": 26934,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_2017_future_of_food_and_agriculture.pdf",
+   "sha256": "f4f29f7c32ab89495d64a5171fb4ec7ca6d53910370ac2cdfc8bd6b9361869f9",
+   "alinti": "The estimated increase to 2050 differs from AT2050’s projection of an increase of 60 percent (Alexandratos and Bruinsma, 2012).",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 60,
+   "sayfa_sayisi": 180,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_2017_future_of_food_and_agriculture-s60-6d0be38c69.webp",
+   "genislik": 416,
+   "yukseklik": 312,
+   "bayt": 22254,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_2017_future_of_food_and_agriculture.pdf",
+   "sha256": "f4f29f7c32ab89495d64a5171fb4ec7ca6d53910370ac2cdfc8bd6b9361869f9",
+   "alinti": "This FAO estimate takes into account recent United Nations (UN) projections indicating that the world’s population would reach 9.73 billion in 2050.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 60,
+   "sayfa_sayisi": 180,
+   "yontem": "sira_disi",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_2017_future_of_food_and_agriculture-s60-028f476307.webp",
+   "genislik": 915,
+   "yukseklik": 287,
+   "bayt": 49398,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_2017_future_of_food_and_agriculture.pdf",
+   "sha256": "f4f29f7c32ab89495d64a5171fb4ec7ca6d53910370ac2cdfc8bd6b9361869f9",
+   "alinti": "To meet demand, agriculture in 2050 will need to produce almost 50 percent more food, feed and biofuel than it did in 2012.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 60,
+   "sayfa_sayisi": 180,
+   "yontem": "sira_disi",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_2017_future_of_food_and_agriculture-s60-7446c00716.webp",
+   "genislik": 1125,
+   "yukseklik": 394,
+   "bayt": 61794,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_2022_sofa.pdf",
+   "sha256": "eb437b274cb540753b6041a73e81af9ef536f7a8b0c90ce8b5aaba3d74c3cec0",
+   "alinti": "Given the scarcity of data, 27 case studies, based on interviews with digital automation service providers, were used to shed light on the business case for digital automation in agriculture.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 20,
+   "sayfa_sayisi": 182,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_2022_sofa-s20-8824b899d0.webp",
+   "genislik": 652,
+   "yukseklik": 370,
+   "bayt": 45454,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_2022_sofa.pdf",
+   "sha256": "eb437b274cb540753b6041a73e81af9ef536f7a8b0c90ce8b5aaba3d74c3cec0",
+   "alinti": "The results reveal only 10 out of the 27 service providers to be profitable and financially sustainable.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 20,
+   "sayfa_sayisi": 182,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_2022_sofa-s20-258fbbe2a7.webp",
+   "genislik": 623,
+   "yukseklik": 308,
+   "bayt": 41944,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_aquastat_2025.pdf",
+   "sha256": "c90b2e79f92434c8ab1b07cf4441d86eb2dd7543f288e770b5a2ebbd5e6d533c",
+   "alinti": "Agriculture remained by far the largest user of water, accounting for 72 percent of global freshwater withdrawals in 2022. In the same year, the industrial and service sectors accounted for 15 percent and 13 percent, respectively.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 17,
+   "sayfa_sayisi": 48,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_aquastat_2025-s17-bec113b081.webp",
+   "genislik": 1130,
+   "yukseklik": 357,
+   "bayt": 59178,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_aquastat_2025.pdf",
+   "sha256": "c90b2e79f92434c8ab1b07cf4441d86eb2dd7543f288e770b5a2ebbd5e6d533c",
+   "alinti": "Türkiye 2 430.55 86.93 2.01 11.06 64.47 14.93 20.94 47.89",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 46,
+   "sayfa_sayisi": 48,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_aquastat_2025-s46-80a8b3b2a8.webp",
+   "genislik": 1400,
+   "yukseklik": 268,
+   "bayt": 35480,
+   "donus": -90
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+   "sha256": "6a4fd744f40a835e2088ab5a7cf64c585f3cd538ecdc854af042a670c5bdbe08",
+   "alinti": "2015 yılında bu hizmetin yerine Orbit adlı bir tarla keşif ve mahsul izleme uygulaması kullanılmaya başlandı ve bu uygulama 10 ziraatçıdan oluşan bir tarım danışma hattı ile tamamlandı.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 63,
+   "sayfa_sayisi": 140,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_ebrd_2025_turkiye_dijital_tarim-s63-a032f9d6f2.webp",
+   "genislik": 1077,
+   "yukseklik": 316,
+   "bayt": 81232,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+   "sha256": "6a4fd744f40a835e2088ab5a7cf64c585f3cd538ecdc854af042a670c5bdbe08",
+   "alinti": "TOB 2020 anketine göre, çiftçilerin yüzde 3'ünden azı uzaktan algılama, sensörler ve IoT cihazları, çiftlik veya sürü yönetimi yazılımı, hassas tarım veya hayvancılık teknolojileri veya robotik uygulamalar gibi akıllı tarım teknolojilerini kullanmaktadır.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 75,
+   "sayfa_sayisi": 140,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_ebrd_2025_turkiye_dijital_tarim-s75-3884fdc5f4.webp",
+   "genislik": 948,
+   "yukseklik": 284,
+   "bayt": 63738,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+   "sha256": "6a4fd744f40a835e2088ab5a7cf64c585f3cd538ecdc854af042a670c5bdbe08",
+   "alinti": "Türkiye'de akıllı ve hassas tarım ile tedarik zinciri yönetimi ve tarım finansmanı gibi ilgili alanlarda yaklaşık 35 AgTech startup'ı bulunmaktadır.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 58,
+   "sayfa_sayisi": 140,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fao_ebrd_2025_turkiye_dijital_tarim-s58-dde46555a2.webp",
+   "genislik": 1046,
+   "yukseklik": 214,
+   "bayt": 42260,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fbi_pin_2022_tarim_kooperatifleri.pdf",
+   "sha256": "9f47d51da3e11db00225502560e59c10c406b52081130327cd6294be8de8fcdd",
+   "alinti": "The FBI, the Cybersecurity and Infrastructure Security Agency (CISA), and the National Security Agency (NSA) observed incidents involving ransomware against 14 of the 16 U.S. critical infrastructure sectors",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 4,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fbi_pin_2022_tarim_kooperatifleri-s2-02350e5e68.webp",
+   "genislik": 988,
+   "yukseklik": 213,
+   "bayt": 33980,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/fbi_pin_2022_tarim_kooperatifleri.pdf",
+   "sha256": "9f47d51da3e11db00225502560e59c10c406b52081130327cd6294be8de8fcdd",
+   "alinti": "The threat actor demanded $30 million USD ransom.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 4,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/fbi_pin_2022_tarim_kooperatifleri-s2-8aa123080d.webp",
+   "genislik": 962,
+   "yukseklik": 209,
+   "bayt": 36812,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/guldal_sanli_turker_2025_agricecon.pdf",
+   "sha256": "ed8ba04e01d44c88d4afde988dfb2cc11f7a8c35185cc733def6c6175061ee41",
+   "alinti": "By surveying 325 farmers across six regions in Türkiye, the research identifies key attributes influencing adoption patterns.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 13,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/guldal_sanli_turker_2025_agricecon.pdf",
+   "sha256": "ed8ba04e01d44c88d4afde988dfb2cc11f7a8c35185cc733def6c6175061ee41",
+   "alinti": "User using agricultural technologies 66 Eager not using agricultural technologies but want to use them 170 Non-user not using agricultural technologies 89 (N = 325)",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 5,
+   "sayfa_sayisi": 13,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/hindistan_pib_2026_yz_tarim.pdf",
+   "sha256": "b8e68fad942bf0a3da7e446411b18bb4e0364b45b521dc80ec4a0637e5b9fbdb",
+   "alinti": "Against a target of 11 crore Farmer IDs by 2026–27, over 7.63 crore IDs have been generated as of 27 November 2025, including 1.93 crore IDs for women farmers.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 6,
+   "sayfa_sayisi": 12,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/hindistan_pib_2026_yz_tarim-s6-0e782a908f.webp",
+   "genislik": 1064,
+   "yukseklik": 469,
+   "bayt": 65006,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/hindistan_pib_2026_yz_tarim.pdf",
+   "sha256": "b8e68fad942bf0a3da7e446411b18bb4e0364b45b521dc80ec4a0637e5b9fbdb",
+   "alinti": "As of December 2025, the Kisan e-Mitra chatbot has answered more than 93 lakh queries, handling over 8,000 farmer queries daily in 11 regional languages.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 12,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/hindistan_pib_2026_yz_tarim-s1-311eb2592c.webp",
+   "genislik": 986,
+   "yukseklik": 361,
+   "bayt": 51544,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/hindistan_pib_2026_yz_tarim.pdf",
+   "sha256": "b8e68fad942bf0a3da7e446411b18bb4e0364b45b521dc80ec4a0637e5b9fbdb",
+   "alinti": "Follow-up surveys in Madhya Pradesh and Bihar indicated that 31–52 percent of farmers modified their planting decisions based on the forecasts, primarily by adjusting land preparation, sowing timelines, and crop and input choices.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 6,
+   "sayfa_sayisi": 12,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/hindistan_pib_2026_yz_tarim-s6-04656fb058.webp",
+   "genislik": 1064,
+   "yukseklik": 399,
+   "bayt": 67234,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/hindistan_pib_2026_yz_tarim.pdf",
+   "sha256": "b8e68fad942bf0a3da7e446411b18bb4e0364b45b521dc80ec4a0637e5b9fbdb",
+   "alinti": "The Digital Agriculture Mission, launched in 2024 with a total outlay of ₹2,817 crore",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 6,
+   "sayfa_sayisi": 12,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/hindistan_pib_2026_yz_tarim-s6-741003c3a6.webp",
+   "genislik": 1064,
+   "yukseklik": 327,
+   "bayt": 50200,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/hindistan_pib_2026_yz_tarim.pdf",
+   "sha256": "b8e68fad942bf0a3da7e446411b18bb4e0364b45b521dc80ec4a0637e5b9fbdb",
+   "alinti": "To guide optimal sowing decisions, focusing on local monsoon onset, probabilistic forecasts were disseminated via SMS through the mKisan portal to over 3.88 crore farmers in five regional languages across 13 states.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 6,
+   "sayfa_sayisi": 12,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/hindistan_pib_2026_yz_tarim-s6-36372c7e35.webp",
+   "genislik": 1064,
+   "yukseklik": 306,
+   "bayt": 55292,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/israil_iia_2025_yuksek_teknoloji.pdf",
+   "sha256": "13f5686e39917ba3863e2b5e583053c4838fd6efab2a5fc274e168fdbb185629",
+   "alinti": "9.6% Cyber 5% Food-tech 2.4% Agri- tech 7.1% Content and media 22.2% Organizational software",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 27,
+   "sayfa_sayisi": 64,
+   "yontem": "sira_disi",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/israil_iia_2025_yuksek_teknoloji-s27-31604a82ea.webp",
+   "genislik": 826,
+   "yukseklik": 416,
+   "bayt": 31054,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/israil_iia_2025_yuksek_teknoloji.pdf",
+   "sha256": "13f5686e39917ba3863e2b5e583053c4838fd6efab2a5fc274e168fdbb185629",
+   "alinti": "As of 2025, there are over 1,500 active deep-tech companies in Israel across all areas of high-tech.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 7,
+   "sayfa_sayisi": 64,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/israil_iia_2025_yuksek_teknoloji-s7-aea25c62db.webp",
+   "genislik": 897,
+   "yukseklik": 291,
+   "bayt": 46454,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/israil_iia_2025_yuksek_teknoloji.pdf",
+   "sha256": "13f5686e39917ba3863e2b5e583053c4838fd6efab2a5fc274e168fdbb185629",
+   "alinti": "Furthermore, Israeli deep-tech companies raised a significant share of global deep-tech capital in the fields of medical devices, agriculture, and food, attracting about 9%-10% of total global fundraising in these fields.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 7,
+   "sayfa_sayisi": 64,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/israil_iia_2025_yuksek_teknoloji-s7-86d8940d13.webp",
+   "genislik": 897,
+   "yukseklik": 291,
+   "bayt": 46626,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/israil_iia_2025_yuksek_teknoloji.pdf",
+   "sha256": "13f5686e39917ba3863e2b5e583053c4838fd6efab2a5fc274e168fdbb185629",
+   "alinti": "Other key sectors for Authority investment include foodtech, agri-tech, water, and ener gy. Approximately 23% of Authority investments were directed to these sectors, compared to 4% of private market early-stage investments.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 50,
+   "sayfa_sayisi": 64,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/israil_iia_2025_yuksek_teknoloji-s50-cb750c20ad.webp",
+   "genislik": 856,
+   "yukseklik": 266,
+   "bayt": 33058,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/itmec_2026_turkjans.pdf",
+   "sha256": "53da2434f585ddf99244282e951b5aee66c3b515765ed717bc994088c076c816",
+   "alinti": "During this period, 71 operators voluntarily completed the survey, and their responses were evaluated.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 3,
+   "sayfa_sayisi": 13,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/itmec_2026_turkjans.pdf",
+   "sha256": "53da2434f585ddf99244282e951b5aee66c3b515765ed717bc994088c076c816",
+   "alinti": "Only 14.1% performed calibration before every application.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 13,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/itmec_2026_turkjans.pdf",
+   "sha256": "53da2434f585ddf99244282e951b5aee66c3b515765ed717bc994088c076c816",
+   "alinti": "Operatörlerin %98.6’sının uygulama sırasında rüzgâr hızını dikkate aldığı, buna karşılık bağıl nemi dikkate alanların oranının yalnızca %16.9 olduğu belirlenmiştir.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 13,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/itmec_2026_turkjans.pdf",
+   "sha256": "53da2434f585ddf99244282e951b5aee66c3b515765ed717bc994088c076c816",
+   "alinti": "Sonuçlar, ZİHA ile ilaçlama hizmetlerinin Türkiye’de geniş alanlarda gerçekleştirildiğini ve hizmet veren işletmelerin %67.1’inin yılda 500 ha veya daha fazla alanda uygulama yaptığını göstermiştir.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 13,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/itmec_2026_turkjans.pdf",
+   "sha256": "53da2434f585ddf99244282e951b5aee66c3b515765ed717bc994088c076c816",
+   "alinti": "This study aimed to characterize current commercial UAV spraying practices, operational parameters, technical constraints, and environmental risk awareness in Türkiye through a cross-sectional descriptive survey of 71 active operators in May to August 2026.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 13,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/krizhevsky_2012_nips_imagenet.pdf",
+   "sha256": "90137160c57217953d5f61857e64ca58e85f06e1b13b4f475c918b1b582b9771",
+   "alinti": "We also entered a variant of this model in the ILSVRC-2012 competition and achieved a winning top-5 test error rate of 15.3%, compared to 26.2% achieved by the second-best entry.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 9,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/lowenberg_deboer_erickson_2019.pdf",
+   "sha256": "5e87ec4b475b749c9645e89366ec6280451eeca76ba1a18e47ef13d8b7573679",
+   "alinti": "The Lleida University Research Group in AgroTIC and Precision Agriculture lists 27 definitions from the scientific literature and the Internet (Lleida University, 2018).",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 18,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/lowenberg_deboer_erickson_2019.pdf",
+   "sha256": "5e87ec4b475b749c9645e89366ec6280451eeca76ba1a18e47ef13d8b7573679",
+   "alinti": "The main reason for the perception that PA adoption is slow is because PA is often associated with variable rate technology (VRT)—just one of many PA technologies, one of the first adopted by many farmers, but that now rarely exceeds 20% of farms.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 18,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/lowenberg_deboer_erickson_2019.pdf",
+   "sha256": "5e87ec4b475b749c9645e89366ec6280451eeca76ba1a18e47ef13d8b7573679",
+   "alinti": "variable rate technology (VRT)—just one of many PA technologies, one of the first adopted by many farmers, but that now rarely exceeds 20% of farms.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 18,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/mgm_2025_performans_programi.pdf",
+   "sha256": "b03866000a6760e18b74c159010abfd0c1c14a05cf500bdd4caf8803e6fadc9f",
+   "alinti": "Programda, 5 günlük tahmin ve risk durumları tüm illerimizi ve ilçelerimizi kapsayacak şekilde bitki bazında görüntülenebilmektedir",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 43,
+   "sayfa_sayisi": 89,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/mgm_2025_performans_programi-s43-b858e0387e.webp",
+   "genislik": 1129,
+   "yukseklik": 365,
+   "bayt": 59036,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/mgm_2026_performans_programi.pdf",
+   "sha256": "4efd65a3cc059d4367eeab3b81663cf308af0cce64eda0180453818a8117865f",
+   "alinti": "2025 yılı itibariyle 1717 adet OMGİ bulunmaktadır.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 26,
+   "sayfa_sayisi": 87,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/mgm_2026_performans_programi-s26-3eb6cb2d12.webp",
+   "genislik": 1133,
+   "yukseklik": 233,
+   "bayt": 30130,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/mgm_2026_performans_programi.pdf",
+   "sha256": "4efd65a3cc059d4367eeab3b81663cf308af0cce64eda0180453818a8117865f",
+   "alinti": "MGM bünyesinde 2059 adet gözlem sistemi kurulu bulunmaktadır.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 25,
+   "sayfa_sayisi": 87,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/mgm_2026_performans_programi-s25-439dcbe580.webp",
+   "genislik": 1133,
+   "yukseklik": 244,
+   "bayt": 30702,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/moyo_2020_ijwrd.pdf",
+   "sha256": "0a5095021686fa30974d6c3e5f1f49b2c446036c2e634c8c3beb1f141380f245",
+   "alinti": "In 2014, at each scheme, 20 irrigators (of the 75 and 100 in Mkoba and Silalatshani, respectively) were given two WFDs and a Chameleon sensor array.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 8,
+   "sayfa_sayisi": 26,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/moyo_2020_ijwrd.pdf",
+   "sha256": "0a5095021686fa30974d6c3e5f1f49b2c446036c2e634c8c3beb1f141380f245",
+   "alinti": "Water productivity increased by more than 100% for farmers both with and without monitoring tools.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 26,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/nasa_ntrs_1978_lacie_yonetici_ozeti.pdf",
+   "sha256": "c110454f6633e4aa3cf349ca486de3391be6ecea6c9b6204da419dc89b9159d5",
+   "alinti": "The Large Area Crop Inventory Experiment (LACIE), completed June 30, 1978, has met the USDA at harvest goals (90% accuracy with a 90% confidence level) in the U.S. Great Plains and U.S.S.R. for two consecutive years.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 4,
+   "sayfa_sayisi": 57,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/nasa_ntrs_1978_lacie_yonetici_ozeti-s4-c7eda13d82.webp",
+   "genislik": 1025,
+   "yukseklik": 290,
+   "bayt": 44066,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/nasa_ntrs_1978_lacie_yonetici_ozeti.pdf",
+   "sha256": "c110454f6633e4aa3cf349ca486de3391be6ecea6c9b6204da419dc89b9159d5",
+   "alinti": "The accuracy goal was set for production estimates at-harvest to be, within ±10 percent of true country production 90 percent of the time",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 19,
+   "sayfa_sayisi": 57,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/nasa_ntrs_1978_lacie_yonetici_ozeti-s19-c360ca2078.webp",
+   "genislik": 1090,
+   "yukseklik": 376,
+   "bayt": 62756,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/nasa_ntrs_1978_lacie_yonetici_ozeti.pdf",
+   "sha256": "c110454f6633e4aa3cf349ca486de3391be6ecea6c9b6204da419dc89b9159d5",
+   "alinti": "The final LACIE estimate of 91.4 MMT differed from the Soviet final-figure by about 1 percent.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 28,
+   "sayfa_sayisi": 57,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/nasa_ntrs_1978_lacie_yonetici_ozeti-s28-d17f0cabaa.webp",
+   "genislik": 1103,
+   "yukseklik": 383,
+   "bayt": 54194,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/nasa_ntrs_1978_lacie_yonetici_ozeti.pdf",
+   "sha256": "c110454f6633e4aa3cf349ca486de3391be6ecea6c9b6204da419dc89b9159d5",
+   "alinti": "but only 6 percent above the final Soviet wheat figure of 92.0 MMT.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 28,
+   "sayfa_sayisi": 57,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/nasa_ntrs_1978_lacie_yonetici_ozeti-s28-4f518a4d6c.webp",
+   "genislik": 1084,
+   "yukseklik": 290,
+   "bayt": 40928,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/ozden_2023_bsja.pdf",
+   "sha256": "4574446638cb6d4b97ac7b3bfc3d5b23788ff1c81753c8f89c3449000c5e556d",
+   "alinti": "A simple CNN and LSTM architectures as well Random Forest machine learning method are used to predict the next 10-day prices of the products.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 5,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/rti_2017_greenseeker.pdf",
+   "sha256": "40e7bb2fc0087335b8f956839242e0aa0c61c955eabd548a04f2e80ad1de7470",
+   "alinti": "Initial data analysis conducted by RTI and CIMMYT reveals that the tool has led to $37 in additional farmer profits per hectare, totaling $1.8M of additional profits over an 8-year time period (see Table 1).",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 4,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/rti_2017_greenseeker-s2-594494e0e7.webp",
+   "genislik": 610,
+   "yukseklik": 315,
+   "bayt": 44514,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/rti_2017_greenseeker.pdf",
+   "sha256": "40e7bb2fc0087335b8f956839242e0aa0c61c955eabd548a04f2e80ad1de7470",
+   "alinti": "Since the initial pilot phase in 2006, farmers have applied the technology to more than 48,000 cumulative hectares of land throughout the Yaqui Valley (see regional distribution of application over last 3 years in Figure 1).",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 4,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/rti_2017_greenseeker-s2-ab7c953c07.webp",
+   "genislik": 601,
+   "yukseklik": 332,
+   "bayt": 43270,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/rti_2017_greenseeker.pdf",
+   "sha256": "40e7bb2fc0087335b8f956839242e0aa0c61c955eabd548a04f2e80ad1de7470",
+   "alinti": "The umbrella organization for the farmer credit unions, AOASS, had a change in leadership prior to the 2015–2016 growing season, coinciding with the worst climatic conditions in more than 35 years, resulting in extremely low yields.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 3,
+   "sayfa_sayisi": 4,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/rti_2017_greenseeker-s3-9a786e7429.webp",
+   "genislik": 765,
+   "yukseklik": 357,
+   "bayt": 45002,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/rti_2017_greenseeker.pdf",
+   "sha256": "40e7bb2fc0087335b8f956839242e0aa0c61c955eabd548a04f2e80ad1de7470",
+   "alinti": "These technicians received a bonus of 120 pesos per hectare of sensor technology transferred.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 3,
+   "sayfa_sayisi": 4,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/rti_2017_greenseeker-s3-a5aec9ce01.webp",
+   "genislik": 618,
+   "yukseklik": 288,
+   "bayt": 40598,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/simsek_2023_apts_siniflandirma.pdf",
+   "sha256": "be668b600fe1327737bc12addc93af87db84a372023c60685c92e3fcbb4b756e",
+   "alinti": "2016 yılında 30 cm çözünürlüklü ortofoto görüntüler kullanılarak ülke geneli boşluk kalmayacak şekilde APTS kapsamında sayısallaştırılmıştır.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 13,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/simsek_2023_apts_siniflandirma.pdf",
+   "sha256": "be668b600fe1327737bc12addc93af87db84a372023c60685c92e3fcbb4b756e",
+   "alinti": "LightGBM makine öğrenme algoritması kullanılarak yapılmış olup % 86,07 genel doğruluk değerine ulaşılmıştır.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 13,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/tagem_2026_faaliyet_raporu_2025.pdf",
+   "sha256": "45fd4e24e66a985eebfa003ee119de9ee20bef0b71d7eb85de539c3b5086d115",
+   "alinti": "TAGEM ’e bağlı 8 araştırma enstitüsü ve 2 üniversite iş birliğinde gerçekleştirilecek çalışmalar ile bitki hastalık ve zararlıları görüntü veri seti hazırlanacak ve derin öğrenme yöntemleri bu veri seti üzerinde eğitilecektir.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 73,
+   "sayfa_sayisi": 90,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tagem_2026_faaliyet_raporu_2025-s73-5ae078baa2.webp",
+   "genislik": 902,
+   "yukseklik": 313,
+   "bayt": 66968,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tarsim_2026_faaliyet_raporu_2025.pdf",
+   "sha256": "27e9842bbde03093c23cb37d16b25f35c69e1c1ac7de184c2e786b38ae804398",
+   "alinti": "1 Ocak 2025 Köy Bazlı Verim Sigortasında Devlet desteği %60’tan %70’e çıkarıldı.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 17,
+   "sayfa_sayisi": 128,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tarsim_2026_faaliyet_raporu_2025-s17-299ed30cc3.webp",
+   "genislik": 669,
+   "yukseklik": 246,
+   "bayt": 16646,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tarsim_2026_faaliyet_raporu_2025.pdf",
+   "sha256": "27e9842bbde03093c23cb37d16b25f35c69e1c1ac7de184c2e786b38ae804398",
+   "alinti": "Sigortalı üreticilere 35 milyar TL hasar ödemesi gerçekleştirilmiştir.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 6,
+   "sayfa_sayisi": 128,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tarsim_2026_faaliyet_raporu_2025-s6-ae0ac5e0d3.webp",
+   "genislik": 634,
+   "yukseklik": 288,
+   "bayt": 31156,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tarsim_2026_faaliyet_raporu_2025.pdf",
+   "sha256": "27e9842bbde03093c23cb37d16b25f35c69e1c1ac7de184c2e786b38ae804398",
+   "alinti": "İhbar nedenleri incelendiğinde, don hasarları, 171 bin 558 adet ihbar ile tüm hasar ihbarları içerisinde %39,8’lik oranla ilk sırada yer alırken",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 63,
+   "sayfa_sayisi": 128,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tarsim_2026_faaliyet_raporu_2025-s63-5eae4aca18.webp",
+   "genislik": 658,
+   "yukseklik": 262,
+   "bayt": 28318,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tbmae_2020_05_verim_tahmin_bulteni.pdf",
+   "sha256": "cc2d5dc1a50a23270a5656da1976ac8bac55e22a7176fd7f06e8bb14141a624c",
+   "alinti": "Elde edilen sonuçlara göre bu yıl Türkiye geneli ortalama tahmini buğday verimi 232,5 kg/da olarak hesaplanmıştır.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 21,
+   "sayfa_sayisi": 29,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tbmae_2020_05_verim_tahmin_bulteni-s21-c7427aa21c.webp",
+   "genislik": 1144,
+   "yukseklik": 225,
+   "bayt": 53236,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tbmae_2020_05_verim_tahmin_bulteni.pdf",
+   "sha256": "cc2d5dc1a50a23270a5656da1976ac8bac55e22a7176fd7f06e8bb14141a624c",
+   "alinti": "Uzun yıllar ortalama verim değerlerine göre % 7,9 azalış olacağı tahmin edilmiştir.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 21,
+   "sayfa_sayisi": 29,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tbmae_2020_05_verim_tahmin_bulteni-s21-8a39af3774.webp",
+   "genislik": 1144,
+   "yukseklik": 182,
+   "bayt": 34558,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/ticaret_hks_yonetmelik_2012_konsolide.pdf",
+   "sha256": "fb09eea44ea97f0d9f3270a4c561b82bd29272101a8590d688ff1f4c7686652d",
+   "alinti": "Bildirim miktarı: Adet ile yapılan satışlarda 150 adet, bağ ile yapılan satışlarda 50 bağ, kilogram ile yapılan satışlarda 100 kilogramı",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 15,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/ticaret_hks_yonetmelik_2012_konsolide-s1-781068c0ec.webp",
+   "genislik": 1400,
+   "yukseklik": 190,
+   "bayt": 58048,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tkb_2006_01_verim_tahmini_bulteni.pdf",
+   "sha256": "697667174c90137a472b37cae05bc2a4a419a8994b8f2f23029d42c133a18ff0",
+   "alinti": "Model her 10 günde bir çalıştırılarak o tarihe kadar olan iklim verileri değerlendirilmektedir.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 4,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tkb_2006_01_verim_tahmini_bulteni-s1-a6c7979ca6.webp",
+   "genislik": 994,
+   "yukseklik": 297,
+   "bayt": 68338,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2024_2028_stratejik_plan.pdf",
+   "sha256": "3cc06b614c2d7042f36375eea0ef979fff51b9840d015b107cdbb110fb01501d",
+   "alinti": "PG 4.5.3 İklim dostu akıllı tarım teknoloji sistemleri kullanan işletme sayısı (TRGM)** 25 0 40 150 275 425 585",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 73,
+   "sayfa_sayisi": 107,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2024_2028_stratejik_plan-s73-5f5980d00d.webp",
+   "genislik": 355,
+   "yukseklik": 218,
+   "bayt": 15580,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2025_iv_tarim_orman_surasi_g8_kirsal.pdf",
+   "sha256": "1b2ffcb5249e3fccaa5ac3986ae0b0b1430d06c70706ae9d6a5af3716d2ed299",
+   "alinti": "Ayrıca, tarım sektöründe çalışanların %68,4’ü 40 yaşın üzerindeyken genel istihdamda 40 yaşın üzerinde olanların oranı %47,1'dir (Grafik 6).",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 19,
+   "sayfa_sayisi": 60,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2025_iv_tarim_orman_surasi_g8_kirsal-s19-d2689ac33b.webp",
+   "genislik": 1138,
+   "yukseklik": 324,
+   "bayt": 56588,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2025_iv_tarim_orman_surasi_g8_kirsal.pdf",
+   "sha256": "1b2ffcb5249e3fccaa5ac3986ae0b0b1430d06c70706ae9d6a5af3716d2ed299",
+   "alinti": "TÜİK verilerine göre, tarım sektöründe istihdam edilenlerin sayısı 2014 yılında 5 milyon 220 bin iken 2023 yılında yaklaşık 800 bin kişi azalarak 4 milyon 695 bine düşmüştür (TÜİK, 2024a).",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 19,
+   "sayfa_sayisi": 60,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2025_iv_tarim_orman_surasi_g8_kirsal-s19-ac842e34b2.webp",
+   "genislik": 1138,
+   "yukseklik": 343,
+   "bayt": 76996,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2025_iv_tarim_orman_surasi_g8_kirsal.pdf",
+   "sha256": "1b2ffcb5249e3fccaa5ac3986ae0b0b1430d06c70706ae9d6a5af3716d2ed299",
+   "alinti": "Türkiye'de istihdam edilenlerin ortalama yaşı yaklaşık 39 iken tarım sektöründe çalışanların ortalama yaşı 46’dır (Grafik 5).",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 19,
+   "sayfa_sayisi": 60,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2025_iv_tarim_orman_surasi_g8_kirsal-s19-00bbc29649.webp",
+   "genislik": 1138,
+   "yukseklik": 288,
+   "bayt": 49266,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2025_ukks_iv_2024_2028.pdf",
+   "sha256": "6ba051260c224eca47cd9ebde44afaa38a43069b03fc887de12b386094773118",
+   "alinti": "Tedbir 4.1.3 Yapay zekâ, akıllı teknoloji uygulamalarının kullanımının artırılması",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 87,
+   "sayfa_sayisi": 112,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2025_ukks_iv_2024_2028-s87-29b6383d43.webp",
+   "genislik": 911,
+   "yukseklik": 461,
+   "bayt": 40052,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2025_ukks_iv_2024_2028.pdf",
+   "sha256": "6ba051260c224eca47cd9ebde44afaa38a43069b03fc887de12b386094773118",
+   "alinti": "Tedbir 5.2.3 Dijital okuryazarlığın artırılması, dijital uygulamaların kullanılması ve dijital yetkinliğin artırılmasına yönelik eğitimler verilmesi amacıyla yeni yöntemler geliştirilmesi",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 89,
+   "sayfa_sayisi": 112,
+   "yontem": "sira_disi",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2025_ukks_iv_2024_2028-s89-e4b9d49321.webp",
+   "genislik": 1205,
+   "yukseklik": 372,
+   "bayt": 46802,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2025_ukks_iv_2024_2028.pdf",
+   "sha256": "6ba051260c224eca47cd9ebde44afaa38a43069b03fc887de12b386094773118",
+   "alinti": "ÇKS kayıt sistemlerinde bulunan genç çiftçi sayısı Sayı 262.202 268.606 266.037 306.033 TOB",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 110,
+   "sayfa_sayisi": 112,
+   "yontem": "sira_disi",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2025_ukks_iv_2024_2028-s110-09d4414cbc.webp",
+   "genislik": 1192,
+   "yukseklik": 231,
+   "bayt": 25400,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2025_ukks_iv_2024_2028.pdf",
+   "sha256": "6ba051260c224eca47cd9ebde44afaa38a43069b03fc887de12b386094773118",
+   "alinti": "ÇKS kayıt sistemlerine göre ortalama işletme büyüklüğü Hektar 7,1 6,9 7,0 6,9 TOB",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 110,
+   "sayfa_sayisi": 112,
+   "yontem": "sira_disi",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2025_ukks_iv_2024_2028-s110-22704f1db0.webp",
+   "genislik": 791,
+   "yukseklik": 153,
+   "bayt": 13806,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2025_ukks_iv_2024_2028.pdf",
+   "sha256": "6ba051260c224eca47cd9ebde44afaa38a43069b03fc887de12b386094773118",
+   "alinti": "ÇKS kayıt sistemlerine göre tarımsal işletme sayısı Sayı 2.127.957 2.173.009 2.177.880 2.245.215 TOB",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 110,
+   "sayfa_sayisi": 112,
+   "yontem": "sira_disi",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2025_ukks_iv_2024_2028-s110-b8d3ec102f.webp",
+   "genislik": 1199,
+   "yukseklik": 187,
+   "bayt": 21574,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+   "sha256": "2bfe8a41636c67f1630c932caa7b84d85cfb45bb6b33185065479d08cf17d644",
+   "alinti": "15 pilot ilde “Eğiticilerin Eğitimi ve Tarım Teknolojileri ve Mekanizasyon Komite Toplantısı” gerçekleştirilmiştir.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 74,
+   "sayfa_sayisi": 148,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2026_idare_faaliyet_raporu_2025-s74-316be260a1.webp",
+   "genislik": 1388,
+   "yukseklik": 221,
+   "bayt": 35756,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+   "sha256": "2bfe8a41636c67f1630c932caa7b84d85cfb45bb6b33185065479d08cf17d644",
+   "alinti": "Bakanlığımız tarafından e-Devlet üzerinden 46 hizmet sunulmaktadır.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 13,
+   "sayfa_sayisi": 148,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2026_idare_faaliyet_raporu_2025-s13-75b7aa8f28.webp",
+   "genislik": 701,
+   "yukseklik": 295,
+   "bayt": 37424,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+   "sha256": "2bfe8a41636c67f1630c932caa7b84d85cfb45bb6b33185065479d08cf17d644",
+   "alinti": "Bakanlığımızda 17 adet mobil uygulama mevcuttur.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 13,
+   "sayfa_sayisi": 148,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2026_idare_faaliyet_raporu_2025-s13-cbf4be97b0.webp",
+   "genislik": 701,
+   "yukseklik": 355,
+   "bayt": 32928,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+   "sha256": "2bfe8a41636c67f1630c932caa7b84d85cfb45bb6b33185065479d08cf17d644",
+   "alinti": "Bakanlığımızda 185 adet web tabanlı uygulama mevcuttur.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 13,
+   "sayfa_sayisi": 148,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2026_idare_faaliyet_raporu_2025-s13-c8f7eab78c.webp",
+   "genislik": 701,
+   "yukseklik": 265,
+   "bayt": 37840,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+   "sha256": "2bfe8a41636c67f1630c932caa7b84d85cfb45bb6b33185065479d08cf17d644",
+   "alinti": "MEB protokolü iş birliği ile yürütülen çiftçi kursları başlıklarında 45.804 eğitim ve yayım faaliyetine 1.123.252 çiftçi katılmıştır.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 53,
+   "sayfa_sayisi": 148,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2026_idare_faaliyet_raporu_2025-s53-31754ee6e0.webp",
+   "genislik": 1389,
+   "yukseklik": 280,
+   "bayt": 62596,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+   "sha256": "2bfe8a41636c67f1630c932caa7b84d85cfb45bb6b33185065479d08cf17d644",
+   "alinti": "Protokol gereği 21 ilde ÇKS başvurularının alınması ve veri girişleri Ziraat Odaları tarafından yürütülmüştür.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 50,
+   "sayfa_sayisi": 148,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2026_idare_faaliyet_raporu_2025-s50-4c914ac358.webp",
+   "genislik": 1394,
+   "yukseklik": 310,
+   "bayt": 70448,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+   "sha256": "2bfe8a41636c67f1630c932caa7b84d85cfb45bb6b33185065479d08cf17d644",
+   "alinti": "Tarımsal yayım ve danışmanlık destekleme ödemesi kapsamında 493 kişi/kuruluş, 709 tarım danışmanı ve 36.831 tarımsal işletme sahibine ödeme yapılmıştır.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 48,
+   "sayfa_sayisi": 148,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2026_idare_faaliyet_raporu_2025-s48-fa744991f5.webp",
+   "genislik": 1394,
+   "yukseklik": 325,
+   "bayt": 63478,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+   "sha256": "2bfe8a41636c67f1630c932caa7b84d85cfb45bb6b33185065479d08cf17d644",
+   "alinti": "Uzaktan eğitim faaliyetlerinin yürütüldüğü Tarım Orman Akademisi’nde 2025 yılında toplam eğitim sayısı 347, eğitim içeriği sayısı 860, katılım belgeli eğitim sayısı 90, verilen belgesi sayısı 56.000 ve kayıtlı kullanıcı sayısı 100.086 olmuştur.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 53,
+   "sayfa_sayisi": 148,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2026_idare_faaliyet_raporu_2025-s53-3842af1622.webp",
+   "genislik": 1389,
+   "yukseklik": 369,
+   "bayt": 83606,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+   "sha256": "2bfe8a41636c67f1630c932caa7b84d85cfb45bb6b33185065479d08cf17d644",
+   "alinti": "Çiftçi Kayıt Sistemine kayıtlı alan Bin Hektar 17.339 16.117 93 Kısmen Ulaşıldı",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 100,
+   "sayfa_sayisi": 148,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2026_idare_faaliyet_raporu_2025-s100-1604fec2db.webp",
+   "genislik": 426,
+   "yukseklik": 193,
+   "bayt": 12332,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+   "sha256": "2bfe8a41636c67f1630c932caa7b84d85cfb45bb6b33185065479d08cf17d644",
+   "alinti": "İklim dostu akıllı tarım teknoloji sistemleri kullanan işletme sayısı (Kümülatif) Adet 410 0 0 Ulaşılamadı",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 100,
+   "sayfa_sayisi": 148,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tob_2026_idare_faaliyet_raporu_2025-s100-853ad6ebe3.webp",
+   "genislik": 449,
+   "yukseklik": 421,
+   "bayt": 21400,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tubitak_2026_tob_bagis_yz_ister.pdf",
+   "sha256": "b0465750ec5d03266b5a8509e76bcf25a00b987eee2cd54468fe0df40cca0fab",
+   "alinti": "Gemiler ortalama 10 dakikada 1 kez konum bilgisi göndermektedir.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 3,
+   "sayfa_sayisi": 6,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tubitak_2026_tob_bagis_yz_ister-s3-e3e36c84e6.webp",
+   "genislik": 902,
+   "yukseklik": 211,
+   "bayt": 53814,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tubitak_2026_tob_bagis_yz_ister.pdf",
+   "sha256": "b0465750ec5d03266b5a8509e76bcf25a00b987eee2cd54468fe0df40cca0fab",
+   "alinti": "halihazırda 12 metre ve üzerindeki 1629 balıkçı gemisine ait operasyonel veriler güncel, yapılandırılmış ve erişilebilir durumdadır.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 6,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tubitak_2026_tob_bagis_yz_ister-s1-956db66869.webp",
+   "genislik": 955,
+   "yukseklik": 236,
+   "bayt": 55472,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tubitak_2026_tob_bagis_yz_ister.pdf",
+   "sha256": "b0465750ec5d03266b5a8509e76bcf25a00b987eee2cd54468fe0df40cca0fab",
+   "alinti": "ticari su ürünleri avcılığı yapan 12 metre ve üzeri boylardaki gemilerin konum, rota ve hız bilgilerinin uydu ile GSM haberleşmesi üzerinden anlık olarak izlenmesi",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 6,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tubitak_2026_tob_bagis_yz_ister-s1-27a70ebd2a.webp",
+   "genislik": 955,
+   "yukseklik": 262,
+   "bayt": 64534,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tubitak_uzay_2026_katalog.pdf",
+   "sha256": "285ec21a37e44db4dba4ff2fcff5970005d52deba0ee4a9dca30f1927e3c59a5",
+   "alinti": "Variable rate fertilization was executed by using UAV and satellite imagery resulted in the fertilization use by 25% in test fields.",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 17,
+   "sayfa_sayisi": 25,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tubitak_uzay_2026_katalog-s17-0918755656.webp",
+   "genislik": 639,
+   "yukseklik": 316,
+   "bayt": 36106,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tubitak_uzay_2026_katalog.pdf",
+   "sha256": "285ec21a37e44db4dba4ff2fcff5970005d52deba0ee4a9dca30f1927e3c59a5",
+   "alinti": "YÖRÜNGE / ORBIT 686 km dairesel / 686 km circular",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 4,
+   "sayfa_sayisi": 25,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tubitak_uzay_2026_katalog-s4-fdd4fa4754.webp",
+   "genislik": 364,
+   "yukseklik": 160,
+   "bayt": 6012,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tubitak_uzay_2026_katalog.pdf",
+   "sha256": "285ec21a37e44db4dba4ff2fcff5970005d52deba0ee4a9dca30f1927e3c59a5",
+   "alinti": "ÇÖZÜNÜRLÜK / SPATIAL RESOLUTION PAN 0.99 m - MSI 3.96 m",
+   "nitelik": [
+    "KURUMSAL"
+   ],
+   "sayfa": 6,
+   "sayfa_sayisi": 25,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tubitak_uzay_2026_katalog-s6-81f12bf6d9.webp",
+   "genislik": 418,
+   "yukseklik": 160,
+   "bayt": 6930,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tucsap_2026_hazine_kontrolorleri_denetim_raporu.pdf",
+   "sha256": "fd5122134fbc080e68de7a6061c84e58490b10fd35397e04ebd1f2eec2d567ec",
+   "alinti": "The Loan Agreement between the Republic of Türkiye and International Bank for Reconstruction and Development (IBRD) for Türkiye Climate Smart and Competitive Agricultural Growth Project Loan Numbered 9372-TR was signed on 16.05.2022 and received a loan of € 304.800.000,00.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 4,
+   "sayfa_sayisi": 18,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tucsap_2026_hazine_kontrolorleri_denetim_raporu-s4-427c6c5d78.webp",
+   "genislik": 1059,
+   "yukseklik": 380,
+   "bayt": 59672,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/tucsap_2026_hazine_kontrolorleri_denetim_raporu.pdf",
+   "sha256": "fd5122134fbc080e68de7a6061c84e58490b10fd35397e04ebd1f2eec2d567ec",
+   "alinti": "Total Uses of Funds by Component 27,880,510.78 55,568,892.09 108,817,550.33 50.17% 39,343,471.50 304,800,000.00 12.91%",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 17,
+   "sayfa_sayisi": 18,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/tucsap_2026_hazine_kontrolorleri_denetim_raporu-s17-a94d8f60f2.webp",
+   "genislik": 762,
+   "yukseklik": 354,
+   "bayt": 25300,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/uyzs_2024_2025.pdf",
+   "sha256": "7a99b2e50dd34cd940fc57c4c3b7ec18033da14673976b4d3bf9149f9869898f",
+   "alinti": "71 Yapısal ve İş Gücü Dönüşümünü Hızlandırmak",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 14,
+   "sayfa_sayisi": 14,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/uyzs_2024_2025-s14-e17880288e.webp",
+   "genislik": 334,
+   "yukseklik": 202,
+   "bayt": 6582,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/wardami_ersahin_karahan_2024_fosfor.pdf",
+   "sha256": "2f6a66b95ab76848a50c6fe2985900f4f74b5f35c1023a78559698b92270946c",
+   "alinti": "The area has been under rainfed winter wheat production for more than 70 years.",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 10,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/wardami_ersahin_karahan_2024_fosfor.pdf",
+   "sha256": "2f6a66b95ab76848a50c6fe2985900f4f74b5f35c1023a78559698b92270946c",
+   "alinti": "The values of P av showed moderate variablity (CV= 21.3%).",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 1,
+   "sayfa_sayisi": 10,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/wardami_ersahin_karahan_2024_fosfor.pdf",
+   "sha256": "2f6a66b95ab76848a50c6fe2985900f4f74b5f35c1023a78559698b92270946c",
+   "alinti": "This study was carried out on a 300 -ha sloping farmland, located 20 km from the center of Çankırı",
+   "nitelik": [
+    "HAKEMLI"
+   ],
+   "sayfa": 2,
+   "sayfa_sayisi": 10,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": null
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "100 tesise elektronik ölçüm sistemi takılacaktır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 186,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s186-8c02c2a924.webp",
+   "genislik": 353,
+   "yukseklik": 218,
+   "bayt": 10252,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "15 ilde 3,5 milyon hektar tarım arazisinin detaylı toprak etütleri ve haritalandırılması çalışmalarına devam edilecektir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 180,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s180-0b98bee4a3.webp",
+   "genislik": 947,
+   "yukseklik": 320,
+   "bayt": 58156,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "16 bin hektar alanda mevcut açık kanal sulama şebekelerinin kapalı borulu sisteme dönüştürülmesi çalışmaları tamamlanacaktır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 185,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s185-083162d0cc.webp",
+   "genislik": 942,
+   "yukseklik": 294,
+   "bayt": 46108,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "1988 yılından 2025 yılına kadar geçen 38 yılda toplam 634.575 hektar alanın yandığı, söz konusu alanın yüzde 43,6’sının ise son beş yıl içerisinde yandığı görülmektedir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 174,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s174-e8d472fabf.webp",
+   "genislik": 867,
+   "yukseklik": 280,
+   "bayt": 57014,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "2024 yılında 22,5 milyon ton olan süt üretimi yüzde 4,9 azalarak 2025 yılında yaklaşık 21,4 milyon ton olarak gerçekleşmiştir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 171,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s171-a5c1e14bd3.webp",
+   "genislik": 880,
+   "yukseklik": 259,
+   "bayt": 49620,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "2025 yılı itibarıyla 24 milyon hektar tarım arazisinin",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 167,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s167-2643aa4fd1.webp",
+   "genislik": 880,
+   "yukseklik": 261,
+   "bayt": 39538,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "2026 yılında 119 helikopter, 28 uçak ve 14 insansız hava aracı (İHA) ile yangınlara havadan müdahale edilmiştir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 175,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s175-18e49ae0f2.webp",
+   "genislik": 879,
+   "yukseklik": 245,
+   "bayt": 53240,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "30 bin hektar alanda yağmurlama ve damla sulama gibi tarla içi modern sulama sistemlerinin kurulumuna yönelik hibe desteği verilecektir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 186,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s186-a7144287df.webp",
+   "genislik": 389,
+   "yukseklik": 268,
+   "bayt": 15088,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "6698 sayılı Kişisel Verilerin Korunması Kanununun Avrupa Birliği Veri Koruma Tüzüğü (GDPR) ile uyumlaştırılmasına yönelik çalışmalar tamamlanacaktır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 106,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s106-ca6b6d333a.webp",
+   "genislik": 941,
+   "yukseklik": 268,
+   "bayt": 41910,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "7 Eylül 2026 tarihli Resmî Gazete’de yayımlanan Kararla değiştirilmiştir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 178,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s178-35e6bb603d.webp",
+   "genislik": 880,
+   "yukseklik": 245,
+   "bayt": 49126,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Birinci derece tarımsal örgüt belgesine sahip 14 tarımsal üretici örgütü bünyesinde ortak makine parkı kurulmasına destek sağlanacaktır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 180,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s180-520da80759.webp",
+   "genislik": 946,
+   "yukseklik": 397,
+   "bayt": 60250,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Böylece zirai don kapsamında üreticilere sigorta ve destekleme mekanizmaları yoluyla toplamda yaklaşık 47 milyar TL kaynak aktarılmıştır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 179,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s179-97070b1110.webp",
+   "genislik": 879,
+   "yukseklik": 254,
+   "bayt": 53770,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Devlet destekli tarım sigortası bulunan üreticilere 23,1 milyar TL hasar tazminatı, 2025 Yılında Meydana Gelen Zirai Don Nedeniyle Ürünleri Hasar Gören Çiftçilere Destekleme Ödemesi Yapılmasına İlişkin Cumhurbaşkanı Kararı kapsamında ise 23,86 milyar TL destekleme ödemesi yapılmıştır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 179,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s179-4c2bda1593.webp",
+   "genislik": 879,
+   "yukseklik": 349,
+   "bayt": 70028,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Enerji ihtiyacı jeotermal kaynakla karşılanan 5 sera organize tarım bölgesinin altyapısı tamamlanarak yatırımcıların hizmetine sunulacaktır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 181,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s181-22c795153b.webp",
+   "genislik": 942,
+   "yukseklik": 260,
+   "bayt": 44046,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Karar Sayısı: 11934 Hazine ve Maliye Bakanlığı ile Strateji ve Bütçe Başkanlığınca hazırlanan ekli “2027 Yılı Cumhurbaşkanlığı Yıllık Programı”nın onaylanmasına karar verilmiştir. 27 Ekim 2026",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 16,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s16-35dc9d4df5.webp",
+   "genislik": 909,
+   "yukseklik": 276,
+   "bayt": 18166,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Köylerimizde nüfus yaşlanmakta olup 65 yaş ve üzeri nüfus, 634.629’u kadın olmak üzere toplam 1.159.477 kişidir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 418,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s418-76d8400258.webp",
+   "genislik": 880,
+   "yukseklik": 232,
+   "bayt": 49770,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Lisanslı Depo Sayısı Adet 265 288 295",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 263,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s263-4ff64fee21.webp",
+   "genislik": 515,
+   "yukseklik": 301,
+   "bayt": 14480,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Saha çalışmaları kapsamında 973 mahalde sayım bürosu oluşturulmuş, Bakanlık sistemlerinde kayıtlı olmayan yaklaşık 3,4 milyon hektar tarım arazisi Tarımsal Üretim Kayıt Sistemine re’sen kaydedilmiştir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 164,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s164-b2184bb835.webp",
+   "genislik": 859,
+   "yukseklik": 295,
+   "bayt": 54428,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Sistemin tahmin kapasitesinin geliştirilmesi amacıyla 2027 yılında yapay zekâ yöntemlerinden yararlanılarak kuraklık koşullarının 1-4 hafta önceden tahmin edilmesine yönelik çalışmaların başlatılması planlanmaktadır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 165,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s165-a67a3c70de.webp",
+   "genislik": 880,
+   "yukseklik": 318,
+   "bayt": 57434,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Su kısıtı olan 11 ilin 52 ilçesinde, su tüketimi az olan bazı ürünlere ilave destek verilerek yer altı su kaynaklarının sürdürülebilir kullanımının sağlanması hedeflenmektedir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 177,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s177-0813913f80.webp",
+   "genislik": 865,
+   "yukseklik": 200,
+   "bayt": 43522,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Sulama Oranı (5) Yüzde 68 71 72",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 187,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s187-f91be7fee6.webp",
+   "genislik": 978,
+   "yukseklik": 251,
+   "bayt": 39182,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Sulamaya Açılan Brüt Tarımsal Alan (Kümülatif) Milyon Hektar 7,28 7,34 7,40",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 187,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s187-57dd767baa.webp",
+   "genislik": 649,
+   "yukseklik": 208,
+   "bayt": 19036,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Sığır Varlığı İçinde Kültür Irkı Oranı Yüzde 48,8 49,0 49,5",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 187,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s187-927147fc38.webp",
+   "genislik": 462,
+   "yukseklik": 291,
+   "bayt": 15930,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Tarım Sigortası Destekleme Hizmetleri 19 200,0 23 000,0 30 000,0",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 177,
+   "sayfa_sayisi": 469,
+   "yontem": "sira_disi",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s177-0005bab0af.webp",
+   "genislik": 766,
+   "yukseklik": 182,
+   "bayt": 22356,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Tarım sektöründe çalışanların toplam istihdam içindeki payı 2025 yılında yüzde 14 iken 2026 yılının ilk yarısında ortalama yüzde 13,4 olarak gerçekleşmiştir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 163,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s163-afcf5f2ebf.webp",
+   "genislik": 879,
+   "yukseklik": 259,
+   "bayt": 48272,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Tarım sigortalarında 2026 yılında yapılan düzenlemelerle bitkisel ürünlerde don teminatına ilişkin devlet prim desteği yüzde 70'e çıkarılmıştır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 179,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s179-222888deb9.webp",
+   "genislik": 879,
+   "yukseklik": 254,
+   "bayt": 52262,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Tarım ve Orman Bakanlığı (S) 1. Dijital Sulama Yönetim Sisteminin Geliştirilmesi Projesi (DİSU) tamamlanacaktır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 186,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s186-c3ced1dbcc.webp",
+   "genislik": 945,
+   "yukseklik": 269,
+   "bayt": 38704,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Uygulamanın da etkisiyle 2024 yılında işlenmediği tespit edilen 29,5 bin hektar alanın 16,1 bin hektarında arazi sahipleri tarafından yeniden tarımsal üretime başlanmıştır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 164,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s164-492d513f3a.webp",
+   "genislik": 859,
+   "yukseklik": 248,
+   "bayt": 35554,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Yatırımın niteliğine göre hibeye esas proje tutarının yüzde 50 -70’i oranında destek sağlanması",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 179,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s179-f6dc579f14.webp",
+   "genislik": 879,
+   "yukseklik": 205,
+   "bayt": 37882,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Yatırımın niteliğine göre hibeye esas proje tutarının yüzde 50 -70’i oranında destek sağlanması, program bütçesinin en az yüzde 20’sinin kadın ve genç girişimcilerin, yüzde 30’unun ise aile işletmelerinin yatırımlarına ayrılması",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 179,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s179-b81f61cc92.webp",
+   "genislik": 879,
+   "yukseklik": 259,
+   "bayt": 50402,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Yatırımın niteliğine göre hibeye esas proje tutarının yüzde 50 -70’i oranında destek sağlanması, program bütçesinin en az yüzde 20’sinin kadın ve genç girişimcilerin, yüzde 30’unun ise aile işletmelerinin yatırımlarına ayrılması öngörülmüştür.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 179,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s179-d9f7042baf.webp",
+   "genislik": 879,
+   "yukseklik": 259,
+   "bayt": 50718,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "arazi kullanım planlarının hazırlanmasına yönelik olarak 2024 yılında 755 bin hektar alanda detaylı",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 167,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s167-fc8fd9d0ae.webp",
+   "genislik": 880,
+   "yukseklik": 225,
+   "bayt": 31902,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "sözleşmeli üretim kapsamındaki ürünlerde tarım sigortası zorunlu hale getirilmiş ve sigorta primlerinde farklı ürünler için ilave yüzde 10-15 oranında indirim sağlanmıştır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 167,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s167-9aa2dc67ee.webp",
+   "genislik": 879,
+   "yukseklik": 235,
+   "bayt": 41816,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "toplam 17 tür üretim planlamasına dâhil edilmiştir. Böylece ülkemizdeki su ürünleri üretiminin yüzde 80’i planlı üretim kapsamına alınmıştır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 173,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s173-828fb583f6.webp",
+   "genislik": 880,
+   "yukseklik": 286,
+   "bayt": 49618,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "toplam 925 bin ton/yıl kapasiteli 2.502 su ürünleri yetiştiriciliği tesisi faaliyet göstermektedir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 173,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s173-a8a9b2c107.webp",
+   "genislik": 880,
+   "yukseklik": 259,
+   "bayt": 54484,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "toprak etütleri ve haritalandırma çalışmaları tamamlanmıştır. 2026 yılı sonu itibarıyla ise ilave 2,4 milyon hektar alandaki çalışmaların tamamlanması öngörülmektedir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 168,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s168-c616a2e608.webp",
+   "genislik": 880,
+   "yukseklik": 201,
+   "bayt": 24594,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "yaklaşık 28 bin personel ve 142 bini aşan gönüllü ile orman yangınlarına müdahale edilmektedir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 175,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s175-2e429bf23a.webp",
+   "genislik": 880,
+   "yukseklik": 259,
+   "bayt": 50334,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "yüzde 41,1’i ise nedeni tespit edilemeyen yangınlardır",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 174,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s174-902e1abdbb.webp",
+   "genislik": 867,
+   "yukseklik": 186,
+   "bayt": 33948,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Çalışmaların devam ettiği 6,8 milyon hektarlık proje sahasının 3,5 milyon hektarlık bölümünün 2027 yılında, kalan 3,3 milyon hektarlık bölümünün ise 2028 yılında tamamlanması öngörülmektedir.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 168,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s168-caa271ee10.webp",
+   "genislik": 880,
+   "yukseklik": 259,
+   "bayt": 46196,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Öncelik seti çerçevesinde 61 bin hektar alan sulamaya açılacaktır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 185,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s185-f920348be3.webp",
+   "genislik": 931,
+   "yukseklik": 195,
+   "bayt": 28444,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Ülkemizde 2025 yılında 3.224 yangında 81.473 hektar ve 2026 yılının ilk dokuz ayında 2.009 orman yangınında 24.451 hektar orman alanı yanmıştır.",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 174,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s174-c444cb0e85.webp",
+   "genislik": 867,
+   "yukseklik": 273,
+   "bayt": 53644,
+   "donus": 0
+  },
+  {
+   "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "alinti": "Ülkemizde son 10 yıllık dönemde çıkan orman yangınlarının adet olarak yaklaşık",
+   "nitelik": [
+    "RESMI"
+   ],
+   "sayfa": 174,
+   "sayfa_sayisi": 469,
+   "yontem": "tam",
+   "kapsama": 1,
+   "kesit": "web/yz/makbuz/yillik_program_2027-s174-5b189373f9.webp",
+   "genislik": 867,
+   "yukseklik": 227,
+   "bayt": 44348,
+   "donus": 0
+  }
+ ]
+}
