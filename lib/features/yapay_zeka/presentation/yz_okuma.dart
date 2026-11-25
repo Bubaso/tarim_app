@@ -181,7 +181,7 @@ class YzGiris {
   static String? _giris;
   static DateTime? _zaman;
 
-  /// merkez / serit / devam / arama / sozluk / komsu / bildirim.
+  /// merkez / serit / devam / arama / sozluk / komsu / bildirim / haber.
   static void isaretle(String giris) {
     _giris = giris;
     _zaman = DateTime.now();

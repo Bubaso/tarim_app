@@ -293,6 +293,26 @@ class YzDeposu {
     }
   }
 
+  /// OKUR TARAFI — haberin bu bölümde bağlandığı başlığın numarası; etiket
+  /// yoksa, aktif değilse ya da sorgu düşerse null. Haber sayfasındaki "bu
+  /// haberin arka planı" kartı için (kullanıcı, 25 Kasım 2026). Okurun RLS'i
+  /// yalnız aktif etiketi veriyor; sorgu yine de açıkça süzüyor.
+  Future<int?> haberinBasligi(String articleId) async {
+    try {
+      final m = await _db
+          .from('bolum_etiketleri')
+          .select('baslik_no')
+          .eq('article_id', articleId)
+          .eq('bolum', kYzBolumu)
+          .eq('durum', 'aktif')
+          .maybeSingle()
+          .timeout(const Duration(seconds: 8));
+      return (m?['baslik_no'] as num?)?.toInt();
+    } catch (_) {
+      return null;
+    }
+  }
+
   Future<YzEtiket?> _tekEtiket(String articleId) async {
     try {
       final m = await _db
