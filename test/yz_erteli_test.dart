@@ -65,6 +65,10 @@ const _agir = [
   'lib/features/yapay_zeka/presentation/yz_atlas_ekrani.dart',
   // "Uzaydan bugün" canlı uydu penceresi: yalnız bölüm metninin çizicisinden.
   'lib/features/yapay_zeka/presentation/yz_uzaydan_bugun.dart',
+  // Rakamın makbuzu: sayfa ve kesit tablosu ile tam ekran görüntüleyici
+  // yalnız erteli (balondan; yz_gorsel_tam_ekran.dart ilk yükte, ona ek yok).
+  'lib/features/yapay_zeka/data/yz_makbuz.g.dart',
+  'lib/features/yapay_zeka/presentation/yz_makbuz.dart',
 ];
 
 void main() {

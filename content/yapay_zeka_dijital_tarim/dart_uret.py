@@ -666,6 +666,16 @@ def main() -> int:
         return 1
     _atlas.CIKIS.write_text(_atlas.dart_kaynagi(atlas), encoding="utf-8")
 
+    # ── rakamın makbuzu (25 Kasım 2026) ──────────────────────────────────
+    # _raw/makbuz.json + rakam eşlemesi → yz_makbuz.g.dart. Sayfaları ve
+    # kesitleri _raw/makbuz_uret.py üretiyor (Swift ve Pillow ister; burada
+    # yalnız gömülüyor); kural 19 aynı içeriği yeniden kurup karşılaştırıyor.
+    _sp = _iu.spec_from_file_location("makbuz_uret", raw / "makbuz_uret.py")
+    _makbuz = _iu.module_from_spec(_sp)
+    _sp.loader.exec_module(_makbuz)
+    _makbuz.CIKIS.write_text(_makbuz.dart_kaynagi(), encoding="utf-8")
+    _mo = _makbuz.ozet()
+
     haber = sum(1 for x in b if x["haber_alir"])
     print(f"✓ {CIKIS.relative_to(KOK)} · {len(b)} başlık, {haber} haber alıyor")
     print(f"✓ {RK.relative_to(KOK)} · {sum(e for e, _ in kapsama.values())}/{sum(t for _, t in kapsama.values())} kalın rakam kaynağa bağlı")
@@ -676,6 +686,8 @@ def main() -> int:
     print(f"✓ {CEK.relative_to(KOK)} · {len(cekmeler)} öne çıkan cümle")
     print(f"✓ {_atlas.CIKIS.relative_to(KOK)} · {len(atlas['iller'])} il, "
           f"{len(atlas['dosya'])} dosya + {len(atlas['dizin'])} dizin kaydı")
+    print(f"✓ {_makbuz.CIKIS.relative_to(KOK)} · {_mo['cift']} alıntı · sayfası bulunan {_mo['sayfa']} · "
+          f"kesitli {_mo['kesit']}")
     print(f"✓ {TEK.relative_to(KOK)} · {sayfa_sayisi} teknoloji sayfası, {not_sayisi} kesişim notu")
     print(f"✓ {METIN.relative_to(KOK)} · {yazilan} yazılmış başlık gömüldü")
     print(f"✓ {SOZLUK.relative_to(KOK)} · {len(terimler)} terim")
