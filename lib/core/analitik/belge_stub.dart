@@ -6,3 +6,6 @@ String? belgeBasligi() => null;
 
 /// Web dışı: sayfa açılış saati yok.
 double? belgeSuresiMs() => null;
+
+/// Web dışı: `dataLayer` yok.
+void dataLayerOlayi(String olay) {}

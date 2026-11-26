@@ -1,5 +1,7 @@
 // ignore_for_file: deprecated_member_use
 import 'dart:async' show Timer;
+import '../../../../core/analitik/analitik.dart';
+import '../../../../core/analitik/belge.dart';
 import 'dart:ui';
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:tarim_app/core/theme/brand_icons.dart';
@@ -149,6 +151,23 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
     // Bayrak beklemeden kalkıyor: aşağıdaki asenkron adım sürerken yeni
     // kaydırma olayları gelir ve aynı istek birden çok kez yola çıkardı.
     _viewCounted = true;
+
+    // ── ÖLÇÜM ────────────────────────────────────────────────────────────
+    // "Haber okundu" olayı TAM BURADAN çıkıyor: açılıştan değil, yukarıdaki
+    // iki koşul birlikte sağlandıktan sonra. Yani Google Ads'in göreceği
+    // dönüşüm, portalın kendi okuma tanımıyla birebir aynı — iki ayrı eşik
+    // tutmuyoruz.
+    //
+    // NEDEN UYGULAMADAN. Etiket Yöneticisi bu sitede okumayı kendi başına
+    // göremiyor: Flutter/CanvasKit'te belge hiç kaydırılmıyor, uygulama içi
+    // gezinme adresi değiştirmiyor ve tutunacak DOM öğesi yok. Ölçüldü
+    // (26 Kasım 2026): GTM'in kaydırma, geçmiş ve tıklama tetikleyicilerinin
+    // hiçbiri ateşlenmiyor. Sinyali ancak uygulama verebilir.
+    //
+    // Oturum açmış editör yukarıda zaten elendi; reklam dönüşümü de onun
+    // kendi okumasıyla şişmiyor.
+    analitikOlay('haber_okundu', {'haber_id': widget.article.id});
+    dataLayerOlayi('haber_okundu');
 
     // `ref` senkron okunuyor — ekran kapandıktan sonra `ref.read` çağrılamaz.
     final repository = ref.read(homeRepositoryProvider);
