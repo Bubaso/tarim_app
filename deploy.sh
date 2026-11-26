@@ -624,4 +624,73 @@ NODE_OPTIONS="--max-old-space-size=8192" \
 FUNCTIONS_DISCOVERY_TIMEOUT=120 \
   firebase deploy --only "$TARGETS"
 
+
+# ── SSR KABUĞU BEKÇİSİ (26 Kasım 2026) ────────────────────────────────────
+#
+# NE OLDU. 22 Kasım'da Google etiketi `web/index.html`e eklendi (c8ac7ad) ve
+# site `--hosting` ile dağıtıldı. Etiket statik sayfalara çıktı. Ama
+# `/haber/**`, `/kategori/**` ve `/hafta/**` adreslerini Hosting değil
+# ogRenderer · categoryRenderer · weekRenderer karşılıyor; o fonksiyonlar
+# KENDİ paketlerindeki `shell.html` kopyasını sunuyor. Fonksiyonlar
+# dağıtılmadığı için o kopya 22 Kasım öncesinde kaldı. Sonuç: dört gün
+# boyunca her HABER sayfası etiketsiz açıldı — ne ölçüm vardı, ne Ads
+# dönüşümü. Üstelik reklam açılış sayfalarından biri tam da oradaydı.
+#
+# Hiçbir mevcut bekçi bunu göremezdi: derleme doğru, hosting doğru,
+# yerel `functions/shell.html` doğru. Yanlış olan yalnızca CANLIDAKİ
+# fonksiyon paketiydi. O yüzden bu kontrol dağıtımdan SONRA ve CANLIDAN
+# yapılıyor — tek güvenilir tanık canlının kendisi.
+#
+# Sorgu dizesi şart: SSR yanıtları `s-maxage=3600` ile CDN'de duruyor,
+# damgasız istek az önce dağıtılan kabuğu değil eski kopyayı getirir.
+CANLI_ADRES="https://tarimportali.net"
+etiket_kimligi=$(grep -oE 'GTM-[A-Z0-9]+' build/web/index.html | head -1 || true)
+
+if [[ -z "$etiket_kimligi" ]]; then
+  echo "  · derlemede Google etiketi yok — SSR kabuğu denetimi atlandı"
+else
+  echo "▸ Canlı SSR kabuğu denetleniyor (${etiket_kimligi})…"
+
+  ornek_haber=$(curl -fsS --max-time 25 "${CANLI_ADRES}/sitemap.xml" 2>/dev/null \
+    | grep -oE "${CANLI_ADRES}/haber/[^<]+" | head -1 || true)
+  ssr_adresler="${CANLI_ADRES}/kategori/turkiye"
+  [[ -n "$ornek_haber" ]] && ssr_adresler="$ssr_adresler $ornek_haber"
+
+  eski_kabuk=""
+  for deneme in 1 2; do
+    eski_kabuk=""
+    damga=$(date +%s)
+    for adres in $ssr_adresler; do
+      govde=$(curl -fsS --max-time 30 "${adres}?bekci=${damga}" 2>/dev/null || true)
+      if [[ -z "$govde" ]]; then
+        echo "  ! okunamadı: $adres" >&2
+      elif printf '%s' "$govde" | grep -q "$etiket_kimligi"; then
+        [[ $deneme -eq 1 ]] && echo "  ✓ etiketli: ${adres#$CANLI_ADRES}"
+      else
+        eski_kabuk="$eski_kabuk ${adres#$CANLI_ADRES}"
+      fi
+    done
+    [[ -z "$eski_kabuk" ]] && break
+    # Fonksiyon yayılımı birkaç saniye sürebiliyor; bir kez daha bakıyoruz.
+    [[ $deneme -eq 1 ]] && { echo "  · kabuk henüz eski görünüyor, 20 sn sonra yeniden…"; sleep 20; }
+  done
+
+  if [[ -n "$eski_kabuk" ]]; then
+    echo "" >&2
+    echo "✗ CANLI SSR KABUĞU ESKİ — bu sayfalar Google etiketi TAŞIMIYOR:" >&2
+    for a in $eski_kabuk; do echo "      • $a" >&2; done
+    echo "" >&2
+    echo "  Site dağıtıldı, ama /haber · /kategori · /hafta adreslerini" >&2
+    echo "  fonksiyonlar karşılıyor ve onların shell.html kopyası eski." >&2
+    echo "  Bu hâliyle habere doğrudan giren ziyaretçi HİÇ ölçülmez;" >&2
+    echo "  reklam dönüşümü de sayılmaz." >&2
+    echo "" >&2
+    echo "  Yapılacak:" >&2
+    echo "      ./deploy.sh --fn=ogRenderer,categoryRenderer,weekRenderer" >&2
+    echo "" >&2
+    exit 1
+  fi
+  echo "  ✓ canlı SSR kabuğu derlemeyle aynı etiketi taşıyor"
+fi
+
 echo "✓ Bitti — https://tarim-app-2026.web.app"
