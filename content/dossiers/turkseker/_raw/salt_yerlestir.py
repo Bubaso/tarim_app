@@ -47,7 +47,7 @@ S = [
      "Harvesting in a sugar beet field. The front of the photocard reads "
      "“gathering beet for the factory”."),
     ("salt_pancar_hasadi_002.jpg", "galeri_salt_hasat_mektup", "tarla",
-     "Aynı fotokartın arka yüzü: Azize'nin ablası Betül'e mektubu.",
+     "Aynı fotokartın arka yüzü: Azize'den kardeşi Betül'e mektup.",
      "The reverse of the same photocard: a letter from Azize to her sister Betül."),
 
     # ── YÜKLEME ───────────────────────────────────────────────────────

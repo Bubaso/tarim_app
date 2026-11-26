@@ -55,7 +55,7 @@ yıl sonra atıldı.
 İlk yılların fotokartlarından biri. Ön yüzünde "Fabrika için pancar
 toplanırken" yazıyor.
 
-Arka yüzünde bir mektup var: Azize, ablası Betül'e yazmış. Fotokart Salt
+Arka yüzünde bir mektup var: Azize, kardeşi Betül'e yazmış. Fotokart Salt
 Araştırma'nın arşivinde.
 
 ### IV · Tek çatı
@@ -192,7 +192,7 @@ yapılıyor, kredi harcamıyor, kadrajın denetimi bizde kalıyor.
 | 4 | `turkseker_usak_hisse` | Uşak Terakki Ziraat Türk Anonim Şirketi'nin hisse senedi, 1926. | Maderibeyza · Public domain |
 | 5 | `turkseker_usak_disaridan` | Uşak Şeker Fabrikası, kuruluş dönemi. Mehmet Hacım'ın arşivinden; torunu Tanju Bilgen'in kamuya bağışı. | The original uploader was chansey at Turkish Wikipedia · Mehmet Hacım'a ait olan bu resimler torunu Tanju Bilgen tarafından kamuya bağışlanmıştır · CC0 |
 | 6 | `galeri_salt_hasat` | Şeker pancarı tarlasında hasat yapılırken. Fotokartın ön yüzünde “Fabrika için pancar toplanırken” yazıyor. | Şeker pancarı tarlasında hasat yapılırken · AFDIVH215 · Salt Araştırma · CC BY-NC-ND 4.0 |
-| 7 | `galeri_salt_hasat_mektup` | Aynı fotokartın arka yüzü: Azize'nin ablası Betül'e mektubu. | Şeker pancarı tarlasında hasat yapılırken · AFDIVH215 · Salt Araştırma · CC BY-NC-ND 4.0 |
+| 7 | `galeri_salt_hasat_mektup` | Aynı fotokartın arka yüzü: Azize'den kardeşi Betül'e mektup. | Şeker pancarı tarlasında hasat yapılırken · AFDIVH215 · Salt Araştırma · CC BY-NC-ND 4.0 |
 | 8 | `galeri_salt_turhal` | Turhal Şeker Fabrikası. Turhal, Tokat. | Turhal Şeker Fabrikası · AHTOK001 · Salt Araştırma · CC BY-NC-ND 4.0 |
 | 9 | `galeri_salt_silo` | Alpullu Şeker Fabrikası. | Alpullu Şeker Fabrikası · AHKIR008 · Salt Araştırma · CC BY-NC-ND 4.0 |
 | 10 | `galeri_tarla_pelet_tohum` | Pelet kaplı şeker pancarı tohumu. | Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
@@ -234,7 +234,7 @@ Hiçbir rakam ve hiçbir ad hafızadan yazılmadı.
 | hemşehrilerinin biriktirdiği sermaye | §2 üçüncü paragraf |
 | temel 6 Kasım 1925 (iki yıl sonra) | §2 |
 | fotokartın ön yüzündeki yazı | galeri karesi `galeri_salt_hasat` altyazısı |
-| Azize'nin ablası Betül'e mektubu | galeri karesi `galeri_salt_hasat_mektup` altyazısı |
+| Azize'den kardeşi Betül'e mektup | karenin altyazısı · imza: "ablan Azize" |
 | Salt Araştırma · AFDIVH215 | aynı karenin künyesi |
 | 6 Temmuz 1935 · Alpullu, Uşak, Eskişehir, Turhal | §3 ilk paragraf · `data.json/kimlik.sirket_kurulus` |
 | 1950'ye kadar dört fabrika | §3 ikinci paragraf |

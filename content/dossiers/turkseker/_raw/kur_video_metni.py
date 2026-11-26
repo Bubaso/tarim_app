@@ -123,7 +123,7 @@ yıl sonra atıldı.
 İlk yılların fotokartlarından biri. Ön yüzünde "Fabrika için pancar
 toplanırken" yazıyor.
 
-Arka yüzünde bir mektup var: Azize, ablası Betül'e yazmış. Fotokart Salt
+Arka yüzünde bir mektup var: Azize, kardeşi Betül'e yazmış. Fotokart Salt
 Araştırma'nın arşivinde.
 """),
     ("IV · Tek çatı", """
@@ -205,7 +205,7 @@ DAYANAK = [
     ("hemşehrilerinin biriktirdiği sermaye", "§2 üçüncü paragraf"),
     ("temel 6 Kasım 1925 (iki yıl sonra)", "§2"),
     ("fotokartın ön yüzündeki yazı", "galeri karesi `galeri_salt_hasat` altyazısı"),
-    ("Azize'nin ablası Betül'e mektubu", "galeri karesi `galeri_salt_hasat_mektup` altyazısı"),
+    ("Azize'den kardeşi Betül'e mektup", "karenin altyazısı · imza: \"ablan Azize\""),
     ("Salt Araştırma · AFDIVH215", "aynı karenin künyesi"),
     ("6 Temmuz 1935 · Alpullu, Uşak, Eskişehir, Turhal", "§3 ilk paragraf · `data.json/kimlik.sirket_kurulus`"),
     ("1950'ye kadar dört fabrika", "§3 ikinci paragraf"),

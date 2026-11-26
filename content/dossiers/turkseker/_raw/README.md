@@ -1007,7 +1007,7 @@ Kullanıcı başka kaynak yetkilendirmek istedi. Taradım; **SALT Araştırma**
 
 - **"Şeker pancarı tarlasında hasat yapılırken"** — fotokart, siyah beyaz,
   14×8,8 cm, kod `AFDIVH215`. Kartın ön yüzünde *"Fabrika için pancar
-  toplanırken"* yazıyor; arka yüzünde Azize'nin ablası Betül'e mektubu var.
+  toplanırken"* yazıyor; arka yüzünde Azize'den kardeşi Betül'e mektup var.
 - **"Uşak Şeker Fabrikası'na gelen şeker pancarları vagonlardan aktarılırken"**
 - **"Uşak Şeker Fabrikası'nın makine dairesi ve çalışanları"**
 - Etimesgut Kompleksi fotoğrafları (Ali Mukbil Gökdoğan), Alpullu, Turhal,
@@ -1070,7 +1070,7 @@ sayfasındaki `dataItemFiles` dizisinden okundu ve `salt_kayitlari.json`'a
 yazıldı. Kalan kayıtlarda kaydın başlığı geçerli. **Karede ne görüldüğü
 tahlil edilmedi** — künye kuralı.
 
-İki kare bilerek arka yüz: Azize'nin ablası Betül'e mektubu ve "Pancar
+İki kare bilerek arka yüz: Azize'den kardeşi Betül'e mektup ve "Pancar
 silolarının su tazyiki ile tahliyesi, Alpullu" diye elle yazılmış künye.
 İkisi de birer belge ve altyazıları bunu söylüyor.
 
