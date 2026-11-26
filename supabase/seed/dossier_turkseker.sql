@@ -3,9 +3,9 @@
 -- ÜRETİLMİŞ DOSYA — elle düzenlemeyin.
 -- Kaynak:  content/dossiers/turkseker/
 -- Üretim:  node content/dossiers/seed_dossier.mjs turkseker
--- Tarih:   2026-11-24T11:34:25.384Z
+-- Tarih:   2026-11-26T13:25:18.575Z
 --
--- Bölüm: 22 · TR ~5.164 kelime · EN ~7.070 kelime
+-- Bölüm: 22 · TR ~5.172 kelime · EN ~7.086 kelime
 -- Metindeki her rakam data.json'dan, data.json _raw/'dan geliyor.
 --
 -- Yeniden çalıştırılabilir: dosyayı günceller, bölümleri silip yeniden yazar.
@@ -35,10 +35,10 @@ values (
   null,
   null,
   null,
-  'draft',
+  'published',
   '2026-11-25T21:00:00Z'::timestamptz,
   ('2026-11-25T21:00:00Z'::timestamptz + interval '14 days'),
-  null
+  now()
 )
 on conflict (slug) do update set
   name_tr      = excluded.name_tr,
@@ -196,9 +196,10 @@ Bugünkü sahiplik yapısı bunun uzağında: sermayenin tamamı 2021'den bu yan
 Türkiye Varlık Fonu'nda ve kurum Tarım ve Orman Bakanlığı ile ilgilendirilmiş
 durumda.
 
-Bugün Uşak'ta pancar şekeri üreten bir fabrika bulunmuyor. 2025/26 pazarlama
-yılında kota tahsis edilen 15 üreticinin listesinde Uşak yok. Buna karşılık
-kurumun gayrimenkul kayıtlarında Uşak hâlâ duruyor.$dsr$, $dsr$Efforts to build a sugar factory in Türkiye were first begun by a farmer from
+Uşak'ta kurulan fabrika hâlâ çalışıyor ve kurucusunun adını taşıyor: Nuri
+Şeker Uşak Şeker Fabrikası. TÜRKŞEKER'in on dört fabrikasından biri; 2026/27
+kampanyası 22 Eylül 2026'da, fabrikanın **101**'inci kampanyası olarak
+açıldı.$dsr$, $dsr$Efforts to build a sugar factory in Türkiye were first begun by a farmer from
 Uşak named **Molla Ömeroğlu Nuri**. The surname he took after the surname law
 was Şeker — sugar.
 
@@ -249,9 +250,10 @@ distance from that: since 2021 the entire capital has been held by the
 Türkiye Wealth Fund, and the institution is attached to the Ministry of
 Agriculture and Forestry.
 
-There is no beet sugar factory at Uşak today. Uşak does not appear among the
-15 producers allocated quota for the 2025/26 marketing year. The
-institution's property records, however, still list Uşak.$dsr$, '{}'::text[], 'belge', $dsr${"url":"https://tarimportali.net/dosya/turkseker/turkseker_usak_kurucular.jpg","atif":"The original uploader was chansey at Turkish Wikipedia — CC0","kaynak":null,"alt_tr":"Uşak Şeker Fabrikası'nın kurucuları. Tanju Bilgen'in kamuya bağışı. Kaynak çekim tarihini kaydetmiyor.","alt_en":"The founders of the Uşak Sugar Factory. Donated to the public by Tanju Bilgen. The source does not record when it was taken.","en_boy":1.3333}$dsr$::jsonb),
+The factory built at Uşak is still running, and it carries its founder's
+name: Nuri Şeker Uşak Sugar Factory. It is one of TÜRKŞEKER's fourteen
+factories; the 2026/27 campaign opened on 22 September 2026 as the
+factory's **101st**.$dsr$, '{}'::text[], 'belge', $dsr${"url":"https://tarimportali.net/dosya/turkseker/turkseker_usak_kurucular.jpg","atif":"The original uploader was chansey at Turkish Wikipedia — CC0","kaynak":null,"alt_tr":"Uşak Şeker Fabrikası'nın kurucuları. Tanju Bilgen'in kamuya bağışı. Kaynak çekim tarihini kaydetmiyor.","alt_en":"The founders of the Uşak Sugar Factory. Donated to the public by Tanju Bilgen. The source does not record when it was taken.","en_boy":1.3333}$dsr$::jsonb),
   (3, $dsr$Dört fabrika, tek çatı$dsr$, $dsr$Four factories, one roof$dsr$, $dsr$6 Temmuz 1935'te Alpullu, Uşak, Eskişehir ve Turhal fabrikaları tek şirkete
 devredildi. Ortaklar üç milli bankaydı ve payları eşitti.
 
@@ -1452,8 +1454,9 @@ Genel müdürün anlattığına göre fabrikalardan birinde elektrik üretiminde
 kullanılan bir türbin yaklaşık bir asırdır görevde.
 
 Kampanya sayıları da bu sürekliliğin sayacı. Uşak ve Alpullu'da — ilk iki
-fabrikada — **101**'inci kampanya yürütülüyor. İki fabrika da artık
-TÜRKŞEKER'e ait değil; ama bacaları tütüyor ve sayaç işliyor.
+fabrikada — **101**'inci kampanya yürütülüyor. Uşak hâlâ TÜRKŞEKER'in;
+Alpullu 2018'de satıldı ve üretimi başka bir şirket sürdürüyor. İkisinin de
+bacası tütüyor ve sayaç işliyor.
 
 Ankara Şeker Fabrikası'nın yeri ayrı. Kurumun tarifiyle "yerli imkânlarla
 kurulan ilk şeker fabrikamız": "Burası, Türkiye'nin 'şeker fabrikasını ben
@@ -1487,8 +1490,9 @@ electricity in one of the factories has been at work for roughly a century.
 
 The campaign numbers are a counter of the same continuity. At Uşak and
 Alpullu — the first two factories — the **101st** campaign is under way.
-Neither belongs to TÜRKŞEKER any longer; but their chimneys are smoking and
-the counter is running.
+Uşak still belongs to TÜRKŞEKER; Alpullu was sold in 2018 and another
+company runs production there now. Both chimneys are smoking and the
+counter is running.
 
 The Ankara Sugar Factory stands apart. In the company's description it is
 "the first sugar factory we built with domestic means": "This is where

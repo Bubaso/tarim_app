@@ -89,9 +89,10 @@ distance from that: since 2021 the entire capital has been held by the
 Türkiye Wealth Fund, and the institution is attached to the Ministry of
 Agriculture and Forestry.
 
-There is no beet sugar factory at Uşak today. Uşak does not appear among the
-15 producers allocated quota for the 2025/26 marketing year. The
-institution's property records, however, still list Uşak.
+The factory built at Uşak is still running, and it carries its founder's
+name: Nuri Şeker Uşak Sugar Factory. It is one of TÜRKŞEKER's fourteen
+factories; the 2026/27 campaign opened on 22 September 2026 as the
+factory's **101st**.
 
 ## 3. Four factories, one roof
 
@@ -779,8 +780,9 @@ electricity in one of the factories has been at work for roughly a century.
 
 The campaign numbers are a counter of the same continuity. At Uşak and
 Alpullu — the first two factories — the **101st** campaign is under way.
-Neither belongs to TÜRKŞEKER any longer; but their chimneys are smoking and
-the counter is running.
+Uşak still belongs to TÜRKŞEKER; Alpullu was sold in 2018 and another
+company runs production there now. Both chimneys are smoking and the
+counter is running.
 
 The Ankara Sugar Factory stands apart. In the company's description it is
 "the first sugar factory we built with domestic means": "This is where

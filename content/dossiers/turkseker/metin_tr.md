@@ -87,9 +87,10 @@ Bugünkü sahiplik yapısı bunun uzağında: sermayenin tamamı 2021'den bu yan
 Türkiye Varlık Fonu'nda ve kurum Tarım ve Orman Bakanlığı ile ilgilendirilmiş
 durumda.
 
-Bugün Uşak'ta pancar şekeri üreten bir fabrika bulunmuyor. 2025/26 pazarlama
-yılında kota tahsis edilen 15 üreticinin listesinde Uşak yok. Buna karşılık
-kurumun gayrimenkul kayıtlarında Uşak hâlâ duruyor.
+Uşak'ta kurulan fabrika hâlâ çalışıyor ve kurucusunun adını taşıyor: Nuri
+Şeker Uşak Şeker Fabrikası. TÜRKŞEKER'in on dört fabrikasından biri; 2026/27
+kampanyası 22 Eylül 2026'da, fabrikanın **101**'inci kampanyası olarak
+açıldı.
 
 ## 3. Dört fabrika, tek çatı
 
@@ -743,8 +744,9 @@ Genel müdürün anlattığına göre fabrikalardan birinde elektrik üretiminde
 kullanılan bir türbin yaklaşık bir asırdır görevde.
 
 Kampanya sayıları da bu sürekliliğin sayacı. Uşak ve Alpullu'da — ilk iki
-fabrikada — **101**'inci kampanya yürütülüyor. İki fabrika da artık
-TÜRKŞEKER'e ait değil; ama bacaları tütüyor ve sayaç işliyor.
+fabrikada — **101**'inci kampanya yürütülüyor. Uşak hâlâ TÜRKŞEKER'in;
+Alpullu 2018'de satıldı ve üretimi başka bir şirket sürdürüyor. İkisinin de
+bacası tütüyor ve sayaç işliyor.
 
 Ankara Şeker Fabrikası'nın yeri ayrı. Kurumun tarifiyle "yerli imkânlarla
 kurulan ilk şeker fabrikamız": "Burası, Türkiye'nin 'şeker fabrikasını ben
