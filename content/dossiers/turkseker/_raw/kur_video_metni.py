@@ -66,6 +66,51 @@ KARARLAR = [
     ("Dil", "Yalnız Türkçe"),
 ]
 
+# ── FLOW İSTEMLERİ ───────────────────────────────────────────────────────
+# İngilizce, çünkü Omni İngilizce istemlerde belirgin biçimde daha itaatkâr.
+#
+# EN ÖNEMLİ KISIM YASAKLAR. Omni'nin varsayılan eğilimi kareyi CANLANDIRMAK:
+# duran insanları yürütüyor, bacadan duman çıkarıyor, yüz ifadesi
+# değiştiriyor. Arşiv fotoğrafında bunların hepsi uydurmadır — dosyanın
+# "kaynağı olmayan bilgi yayına çıkmaz" kuralı burada da geçerli. İstemin
+# yarısı bu yüzden ne YAPILMAYACAĞINI söylüyor.
+#
+# Kamera hareketi sanal: duran bir fotoğrafın üzerinde kaydırma ve yaklaşma.
+ORTAK = ("Still archival photograph, locked content. "
+         "Do NOT animate anything inside the photograph: no moving people, "
+         "no changing faces, no drifting smoke, no flowing water, no blinking, "
+         "no new objects, no altered or re-rendered text. "
+         "The photograph is a flat still image; only the virtual camera moves. "
+         "Very slow, smooth, constant-speed move with no easing jolt, "
+         "no handheld shake, no rack focus, no style change, no colour grading shift. "
+         "Documentary restraint.")
+
+ISTEM = {
+ 1: "Extremely slow push in toward the centre of the album page.",
+ 2: "Very slow lateral drift to the left across the station building.",
+ 3: "Extremely slow push in toward the faces in the group portrait.",
+ 4: "Slow vertical drift downward across the printed share certificate.",
+ 5: "Almost imperceptible push in on the factory building.",
+ 6: "Extremely slow push in toward the harvest group in the field.",
+ 7: "Slow vertical drift downward across the handwritten letter.",
+ 8: "Very slow lateral drift to the right across the factory.",
+ 9: "Slow vertical drift upward from the base of the silo toward its top.",
+ 10: "Extremely slow macro push in toward the pelleted seeds in the hand.",
+ 11: "Slow push in toward the table and the papers being signed.",
+ 12: "Extremely slow push in toward the grower holding the beets.",
+ 13: "Slow push in toward the harvester in the field.",
+ 14: "Slow push in toward the water jet and the beet pile.",
+ 15: "Slow macro push in toward the pouring molasses.",
+ 16: "Slow push in toward the sacks being filled.",
+ 17: "Very slow lateral drift to the right across the factory panorama.",
+ 18: "Slow push in toward the beet yard and the trucks.",
+ 19: "Extremely slow macro push in toward the printed wording on the label.",
+ 20: "Extremely slow push in toward the framed wooden relief.",
+ 21: "Extremely slow push in across the irrigated field, "
+     "fading to black over the final second.",
+}
+
+
 # ── ÇEKİM LİSTESİ ────────────────────────────────────────────────────────
 # (bölüm, kimlik, saniye, hareket)
 PLAN = [
@@ -367,6 +412,23 @@ def main():
     y.append("**Toplam: %d saniye (%d:%02d).**"
              % (toplam_kart, toplam_kart // 60, toplam_kart % 60))
     y.append("")
+    y.append("## Flow istemleri")
+    y.append("")
+    y.append("İngilizce, çünkü Omni İngilizce istemlerde belirgin biçimde daha")
+    y.append("itaatkâr. İstemin yarısı YASAK: Omni'nin varsayılan eğilimi kareyi")
+    y.append("canlandırmak — duran insanları yürütüyor, bacadan duman çıkarıyor,")
+    y.append("yüz değiştiriyor. Arşiv fotoğrafında bunların hepsi uydurma olur.")
+    y.append("")
+    y.append("Her istemin sonuna şu ortak blok ekleniyor:")
+    y.append("")
+    y.append("> " + ORTAK)
+    y.append("")
+    y.append("| # | kare | istem (ortak blok hariç) |")
+    y.append("|---|---|---|")
+    for n, _, kimlik, _, _, _, _ in satirlar:
+        y.append("| %d | `%s` | %s |"
+                 % (n, kimlik.replace(" ▲", ""), ISTEM[n]))
+    y.append("")
     y.append("## Dikey kareler")
     y.append("")
     y.append("16:9 kadraja kırpmak bunları mahveder. Dosyanın kendi zemin rengiyle")
@@ -419,7 +481,9 @@ def main():
         "_uretim": "kur_video_metni.py — elle düzenlemeyin",
         "toplam_sn": toplam_kart,
         "kart_sn": KART_SN,
-        "planlar": [{"no": n, "bolum": b, "kimlik": k, "sn": s, "hareket": h}
+        "ortak_istem": ORTAK,
+        "planlar": [{"no": n, "bolum": b, "kimlik": k, "sn": s, "hareket": h,
+                     "istem": ISTEM[n] + " " + ORTAK}
                     for n, (b, k, s, h) in enumerate(PLAN, 1)],
     }, ensure_ascii=False, indent=2), encoding="utf-8")
     print("✓ %s" % cikti)

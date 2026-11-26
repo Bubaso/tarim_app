@@ -2,153 +2,175 @@
   "_uretim": "kur_video_metni.py — elle düzenlemeyin",
   "toplam_sn": 159,
   "kart_sn": 3,
+  "ortak_istem": "Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint.",
   "planlar": [
     {
       "no": 1,
       "bolum": "I · Alpullu",
       "kimlik": "turkseker_alpullu_1928",
       "sn": 9,
-      "hareket": "albüm sayfasına çok yavaş içeri; ilk 3 sn sessiz"
+      "hareket": "albüm sayfasına çok yavaş içeri; ilk 3 sn sessiz",
+      "istem": "Extremely slow push in toward the centre of the album page. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 2,
       "bolum": "I · Alpullu",
       "kimlik": "galeri_alpullu_gar",
       "sn": 6,
-      "hareket": "hafif sola kaydırma"
+      "hareket": "hafif sola kaydırma",
+      "istem": "Very slow lateral drift to the left across the station building. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 3,
       "bolum": "II · Uşaklı çiftçi",
       "kimlik": "turkseker_usak_kurucular",
       "sn": 8,
-      "hareket": "yüzlere çok yavaş içeri"
+      "hareket": "yüzlere çok yavaş içeri",
+      "istem": "Extremely slow push in toward the faces in the group portrait. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 4,
       "bolum": "II · Uşaklı çiftçi",
       "kimlik": "turkseker_usak_hisse",
       "sn": 7,
-      "hareket": "senedin üstünden aşağı yavaş kaydırma"
+      "hareket": "senedin üstünden aşağı yavaş kaydırma",
+      "istem": "Slow vertical drift downward across the printed share certificate. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 5,
       "bolum": "II · Uşaklı çiftçi",
       "kimlik": "turkseker_usak_disaridan",
       "sn": 6,
-      "hareket": "sabit, hafif içeri"
+      "hareket": "sabit, hafif içeri",
+      "istem": "Almost imperceptible push in on the factory building. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 6,
       "bolum": "III · Fotokart",
       "kimlik": "galeri_salt_hasat",
       "sn": 7,
-      "hareket": "hasada çok yavaş içeri"
+      "hareket": "hasada çok yavaş içeri",
+      "istem": "Extremely slow push in toward the harvest group in the field. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 7,
       "bolum": "III · Fotokart",
       "kimlik": "galeri_salt_hasat_mektup",
       "sn": 7,
-      "hareket": "el yazısının üstünden aşağı yavaş kaydırma"
+      "hareket": "el yazısının üstünden aşağı yavaş kaydırma",
+      "istem": "Slow vertical drift downward across the handwritten letter. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 8,
       "bolum": "IV · Tek çatı",
       "kimlik": "galeri_salt_turhal",
       "sn": 7,
-      "hareket": "hafif sağa kaydırma"
+      "hareket": "hafif sağa kaydırma",
+      "istem": "Very slow lateral drift to the right across the factory. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 9,
       "bolum": "IV · Tek çatı",
       "kimlik": "galeri_salt_silo",
       "sn": 7,
-      "hareket": "aşağıdan yukarı yavaş kaydırma"
+      "hareket": "aşağıdan yukarı yavaş kaydırma",
+      "istem": "Slow vertical drift upward from the base of the silo toward its top. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 10,
       "bolum": "V · Tarla",
       "kimlik": "galeri_tarla_pelet_tohum",
       "sn": 6,
-      "hareket": "makro, çok yavaş içeri"
+      "hareket": "makro, çok yavaş içeri",
+      "istem": "Extremely slow macro push in toward the pelleted seeds in the hand. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 11,
       "bolum": "V · Tarla",
       "kimlik": "galeri_ciftci_sozlesme_imza",
       "sn": 7,
-      "hareket": "masaya hafif içeri"
+      "hareket": "masaya hafif içeri",
+      "istem": "Slow push in toward the table and the papers being signed. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 12,
       "bolum": "V · Tarla",
       "kimlik": "galeri_ciftci_pancarla",
       "sn": 8,
-      "hareket": "üreticiye çok yavaş içeri  ★"
+      "hareket": "üreticiye çok yavaş içeri  ★",
+      "istem": "Extremely slow push in toward the grower holding the beets. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 13,
       "bolum": "V · Tarla",
       "kimlik": "galeri_tarla_hasat_makinesi",
       "sn": 7,
-      "hareket": "makineye yavaş içeri"
+      "hareket": "makineye yavaş içeri",
+      "istem": "Slow push in toward the harvester in the field. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 14,
       "bolum": "VI · Fabrika",
       "kimlik": "galeri_yukleme_su_kanali",
       "sn": 7,
-      "hareket": "suya hafif içeri"
+      "hareket": "suya hafif içeri",
+      "istem": "Slow push in toward the water jet and the beet pile. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 15,
       "bolum": "VI · Fabrika",
       "kimlik": "turkseker_s14_melas",
       "sn": 6,
-      "hareket": "makro, hafif içeri"
+      "hareket": "makro, hafif içeri",
+      "istem": "Slow macro push in toward the pouring molasses. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 16,
       "bolum": "VI · Fabrika",
       "kimlik": "galeri_urun_cuvallama",
       "sn": 6,
-      "hareket": "çuvallara hafif içeri"
+      "hareket": "çuvallara hafif içeri",
+      "istem": "Slow push in toward the sacks being filled. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 17,
       "bolum": "VII · Deprem",
       "kimlik": "galeri_fab_malatya",
       "sn": 10,
-      "hareket": "panoramik, sağa çok yavaş kaydırma; alıntı bu planda okunur"
+      "hareket": "panoramik, sağa çok yavaş kaydırma; alıntı bu planda okunur",
+      "istem": "Very slow lateral drift to the right across the factory panorama. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 18,
       "bolum": "VIII · Bugün",
       "kimlik": "galeri_kurum_pancar_sahasi",
       "sn": 7,
-      "hareket": "pancar sahasına yavaş içeri"
+      "hareket": "pancar sahasına yavaş içeri",
+      "istem": "Slow push in toward the beet yard and the trucks. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 19,
       "bolum": "VIII · Bugün",
       "kimlik": "galeri_pancar_yazisi",
       "sn": 6,
-      "hareket": "ibareye makro, çok yavaş içeri"
+      "hareket": "ibareye makro, çok yavaş içeri",
+      "istem": "Extremely slow macro push in toward the printed wording on the label. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 20,
       "bolum": "IX · Rölyef",
       "kimlik": "turkseker_s25_rolyef_teslim",
       "sn": 10,
-      "hareket": "tabloya çok yavaş içeri"
+      "hareket": "tabloya çok yavaş içeri",
+      "istem": "Extremely slow push in toward the framed wooden relief. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     },
     {
       "no": 21,
       "bolum": "X · Kapanış",
       "kimlik": "galeri_tarla_sulama_2",
       "sn": 12,
-      "hareket": "tarlaya çok yavaş içeri, sonra kararma"
+      "hareket": "tarlaya çok yavaş içeri, sonra kararma",
+      "istem": "Extremely slow push in across the irrigated field, fading to black over the final second. Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint."
     }
   ]
 }

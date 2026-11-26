@@ -164,6 +164,41 @@ Hareketler yavaş: arşiv fotoğrafına hızlı kamera, belgeyi oyuncağa çevir
 
 **Toplam: 159 saniye (2:39).**
 
+## Flow istemleri
+
+İngilizce, çünkü Omni İngilizce istemlerde belirgin biçimde daha
+itaatkâr. İstemin yarısı YASAK: Omni'nin varsayılan eğilimi kareyi
+canlandırmak — duran insanları yürütüyor, bacadan duman çıkarıyor,
+yüz değiştiriyor. Arşiv fotoğrafında bunların hepsi uydurma olur.
+
+Her istemin sonuna şu ortak blok ekleniyor:
+
+> Still archival photograph, locked content. Do NOT animate anything inside the photograph: no moving people, no changing faces, no drifting smoke, no flowing water, no blinking, no new objects, no altered or re-rendered text. The photograph is a flat still image; only the virtual camera moves. Very slow, smooth, constant-speed move with no easing jolt, no handheld shake, no rack focus, no style change, no colour grading shift. Documentary restraint.
+
+| # | kare | istem (ortak blok hariç) |
+|---|---|---|
+| 1 | `turkseker_alpullu_1928` | Extremely slow push in toward the centre of the album page. |
+| 2 | `galeri_alpullu_gar` | Very slow lateral drift to the left across the station building. |
+| 3 | `turkseker_usak_kurucular` | Extremely slow push in toward the faces in the group portrait. |
+| 4 | `turkseker_usak_hisse` | Slow vertical drift downward across the printed share certificate. |
+| 5 | `turkseker_usak_disaridan` | Almost imperceptible push in on the factory building. |
+| 6 | `galeri_salt_hasat` | Extremely slow push in toward the harvest group in the field. |
+| 7 | `galeri_salt_hasat_mektup` | Slow vertical drift downward across the handwritten letter. |
+| 8 | `galeri_salt_turhal` | Very slow lateral drift to the right across the factory. |
+| 9 | `galeri_salt_silo` | Slow vertical drift upward from the base of the silo toward its top. |
+| 10 | `galeri_tarla_pelet_tohum` | Extremely slow macro push in toward the pelleted seeds in the hand. |
+| 11 | `galeri_ciftci_sozlesme_imza` | Slow push in toward the table and the papers being signed. |
+| 12 | `galeri_ciftci_pancarla` | Extremely slow push in toward the grower holding the beets. |
+| 13 | `galeri_tarla_hasat_makinesi` | Slow push in toward the harvester in the field. |
+| 14 | `galeri_yukleme_su_kanali` | Slow push in toward the water jet and the beet pile. |
+| 15 | `turkseker_s14_melas` | Slow macro push in toward the pouring molasses. |
+| 16 | `galeri_urun_cuvallama` | Slow push in toward the sacks being filled. |
+| 17 | `galeri_fab_malatya` | Very slow lateral drift to the right across the factory panorama. |
+| 18 | `galeri_kurum_pancar_sahasi` | Slow push in toward the beet yard and the trucks. |
+| 19 | `galeri_pancar_yazisi` | Extremely slow macro push in toward the printed wording on the label. |
+| 20 | `turkseker_s25_rolyef_teslim` | Extremely slow push in toward the framed wooden relief. |
+| 21 | `galeri_tarla_sulama_2` | Extremely slow push in across the irrigated field, fading to black over the final second. |
+
 ## Dikey kareler
 
 16:9 kadraja kırpmak bunları mahveder. Dosyanın kendi zemin rengiyle
