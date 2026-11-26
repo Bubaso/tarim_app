@@ -9,6 +9,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import 'core/analitik/belge.dart' show dahiliTrafigiIsaretle;
 import 'core/analitik/sayfa_gorunumu.dart' show BelgeDili;
 import 'core/constants/api_constants.dart';
 import 'core/network/supabase_client.dart';
@@ -56,6 +57,28 @@ void main() async {
     );
   } catch (e) {
     debugPrint('Supabase init error (might be offline): $e');
+  }
+
+  // ── EDİTÖR OTURUMU = DAHİLİ TRAFİK (26 Kasım 2026) ───────────────────────
+  //
+  // Oturum açmış bir editörün gezinmesi okur ölçümüne karışmamalı. GA4'ün
+  // hazır yolu IP kuralı; IP ev/ofis/mobil değişince bozulur, oturum bozulmaz.
+  // `haber_okundu` dönüşümünde de editörü tam olarak böyle eliyoruz.
+  //
+  // İki yerden işaretleniyor: açılışta saklanan oturum geri yüklendiyse, ve
+  // sonradan giriş yapılırsa. Abonelik iptal edilmiyor — uygulama ömrü boyunca
+  // açık kalması gereken tek dinleyici.
+  //
+  // Bir sınırı var: index.html'in açılışta gönderdiği İLK `page_view`,
+  // Supabase daha kurulmadan gider; editör oturumunun o tek olayı süzülmez.
+  try {
+    final kimlik = Supabase.instance.client.auth;
+    if (kimlik.currentSession != null) dahiliTrafigiIsaretle();
+    kimlik.onAuthStateChange.listen((durum) {
+      if (durum.session != null) dahiliTrafigiIsaretle();
+    });
+  } catch (_) {
+    // Supabase kurulamadıysa işaretlenecek oturum da yoktur.
   }
 
   // Initialize notifications safely in the background

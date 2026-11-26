@@ -26,6 +26,27 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
+    // ── YEREL GELİŞTİRME TRAFİĞİ (26 Kasım 2026) ────────────────────────
+    //
+    // Bu dosya derlemeye olduğu gibi giriyor; `flutter run -d chrome` ya da
+    // yerel bir önizleme sunucusu da aynı etiketi yüklüyor. Yani her geliştirme
+    // oturumu CANLI GA4 mülküne veri yazıyordu. Ölçüldü (29 Eki - 25 Kas 2026):
+    // anasayfa 122 kullanıcıdan 2.652 görüntüleme almış — kişi başı 21,7
+    // görüntüleme ve ortalama 15 dakika. Bir haber anasayfası için bu rakam
+    // okurdan gelmez.
+    //
+    // `traffic_type: 'internal'` GA4'ün "Dahili Trafik" veri filtresinin
+    // aradığı parametre (filtre 26 Kasım 2026'da Test'ten Etkin'e alındı).
+    // Burada, her şeyden önce kuruluyor: Firebase'in açılışta gönderdiği ilk
+    // `page_view` de bu işareti taşısın diye.
+    //
+    // Canlı adreslerde hiçbir etkisi yok — koşul yalnız yerel ana makine
+    // adlarında doğru.
+    if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) ||
+        /\.local$/.test(location.hostname)) {
+      gtag('set', { traffic_type: 'internal' });
+    }
   </script>
 
   <!--

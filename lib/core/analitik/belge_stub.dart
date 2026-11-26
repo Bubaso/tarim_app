@@ -9,3 +9,6 @@ double? belgeSuresiMs() => null;
 
 /// Web dışı: `dataLayer` yok.
 void dataLayerOlayi(String olay) {}
+
+/// Web dışı: işaretlenecek ölçüm oturumu yok.
+void dahiliTrafigiIsaretle() {}

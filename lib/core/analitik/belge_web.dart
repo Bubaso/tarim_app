@@ -16,6 +16,10 @@ external _Performans get _performans;
 @JS('dataLayer')
 external _DataLayer? get _dataLayer;
 
+/// `web/index.html`te tanımlanan genel `gtag` işlevi.
+@JS('gtag')
+external void _gtag(String komut, JSObject veri);
+
 extension type _Belge._(JSObject _) implements JSObject {
   external _Oge? get documentElement;
   external String get title;
@@ -41,6 +45,13 @@ extension type _DataLayer._(JSObject _) implements JSObject {
 /// Tipli kurulum o maliyeti sıfırlıyor.
 extension type _Kayit._(JSObject _) implements JSObject {
   external factory _Kayit({String event});
+}
+
+/// `{traffic_type: 'internal'}` — GA4'ün dahili trafik filtresinin aradığı
+/// parametre. Ad snake_case çünkü JS tarafındaki anahtar birebir bu.
+extension type _Trafik._(JSObject _) implements JSObject {
+  // ignore: non_constant_identifier_names
+  external factory _Trafik({String traffic_type});
 }
 
 /// `<html lang>`'ı yazar. Ekran okuyucular metni bu dile göre seslendirir;
@@ -88,5 +99,25 @@ void dataLayerOlayi(String olay) {
     final kuyruk = _dataLayer;
     if (kuyruk == null) return;
     kuyruk.push(_Kayit(event: olay));
+  } catch (_) {}
+}
+
+/// Bu oturumu GA4'e DAHİLİ olarak işaretler; sonraki her olay
+/// `traffic_type: internal` taşır ve mülkteki "Internal Traffic" veri
+/// filtresi (26 Kasım 2026'da Etkin'e alındı) onları atar.
+///
+/// NEDEN GEREKLİ. Ölçüm 28 günde anasayfada kişi başı 21,7 görüntüleme ve
+/// 15 dakika etkileşim gösteriyordu; `/panel`, `/giris`, `/ayarlar` ve
+/// sınama sayfaları da listedeydi. Bunlar okur değil, bizdik. GA4'ün hazır
+/// yolu IP kuralı, ama IP ev/ofis/mobil değişince bozulur — oturumun açık
+/// olması bozulmaz.
+///
+/// Yerel geliştirme trafiği için aynı işaret `web/index.html`te, her şeyden
+/// önce kuruluyor.
+///
+/// Hata yutuluyor: ölçüm okumayı asla bozmaz.
+void dahiliTrafigiIsaretle() {
+  try {
+    _gtag('set', _Trafik(traffic_type: 'internal'));
   } catch (_) {}
 }
