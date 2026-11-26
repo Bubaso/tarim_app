@@ -87,19 +87,18 @@ PLAN = [
     ("V · Tarla",        "galeri_ciftci_pancarla",        8,  "üreticiye çok yavaş içeri  ★"),
     ("V · Tarla",        "galeri_tarla_hasat_makinesi",   7,  "makineye yavaş içeri"),
 
-    ("VI · Fabrika",     "galeri_kurum_kazan_atesleme",   7,  "aleve yavaş içeri"),
+    ("VI · Fabrika",     "galeri_yukleme_su_kanali",      7,  "suya hafif içeri"),
     ("VI · Fabrika",     "turkseker_s14_melas",           6,  "makro, hafif içeri"),
     ("VI · Fabrika",     "galeri_urun_cuvallama",         6,  "çuvallara hafif içeri"),
 
-    ("VII · Deprem",     "galeri_fab_malatya",            7,  "panoramik, sağa çok yavaş kaydırma"),
-    ("VII · Deprem",     "galeri_kurum_malatya_bosaltma", 8,  "sabit, hafif içeri; alıntı bu planda okunur"),
+    ("VII · Deprem",     "galeri_fab_malatya",           10,  "panoramik, sağa çok yavaş kaydırma; alıntı bu planda okunur"),
 
-    ("VIII · Bugün",     "turkseker_gm_binasi",           7,  "panoramik, sağa yavaş kaydırma"),
-    ("VIII · Bugün",     "galeri_fab_usak",               6,  "sabit, hafif içeri"),
+    ("VIII · Bugün",     "galeri_kurum_pancar_sahasi",    7,  "pancar sahasına yavaş içeri"),
+    ("VIII · Bugün",     "galeri_pancar_yazisi",          6,  "ibareye makro, çok yavaş içeri"),
 
     ("IX · Rölyef",      "turkseker_s25_rolyef_teslim",  10,  "tabloya çok yavaş içeri"),
 
-    ("X · Kapanış",      "turkseker_s14_haymana",        12,  "tarlaya çok yavaş içeri, sonra kararma"),
+    ("X · Kapanış",      "galeri_tarla_sulama_2",        12,  "tarlaya çok yavaş içeri, sonra kararma"),
 ]
 KART_SN = 3
 
@@ -413,6 +412,16 @@ def main():
 
     cikti = RAW / "video_metni.md"
     cikti.write_text("\n".join(y) + "\n", encoding="utf-8")
+
+    # MAKİNE OKUNUR PLAN. kur_video_tuval.py bunu okuyor. İki yerde
+    # tutulan bir çekim listesi er geç ayrışır; tek kaynak PLAN sabiti.
+    (RAW / "video_plan.json").write_text(json.dumps({
+        "_uretim": "kur_video_metni.py — elle düzenlemeyin",
+        "toplam_sn": toplam_kart,
+        "kart_sn": KART_SN,
+        "planlar": [{"no": n, "bolum": b, "kimlik": k, "sn": s, "hareket": h}
+                    for n, (b, k, s, h) in enumerate(PLAN, 1)],
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
     print("✓ %s" % cikti)
     print("  %d plan + kart · %d sn (%d:%02d) · %d kelime · %d dikey kare"
           % (len(PLAN), toplam_kart, toplam_kart // 60, toplam_kart % 60,

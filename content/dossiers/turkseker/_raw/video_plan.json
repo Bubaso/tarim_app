@@ -1,0 +1,154 @@
+{
+  "_uretim": "kur_video_metni.py — elle düzenlemeyin",
+  "toplam_sn": 159,
+  "kart_sn": 3,
+  "planlar": [
+    {
+      "no": 1,
+      "bolum": "I · Alpullu",
+      "kimlik": "turkseker_alpullu_1928",
+      "sn": 9,
+      "hareket": "albüm sayfasına çok yavaş içeri; ilk 3 sn sessiz"
+    },
+    {
+      "no": 2,
+      "bolum": "I · Alpullu",
+      "kimlik": "galeri_alpullu_gar",
+      "sn": 6,
+      "hareket": "hafif sola kaydırma"
+    },
+    {
+      "no": 3,
+      "bolum": "II · Uşaklı çiftçi",
+      "kimlik": "turkseker_usak_kurucular",
+      "sn": 8,
+      "hareket": "yüzlere çok yavaş içeri"
+    },
+    {
+      "no": 4,
+      "bolum": "II · Uşaklı çiftçi",
+      "kimlik": "turkseker_usak_hisse",
+      "sn": 7,
+      "hareket": "senedin üstünden aşağı yavaş kaydırma"
+    },
+    {
+      "no": 5,
+      "bolum": "II · Uşaklı çiftçi",
+      "kimlik": "turkseker_usak_disaridan",
+      "sn": 6,
+      "hareket": "sabit, hafif içeri"
+    },
+    {
+      "no": 6,
+      "bolum": "III · Fotokart",
+      "kimlik": "galeri_salt_hasat",
+      "sn": 7,
+      "hareket": "hasada çok yavaş içeri"
+    },
+    {
+      "no": 7,
+      "bolum": "III · Fotokart",
+      "kimlik": "galeri_salt_hasat_mektup",
+      "sn": 7,
+      "hareket": "el yazısının üstünden aşağı yavaş kaydırma"
+    },
+    {
+      "no": 8,
+      "bolum": "IV · Tek çatı",
+      "kimlik": "galeri_salt_turhal",
+      "sn": 7,
+      "hareket": "hafif sağa kaydırma"
+    },
+    {
+      "no": 9,
+      "bolum": "IV · Tek çatı",
+      "kimlik": "galeri_salt_silo",
+      "sn": 7,
+      "hareket": "aşağıdan yukarı yavaş kaydırma"
+    },
+    {
+      "no": 10,
+      "bolum": "V · Tarla",
+      "kimlik": "galeri_tarla_pelet_tohum",
+      "sn": 6,
+      "hareket": "makro, çok yavaş içeri"
+    },
+    {
+      "no": 11,
+      "bolum": "V · Tarla",
+      "kimlik": "galeri_ciftci_sozlesme_imza",
+      "sn": 7,
+      "hareket": "masaya hafif içeri"
+    },
+    {
+      "no": 12,
+      "bolum": "V · Tarla",
+      "kimlik": "galeri_ciftci_pancarla",
+      "sn": 8,
+      "hareket": "üreticiye çok yavaş içeri  ★"
+    },
+    {
+      "no": 13,
+      "bolum": "V · Tarla",
+      "kimlik": "galeri_tarla_hasat_makinesi",
+      "sn": 7,
+      "hareket": "makineye yavaş içeri"
+    },
+    {
+      "no": 14,
+      "bolum": "VI · Fabrika",
+      "kimlik": "galeri_yukleme_su_kanali",
+      "sn": 7,
+      "hareket": "suya hafif içeri"
+    },
+    {
+      "no": 15,
+      "bolum": "VI · Fabrika",
+      "kimlik": "turkseker_s14_melas",
+      "sn": 6,
+      "hareket": "makro, hafif içeri"
+    },
+    {
+      "no": 16,
+      "bolum": "VI · Fabrika",
+      "kimlik": "galeri_urun_cuvallama",
+      "sn": 6,
+      "hareket": "çuvallara hafif içeri"
+    },
+    {
+      "no": 17,
+      "bolum": "VII · Deprem",
+      "kimlik": "galeri_fab_malatya",
+      "sn": 10,
+      "hareket": "panoramik, sağa çok yavaş kaydırma; alıntı bu planda okunur"
+    },
+    {
+      "no": 18,
+      "bolum": "VIII · Bugün",
+      "kimlik": "galeri_kurum_pancar_sahasi",
+      "sn": 7,
+      "hareket": "pancar sahasına yavaş içeri"
+    },
+    {
+      "no": 19,
+      "bolum": "VIII · Bugün",
+      "kimlik": "galeri_pancar_yazisi",
+      "sn": 6,
+      "hareket": "ibareye makro, çok yavaş içeri"
+    },
+    {
+      "no": 20,
+      "bolum": "IX · Rölyef",
+      "kimlik": "turkseker_s25_rolyef_teslim",
+      "sn": 10,
+      "hareket": "tabloya çok yavaş içeri"
+    },
+    {
+      "no": 21,
+      "bolum": "X · Kapanış",
+      "kimlik": "galeri_tarla_sulama_2",
+      "sn": 12,
+      "hareket": "tarlaya çok yavaş içeri, sonra kararma"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # TÜRKŞEKER — dosya videosu · metin ve çekim listesi
 
-**Biçim:** 16:9 · 22 plan + kapanış kartı · 164 sn (2:44)
+**Biçim:** 16:9 · 21 plan + kapanış kartı · 159 sn (2:39)
 **Ses:** Flow'da YOK. Seslendirme ve altyazı CapCut'ta, aşağıdaki metinden.
 **Görüntü:** hepsi dosyanın gerçek arşiv karesi. Üretilmiş plan yok.
 
@@ -35,7 +35,7 @@ anlatının her durağını karşıladığı için üretilmiş kareye gerek kalm
 ## Seslendirme metni
 
 > ~332 kelime. Belgesel temposunda ~151 sn; planlar nefes payıyla
-> 164 saniyeye yayılıyor.
+> 159 saniyeye yayılıyor.
 
 ### I · Alpullu
 [İlk üç saniye sessiz.]
@@ -149,21 +149,20 @@ Hareketler yavaş: arşiv fotoğrafına hızlı kamera, belgeyi oyuncağa çevir
 | 11 | V · Tarla | 7 | `galeri_ciftci_sozlesme_imza` | masaya hafif içeri |
 | 12 | V · Tarla | 8 | `galeri_ciftci_pancarla` | üreticiye çok yavaş içeri  ★ |
 | 13 | V · Tarla | 7 | `galeri_tarla_hasat_makinesi ▲` | makineye yavaş içeri |
-| 14 | VI · Fabrika | 7 | `galeri_kurum_kazan_atesleme` | aleve yavaş içeri |
+| 14 | VI · Fabrika | 7 | `galeri_yukleme_su_kanali` | suya hafif içeri |
 | 15 | VI · Fabrika | 6 | `turkseker_s14_melas` | makro, hafif içeri |
 | 16 | VI · Fabrika | 6 | `galeri_urun_cuvallama ▲` | çuvallara hafif içeri |
-| 17 | VII · Deprem | 7 | `galeri_fab_malatya` | panoramik, sağa çok yavaş kaydırma |
-| 18 | VII · Deprem | 8 | `galeri_kurum_malatya_bosaltma ▲` | sabit, hafif içeri; alıntı bu planda okunur |
-| 19 | VIII · Bugün | 7 | `turkseker_gm_binasi` | panoramik, sağa yavaş kaydırma |
-| 20 | VIII · Bugün | 6 | `galeri_fab_usak` | sabit, hafif içeri |
-| 21 | IX · Rölyef | 10 | `turkseker_s25_rolyef_teslim` | tabloya çok yavaş içeri |
-| 22 | X · Kapanış | 12 | `turkseker_s14_haymana` | tarlaya çok yavaş içeri, sonra kararma |
+| 17 | VII · Deprem | 10 | `galeri_fab_malatya` | panoramik, sağa çok yavaş kaydırma; alıntı bu planda okunur |
+| 18 | VIII · Bugün | 7 | `galeri_kurum_pancar_sahasi` | pancar sahasına yavaş içeri |
+| 19 | VIII · Bugün | 6 | `galeri_pancar_yazisi` | ibareye makro, çok yavaş içeri |
+| 20 | IX · Rölyef | 10 | `turkseker_s25_rolyef_teslim` | tabloya çok yavaş içeri |
+| 21 | X · Kapanış | 12 | `galeri_tarla_sulama_2` | tarlaya çok yavaş içeri, sonra kararma |
 | — | X · Kapanış | 3 | kapanış kartı (CapCut) | sabit |
 
 ▲ dikey kaynak — Flow'a verilmeden önce 1920×1080 koyu tuvale ortalanacak
 ★ anlatının insan merkezi
 
-**Toplam: 164 saniye (2:44).**
+**Toplam: 159 saniye (2:39).**
 
 ## Dikey kareler
 
@@ -177,7 +176,6 @@ yapılıyor, kredi harcamıyor, kadrajın denetimi bizde kalıyor.
 | `galeri_salt_silo` | 0.72 |
 | `galeri_tarla_hasat_makinesi` | 0.71 |
 | `galeri_urun_cuvallama` | 0.70 |
-| `galeri_kurum_malatya_bosaltma` | 0.80 |
 | `turkseker_usak_hisse` | 0.75 |
 | `turkseker_s14_melas` | 0.86 |
 | `turkseker_s25_rolyef_teslim` | 0.80 |
@@ -199,23 +197,22 @@ yapılıyor, kredi harcamıyor, kadrajın denetimi bizde kalıyor.
 | 11 | `galeri_ciftci_sozlesme_imza` | Pancar sözleşmelerinin imzalanması. | Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
 | 12 | `galeri_ciftci_pancarla` | Elinde şeker pancarıyla bir üretici, pancar tarlasında. | Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
 | 13 | `galeri_tarla_hasat_makinesi` | Şeker pancarı hasadı. | Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
-| 14 | `galeri_kurum_kazan_atesleme` | Ilgın Şeker Fabrikası'nda kazanın ateşlenmesi, 20 Kasım 2026. | Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
+| 14 | `galeri_yukleme_su_kanali` | Fabrikaya gelen pancarın su kanalına verilmesi. | Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
 | 15 | `turkseker_s14_melas` | Melas, şeker üretiminin yan ürünü. | TÜRKŞEKER 2024-2028 Stratejik Planı · Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
 | 16 | `galeri_urun_cuvallama` | TÜRKŞEKER şekerinin çuvallanması. | Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
 | 17 | `galeri_fab_malatya` | Malatya Şeker Fabrikası. | Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
-| 18 | `galeri_kurum_malatya_bosaltma` | Malatya Şeker Fabrikası'nda 71. kampanya döneminin açılışı, 4 Eylül 2026. | Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
-| 19 | `turkseker_gm_binasi` | Türkiye Şeker Fabrikaları A.Ş. Genel Müdürlüğü, Ankara. Kurumun kendi tanıtım görseli. | turkseker.gov.tr ana sayfa afişi · Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
-| 20 | `galeri_fab_usak` | Uşak Şeker Fabrikası. | Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
-| 21 | `turkseker_s25_rolyef_teslim` | 1934'te Turhal Şeker Fabrikası'nın açılışı için yapılan ahşap rölyefin kuruma teslimi, 31 Mart 2026. | turkseker.gov.tr haber arşivi · Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
-| 22 | `turkseker_s14_haymana` | Haymana'da pancar tarlasında inceleme, 5 Ağustos 2026. | turkseker.gov.tr haber arşivi · Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
+| 18 | `galeri_kurum_pancar_sahasi` | Yozgat Şeker Fabrikası'nda 29. pancar alım kampanyasının açılışı, 30 Eylül 2026. | Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
+| 19 | `galeri_pancar_yazisi` | Bir ambalajın üzerindeki “pancar şekerinden üretilmiştir” ibaresi, 23 Eylül 2021. | Satirdan kahraman — CC BY-SA 4.0 |
+| 20 | `turkseker_s25_rolyef_teslim` | 1934'te Turhal Şeker Fabrikası'nın açılışı için yapılan ahşap rölyefin kuruma teslimi, 31 Mart 2026. | turkseker.gov.tr haber arşivi · Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
+| 21 | `galeri_tarla_sulama_2` | Sulanan şeker pancarı tarlası. | Türkiye Şeker Fabrikaları A.Ş. — kurumun kendi yayını |
 
 ## Kredi
 
 | | |
 |---|---|
 | 360p taslak (1 kredi/sn) · hareketi sınanacak planlar | ~60 |
-| 720p final (3 kredi/sn) · 161 sn | 483 |
-| **Toplam** | **~543** · 1050 kredinin yarısı |
+| 720p final (3 kredi/sn) · 156 sn | 468 |
+| **Toplam** | **~528** · 1050 kredinin yarısı |
 
 Kapanış kartı CapCut'ta yapılıyor, Flow'da kredi harcamıyor.
 x2 kullanılmıyor: aynı istemden ikinci rastgele çekiliş yerine,
