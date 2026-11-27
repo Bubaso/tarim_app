@@ -56,12 +56,33 @@ Widget _uygulama(Widget cocuk, {String dil = 'tr'}) => ProviderScope(
       ),
     );
 
+/// Isı haritası merkez sayfada gizli (kullanıcı, 27 Kasım 2026); bölüm
+/// kendi başına, merkezdeki gibi 1120 px'lik sütunda sınanıyor.
+class _IsiHaritasiSayfasi extends StatelessWidget {
+  const _IsiHaritasiSayfasi();
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        body: SingleChildScrollView(
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 1120),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: MediaQuery.sizeOf(context).width < 640 ? 16 : 32),
+                child: const YzIsiHaritasiBolumu(),
+              ),
+            ),
+          ),
+        ),
+      );
+}
+
 /// Merkez sayfa yönlendiriciyle: hücreye dokununca başlık açılıyor mu.
 Widget _yonlendirmeli(String dil) => ProviderScope(
       overrides: _sahte,
       child: MaterialApp.router(
         routerConfig: GoRouter(initialLocation: yzPath, routes: [
-          GoRoute(path: yzPath, builder: (c, s) => const YzMerkezEkrani()),
+          GoRoute(path: yzPath, builder: (c, s) => const _IsiHaritasiSayfasi()),
           GoRoute(
               path: '$yzPath/:slug',
               builder: (c, s) => Scaffold(body: Text('BAŞLIK ${s.pathParameters['slug']}'))),
@@ -363,7 +384,7 @@ void main() {
 
     testWidgets('başlık ve vurgu aynen; varsayılan teknoloji; seçici iki görünümü değiştiriyor', (t) async {
       _boyut(t, _masaustu);
-      await t.pumpWidget(_uygulama(const YzMerkezEkrani()));
+      await t.pumpWidget(_uygulama(const _IsiHaritasiSayfasi()));
       await t.pumpAndSettle();
       expect(find.text('Teknoloji ve Alan Isı Haritası'), findsOneWidget);
       expect(find.text('Tarımda Yapay Zeka kullanımının nabzını buradan takip edin.'), findsOneWidget);
@@ -422,7 +443,7 @@ void main() {
       // Yeni açılan sayfada yine teknoloji.
       await kaynagaGec(t);
       await t.pumpWidget(const SizedBox());
-      await t.pumpWidget(_uygulama(const YzMerkezEkrani()));
+      await t.pumpWidget(_uygulama(const _IsiHaritasiSayfasi()));
       await t.pumpAndSettle();
       expect(find.byType(YzKaynakMatrisi), findsNothing);
       expect(find.text(_teknolojiAciklamasiTr), findsOneWidget);
@@ -430,7 +451,7 @@ void main() {
 
     testWidgets('İngilizce: seçenek adları ve açıklama', (t) async {
       _boyut(t, _masaustu);
-      await t.pumpWidget(_uygulama(const YzMerkezEkrani(), dil: 'en'));
+      await t.pumpWidget(_uygulama(const _IsiHaritasiSayfasi(), dil: 'en'));
       await t.pumpAndSettle();
       expect(find.descendant(of: secenek('teknoloji'), matching: find.text('Technology')), findsOneWidget);
       expect(find.descendant(of: secenek('kaynak'), matching: find.text('Source type')), findsOneWidget);
@@ -503,7 +524,7 @@ void main() {
 
         testWidgets('merkez, kaynak niteliği görünümü · $ad', (t) async {
           _boyut(t, boy);
-          await t.pumpWidget(_uygulama(const YzMerkezEkrani(), dil: dil));
+          await t.pumpWidget(_uygulama(const _IsiHaritasiSayfasi(), dil: dil));
           await t.pumpAndSettle();
           await t.ensureVisible(find.byKey(const ValueKey('yz-isi-secenek-kaynak')));
           await t.pumpAndSettle();
@@ -521,7 +542,7 @@ void main() {
       testWidgets('merkez en büyük yazıda, kaynak görünümü · ${boy.width.toInt()}', (t) async {
         _boyut(t, boy);
         SharedPreferences.setMockInitialValues({'yz_yazi_olcegi': 1.4});
-        await t.pumpWidget(_uygulama(const YzMerkezEkrani()));
+        await t.pumpWidget(_uygulama(const _IsiHaritasiSayfasi()));
         await t.pumpAndSettle();
         await t.ensureVisible(find.byKey(const ValueKey('yz-isi-secenek-kaynak')));
         await t.pumpAndSettle();

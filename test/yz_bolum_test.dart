@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_atlas_veri.dart';
 import 'package:tarim_app/features/home/data/models/news_article.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_deposu.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_iskelet.g.dart';
@@ -64,6 +65,8 @@ final _haberler = [
 Widget _sarmala(Widget cocuk, {String dil = 'tr', List<YzDizinKaydi> dizin = const []}) =>
     ProviderScope(
       overrides: [
+        // Merkezdeki atlas (27 Kas 2026): haber sorgusu ağa çıkmasın.
+        yzAtlasHaberleriProvider.overrideWith((ref) async => const <YzHaber>[]),
         yzBolumHaberleriProvider.overrideWith((ref, no) async =>
             no == null ? _haberler : _haberler.where((h) => h.baslikNo == no).toList()),
         yzDizinEklenenlerProvider.overrideWith((ref) async => dizin),
@@ -592,6 +595,8 @@ Liste bitti, paragraf başladı.
       ]);
       await t.pumpWidget(ProviderScope(
         overrides: [
+          // Merkezdeki atlas (27 Kas 2026): haber sorgusu ağa çıkmasın.
+          yzAtlasHaberleriProvider.overrideWith((ref) async => const <YzHaber>[]),
           yzBolumHaberleriProvider.overrideWith((ref, no) async => const <YzHaber>[]),
           yzDizinEklenenlerProvider.overrideWith((ref) async => const <YzDizinKaydi>[]),
         ],
@@ -654,6 +659,8 @@ Liste bitti, paragraf başladı.
           ]);
       await t.pumpWidget(ProviderScope(
         overrides: [
+          // Merkezdeki atlas (27 Kas 2026): haber sorgusu ağa çıkmasın.
+          yzAtlasHaberleriProvider.overrideWith((ref) async => const <YzHaber>[]),
           yzBolumHaberleriProvider.overrideWith((ref, no) async => const <YzHaber>[]),
           yzDizinEklenenlerProvider.overrideWith((ref) async => const <YzDizinKaydi>[]),
         ],
@@ -726,7 +733,7 @@ Liste bitti, paragraf başladı.
     });
   });
 
-  testWidgets('içindekiler: alt başlığa kaydırıyor; ısı haritası çiziliyor', (t) async {
+  testWidgets('içindekiler: alt başlığa kaydırıyor; merkezde ısı haritası yerine atlas', (t) async {
     t.view.physicalSize = const Size(1280, 900);
     t.view.devicePixelRatio = 1;
     addTearDown(t.view.reset);
@@ -740,7 +747,9 @@ Liste bitti, paragraf başladı.
     await t.pumpWidget(const SizedBox());
     await t.pumpWidget(_sarmala(const YzMerkezEkrani()));
     await t.pumpAndSettle();
-    expect(find.byType(YzTeknolojiMatrisi), findsOneWidget);
+    // Kullanıcı (27 Kas 2026): ısı haritası gizli, yerinde Türkiye atlası.
+    expect(find.byType(YzTeknolojiMatrisi), findsNothing);
+    expect(find.byKey(const ValueKey('yz-merkez-atlas')), findsOneWidget);
     expect(t.takeException(), isNull);
   });
 

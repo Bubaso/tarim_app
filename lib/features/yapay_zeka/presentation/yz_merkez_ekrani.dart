@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_metinler.g.dart';
-import 'yz_atlas_ekrani.dart' show YzAtlasKarti;
+import 'yz_atlas_ekrani.dart' show YzAtlasGovdesi, yzAtlasAciklama;
 import 'yz_haber_vitrini.dart';
 import 'yz_matris.dart';
 import 'yz_merkez_liste.dart';
@@ -23,6 +23,11 @@ import 'yz_tasarim.dart';
 ///
 /// Ekran argüman almıyor: iskelet ve metinler derlemede gömülü, haber
 /// akışı veritabanından (karar 21). Adres tek başına sayfayı kuruyor.
+/// Teknoloji ve alan ısı haritası merkez sayfada gösterilsin mi (kullanıcı,
+/// 27 Kasım 2026: gizle, yerine Türkiye haritası). Isı haritasının kodu ve
+/// verisi yerinde; başlık sayfalarındaki kaynak karnesi satırı etkilenmez.
+const bool kYzIsiHaritasiGorunur = false;
+
 class YzMerkezEkrani extends StatelessWidget {
   const YzMerkezEkrani({super.key});
 
@@ -155,25 +160,26 @@ class YzMerkezEkrani extends StatelessWidget {
                                       : 'Topraktan pazara, tarım yılının sırasıyla. Bir teknoloji seçin: karolar o teknolojinin her başlıktaki durumunu gösterir; teknolojinin alanlar arası durumu da ayrı bir sayfada.'),
                             ),
                             const YzHarita(),
+                            // Isı haritası okura gösterilmiyor (kullanıcı, 27 Kasım
+                            // 2026): yerinde Türkiye Dijital Tarım Atlası'nın
+                            // kendisi. Kod ve veri yerinde; [kYzIsiHaritasiGorunur]
+                            // açılınca geri gelir.
+                            if (kYzIsiHaritasiGorunur) ...[
                             const SizedBox(height: 34),
-                            YzIsiHaritasiBasligi(
-                              en ? 'Technology and Field Heat Map' : 'Teknoloji ve Alan Isı Haritası',
-                              vurgu: en
-                                  ? 'Follow the pulse of AI use in agriculture here.'
-                                  : 'Tarımda Yapay Zeka kullanımının nabzını buradan takip edin.',
-                              alt: en
-                                  ? 'Each cell counts the passages where a technology comes up in a heading. Tap a cell to open the heading with those passages marked, or a technology to open its page.'
-                                  : 'Her hücre, bir teknolojinin bir başlıkta geçtiği yer sayısı. Hücreye dokununca başlık o yerler işaretli açılır; teknolojinin adına dokununca kendi sayfası.',
+                            const YzIsiHaritasiBolumu(),
+                            ],
+                            // Türkiye Dijital Tarım Atlası: illerine dokunulan
+                            // harita doğrudan sayfada (giriş kartı yok).
+                            const SizedBox(height: 34),
+                            YzBolumBasligi(
+                              en ? kYzAtlasAdEn : kYzAtlasAdTr,
+                              alt: yzAtlasAciklama(en),
                             ),
-                            const YzTeknolojiMatrisi(),
-                            // Son haberler (madde 28): manşet + üç yan haber;
-                            // haber yoksa başlığıyla birlikte hiç çizilmiyor.
-                            // Önlerinde Türkiye Dijital Tarım Atlası'nın giriş
-                            // kartı (atlas turu, 25 Kas 2026) ve hemen altında,
-                            // aynı biçimde, Sahadan galerisinin kartı.
+                            const YzAtlasGovdesi(key: ValueKey('yz-merkez-atlas')),
+                            // Sahadan galerisinin kartı; altında son haberler
+                            // (madde 28: manşet + üç yan haber; haber yoksa
+                            // başlığıyla birlikte hiç çizilmiyor).
                             const SizedBox(height: 34),
-                            const YzAtlasKarti(),
-                            const SizedBox(height: 14),
                             const YzSahadanKarti(),
                             YzHaberBlogu(
                               key: const ValueKey('yz-merkez-haberleri'),
@@ -204,6 +210,33 @@ class YzMerkezEkrani extends StatelessWidget {
           })),
         ),
       ]),
+    );
+  }
+}
+
+/// Teknoloji ve alan ısı haritası bölümü: başlık, vurgu, "Teknoloji | Kaynak
+/// niteliği" seçicisi ve matris. Merkez sayfada [kYzIsiHaritasiGorunur]
+/// kapalıyken çizilmiyor (kullanıcı, 27 Kasım 2026); kod ve testleri yerinde.
+class YzIsiHaritasiBolumu extends StatelessWidget {
+  const YzIsiHaritasiBolumu({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final en = yzIsEn(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        YzIsiHaritasiBasligi(
+          en ? 'Technology and Field Heat Map' : 'Teknoloji ve Alan Isı Haritası',
+          vurgu: en
+              ? 'Follow the pulse of AI use in agriculture here.'
+              : 'Tarımda Yapay Zeka kullanımının nabzını buradan takip edin.',
+          alt: en
+              ? 'Each cell counts the passages where a technology comes up in a heading. Tap a cell to open the heading with those passages marked, or a technology to open its page.'
+              : 'Her hücre, bir teknolojinin bir başlıkta geçtiği yer sayısı. Hücreye dokununca başlık o yerler işaretli açılır; teknolojinin adına dokununca kendi sayfası.',
+        ),
+        const YzTeknolojiMatrisi(),
+      ],
     );
   }
 }

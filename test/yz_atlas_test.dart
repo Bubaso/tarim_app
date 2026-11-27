@@ -619,7 +619,7 @@ void main() {
   });
 
   group('merkez sayfa', () {
-    testWidgets('atlas kartı ısı haritasından sonra, haberlerden önce; dokununca atlas', (t) async {
+    testWidgets('kullanıcı, 27 Kas: ısı haritası gizli, yerinde atlasın kendisi; ile dokununca kayıtlar', (t) async {
       await _boyut(t, const Size(1280, 900));
       final r = GoRouter(initialLocation: yzPath, routes: [
         GoRoute(path: yzPath, builder: (c, s) => const YzMerkezEkrani()),
@@ -646,23 +646,23 @@ void main() {
       await t.pumpAndSettle();
       await t.pump(const Duration(milliseconds: 1600));
       await t.pumpAndSettle();
-      final kart = find.byKey(const ValueKey('yz-atlas-karti'));
-      expect(kart, findsOneWidget);
-      expect(find.descendant(of: kart, matching: find.text(kYzAtlasAdTr)), findsOneWidget);
-      final matris = t.getRect(find.byType(YzTeknolojiMatrisi));
+      // Isı haritası çizilmiyor; atlas kartı da yok, haritanın kendisi var.
+      expect(find.byType(YzTeknolojiMatrisi), findsNothing);
+      expect(find.text('Teknoloji ve Alan Isı Haritası'), findsNothing);
+      expect(find.byKey(const ValueKey('yz-atlas-karti')), findsNothing);
+      final atlas = find.byKey(const ValueKey('yz-merkez-atlas'));
+      expect(atlas, findsOneWidget);
+      expect(find.text(kYzAtlasAdTr), findsOneWidget);
+      expect(find.descendant(of: atlas, matching: find.byType(YzAtlasIzgarasi)), findsOneWidget);
       final haberler = t.getRect(find.byKey(const ValueKey('yz-merkez-haberleri')));
-      final k = t.getRect(kart);
-      expect(k.top, greaterThan(matris.bottom));
-      expect(k.bottom, lessThanOrEqualTo(haberler.top));
-      await t.ensureVisible(kart);
+      expect(t.getRect(atlas).bottom, lessThanOrEqualTo(haberler.top));
+      // Masaüstünde ile dokununca kayıtlar haritanın altında açılıyor.
+      final ankara = find.descendant(of: atlas, matching: find.byKey(const ValueKey('yz-atlas-hucre-6')));
+      await t.ensureVisible(ankara);
       await t.pumpAndSettle();
-      await t.tap(kart);
+      await t.tap(ankara);
       await t.pumpAndSettle();
-      // Bölümün öbür geçişleri gibi `push` (go_router 14'te adres çubuğu
-      // üstteki ImperativeRouteMatch'te): geri ok merkez sayfaya döner.
-      final ust = r.routerDelegate.currentConfiguration.last;
-      expect(ust is ImperativeRouteMatch ? ust.matches.uri.path : ust.matchedLocation, yzAtlasPath);
-      expect(find.byType(YzAtlasEkrani), findsOneWidget);
+      expect(find.descendant(of: atlas, matching: find.byKey(const ValueKey('yz-atlas-kayitlar'))), findsOneWidget);
       expect(t.takeException(), isNull);
     });
 

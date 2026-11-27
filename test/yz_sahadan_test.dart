@@ -575,12 +575,13 @@ void main() {
       expect(kart, findsOneWidget);
       expect(find.descendant(of: kart, matching: find.text('Sahadan')), findsOneWidget);
       expect(find.descendant(of: kart, matching: find.text(yzSahadanAciklamasi(false))), findsOneWidget);
-      final atlas = t.getRect(find.byKey(const ValueKey('yz-atlas-karti')));
+      // Atlas kartı yok (kullanıcı, 27 Kas): Sahadan kartı atlasın kendisinin altında.
+      final atlas = t.getRect(find.byKey(const ValueKey('yz-merkez-atlas')));
       final s = t.getRect(kart);
       final haberler = t.getRect(find.byKey(const ValueKey('yz-merkez-haberleri')));
-      expect(s.top - atlas.bottom, inInclusiveRange(0, 20), reason: 'hemen altında');
+      expect(s.top, greaterThanOrEqualTo(atlas.bottom), reason: 'atlasın altında');
       expect(s.bottom, lessThanOrEqualTo(haberler.top));
-      expect((s.left, s.width), (atlas.left, atlas.width), reason: 'aynı biçimde, aynı genişlikte');
+      expect((s.left, s.width), (atlas.left, atlas.width), reason: 'aynı sütunda, aynı genişlikte');
       await t.ensureVisible(kart);
       await t.pumpAndSettle();
       await t.tap(kart);

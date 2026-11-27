@@ -40,17 +40,80 @@ import 'yz_tasarim.dart';
 /// `?il=<plaka>` (Sahadan galerisinin kartındaki bağlantı): sayfa o il seçili
 /// açılıyor — masaüstünde kayıtları haritanın altında, telefonda alttan açılan
 /// sayfada. Kaydı olmayan ya da geçersiz plaka yok sayılıyor.
-class YzAtlasEkrani extends ConsumerStatefulWidget {
+class YzAtlasEkrani extends StatelessWidget {
   const YzAtlasEkrani({super.key, this.il});
 
   /// Açılışta seçili il (verilmezse adresin `?il=` değeri).
   final int? il;
 
   @override
-  ConsumerState<YzAtlasEkrani> createState() => _YzAtlasEkraniState();
+  Widget build(BuildContext context) {
+    final en = yzIsEn(context);
+    final telefon = yzTelefon(context);
+    final p = il ??
+        (GoRouter.maybeOf(context) == null
+            ? null
+            : int.tryParse(GoRouterState.of(context).uri.queryParameters['il'] ?? ''));
+    return Scaffold(
+      backgroundColor: YzRenk.zemin,
+      body: Column(children: [
+        const YzUstSerit(geriAdres: yzPath),
+        Expanded(
+          child: YzOlcekliIcerik(
+            child: LayoutBuilder(builder: (context, kis) {
+              final yan = kis.maxWidth < 640 ? 16.0 : 32.0;
+              return SingleChildScrollView(
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 1120),
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(yan, telefon ? 24 : 44, yan, 56),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(buyukHarf(en ? 'Map' : 'Harita', en),
+                              style: YzYazi.ustEtiket(renk: YzRenk.makine)),
+                          const SizedBox(height: 12),
+                          Semantics(
+                            header: true,
+                            child: Text(en ? kYzAtlasAdEn : kYzAtlasAdTr,
+                                style: YzYazi.baslik(telefon ? 30 : 42)),
+                          ),
+                          const SizedBox(height: 12),
+                          Text(
+                            yzAtlasAciklama(en),
+                            style: YzYazi.govde(boy: telefon ? 17 : 18, renk: YzRenk.soluk),
+                          ),
+                          const SizedBox(height: 20),
+                          YzAtlasGovdesi(il: p),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }),
+          ),
+        ),
+      ]),
+    );
+  }
 }
 
-class _YzAtlasEkraniState extends ConsumerState<YzAtlasEkrani> {
+/// Atlasın gövdesi: lejant, il ızgarası ve seçili ilin kayıtları (telefonda
+/// iller listesi ve alttan açılan sayfa). Atlas sayfasında ve merkez sayfada
+/// (kullanıcı, 27 Kasım 2026: ısı haritasının yerine) aynı parça.
+class YzAtlasGovdesi extends ConsumerStatefulWidget {
+  const YzAtlasGovdesi({super.key, this.il});
+
+  /// Açılışta seçili il; kaydı yoksa yok sayılır.
+  final int? il;
+
+  @override
+  ConsumerState<YzAtlasGovdesi> createState() => _YzAtlasGovdesiState();
+}
+
+class _YzAtlasGovdesiState extends ConsumerState<YzAtlasGovdesi> {
   int? _secili;
   bool _ilOkundu = false;
 
@@ -59,10 +122,7 @@ class _YzAtlasEkraniState extends ConsumerState<YzAtlasEkrani> {
     super.didChangeDependencies();
     if (_ilOkundu) return;
     _ilOkundu = true;
-    final p = widget.il ??
-        (GoRouter.maybeOf(context) == null
-            ? null
-            : int.tryParse(GoRouterState.of(context).uri.queryParameters['il'] ?? ''));
+    final p = widget.il;
     // Yalnız gömülü kaydı (dosya, dizin, fotoğraf) olan il; haber sorgusu
     // beklenmiyor.
     if (p == null || !yzAtlasKayitlari(en: yzIsEn(context)).containsKey(p)) return;
@@ -115,85 +175,47 @@ class _YzAtlasEkraniState extends ConsumerState<YzAtlasEkrani> {
       }
     }
 
-    return Scaffold(
-      backgroundColor: YzRenk.zemin,
-      body: Column(children: [
-        const YzUstSerit(geriAdres: yzPath),
-        Expanded(
-          child: YzOlcekliIcerik(
-            child: LayoutBuilder(builder: (context, kis) {
-              final yan = kis.maxWidth < 640 ? 16.0 : 32.0;
-              return SingleChildScrollView(
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 1120),
-                    child: Padding(
-                      padding: EdgeInsets.fromLTRB(yan, telefon ? 24 : 44, yan, 56),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(buyukHarf(en ? 'Map' : 'Harita', en),
-                              style: YzYazi.ustEtiket(renk: YzRenk.makine)),
-                          const SizedBox(height: 12),
-                          Semantics(
-                            header: true,
-                            child: Text(en ? kYzAtlasAdEn : kYzAtlasAdTr,
-                                style: YzYazi.baslik(telefon ? 30 : 42)),
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            _aciklama(en),
-                            style: YzYazi.govde(boy: telefon ? 17 : 18, renk: YzRenk.soluk),
-                          ),
-                          const SizedBox(height: 20),
-                          _Lejant(enCok: enCok),
-                          const SizedBox(height: 12),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: YzAtlasIzgarasi(
-                              kayitlar: kayitlar,
-                              enCok: enCok,
-                              secili: _secili,
-                              telefon: telefon,
-                              onSec: sec,
-                            ),
-                          ),
-                          SizedBox(height: telefon ? 28 : 34),
-                          if (telefon)
-                            _IlListesi(sirali: sirali, onSec: sec)
-                          else if (secili != null)
-                            // Okuma sütunu genişliğinde: kayıtlar cümle,
-                            // satır uzamasın.
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: ConstrainedBox(
-                                constraints: const BoxConstraints(maxWidth: 760),
-                                child: _IlKayitlari(
-                                  k: secili,
-                                  kapat: () => setState(() => _secili = null),
-                                  git: GoRouter.maybeOf(context) == null ? null : (a) => context.push(a),
-                                ),
-                              ),
-                            )
-                          else
-                            _EnCokIller(sirali: sirali, onSec: sec),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            }),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        _Lejant(enCok: enCok),
+        const SizedBox(height: 12),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: YzAtlasIzgarasi(
+            kayitlar: kayitlar,
+            enCok: enCok,
+            secili: _secili,
+            telefon: telefon,
+            onSec: sec,
           ),
         ),
-      ]),
+        SizedBox(height: telefon ? 28 : 34),
+        if (telefon)
+          _IlListesi(sirali: sirali, onSec: sec)
+        else if (secili != null)
+          // Okuma sütunu genişliğinde: kayıtlar cümle, satır uzamasın.
+          Align(
+            alignment: Alignment.centerLeft,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 760),
+              child: _IlKayitlari(
+                k: secili,
+                kapat: () => setState(() => _secili = null),
+                git: GoRouter.maybeOf(context) == null ? null : (a) => context.push(a),
+              ),
+            ),
+          )
+        else
+          _EnCokIller(sirali: sirali, onSec: sec),
+      ],
     );
   }
 }
 
 /// Sayfanın ve merkez kartının açıklaması (ekranın kendi yazısı). Sahadan
 /// galerisinin kareleri de ilin kaydı (25 Kasım 2026): "yer alan iller".
-String _aciklama(bool en) => en
+String yzAtlasAciklama(bool en) => en
     ? 'Provinces that appear in the file, in the Türkiye directory, in the From the Field gallery and in the section’s news. Tap a province to see what comes up there, with its source.'
     : 'Dosyada, Türkiye dizininde, Sahadan galerisinde ve bölümün haberlerinde yer alan iller. Bir ile dokununca orada ne geçtiği kaynağıyla açılır.';
 
@@ -871,7 +893,7 @@ class YzAtlasKarti extends StatelessWidget {
     final sayilar = {for (final e in kayitlar.entries) e.key: e.value.sayi};
     final yonlendirici = GoRouter.maybeOf(context);
     final ad = en ? kYzAtlasAdEn : kYzAtlasAdTr;
-    final aciklama = _aciklama(en);
+    final aciklama = yzAtlasAciklama(en);
     final onizleme = _OnIzleme(sayilar: sayilar, enCok: enCok, hucre: telefon ? 6 : 8, aralik: telefon ? 1 : 1.5);
     const ok = Icon(Icons.arrow_forward_rounded, color: YzRenk.makine);
     return Semantics(

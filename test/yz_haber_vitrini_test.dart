@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_atlas_veri.dart';
 import 'package:tarim_app/features/home/data/models/news_article.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_deposu.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_iskelet.g.dart';
@@ -46,6 +47,8 @@ List<YzHaber> _haberler(int baslikNo, int n) => [
 
 Widget _uygulama(Widget cocuk, {required Future<List<YzHaber>> Function(int? no) haber}) => ProviderScope(
       overrides: [
+        // Merkezdeki atlas (27 Kas 2026): haber sorgusu ağa çıkmasın.
+        yzAtlasHaberleriProvider.overrideWith((ref) async => const <YzHaber>[]),
         yzBolumHaberleriProvider.overrideWith((ref, no) => haber(no)),
         yzDizinEklenenlerProvider.overrideWith((ref) async => const <YzDizinKaydi>[]),
       ],
