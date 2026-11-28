@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../data/yz_kaynak_karnesi.g.dart';
 import '../data/yz_makbuz.g.dart';
 import '../data/yz_rakam_kaynaklari.g.dart';
 import 'yz_balon_kabugu.dart';
+import 'yz_kaynak_karnesi.dart' show yzKarneTurAdi, yzTurOrnegi;
 import 'yz_makbuz.dart';
 import 'yz_tasarim.dart';
 
@@ -15,6 +17,19 @@ import 'yz_tasarim.dart';
 /// [sayfa]: "bNN" (başlık) ya da "tek_<kod>" (teknoloji sayfası).
 bool yzRakamKaynagiVar(String sayfa, String kalin, bool en) =>
     kYzRakamKaynak['$sayfa:${en ? 'en' : 'tr'}']?.containsKey(kalin) ?? false;
+
+/// Kalın rakamın kaynaklarının türleri (karne sırası 0-3), sırasıyla ve
+/// tekrarsız; niteliği bilinmeyen kaynak atlanıyor.
+List<int> yzRakamTurleri(String sayfa, String kalin, bool en) {
+  final adaylar = kYzRakamKaynak['$sayfa:${en ? 'en' : 'tr'}']?[kalin] ?? const [];
+  final turler = kYzKaynakTuru[sayfa] ?? const {};
+  final sonuc = <int>[];
+  for (final a in adaylar) {
+    final t = turler[a[0]];
+    if (t != null && !sonuc.contains(t)) sonuc.add(t);
+  }
+  return sonuc;
+}
 
 Future<void> yzKaynakBalonu(
     BuildContext context, String sayfa, String kalin, Offset konum, bool en) {
@@ -102,6 +117,16 @@ Widget _icerik(BuildContext ctx, bool telefon, String sayfa, List<List<String>> 
             style: telefon
                 ? YzYazi.govde(boy: 16.5).copyWith(height: 1.45)
                 : YzYazi.govde(boy: 14).copyWith(height: 1.4)),
+        // Kaynağın türü, rakamın ardındaki noktayla aynı renkte (mizansen
+        // turu, 28 Kasım 2026): okur noktanın ne dediğini burada öğreniyor.
+        if (kYzKaynakTuru[sayfa]?[a[0]] case final tur?) ...[
+          const SizedBox(height: 4),
+          Row(mainAxisSize: MainAxisSize.min, children: [
+            yzTurOrnegi(tur),
+            const SizedBox(width: 6),
+            Text(yzKarneTurAdi(tur, en), style: YzYazi.veri(boy: telefon ? 12.5 : 11.5)),
+          ]),
+        ],
         if (a[1].isNotEmpty) ...[
           SizedBox(height: telefon ? 8 : 6),
           // Belgeden birebir alıntı: yumuşak zeminli, yuvarlak

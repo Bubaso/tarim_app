@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart' show ValueListenable;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -12,6 +13,8 @@ import '../data/yz_grafikler.g.dart';
 import 'yz_cekme.dart';
 import 'yz_gorsel.dart';
 import 'yz_kaynak_balonu.dart';
+import 'yz_kaynak_karnesi.dart' show kYzRakamNoktasi, yzTurNoktalari;
+import 'yz_kesit.dart';
 import 'yz_kisaltma.dart';
 import 'yz_mobil.dart';
 import 'yz_grafik.dart';
@@ -184,6 +187,12 @@ const Color _aramaZemini = kYzAramaRengi;
 /// Paragraf kutusu ve paragrafın solunda çizgi yok (kullanıcı, 18 Kas 2026).
 const Color kYzKalemRengi = Color(0xFFCFE0F7);
 
+/// Kelimeyi bitiren karakter: düz boşluk ve noktalama. Kesme işareti ve tire
+/// kelimenin içinde ("%72'sini", "10-15"); bölünmez boşluk da: [yzBolunmez]
+/// rakamı birimine bağlıyor, nokta grubun sonuna ("64,47 milyar•") — yer
+/// tutucu bölünmez boşluğun önünde satırı kırdırıyordu.
+final RegExp _kelimeSonu = RegExp(r'[ \t\n\r,.;:!?)\]"”…–—/]');
+
 /// Satır içi biçim: `**kalın**`, `*italik*`. Rakam taşıyan kalın parça
 /// çelik mavisiyle çiziliyor (gövde yazı tipinin kendi rakamı, tam boy;
 /// karar 60): metindeki ölçülmüş sayılar böyle ayırt ediliyor.
@@ -198,9 +207,14 @@ TextSpan yzSatirIci(String metin, TextStyle taban,
     List<YzIsaret> isaretler = const [],
     List<YzKisaltmaIsareti> kisaltmalar = const [],
     List<(int, int)> arama = const [],
-    List<(int, int)> kalem = const []}) {
+    List<(int, int)> kalem = const [],
+    String? nabizKalin,
+    double nabiz = 0,
+    bool turNoktasi = true}) {
   final gorunen = yzBolunmez(metin);
   final parcalar = <InlineSpan>[];
+  // İpucunun nabzı (mizansen turu): yalnız ilk eşleşen kalın rakam.
+  var nabizAtti = false;
   final desen = RegExp(r'\*\*(.+?)\*\*|\*(.+?)\*');
 
   // [a, b) aralığını arama vurgusunun sınırlarından bölerek ekle.
@@ -285,8 +299,11 @@ TextSpan yzSatirIci(String metin, TextStyle taban,
   }
 
   var son = 0;
-  for (final m in desen.allMatches(metin)) {
+  final eslesmeler = desen.allMatches(metin).toList();
+  for (var mi = 0; mi < eslesmeler.length; mi++) {
+    final m = eslesmeler[mi];
     if (m.start > son) duz(son, m.start);
+    var bitis = m.end;
     if (m.group(1) != null) {
       final ic = m.group(1)!;
       final rakamli = RegExp(r'\d').hasMatch(ic);
@@ -299,6 +316,8 @@ TextSpan yzSatirIci(String metin, TextStyle taban,
         r = TapGestureRecognizer()..onTapUp = (d) => etkilesim.rakamAc?.call(ic, d.globalPosition);
         etkilesim.tanicilar.add(r);
       }
+      final nabizli = kaynakli && !nabizAtti && nabiz > 0 && ic == nabizKalin;
+      if (nabizli) nabizAtti = true;
       ekle(m.start + 2, m.end - 2,
           r: r,
           imlec: kaynakli ? SystemMouseCursors.click : null,
@@ -306,15 +325,36 @@ TextSpan yzSatirIci(String metin, TextStyle taban,
           // (karar 60, kullanıcının seçimi B): eşit genişlikli ayrı yazı tipi
           // yoğun paragraflarda cümlenin ritmini bölüyordu.
           stil: rakamli
-              ? const TextStyle(
+              ? TextStyle(
                   color: YzRenk.makine,
-                  fontFeatures: [FontFeature.liningFigures()],
+                  fontFeatures: const [FontFeature.liningFigures()],
+                  backgroundColor: nabizli
+                      ? Color.lerp(const Color(0x00CFE0F7), kYzKalemRengi, nabiz)
+                      : null,
                 )
               : const TextStyle(fontWeight: FontWeight.w700));
+      // Kaynağın türü (mizansen turu, 28 Kasım 2026): rakamın hemen ardında
+      // karne renginde küçük nokta. Yer tutucu seçime girmiyor (kopyalanan
+      // metne karakter eklemiyor); rakamın rengi değişmiyor.
+      // Nokta kelimenin sonunda: Türkçe ek rakamdan ayrılmasın ("%72'sini"
+      // → nokta "sini"den sonra), birimle arasındaki boşluğa kadar.
+      if (kaynakli && kYzRakamNoktasi && turNoktasi) {
+        final turler = etkilesim.rakamTuru?.call(ic) ?? const <int>[];
+        if (turler.isNotEmpty) {
+          final sinir = mi + 1 < eslesmeler.length ? eslesmeler[mi + 1].start : metin.length;
+          var k = m.end;
+          while (k < sinir && !_kelimeSonu.hasMatch(gorunen[k])) {
+            k++;
+          }
+          if (k > m.end) duz(m.end, k);
+          parcalar.add(yzTurNoktalari(turler, taban.fontSize ?? 18));
+          bitis = k;
+        }
+      }
     } else {
       ekle(m.start + 1, m.end - 1, stil: const TextStyle(fontStyle: FontStyle.italic));
     }
-    son = m.end;
+    son = bitis;
   }
   if (son < metin.length) duz(son, metin.length);
   return TextSpan(style: taban, children: parcalar);
@@ -424,8 +464,13 @@ class YzMetinGorunumu extends StatefulWidget {
       this.kaynakSayfasi,
       this.olcek = 1.0,
       this.giris = true,
-      this.bolumBaglantisi});
+      this.bolumBaglantisi,
+      this.nabiz});
   final String metin;
+
+  /// İpucunun nabzı (mizansen turu, 28 Kasım 2026): 0-1 arası; verilirse
+  /// sayfanın ilk kaynaklı mavi rakamının zemini bununla yanıp sönüyor.
+  final ValueListenable<double>? nabiz;
 
   /// Alt başlığın paylaşılabilir adresi (karar 60): verilirse başlığın
   /// yanında küçük bir bağlantı düğmesi; dokununca adres panoya kopyalanır.
@@ -499,6 +544,12 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
   late List<GlobalKey?> _baslikAnahtari;
   late int _ilkParagraf;
 
+  /// İpucunun nabzının yeri: ilk kaynaklı mavi rakamın bloğu, parçası
+  /// (liste maddesi) ve kalın metni; yoksa blok -1.
+  int _nabizBlok = -1;
+  int _nabizParca = 0;
+  String? _nabizKalin;
+
   @override
   void initState() {
     super.initState();
@@ -518,7 +569,7 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
         eski.kaynakSayfasi != widget.kaynakSayfasi) {
       _birak();
       _hazirla();
-    } else if (eski.olcek != widget.olcek || eski.giris != widget.giris) {
+    } else if (eski.olcek != widget.olcek || eski.giris != widget.giris || eski.nabiz != widget.nabiz) {
       _onbellek.clear();
     } else if (eski.vurguDenetcisi != widget.vurguDenetcisi) {
       widget.vurguDenetcisi?._kur(_isaretliAnahtarlar);
@@ -624,6 +675,35 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
     ];
     widget.vurguDenetcisi?._basliklariKur([for (final a in _baslikAnahtari) if (a != null) a]);
     _ilkParagraf = widget.giris && _bloklar.isNotEmpty && _bloklar.first.tur == YzBlokTuru.paragraf ? 0 : -1;
+    _nabizBlok = -1;
+    _nabizKalin = null;
+    final sayfa = widget.kaynakSayfasi;
+    if (sayfa != null) {
+      final kalin = RegExp(r'\*\*(.+?)\*\*');
+      ara:
+      for (var i = 0; i < _bloklar.length; i++) {
+        final b = _bloklar[i];
+        if (b.tur != YzBlokTuru.paragraf && b.tur != YzBlokTuru.ozet && b.tur != YzBlokTuru.liste) continue;
+        for (var j = 0; j < b.parcalar.length; j++) {
+          for (final m in kalin.allMatches(b.parcalar[j])) {
+            final ic = m.group(1)!;
+            if (RegExp(r'\d').hasMatch(ic) && yzRakamKaynagiVar(sayfa, ic, en)) {
+              _nabizBlok = i;
+              _nabizParca = j;
+              _nabizKalin = ic;
+              break ara;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /// Nabzın düştüğü metin: nabız değiştikçe yalnız o yeniden kuruluyor.
+  Widget _nabizla(bool burada, Widget Function(double v) kur) {
+    final n = widget.nabiz;
+    if (!burada || n == null) return kur(0);
+    return ValueListenableBuilder<double>(valueListenable: n, builder: (_, v, __) => kur(v));
   }
 
   List<GlobalKey> get _isaretliAnahtarlar => [
@@ -667,6 +747,9 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
         rakamAc: widget.kaynakSayfasi == null
             ? null
             : (k, konum) => yzKaynakBalonu(context, widget.kaynakSayfasi!, k, konum, widget.en),
+        rakamTuru: widget.kaynakSayfasi == null || !kYzRakamNoktasi
+            ? null
+            : (k) => yzRakamTurleri(widget.kaynakSayfasi!, k, widget.en),
         kisaltmaAc: (k, konum) => yzKisaltmaBalonu(context, k, konum, widget.en),
       );
 
@@ -683,11 +766,11 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
       // Bölüm sayfasında A−/A+ MediaQuery'ye değil [olcek]'e işliyor; Text
       // sistem büyütmesini ayrıca uyguluyor.
       final s = MediaQuery.textScalerOf(context).scale(1) * widget.olcek;
-      final anahtar = '$dar|$telefon|${widget.olcek}|$metinW|$s';
+      final anahtar = '$dar|$telefon|${widget.olcek}|$metinW|$s|${kis.maxWidth}';
       if (!_onbellek.containsKey(anahtar)) {
         _onbellek
           ..clear()
-          ..[anahtar] = _ciz(dar, metinW, telefon: telefon, s: s);
+          ..[anahtar] = _ciz(dar, metinW, telefon: telefon, s: s, sutunW: kis.maxWidth);
       }
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -722,7 +805,8 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
       ? const []
       : yzAramaAraliklari(hucre, yzAramaKelimeleri(widget.arama!, widget.en), widget.en);
 
-  List<Widget> _ciz(bool dar, double metinW, {bool telefon = false, double s = 1}) {
+  List<Widget> _ciz(bool dar, double metinW,
+      {bool telefon = false, double s = 1, double sutunW = double.infinity}) {
     final o = widget.olcek;
     final ritim = YzOkumaRitmi(telefon: telefon, s: s);
     final govde = YzYazi.okuma(boy: (dar ? 17.5 : 18.5) * o, telefon: telefon);
@@ -733,12 +817,27 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
     final etkilesim = _etkilesim;
     final en = widget.en;
     final cikti = <Widget>[];
+    // Türkiye kesiti (mizansen turu, 28 Kasım 2026): alt başlığından bir
+    // sonraki alt başlığa kadar beyaz, yuvarlak köşeli bant; sol çizgi yok.
+    final bant = List<bool>.filled(_bloklar.length, false);
+    var turkiyede = false;
+    for (var i = 0; i < _bloklar.length; i++) {
+      if (_bloklar[i].tur == YzBlokTuru.altBaslik) {
+        turkiyede = yzKesitTuru(_bloklar[i].metin) == YzKesitTuru.turkiye;
+      }
+      bant[i] = turkiyede;
+    }
+    final bantYan = dar ? 14.0 : 18.0;
+    const bantUst = 26.0;
     for (var i = 0; i < _bloklar.length; i++) {
       final b = _bloklar[i];
+      // Bantta metin sütunu bandın iç payı kadar daralabiliyor (telefonda).
+      final mw = bant[i] ? math.min(metinW, sutunW - 2 * bantYan) : metinW;
+      final once = cikti.length;
       switch (b.tur) {
         case YzBlokTuru.ozet:
           cikti.add(_sutun(
-              metinW,
+              mw,
               Padding(
                 padding: const EdgeInsets.only(bottom: 28),
                 child: Container(
@@ -748,12 +847,16 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
                     borderRadius: BorderRadius.circular(4),
                     border: Border.all(color: YzRenk.bitki.withValues(alpha: 0.22)),
                   ),
-                  child: Text.rich(yzSatirIci(b.metin, govde.copyWith(height: 1.55),
-                      etkilesim: etkilesim,
-                      isaretler: _isaretler[i][0],
-                      kisaltmalar: _kisaltmalar[i][0],
-                      arama: _arama[i][0],
-                      kalem: _kalem[i][0])),
+                  child: _nabizla(
+                      i == _nabizBlok,
+                      (v) => Text.rich(yzSatirIci(b.metin, govde.copyWith(height: 1.55),
+                          etkilesim: etkilesim,
+                          isaretler: _isaretler[i][0],
+                          kisaltmalar: _kisaltmalar[i][0],
+                          arama: _arama[i][0],
+                          kalem: _kalem[i][0],
+                          nabizKalin: _nabizKalin,
+                          nabiz: v))),
                 ),
               ),
               key: _anahtar[i]));
@@ -768,17 +871,29 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
                 ? Text(b.metin, style: stil)
                 : Text.rich(yzSatirIci(b.metin, stil, arama: ar)),
           );
+          // Ortak iskeletin kesiti (mizansen turu): başlığın önünde sabit
+          // simge; metin aynı.
+          final tur = yzKesitTuru(b.metin);
+          final simgeli = tur == null
+              ? baslikMetni
+              : Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                  YzKesitSimgesi(tur, boy: dar ? 28 : 32),
+                  SizedBox(width: dar ? 10 : 12),
+                  Expanded(child: baslikMetni),
+                ]);
+          final ilkBant = bant[i] && (i == 0 || !bant[i - 1]);
           cikti.add(_sutun(
-              metinW,
+              mw,
               Padding(
                 // Telefonda alt başlığın üstü daha açık, altı daha sıkı:
                 // başlık önceki bölümden ayrılıp kendi paragrafına bağlanıyor.
-                // Üstü 48, altı telefonda 12, masaüstünde 14 (madde 3).
-                padding: EdgeInsets.only(top: ritim.baslikUstu, bottom: ritim.baslikAlti),
+                // Üstü 48, altı telefonda 12, masaüstünde 14 (madde 3). Bandın
+                // ilk başlığında üst payın bir kısmı bandın dışında.
+                padding: EdgeInsets.only(top: ilkBant ? bantUst : ritim.baslikUstu, bottom: ritim.baslikAlti),
                 child: widget.bolumBaglantisi == null
-                    ? baslikMetni
-                    : Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                        Expanded(child: baslikMetni),
+                    ? simgeli
+                    : Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                        Expanded(child: simgeli),
                         IconButton(
                           tooltip: en ? 'Copy link to this section' : 'Bu bölümün bağlantısını kopyala',
                           visualDensity: VisualDensity.compact,
@@ -791,7 +906,7 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
         case YzBlokTuru.paragraf:
           final stil = i == _ilkParagraf ? giris : govde;
           final noktalar = bolme && !_odakBlok[i]
-              ? yzTelefonNoktalari(b.metin, genislik: metinW, s: s, giris: i == _ilkParagraf, en: en)
+              ? yzTelefonNoktalari(b.metin, genislik: mw, s: s, giris: i == _ilkParagraf, en: en)
               : const <int>[];
           if (noktalar.isNotEmpty) {
             // İşaretler bütün paragrafta hesaplandı ("sayfada ilk geçiş"
@@ -801,8 +916,12 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
             // yere kaydırma bloğu bütün olarak görüyor). Girişte yalnız ilk
             // parça giriş puntosunda.
             final araliklar = yzParcaAraliklari(b.metin, noktalar);
+            final nabizParcasi = i != _nabizBlok
+                ? -1
+                : araliklar.indexWhere(
+                    (a) => b.metin.substring(a.$1, a.$2).contains('**$_nabizKalin**'));
             cikti.add(_sutun(
-                metinW,
+                mw,
                 Padding(
                   padding: EdgeInsets.only(bottom: ritim.paragrafArasi),
                   child: Column(
@@ -811,22 +930,26 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
                       for (var j = 0; j < araliklar.length; j++)
                         Padding(
                           padding: EdgeInsets.only(bottom: j == araliklar.length - 1 ? 0 : ritim.parcaArasi),
-                          child: Text.rich(yzSatirIci(
-                              b.metin.substring(araliklar[j].$1, araliklar[j].$2), j == 0 ? stil : govde,
-                              etkilesim: etkilesim,
-                              isaretler: [
-                                for (final x in _isaretler[i][0])
-                                  if (x.bas >= araliklar[j].$1 && x.son <= araliklar[j].$2)
-                                    YzIsaret(x.bas - araliklar[j].$1, x.son - araliklar[j].$1, x.terim),
-                              ],
-                              kisaltmalar: [
-                                for (final x in _kisaltmalar[i][0])
-                                  if (x.bas >= araliklar[j].$1 && x.son <= araliklar[j].$2)
-                                    YzKisaltmaIsareti(
-                                        x.bas - araliklar[j].$1, x.son - araliklar[j].$1, x.kisaltma),
-                              ],
-                              arama: _aralikKaydir(_arama[i][0], araliklar[j].$1, araliklar[j].$2),
-                              kalem: _aralikKaydir(_kalem[i][0], araliklar[j].$1, araliklar[j].$2))),
+                          child: _nabizla(
+                              j == nabizParcasi,
+                              (v) => Text.rich(yzSatirIci(
+                                  b.metin.substring(araliklar[j].$1, araliklar[j].$2), j == 0 ? stil : govde,
+                                  etkilesim: etkilesim,
+                                  isaretler: [
+                                    for (final x in _isaretler[i][0])
+                                      if (x.bas >= araliklar[j].$1 && x.son <= araliklar[j].$2)
+                                        YzIsaret(x.bas - araliklar[j].$1, x.son - araliklar[j].$1, x.terim),
+                                  ],
+                                  kisaltmalar: [
+                                    for (final x in _kisaltmalar[i][0])
+                                      if (x.bas >= araliklar[j].$1 && x.son <= araliklar[j].$2)
+                                        YzKisaltmaIsareti(
+                                            x.bas - araliklar[j].$1, x.son - araliklar[j].$1, x.kisaltma),
+                                  ],
+                                  arama: _aralikKaydir(_arama[i][0], araliklar[j].$1, araliklar[j].$2),
+                                  kalem: _aralikKaydir(_kalem[i][0], araliklar[j].$1, araliklar[j].$2),
+                                  nabizKalin: _nabizKalin,
+                                  nabiz: v))),
                         ),
                     ],
                   ),
@@ -834,14 +957,18 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
                 key: _anahtar[i]));
             break;
           }
-          final metin = Text.rich(yzSatirIci(b.metin, stil,
-              etkilesim: etkilesim,
-              isaretler: _isaretler[i][0],
-              kisaltmalar: _kisaltmalar[i][0],
-              arama: _arama[i][0],
-              kalem: _kalem[i][0]));
+          final metin = _nabizla(
+              i == _nabizBlok,
+              (v) => Text.rich(yzSatirIci(b.metin, stil,
+                  etkilesim: etkilesim,
+                  isaretler: _isaretler[i][0],
+                  kisaltmalar: _kisaltmalar[i][0],
+                  arama: _arama[i][0],
+                  kalem: _kalem[i][0],
+                  nabizKalin: _nabizKalin,
+                  nabiz: v)));
           cikti.add(_sutun(
-              metinW,
+              mw,
               Padding(
                 padding: EdgeInsets.only(bottom: ritim.paragrafArasi),
                 child: _odakBlok[i] ? _odakKutusu(metin) : metin,
@@ -879,12 +1006,16 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
                         ),
                       ),
                       Expanded(
-                        child: Text.rich(yzSatirIci(b.ogeler[j], govde,
-                            etkilesim: etkilesim,
-                            isaretler: _isaretler[i][j],
-                            kisaltmalar: _kisaltmalar[i][j],
-                            arama: _arama[i][j],
-                            kalem: _kalem[i][j])),
+                        child: _nabizla(
+                            i == _nabizBlok && j == _nabizParca,
+                            (v) => Text.rich(yzSatirIci(b.ogeler[j], govde,
+                                etkilesim: etkilesim,
+                                isaretler: _isaretler[i][j],
+                                kisaltmalar: _kisaltmalar[i][j],
+                                arama: _arama[i][j],
+                                kalem: _kalem[i][j],
+                                nabizKalin: _nabizKalin,
+                                nabiz: v))),
                       ),
                     ],
                   ),
@@ -892,7 +1023,7 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
             ],
           );
           cikti.add(_sutun(
-              metinW,
+              mw,
               Padding(
                 padding: EdgeInsets.only(top: 2, bottom: ritim.listeAlti),
                 child: liste,
@@ -906,7 +1037,7 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
           cikti.add(g == null ? const SizedBox.shrink() : YzGorselKarti(gorsel: g, en: en));
         case YzBlokTuru.cekme:
           cikti.add(yzCekme(b.metin, _bloklar,
-              en: en, telefon: telefon, olcek: o, genislik: metinW, etkilesim: etkilesim, oncekiAralik: ritim.paragrafArasi));
+              en: en, telefon: telefon, olcek: o, genislik: mw, etkilesim: etkilesim, oncekiAralik: ritim.paragrafArasi));
         case YzBlokTuru.canli:
           // Görsel kartı gibi tam genişlikte (sütun yok).
           cikti.add(yzCanliPencere(b.metin, en: en));
@@ -920,6 +1051,23 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
                 : _GenisTablo(b.satirlar, en,
                     vurgulu: _isaretliSatir[i], olcek: o, kalem: _hucreKalemi, arama: _hucreAramasi),
           ));
+      }
+      if (bant[i] && cikti.length > once) {
+        final ilk = i == 0 || !bant[i - 1];
+        final son = i == _bloklar.length - 1 || !bant[i + 1];
+        const r = Radius.circular(12);
+        final w = cikti.removeLast();
+        final bantli = Container(
+          padding: EdgeInsets.fromLTRB(bantYan, 0, bantYan, son ? 8 : 0),
+          decoration: BoxDecoration(
+            color: YzRenk.yuzey,
+            borderRadius: BorderRadius.vertical(top: ilk ? r : Radius.zero, bottom: son ? r : Radius.zero),
+          ),
+          child: w,
+        );
+        cikti.add(ilk
+            ? Padding(padding: EdgeInsets.only(top: math.max(0, ritim.baslikUstu - bantUst)), child: bantli)
+            : bantli);
       }
     }
     // Her blok kendi katmanında (madde 2): kaydırırken ve seçim değişince

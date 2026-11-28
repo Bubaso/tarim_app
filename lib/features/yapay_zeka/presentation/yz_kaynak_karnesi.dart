@@ -42,6 +42,42 @@ const List<Color> kYzKarneRenkleri = [YzRenk.bitki, YzRenk.makine, kYzKarneResmi
 /// Tür sayısı; sıra [kYzKarneRenkleri] ve [YzKarne.turler] ile aynı.
 const int kYzKarneTurSayisi = 4;
 
+/// Mavi rakamın ardında kaynağının türünü gösteren küçük renk noktası
+/// (mizansen turu, 28 Kasım 2026). Rakamın kendisi mavi kalıyor ("dokununca
+/// kaynağı açılır"); nokta karne satırındaki aynı renkle türü söylüyor.
+const bool kYzRakamNoktasi = true;
+
+/// Rakamın ardındaki nokta(lar): kaynakları iki türdense iki nokta. Satır
+/// içi yer tutucu: seçime ve kopyalanan metne girmiyor.
+InlineSpan yzTurNoktalari(List<int> turler, double boy) {
+  final cap = (boy * 0.3).clamp(4.5, 6.5).toDouble();
+  return WidgetSpan(
+    alignment: PlaceholderAlignment.middle,
+    child: ExcludeSemantics(
+      child: Padding(
+        // Rakamın sağ üstünde, üs gibi: satırın ortasından biraz yukarıda.
+        padding: EdgeInsets.only(left: boy * 0.1, right: 1, bottom: boy * 0.42),
+        child: Row(mainAxisSize: MainAxisSize.min, children: [
+          for (final (i, t) in turler.take(2).indexed)
+            Container(
+              width: cap,
+              height: cap,
+              margin: EdgeInsets.only(left: i == 0 ? 0 : 1.5),
+              decoration: BoxDecoration(color: kYzKarneRenkleri[t], shape: BoxShape.circle),
+            ),
+        ]),
+      ),
+    ),
+  );
+}
+
+/// Karne satırındaki ve balondaki tür adının önündeki renk örneği.
+Widget yzTurOrnegi(int tur, {double cap = 7}) => Container(
+      width: cap,
+      height: cap,
+      decoration: BoxDecoration(color: kYzKarneRenkleri[tur], shape: BoxShape.circle),
+    );
+
 // Sayıyla birlikte: [TR, EN tekil, EN çoğul]. Türkçede sayıdan sonra ad tekil.
 const List<List<String>> _sayiliAd = [
   ['hakemli çalışma', 'peer-reviewed', 'peer-reviewed'],
@@ -132,6 +168,32 @@ const String _bitisik = ' ';
 String _gorunenCumle(YzKarne k, bool en, {required bool satirli}) {
   final ayrinti = [for (final p in _ayrinti(k, en)) p.replaceAll(' ', _bitisik)].join('$_bitisik· ');
   return '${_bas(k.toplam, en)}:${satirli ? '\n' : ' '}$ayrinti';
+}
+
+/// Masaüstü satırının renkli biçimi (mizansen turu, 28 Kasım 2026): her
+/// türün adı rakamın ardındaki noktayla aynı renkte — noktanın lejantı.
+/// Yazı [_gorunenCumle] ile birebir aynı; genişlik değişmiyor (satır 653
+/// px sınırında). Beyan kümesinin hardalı metinde koyusuyla (4,5:1 üstü).
+TextSpan _renkliCumle(YzKarne k, bool en, {required bool satirli}) {
+  final sayilar = [k.hakemli, k.kurumsal, k.resmi, k.satici, k.proje];
+  const dort = [0, 1, 2, 3, 3];
+  final parcalar = [
+    for (var i = 0; i < sayilar.length; i++)
+      if (sayilar[i] > 0) (dort[i], sayilar[i], _sayili(i, sayilar[i], en)),
+  ];
+  Color renk(int tur) => tur == 3 ? YzRenk.bekleyenMetin : kYzKarneRenkleri[tur];
+  return TextSpan(children: [
+    TextSpan(text: '${_bas(k.toplam, en)}:${satirli ? '\n' : ' '}'),
+    for (final (j, (tur, n, metin)) in parcalar.indexed) ...[
+      if (j > 0) const TextSpan(text: '$_bitisik· '),
+      // "12 hakemli çalışma": sayı soluk, türün adı renkli.
+      TextSpan(text: '$n$_bitisik'),
+      TextSpan(
+        text: metin.substring('$n '.length).replaceAll(' ', _bitisik),
+        style: TextStyle(color: renk(tur)),
+      ),
+    ],
+  ]);
 }
 
 /// Telefondaki kısa biçim: "23 kaynak" / "23 sources".
@@ -248,7 +310,7 @@ class YzKarneSatiri extends StatelessWidget {
                 ),
                 const SizedBox(width: _ara),
                 Flexible(
-                  child: Text(sigar ? tek : _gorunenCumle(karne, en, satirli: true), style: stil),
+                  child: Text.rich(_renkliCumle(karne, en, satirli: !sigar), style: stil),
                 ),
               ],
             ),

@@ -148,16 +148,14 @@ class YzMerkezEkrani extends StatelessWidget {
                                 alignment: Alignment.centerLeft,
                                 child: YzPaylasSatiri(en: en, key: const ValueKey('yz-paylas-basliklar'))),
                             const SizedBox(height: 12),
+                            // Açıklamanın ilk cümlesi başlıkların; "Bir
+                            // teknoloji seçin…" cümlesi çiplerin bandında
+                            // (mizansen turu, 28 Kasım 2026; metin aynı).
                             YzBolumBasligi(
                               en ? 'The headings' : 'Başlıklar',
-                              // Telefonda karo yok, liste var (★20): alt yazı ona göre.
-                              alt: telefon
-                                  ? (en
-                                      ? 'From the soil to the market, in the order of the farming year. Pick a technology: each heading shows what it says about it, and the technology has a page of its own across agriculture.'
-                                      : 'Topraktan pazara, tarım yılının sırasıyla. Bir teknoloji seçin: her başlık o teknolojinin oradaki durumunu gösterir; teknolojinin alanlar arası durumu da ayrı bir sayfada.')
-                                  : (en
-                                      ? 'From the soil to the market, in the order of the farming year. Pick a technology: the tiles show what each heading says about it, and the technology has a page of its own across agriculture.'
-                                      : 'Topraktan pazara, tarım yılının sırasıyla. Bir teknoloji seçin: karolar o teknolojinin her başlıktaki durumunu gösterir; teknolojinin alanlar arası durumu da ayrı bir sayfada.'),
+                              alt: en
+                                  ? 'From the soil to the market, in the order of the farming year.'
+                                  : 'Topraktan pazara, tarım yılının sırasıyla.',
                             ),
                             const YzHarita(),
                             // Isı haritası okura gösterilmiyor (kullanıcı, 27 Kasım

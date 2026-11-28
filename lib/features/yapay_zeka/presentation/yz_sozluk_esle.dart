@@ -178,6 +178,7 @@ class YzEtkilesim {
       required this.terimAc,
       this.rakamVar,
       this.rakamAc,
+      this.rakamTuru,
       this.kisaltmaAc});
   final List<GestureRecognizer> tanicilar;
   final void Function(String adres) baglantiAc;
@@ -187,6 +188,10 @@ class YzEtkilesim {
   /// dokununca balonu açan.
   final bool Function(String kalin)? rakamVar;
   final void Function(String kalin, Offset konum)? rakamAc;
+
+  /// Kalın rakamın kaynaklarının türleri (karne sırası 0-3, tekrarsız):
+  /// rakamın yanındaki küçük renk noktası (mizansen turu, 28 Kasım 2026).
+  final List<int> Function(String kalin)? rakamTuru;
 
   /// Kısaltma balonu (karar 60).
   final void Function(String kisaltma, Offset konum)? kisaltmaAc;

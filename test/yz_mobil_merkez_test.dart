@@ -171,8 +171,10 @@ void main() {
       expect(t.widget<Text>(find.text('${kYzBasliklar.length} başlık')).style!.color,
           YzRenk.murekkep);
       expect(find.textContaining('karolar o teknolojinin'), findsOneWidget);
-      // Karo 196 piksel genişliğinde, çerçeveli.
-      expect(t.getSize(find.byType(YzBaslikKarosu).first).width, 196);
+      // Olağan karo 196 piksel genişliğinde; Çerçeve'nin üç karosu daha
+      // büyük (mizansen turu, 28 Kasım 2026).
+      expect(t.getSize(find.widgetWithText(YzBaslikKarosu, 'Toprak ve arazi')).width, 196);
+      expect(t.getSize(find.byType(YzBaslikKarosu).first).width, greaterThan(196));
 
       await t.ensureVisible(_cip('Dil modelleri'));
       await t.pumpAndSettle();

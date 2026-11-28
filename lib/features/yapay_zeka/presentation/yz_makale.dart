@@ -13,6 +13,7 @@ import '../../../core/utils/turkce_metin.dart' show buyukHarf, etiketSlug;
 import '../data/yz_iskelet.g.dart';
 import 'yz_cerceve_mobil.dart';
 import 'yz_kaynak_karnesi.dart';
+import 'yz_kesit.dart';
 import 'yz_metin_gorunumu.dart';
 import 'yz_mobil.dart';
 import 'yz_okuma.dart';
@@ -111,7 +112,7 @@ const double _rayAraligi = 24;
 const double _sutunGenisligi = 760;
 const double _rayEsigi = 1100;
 
-class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
+class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> with SingleTickerProviderStateMixin {
   final _kaydirma = ScrollController();
 
   /// Kaydırılan sütunun kimliği: telefon ile geniş düzen arasında geçişte
@@ -120,6 +121,26 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
   final _kaydiriciAnahtari = GlobalKey(debugLabel: 'yz-makale-kaydirici');
   final _vurgu = YzVurguDenetcisi();
   int _aktif = 0;
+
+  /// Bir kez gösterilen ipucu (mizansen turu, 28 Kasım 2026): metnin
+  /// üstünde kutu yok; sayfa yerleşince (~0,9 sn) altta yüzen kart beliriyor
+  /// ve sayfanın ilk kaynaklı mavi rakamı üç kez hafifçe yanıp sönüyor.
+  /// Gecikme zamanlayıcıyla değil animasyonun içinde: sayfa kapanırken
+  /// bekleyen zamanlayıcı kalmıyor.
+  late final AnimationController _nabizDenetcisi;
+  final _nabiz = ValueNotifier<double>(0);
+  bool _nabizBasladi = false;
+  static const double _nabizGecikmesi = 0.27;
+
+  void _nabizAkti() {
+    final t = _nabizDenetcisi.value;
+    final u = t <= _nabizGecikmesi ? 0.0 : (t - _nabizGecikmesi) / (1 - _nabizGecikmesi);
+    final v = math.sin(u * math.pi * 3);
+    _nabiz.value = u >= 1 ? 0 : v * v;
+  }
+
+  /// Yüzen ipucu kartı görünsün mü: gecikme geçtiyse.
+  bool get _ipucuBelirdi => _nabizDenetcisi.isCompleted || _nabizDenetcisi.value > _nabizGecikmesi;
   bool _dugme = false;
 
   // Telefon çerçevesi (karar 62). Kaydırırken değişenler ayrı dinleyicide:
@@ -182,6 +203,8 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
   @override
   void initState() {
     super.initState();
+    _nabizDenetcisi = AnimationController(vsync: this, duration: const Duration(milliseconds: 3300))
+      ..addListener(_nabizAkti);
     _kaydirma.addListener(_kaydirildi);
     _takipciKur();
     WidgetsBinding.instance.addPostFrameCallback((_) => _ilkKonum());
@@ -311,6 +334,8 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
   @override
   void dispose() {
     _takip?.kapat();
+    _nabizDenetcisi.dispose();
+    _nabiz.dispose();
     _kaydirma.dispose();
     _ilerleme.dispose();
     _gecilen.dispose();
@@ -441,6 +466,10 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
     }
     final isaret = _isaretBellegi;
     final ipucu = md != null && ref.watch(yzIpucuProvider) == false;
+    if (ipucu && !_nabizBasladi) {
+      _nabizBasladi = true;
+      _nabizDenetcisi.forward(from: 0);
+    }
 
     Widget icerik(BuildContext context, BoxConstraints kis) {
       final g = kis.maxWidth;
@@ -469,16 +498,10 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              // Giriş kısa (mizansen turu, 28 Kasım 2026): ipucu kutusu ve
+              // metnin üstündeki içindekiler kalktı; ipucu altta yüzen kart,
+              // içindekiler rayda ya da baştan görünen yüzen düğmede.
               ortala(_baslikBlogu(dar, en, md, telefon, sagPay: (ic - ust) / 2)),
-              if (!telefon && ipucu)
-                ortala(_Ipucu(en: en, kapat: ref.read(yzIpucuProvider.notifier).kapat)),
-              if (!telefon && !rayli && altBasliklar.length >= 3)
-                ortala(_Icindekiler(
-                  basliklar: altBasliklar,
-                  en: en,
-                  daralt: dar,
-                  git: _basligaAtla,
-                )),
               if (!telefon && isaret != null)
                 ortala(Padding(
                     padding: const EdgeInsets.only(bottom: 18), child: _isaretSeridi(isaret, en))),
@@ -497,6 +520,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
                   vurguDenetcisi: _vurgu,
                   kaynakSayfasi: widget.kaynakSayfasi,
                   olcek: olcek,
+                  nabiz: ipucu ? _nabiz : null,
                   // Telefonda alt başlıkların bağlantı simgesi yok:
                   // paylaşmak alt çubuktaki Paylaş'tan.
                   bolumBaglantisi: telefon ? null : _bolumBaglantisi,
@@ -538,7 +562,9 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
               basaDon: _basaDon,
             ),
           ),
-        if (!telefon && !rayli && _dugme)
+        // Rayın olmadığı genişlikte içindekiler baştan yüzen düğmede (metnin
+        // üstündeki kutu kalktı); başa dönüş düğmesi eskisi gibi kaydırınca.
+        if (!telefon && !rayli && (_dugme || altBasliklar.length >= 3))
           Positioned(
             right: 16,
             bottom: 16,
@@ -547,6 +573,29 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
               en: en,
               git: _basligaAtla,
               basaDon: _basaDon,
+            ),
+          ),
+        if (!telefon && ipucu)
+          Positioned(
+            left: 16,
+            right: 16,
+            bottom: !rayli && (_dugme || altBasliklar.length >= 3) ? 72 : 16,
+            child: AnimatedBuilder(
+              animation: _nabizDenetcisi,
+              builder: (context, cocuk) => IgnorePointer(
+                ignoring: !_ipucuBelirdi,
+                child: AnimatedOpacity(
+                  opacity: _ipucuBelirdi ? 1 : 0,
+                  duration: const Duration(milliseconds: 220),
+                  child: cocuk,
+                ),
+              ),
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 560),
+                  child: _Ipucu(en: en, kapat: ref.read(yzIpucuProvider.notifier).kapat),
+                ),
+              ),
             ),
           ),
       ]);
@@ -872,13 +921,17 @@ class _Ipucu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+    // Altta yüzen kart (mizansen turu): metnin üstünde yer tutmuyor.
+    return Material(
+      color: YzRenk.bitkiAcik,
+      elevation: 4,
+      shadowColor: Colors.black26,
+      borderRadius: BorderRadius.circular(10),
       child: Container(
         padding: const EdgeInsets.fromLTRB(14, 10, 6, 10),
         decoration: BoxDecoration(
-          color: YzRenk.bitkiAcik,
           borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: YzRenk.bitki.withValues(alpha: 0.25)),
         ),
         child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
           const Icon(Icons.touch_app_outlined, size: 20, color: YzRenk.bitki),
@@ -897,83 +950,6 @@ class _Ipucu extends StatelessWidget {
                 style: YzYazi.veri(boy: 12.5, renk: YzRenk.bitki, kalinlik: FontWeight.w700)),
           ),
         ]),
-      ),
-    );
-  }
-}
-
-/// Metnin üstündeki içindekiler (rayın olmadığı ekranlar). Telefonda tek
-/// satıra katlanıyor; dokununca açılıyor. Alt başlığa dokununca o bölüme
-/// kaydırıyor.
-class _Icindekiler extends StatefulWidget {
-  const _Icindekiler(
-      {required this.basliklar, required this.en, required this.daralt, required this.git});
-  final List<String> basliklar;
-  final bool en;
-  final bool daralt;
-  final void Function(int) git;
-
-  @override
-  State<_Icindekiler> createState() => _IcindekilerState();
-}
-
-class _IcindekilerState extends State<_Icindekiler> {
-  bool _acik = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final en = widget.en;
-    final acik = !widget.daralt || _acik;
-    final baslik = widget.daralt
-        ? '${buyukHarf(en ? 'Contents' : 'İçindekiler', en)} · ${widget.basliklar.length} ${buyukHarf(en ? 'sections' : 'bölüm', en)}'
-        : buyukHarf(en ? 'Contents' : 'İçindekiler', en);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 22),
-      // Sol çizgi yok (kullanıcı, 18 Kas 2026): beyaz, yuvarlak köşeli kart.
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(16, 4, 10, 4),
-        decoration: BoxDecoration(
-          color: YzRenk.yuzey,
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: YzRenk.cizgi),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (widget.daralt)
-              Semantics(
-                button: true,
-                expanded: _acik,
-                child: InkWell(
-                  onTap: () => setState(() => _acik = !_acik),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: Row(children: [
-                      Expanded(child: Text(baslik, style: YzYazi.ustEtiket())),
-                      Icon(_acik ? Icons.expand_less_rounded : Icons.expand_more_rounded,
-                          size: 20, color: YzRenk.soluk),
-                    ]),
-                  ),
-                ),
-              )
-            else
-              Padding(
-                padding: const EdgeInsets.only(top: 6, bottom: 2),
-                child: Text(baslik, style: YzYazi.ustEtiket()),
-              ),
-            if (acik)
-              for (var i = 0; i < widget.basliklar.length; i++)
-                InkWell(
-                  onTap: () => widget.git(i),
-                  child: Padding(
-                    // Dokunma yüksekliği ~44 px (karar 60).
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    child: Text(widget.basliklar[i],
-                        style: YzYazi.govde(boy: 15, renk: YzRenk.makine).copyWith(height: 1.35)),
-                  ),
-                ),
-          ],
-        ),
       ),
     );
   }
@@ -1022,13 +998,16 @@ class _Ray extends StatelessWidget {
                             color: i == aktif ? YzRenk.makineAcik : null,
                             borderRadius: BorderRadius.circular(6),
                           ),
-                          child: Text(
+                          child: _kesitli(
                             basliklar[i],
-                            style: YzYazi.govde(
-                                    boy: 14.5, renk: i == aktif ? YzRenk.makine : YzRenk.soluk)
-                                .copyWith(
-                                    height: 1.35,
-                                    fontWeight: i == aktif ? FontWeight.w600 : FontWeight.w400),
+                            Text(
+                              basliklar[i],
+                              style: YzYazi.govde(
+                                      boy: 14.5, renk: i == aktif ? YzRenk.makine : YzRenk.soluk)
+                                  .copyWith(
+                                      height: 1.35,
+                                      fontWeight: i == aktif ? FontWeight.w600 : FontWeight.w400),
+                            ),
                           ),
                         ),
                       ),
@@ -1083,8 +1062,10 @@ class _YuzenDugme extends StatelessWidget {
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 11),
-                  child: Text(basliklar[i],
-                      style: YzYazi.govde(boy: 16, renk: YzRenk.makine).copyWith(height: 1.35)),
+                  child: _kesitli(
+                      basliklar[i],
+                      Text(basliklar[i],
+                          style: YzYazi.govde(boy: 16, renk: YzRenk.makine).copyWith(height: 1.35))),
                 ),
               ),
             const Divider(color: YzRenk.cizgi),
@@ -1134,4 +1115,16 @@ class _YuzenDugme extends StatelessWidget {
       ),
     );
   }
+}
+
+/// İçindekiler satırı: ortak iskeletin kesitiyse önünde metindeki başlığın
+/// simgesi (mizansen turu, 28 Kasım 2026); değilse yalnız yazı.
+Widget _kesitli(String altBaslik, Widget yazi) {
+  final tur = yzKesitTuru(altBaslik);
+  if (tur == null) return yazi;
+  return Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+    YzKesitSimgesi(tur, boy: 20),
+    const SizedBox(width: 8),
+    Expanded(child: yazi),
+  ]);
 }

@@ -88,7 +88,9 @@ Widget yzCekme(String kimlik, List<YzBlok> bloklar,
                 // Kısa, ince yatay çizgi (dikey çizgi değil).
                 Container(width: 44, height: 2, color: YzRenk.bitki),
                 const SizedBox(height: 18),
-                Text.rich(yzSatirIci(cumle, stil, etkilesim: etkilesim)),
+                // Öne çıkan cümlede tür noktası yok: büyük puntoda süs olur; rakamın
+                // türü metindeki asıl cümlede.
+                Text.rich(yzSatirIci(cumle, stil, etkilesim: etkilesim, turNoktasi: false)),
               ],
             ),
           ),

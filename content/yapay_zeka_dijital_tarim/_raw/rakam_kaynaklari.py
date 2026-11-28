@@ -175,6 +175,31 @@ KARNE_NITELIK = {"HAKEMLI": "hakemli", "KURUMSAL": "kurumsal", "PROJE": "proje",
                  "RESMI": "resmi", "SATICI": "satici"}
 
 
+# Arayüzün dört türü (karne çubuğunun sırası): satıcı ve proje beyanı aynı küme.
+KARNE_DORT = {"hakemli": 0, "kurumsal": 1, "resmi": 2, "satici": 3, "proje": 3}
+
+
+def kaynak_turleri(esleme: dict | None = None) -> dict:
+    """{sayfa: {kaynak: tür 0-3}}: rakam destekleyen, niteliği bilinen kaynaklar.
+    Mavi rakamın yanındaki küçük renk noktası bunu okuyor (mizansen turu,
+    28 Kasım 2026); karnede sayılmayan kaynak burada da yok."""
+    if esleme is None:
+        esleme = esle()[0]
+    yollar = {s: k for s, _, k in sayfalar()}
+    sonuc: dict = {}
+    for sayfa, diller in esleme.items():
+        kaynaklar = json.loads(yollar[sayfa].read_text(encoding="utf-8")).get("kaynaklar", {})
+        destek = {a for kalinlar in diller.values() for adaylar in kalinlar.values() for a, _ in adaylar}
+        turler = {}
+        for a in sorted(destek):
+            nitelik = (kaynaklar.get(a) or {}).get("nitelik")
+            tur = KARNE_NITELIK.get(nitelik) if isinstance(nitelik, str) else None
+            if tur is not None:
+                turler[a] = KARNE_DORT[tur]
+        sonuc[sayfa] = turler
+    return sonuc
+
+
 def karne(esleme: dict | None = None) -> tuple[dict, list[str]]:
     """({sayfa: {hakemli, kurumsal, resmi, satici, proje, rakam_tr, rakam_en}}, sayılmayanlar).
     `rakam_<dil>`: kaynağa bağlanan farklı kalın rakam sayısı. Sayılmayan:

@@ -612,6 +612,19 @@ def main() -> int:
         kn.append(f"  {dizgi(sayfa)}: YzKarne({sayilar}),")
     kn.append("};")
     kn.append("")
+    # Kaynağın türü (mizansen turu, 28 Kasım 2026): mavi rakamın yanındaki
+    # küçük renk noktası ve kaynak balonundaki tür satırı. Kural 18 bunu da
+    # kayıtlardan yeniden hesaplıyor.
+    kn.append("/// {sayfa: {kaynak: tür}}; tür [YzKarne.turler] sırasıyla 0-3 (satıcı ve")
+    kn.append("/// proje beyanı 3). Niteliği olmayan kaynak yok (karnede de sayılmıyor).")
+    kn.append("const Map<String, Map<String, int>> kYzKaynakTuru = {")
+    for sayfa, ky in _rk.kaynak_turleri(esleme).items():
+        kn.append(f"  {dizgi(sayfa)}: {{")
+        for a, t in ky.items():
+            kn.append(f"    {dizgi(a)}: {t},")
+        kn.append("  },")
+    kn.append("};")
+    kn.append("")
     KARNE.write_text("\n".join(kn), encoding="utf-8")
 
     # ── öne çıkan cümle (madde 6) ───────────────────────────────────────

@@ -1441,8 +1441,37 @@ def sina_karne() -> None:
         hata("karne: eksi sayı (kural 18)")
     if not any(sum(v[:5]) >= 1 for v in uretilen.values()):
         hata("karne: hiçbir sayfanın toplamı 1'e ulaşmıyor (kural 18)")
+    # Kaynağın türü (mavi rakamın renk noktası): kayıtlardan bağımsız yeniden.
+    dort = {0: 0, 1: 1, 2: 2, 3: 3, 4: 3}
+    tur_beklenen: dict[str, dict[str, int]] = {}
+    for sayfa, diller in esleme.items():
+        kaynaklar = json.loads((BURASI / f"{sayfa}_kaynaklar.json").read_text(encoding="utf-8")).get("kaynaklar", {})
+        destek = {a for kalinlar in diller.values() for adaylar in kalinlar.values() for a, _ in adaylar}
+        tur_beklenen[sayfa] = {
+            a: dort[KARNE_TURU[(kaynaklar.get(a) or {}).get("nitelik")]]
+            for a in destek if (kaynaklar.get(a) or {}).get("nitelik") in KARNE_TURU
+        }
+    blok = re.search(r"kYzKaynakTuru = \{\n(.*?)^\};", metin, re.M | re.S)
+    if not blok:
+        hata(f"{KARNE_DART.name}: kYzKaynakTuru yok — dart_uret.py koşturulmalı (kural 18)")
+    else:
+        tur_uretilen: dict[str, dict[str, int]] = {}
+        sayfa_adi = None
+        for satir in blok.group(1).splitlines():
+            if m := re.match(r'^  "([a-z0-9_]+)": \{$', satir):
+                sayfa_adi = m.group(1)
+                tur_uretilen[sayfa_adi] = {}
+            elif (m := re.match(r'^    "(.+)": ([0-3]),$', satir)) and sayfa_adi:
+                tur_uretilen[sayfa_adi][m.group(1)] = int(m.group(2))
+            elif satir.strip() not in ("},", ""):
+                hata(f"kaynak türü: okunamayan satır {satir!r} (kural 18)")
+        if tur_uretilen != tur_beklenen:
+            farkli = sorted(s for s in set(tur_uretilen) | set(tur_beklenen)
+                            if tur_uretilen.get(s) != tur_beklenen.get(s))
+            hata(f"kaynak türü kayıtlardan yeniden hesaplanınca farklı: {', '.join(farkli[:6])}"
+                 f" — dart_uret.py koşturulmalı (kural 18)")
     print(f"  · {len(uretilen)} sayfanın karnesi kayıtlardan yeniden hesaplandı "
-          f"({sum(sum(v[:5]) for v in beklenen.values())} sayfa-kaynak çifti)")
+          f"({sum(sum(v[:5]) for v in beklenen.values())} sayfa-kaynak çifti); kaynak türleri aynı")
 
 
 # ── Kural 19: rakamın makbuzu ─────────────────────────────────────────────

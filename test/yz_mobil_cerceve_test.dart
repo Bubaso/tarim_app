@@ -247,7 +247,8 @@ void main() {
           reason: 'alt çubuğun üstünde');
       // Metnin üstünde değil: kart kaydırılan içerikte değil.
       expect(find.descendant(of: find.byType(SingleChildScrollView).first, matching: kart), findsNothing);
-      await t.pump(const Duration(seconds: 7));
+      // pumpAndSettle ipucunun nabzını (3,3 sn) da bekledi; kart 8 saniyede.
+      await t.pump(const Duration(seconds: 4));
       expect(kart, findsOneWidget);
       await t.pump(const Duration(seconds: 2));
       await t.pumpAndSettle();
@@ -599,15 +600,18 @@ void main() {
       expect(find.byKey(const ValueKey('yz-isaret-cubugu')), findsNothing);
     });
 
-    testWidgets('tablette (800 piksel) satır içi içindekiler ve yüzen düğme', (t) async {
+    // Mizansen turu (28 Kasım 2026): metnin üstündeki içindekiler kutusu
+    // kalktı; yüzen düğme baştan görünüyor.
+    testWidgets('tablette (800 piksel) metnin üstünde kutu yok, yüzen düğme baştan', (t) async {
       t.view.physicalSize = const Size(800, 900);
       t.view.devicePixelRatio = 1;
       addTearDown(t.view.reset);
       _ipucuGoruldu();
       await t.pumpWidget(_uygulama(const YzBaslikEkrani(slug: _saha)));
       await t.pumpAndSettle();
-      expect(find.text('İÇİNDEKİLER'), findsOneWidget);
+      expect(find.text('İÇİNDEKİLER'), findsNothing);
       expect(_altCubuk, findsNothing);
+      expect(find.widgetWithText(Material, 'İçindekiler'), findsWidgets, reason: 'yüzen düğme baştan');
       await t.drag(find.byType(SingleChildScrollView).first, const Offset(0, -900));
       await t.pumpAndSettle();
       expect(find.widgetWithText(Material, 'İçindekiler'), findsWidgets, reason: 'yüzen düğme');

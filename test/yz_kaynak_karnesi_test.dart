@@ -114,8 +114,11 @@ Finder get _mobil => find.byKey(const ValueKey('yz-karne-mobil'));
 Finder get _makaleMetni =>
     find.descendant(of: find.byType(YzMetinGorunumu), matching: find.byType(RichText));
 
-String _satirMetni(WidgetTester t) =>
-    t.widget<Text>(find.descendant(of: _satir, matching: find.byType(Text))).data!;
+String _satirMetni(WidgetTester t) {
+  // Satır renkli tür adlarıyla Text.rich (mizansen turu, 28 Kasım 2026).
+  final w = t.widget<Text>(find.descendant(of: _satir, matching: find.byType(Text)));
+  return w.data ?? w.textSpan!.toPlainText();
+}
 
 /// Ekrandaki biçim → düz cümle (bölünmez boşluk ve satır sonu düz boşluk).
 String _duz(String s) => s.replaceAll(' ', ' ').replaceAll(':\n', ': ');

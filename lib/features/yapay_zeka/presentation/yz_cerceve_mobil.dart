@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../core/utils/turkce_metin.dart' show buyukHarf;
 import 'yz_mobil.dart';
 import 'yz_okuma.dart';
+import 'yz_kesit.dart';
 import 'yz_tasarim.dart';
 
 /// Makale sayfasının TELEFON çerçevesi (mobil okuma turu, karar 62).
@@ -247,12 +248,22 @@ Future<void> yzCerceveIcindekiler(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 11),
                         child: Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(
-                            basliklar[i],
-                            style: YzYazi.govde(boy: 16, renk: YzRenk.makine).copyWith(
-                                height: 1.35,
-                                fontWeight: i == aktif ? FontWeight.w600 : FontWeight.w400),
-                          ),
+                          // Ortak iskeletin kesiti: metindeki başlığın simgesi
+                          // (mizansen turu, 28 Kasım 2026).
+                          child: Row(children: [
+                            if (yzKesitTuru(basliklar[i]) case final tur?) ...[
+                              YzKesitSimgesi(tur, boy: 22),
+                              const SizedBox(width: 10),
+                            ],
+                            Expanded(
+                              child: Text(
+                                basliklar[i],
+                                style: YzYazi.govde(boy: 16, renk: YzRenk.makine).copyWith(
+                                    height: 1.35,
+                                    fontWeight: i == aktif ? FontWeight.w600 : FontWeight.w400),
+                              ),
+                            ),
+                          ]),
                         ),
                       ),
                     ),
